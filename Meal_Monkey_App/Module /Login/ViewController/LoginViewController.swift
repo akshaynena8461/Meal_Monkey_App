@@ -23,6 +23,10 @@ class LoginViewController: UIViewController {
     @IBAction func btnloginclick(_ sender: Any) {
     }
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "ForgotPasswordViewController") as? ForgotPasswordViewController {
+                self.navigationController?.pushViewController(signUpVC, animated: true)
+            }
     }
     @IBAction func btnfacebookloginclick(_ sender: Any) {
     }
