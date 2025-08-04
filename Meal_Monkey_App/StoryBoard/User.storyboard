@@ -528,6 +528,107 @@ link to  create a new password via email</string>
             </objects>
             <point key="canvasLocation" x="-2161" y="-1687"/>
         </scene>
+        <!--New Password View Controller-->
+        <scene sceneID="cOw-rP-AIm">
+            <objects>
+                <viewController storyboardIdentifier="NewPasswordViewController" id="2ud-ge-nfA" customClass="NewPasswordViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BJy-Pq-yoV">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4GK-mg-dVy">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8o1-M9-f9j">
+                                        <rect key="frame" x="101" y="42" width="191" height="36"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="36" id="HWb-1a-JHr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <color key="textColor" name="loginsignupcolor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="50y-nZ-6mY">
+                                        <rect key="frame" x="69" y="91" width="255" height="42"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="42" id="g2K-fs-Tjo"/>
+                                        </constraints>
+                                        <string key="text">Please enter your email to receive a 
+link to  create a new password via email</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="textColor" name="secondarylabelcolor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-8o-pPh">
+                                        <rect key="frame" x="34" y="192" width="325" height="56"/>
+                                        <color key="backgroundColor" name="txtfieldbg"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="U8G-Ha-tG0"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIu-Hd-lts">
+                                        <rect key="frame" x="34" y="360" width="325" height="56"/>
+                                        <color key="backgroundColor" name="loginbtnbg"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="tRB-2L-qAE"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                        <state key="normal" title="Next"/>
+                                        <connections>
+                                            <action selector="btnNextClick:" destination="2ud-ge-nfA" eventType="touchUpInside" id="dq5-gv-Z28"/>
+                                        </connections>
+                                    </button>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbE-zt-CcI">
+                                        <rect key="frame" x="34" y="276" width="325" height="56"/>
+                                        <color key="backgroundColor" name="txtfieldbg"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="56" id="vlv-pS-tR1"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="mbE-zt-CcI" secondAttribute="trailing" constant="34" id="66z-Yb-W2v"/>
+                                    <constraint firstItem="8o1-M9-f9j" firstAttribute="centerX" secondItem="4GK-mg-dVy" secondAttribute="centerX" id="9dB-By-mcz"/>
+                                    <constraint firstItem="mbE-zt-CcI" firstAttribute="top" secondItem="wc1-8o-pPh" secondAttribute="bottom" constant="28" id="CUy-NH-ABA"/>
+                                    <constraint firstItem="50y-nZ-6mY" firstAttribute="centerX" secondItem="4GK-mg-dVy" secondAttribute="centerX" id="Cby-j8-GeX"/>
+                                    <constraint firstItem="aIu-Hd-lts" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="GqB-b7-kYK"/>
+                                    <constraint firstAttribute="trailing" secondItem="wc1-8o-pPh" secondAttribute="trailing" constant="34" id="Qmp-LD-A5S"/>
+                                    <constraint firstItem="wc1-8o-pPh" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="Xgk-el-n0e"/>
+                                    <constraint firstItem="wc1-8o-pPh" firstAttribute="top" secondItem="50y-nZ-6mY" secondAttribute="bottom" constant="59" id="ejM-gZ-PZH"/>
+                                    <constraint firstItem="50y-nZ-6mY" firstAttribute="top" secondItem="8o1-M9-f9j" secondAttribute="bottom" constant="13" id="hhd-VR-FCN"/>
+                                    <constraint firstItem="mbE-zt-CcI" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="iuw-NR-A6d"/>
+                                    <constraint firstItem="8o1-M9-f9j" firstAttribute="top" secondItem="4GK-mg-dVy" secondAttribute="top" constant="42" id="ixD-ja-tVx"/>
+                                    <constraint firstItem="aIu-Hd-lts" firstAttribute="top" secondItem="mbE-zt-CcI" secondAttribute="bottom" constant="28" id="nJT-Kv-d5p"/>
+                                    <constraint firstAttribute="trailing" secondItem="aIu-Hd-lts" secondAttribute="trailing" constant="34" id="zfS-sV-KHj"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Mj3-1c-dku"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="4GK-mg-dVy" firstAttribute="top" secondItem="Mj3-1c-dku" secondAttribute="top" id="Thw-H6-qxZ"/>
+                            <constraint firstItem="4GK-mg-dVy" firstAttribute="leading" secondItem="Mj3-1c-dku" secondAttribute="leading" id="hOF-t6-kmj"/>
+                            <constraint firstItem="Mj3-1c-dku" firstAttribute="trailing" secondItem="4GK-mg-dVy" secondAttribute="trailing" id="p0Z-tw-nFT"/>
+                            <constraint firstItem="Mj3-1c-dku" firstAttribute="bottom" secondItem="4GK-mg-dVy" secondAttribute="bottom" id="rPB-4n-L5B"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="btnNext" destination="aIu-Hd-lts" id="Ych-C5-sTW"/>
+                        <outlet property="txtConfirmPassword" destination="mbE-zt-CcI" id="hEq-Ul-Owr"/>
+                        <outlet property="txtPassword" destination="wc1-8o-pPh" id="Zuy-rA-fcY"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TNj-M3-qv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1311" y="-1687"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Googlepluclogo" width="20" height="13"/>
