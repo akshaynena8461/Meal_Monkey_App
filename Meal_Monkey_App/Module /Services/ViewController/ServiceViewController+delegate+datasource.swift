@@ -26,6 +26,7 @@ extension ServiceViewController: UIScrollViewDelegate {
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
         let pageNumber = Int(scrollView.contentOffset.x / scrollView.frame.size.width)
         pageControl.currentPage = pageNumber
+    
         
         switch pageNumber + 1 {
             case 1:
