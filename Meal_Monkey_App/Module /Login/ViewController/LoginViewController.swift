@@ -33,8 +33,8 @@ class LoginViewController: UIViewController {
     @IBAction func btngoogleloginclick(_ sender: Any) {
     }
     @IBAction func btnSignUpclick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
-            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "SignUpViewController") as? SignUpViewController {
+        let storyboard = UIStoryboard(name: "Services", bundle: nil)
+            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "ServiceViewController") as? ServiceViewController {
                 self.navigationController?.pushViewController(signUpVC, animated: true)
             }
     }
