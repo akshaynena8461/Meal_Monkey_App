@@ -10,7 +10,9 @@ import UIKit
 class ServiceViewController: UIViewController {
     
     @IBOutlet weak var btnNext: UIButton!
-    var arrService:[String] = ["Find food you love vector","Delivery vector" , "Live tracking vector"]
+    var arrService:[String] = ["Find food you love vector",
+                               "Delivery vector",
+                               "Live tracking vector"]
 
     @IBOutlet weak var collectionIntro: UICollectionView!
     @IBOutlet weak var lblTitle2: UILabel!
@@ -28,22 +30,23 @@ class ServiceViewController: UIViewController {
         collectionIntro.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
     }
     @IBAction func btnNextClick(_ sender: Any) {
-  
+        
         let currentPage = pageControl.currentPage
-
-            if currentPage < arrService.count - 1 {
-                let nextPage = currentPage + 1
-                let xOffset = CGFloat(nextPage) * collectionIntro.frame.width
-                collectionIntro.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)
-                pageControl.currentPage = nextPage
-                updateLabels(for: nextPage)
-            } else {
-                let storyboard = UIStoryboard(name: "User", bundle: nil)
-                    if let signUpVC = storyboard.instantiateViewController(withIdentifier: "LoginViewController") as? LoginViewController {
-                        self.navigationController?.pushViewController(signUpVC, animated: true)
-                    }
+        
+        if currentPage < arrService.count - 1 {
+            let nextPage = currentPage + 1
+            let xOffset = CGFloat(nextPage) * collectionIntro.frame.width
+            collectionIntro.setContentOffset(CGPoint(x: xOffset, y: 0), animated: true)
+            pageControl.currentPage = nextPage
+            updateLabels(for: nextPage)
+        } else {
+            let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+                self.navigationController?.pushViewController(signUpVC, animated: true)
             }
+        }
     }
+    
     func updateLabels(for page: Int) {
         switch page {
         case 0:

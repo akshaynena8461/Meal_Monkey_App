@@ -21,6 +21,8 @@ class LoginViewController: UIViewController {
     }
     
     @IBAction func btnloginclick(_ sender: Any) {
+        showMainTabBar()
+
     }
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
@@ -39,4 +41,18 @@ class LoginViewController: UIViewController {
                 self.navigationController?.pushViewController(signUpVC, animated: true)
             }
     }
+    
+    
+    private func showMainTabBar() {
+           let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+           if let tabBarController = storyboard.instantiateViewController(withIdentifier: "TabBarViewController") as? TabBarViewController {
+
+               if let windowScene = UIApplication.shared.connectedScenes.first as? UIWindowScene,
+                  let sceneDelegate = windowScene.delegate as? SceneDelegate {
+
+                   sceneDelegate.window?.rootViewController = tabBarController
+                   sceneDelegate.window?.makeKeyAndVisible()
+               }
+           }
+       }
 }
