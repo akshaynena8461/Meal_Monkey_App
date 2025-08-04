@@ -27,18 +27,40 @@ extension MoreViewController: UITableViewDelegate,UITableViewDataSource{
             print("My Orders selected")
 
         case 2:
-            print("Notifications selected")
-            // navigationController?.pushViewController(NotificationsVC(), animated: true)
-
+            print("Notification selected")
+            print("About Us selected")
+            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                aboutvc.objPagetype = .Notification
+                self.navigationController?.pushViewController(aboutvc, animated: true)
+            }
+        
         case 3:
             print("Inbox selected")
+            print("About Us selected")
+            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                aboutvc.objPagetype = .Inbox
+                self.navigationController?.pushViewController(aboutvc, animated: true)
+            }
 
         case 4:
             print("About Us selected")
+            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+                self.navigationController?.pushViewController(aboutvc, animated: true)
+            }
 
         default:
             break
         }
     }
 
+}
+enum PageType {
+    case PayMent
+    case MyOrders
+    case Notification
+    case Inbox
+    case AboutUs
 }

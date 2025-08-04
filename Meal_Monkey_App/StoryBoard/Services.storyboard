@@ -25,7 +25,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="666"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ood-uQ-lA2">
-                                                <rect key="frame" x="0.0" y="0.0" width="393" height="810.33333333333337"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="809"/>
                                                 <subviews>
                                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="rRy-oI-1oW">
                                                         <rect key="frame" x="0.0" y="100" width="393" height="300"/>
@@ -54,27 +54,27 @@
                                                         <color key="currentPageIndicatorTintColor" name="loginbtnbg"/>
                                                     </pageControl>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3LG-dt-STv">
-                                                        <rect key="frame" x="64" y="492.66666666666663" width="265" height="33.666666666666629"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                                        <rect key="frame" x="64" y="492.66666666666663" width="265" height="32.333333333333371"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="28"/>
                                                         <color key="textColor" name="loginsignupcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iYz-fT-uMc">
-                                                        <rect key="frame" x="52" y="559.33333333333337" width="289" height="58"/>
+                                                        <rect key="frame" x="52" y="558" width="289" height="58"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="58" id="ltT-hN-9Ut"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                         <color key="textColor" name="secondarylabelcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1D5-0r-S0K">
-                                                        <rect key="frame" x="34" y="658.33333333333337" width="325" height="58"/>
+                                                        <rect key="frame" x="34" y="657" width="325" height="58"/>
                                                         <color key="backgroundColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="58" id="5TZ-qv-bad"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Next"/>
