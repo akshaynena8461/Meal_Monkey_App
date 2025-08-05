@@ -2,11 +2,18 @@ import Foundation
 
 class AboutModel {
     var strText: String?
+    var strTimezone: String?
+    var strRightSideText: String?
+    var strText2: String?
+  
 
-    init(strText: String? = nil) {
+    init(strText: String? = nil, strTimezone: String? = nil, strRightSideText: String? = nil, strText2: String? = nil) {
         self.strText = strText
+        self.strTimezone = strTimezone
+        self.strRightSideText = strRightSideText
+        self.strText2 = strText2
     }
-
+    
     class func addAboutData() -> [AboutModel] {
         return [
             AboutModel(
@@ -45,5 +52,44 @@ class AboutModel {
 
         ]
     }
-
+    
+    class func addNotificationData()-> [AboutModel] {
+        return [
+                AboutModel(strText: "Order placed successfully", strTimezone: "Just now"),
+                AboutModel(strText: "Your payment has been confirmed", strTimezone: "5m ago"),
+                AboutModel(strText: "Your food is being prepared", strTimezone: "10m ago"),
+                AboutModel(strText: "Delivery agent assigned", strTimezone: "30m ago"),
+                AboutModel(strText: "Your order is on the way", strTimezone: "1h ago"),
+                AboutModel(strText: "Special discount available!", strTimezone: "2h ago"),
+                AboutModel(strText: "Download our new app update", strTimezone: "3h ago"),
+                AboutModel(strText: "Refer a friend and earn", strTimezone: "5h ago"),
+                AboutModel(strText: "Limited-time deal ending soon", strTimezone: "12h ago"),
+                AboutModel(strText: "Delivery completed", strTimezone: "1d ago"),
+                AboutModel(strText: "Rate your last meal", strTimezone: "2d ago"),
+                AboutModel(strText: "Weekend offer just for you", strTimezone: "3d ago"),
+                AboutModel(strText: "Free delivery on orders above ₹299", strTimezone: "5d ago"),
+                AboutModel(strText: "Thanks for being with us!", strTimezone: "6d ago"),
+                AboutModel(strText: "New restaurants added near you", strTimezone: "1w ago")
+            ]
+    }
+    
+    class func addInboxData() -> [AboutModel] {
+        return [
+            AboutModel(strText: "MealMonkey Promotions", strRightSideText: "6th July", strText2: "Get 20% off on your next meal!"),
+            AboutModel(strText: "Order Update", strRightSideText: "6th July", strText2: "Your order is being prepared by the restaurant."),
+            AboutModel(strText: "Delivery Reminder", strRightSideText: "6th July", strText2: "Your delivery agent is on the way."),
+            AboutModel(strText: "Welcome to MealMonkey", strRightSideText: "6th July", strText2: "Thanks for joining us! Start exploring meals."),
+            AboutModel(strText: "Rate Your Experience", strRightSideText: "6th July", strText2: "How was your recent meal order?"),
+            AboutModel(strText: "Flash Sale", strRightSideText: "6th July", strText2: "Enjoy 30% off on all pasta orders today only."),
+            AboutModel(strText: "New Restaurants", strRightSideText: "6th July", strText2: "Discover trending restaurants in your area."),
+            AboutModel(strText: "Refer & Earn", strRightSideText: "6th July", strText2: "Invite friends and earn ₹100 credits!"),
+            AboutModel(strText: "Weekend Special", strRightSideText: "6th July", strText2: "Free dessert on orders above ₹499."),
+            AboutModel(strText: "MealMonkey Tips", strRightSideText: "6th July", strText2: "Customize your orders with special instructions."),
+            AboutModel(strText: "Order Cancelled", strRightSideText: "6th July", strText2: "Your order has been cancelled as requested."),
+            AboutModel(strText: "Loyalty Program", strRightSideText: "6th July", strText2: "Collect Monkey Points with every purchase."),
+            AboutModel(strText: "Security Update", strRightSideText: "6th July", strText2: "Your password was recently changed."),
+            AboutModel(strText: "Account Verified", strRightSideText: "6th July", strText2: "Your account has been successfully verified."),
+            AboutModel(strText: "Limited Time Deal", strRightSideText: "6th July", strText2: "Flat ₹50 off on biryani orders today.")
+        ]
+    }
 }

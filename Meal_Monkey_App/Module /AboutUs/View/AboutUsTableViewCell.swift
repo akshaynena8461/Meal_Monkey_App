@@ -9,17 +9,40 @@ import UIKit
 
 class AboutUsTableViewCell: UITableViewCell {
 
+
+    @IBOutlet weak var btnStar: UIButton!
+    @IBOutlet weak var lblRightsideTitle: UILabel!
+    @IBOutlet weak var lblTitle2: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-
+    @IBAction func btnStarClick(_ sender: Any) {
+    }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
     }
     func configaboutcell(about: AboutModel) {
         lblTitle.text = about.strText
+        lblTitle2.isHidden = true
+        lblRightsideTitle.isHidden = true
+        btnStar.isHidden = true
     }
 
+    func configNotificationcell(about: AboutModel) {
+        lblTitle.text = about.strText
+        btnStar.isHidden = true
+        lblRightsideTitle.isHidden = true
+        lblTitle2.text = about.strTimezone
+    }
+    
+    func configInboxcell(about: AboutModel) {
+        lblTitle.text = about.strText
+        btnStar.isHidden = false
+        lblRightsideTitle.text = about.strRightSideText
+        lblTitle2.text = about.strText2
+    }
+    
 }

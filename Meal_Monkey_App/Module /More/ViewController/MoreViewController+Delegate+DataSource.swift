@@ -1,22 +1,32 @@
-
 import UIKit
 
-extension MoreViewController: UITableViewDelegate,UITableViewDataSource{
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
+
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
         return arrMore.count
     }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "MoreTableViewCell", for: indexPath) as! MoreTableViewCell
-        
+
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: "MoreTableViewCell",
+                for: indexPath
+            ) as! MoreTableViewCell
+
         cell.configMoreCell(more: arrMore[indexPath.row])
         cell.selectionStyle = .none
-        
+
         return cell
     }
 
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         tableView.deselectRow(at: indexPath, animated: true)  // Optional: deselect after tap
 
         switch indexPath.row {
@@ -30,25 +40,40 @@ extension MoreViewController: UITableViewDelegate,UITableViewDataSource{
             print("Notification selected")
             print("About Us selected")
             let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
-            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+            if let aboutvc = storyboard.instantiateViewController(
+                withIdentifier: "AboutUsViewController"
+            ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Notification
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
-        
+
         case 3:
             print("Inbox selected")
             print("About Us selected")
             let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
-            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
+            if let aboutvc = storyboard.instantiateViewController(
+                withIdentifier: "AboutUsViewController"
+            ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Inbox
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
 
         case 4:
             print("About Us selected")
             let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
-            if let aboutvc = storyboard.instantiateViewController(withIdentifier: "AboutUsViewController") as? AboutUsViewController {
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+            if let aboutvc = storyboard.instantiateViewController(
+                withIdentifier: "AboutUsViewController"
+            ) as? AboutUsViewController {
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
 
         default:

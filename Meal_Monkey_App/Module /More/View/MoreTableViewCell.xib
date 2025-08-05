@@ -37,7 +37,6 @@
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-Pn-r1Y">
                                 <rect key="frame" x="339" y="26" width="33" height="33"/>
-                                <color key="backgroundColor" name="More_icons_border_color"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="2Ud-NM-6Jj"/>
                                     <constraint firstAttribute="height" constant="33" id="593-at-ZWJ"/>

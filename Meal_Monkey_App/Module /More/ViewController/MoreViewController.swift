@@ -1,10 +1,3 @@
-//
-//  MoreViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 04/08/25.
-//
-
 import UIKit
 
 class MoreViewController: UIViewController {
@@ -16,12 +9,33 @@ class MoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.title = "More"
+
+        let cartButton = UIBarButtonItem(
+            image: UIImage(systemName: "cart.fill"),
+            style: .plain,
+            target: self,
+            action: #selector(cartButtonTapped)
+        )
+        cartButton.tintColor = UIColor(
+            red: 74 / 255,
+            green: 75 / 255,
+            blue: 77 / 255,
+            alpha: 1.0
+        )
+
+        self.navigationItem.rightBarButtonItem = cartButton
+
         tblMoreView.register(
             UINib(nibName: "MoreTableViewCell", bundle: nil),
             forCellReuseIdentifier: "MoreTableViewCell"
         )
-    
+
+    }
+    @objc func cartButtonTapped() {
+        print("Cart button tapped")
+
     }
 
-   
 }

@@ -10,13 +10,23 @@ import UIKit
 class AboutUsViewController: UIViewController {
 
     var objPagetype: PageType = .AboutUs
-
-    var arrAboutData = AboutModel.addAboutData()
+    
+    var arrCurrent:[AboutModel] = []
 
     @IBOutlet weak var tblView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
+        tblView.showsVerticalScrollIndicator = false
 
+        let cartButton = UIBarButtonItem(
+               image: UIImage(systemName: "cart.fill"),
+               style: .plain,
+               target: self,
+               action: #selector(cartButtonTapped)
+           )
+        cartButton.tintColor = UIColor(red: 74/255, green: 75/255, blue: 77/255, alpha: 1.0)
+
+           self.navigationItem.rightBarButtonItem = cartButton
         
         switch objPagetype {
         case .PayMent:
@@ -25,10 +35,13 @@ class AboutUsViewController: UIViewController {
             print("My Orders")
         case .Notification:
             self.title = "Notification"
+            arrCurrent = AboutModel.addNotificationData()
         case .Inbox:
             self.title = "Inbox"
+            arrCurrent = AboutModel.addInboxData()
         case .AboutUs:
             self.title = "About Us"
+            arrCurrent = AboutModel.addAboutData()
         }
         
         tblView.register(
@@ -36,6 +49,11 @@ class AboutUsViewController: UIViewController {
             forCellReuseIdentifier: "AboutUsTableViewCell"
         )
 
+    }
+    
+    @objc func cartButtonTapped() {
+        print("Cart button tapped")
+    
     }
 
 }

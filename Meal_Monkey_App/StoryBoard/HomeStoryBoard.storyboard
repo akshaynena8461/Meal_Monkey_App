@@ -4,7 +4,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
-        <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -104,15 +103,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="More" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ssI-gQ-ReT">
-                                <rect key="frame" x="21.000000000000004" y="55" width="53.333333333333343" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="fcb-uM-l6S"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                <color key="textColor" name="loginsignupcolor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gSe-os-ruZ">
                                 <rect key="frame" x="21" y="114" width="351" height="621"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -121,34 +111,18 @@
                                     <outlet property="delegate" destination="hxt-EQ-C5r" id="mAE-Lf-yyF"/>
                                 </connections>
                             </tableView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="o9T-iP-qBo">
-                                <rect key="frame" x="349" y="55" width="23" height="29"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="ua2-n1-cYJ"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                <color key="tintColor" name="loginsignupcolor"/>
-                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" title="" image="cart.fill" catalog="system"/>
-                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="YsG-O7-wQR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="o9T-iP-qBo" secondAttribute="trailing" constant="21" id="8hc-d2-CPc"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="leading" secondItem="YsG-O7-wQR" secondAttribute="leading" constant="21" id="AA5-zF-XSx"/>
-                            <constraint firstItem="ssI-gQ-ReT" firstAttribute="centerY" secondItem="o9T-iP-qBo" secondAttribute="centerY" id="B6C-JI-K8e"/>
                             <constraint firstItem="YsG-O7-wQR" firstAttribute="trailing" secondItem="gSe-os-ruZ" secondAttribute="trailing" constant="21" id="CCO-3r-AaF"/>
-                            <constraint firstItem="ssI-gQ-ReT" firstAttribute="leading" secondItem="YsG-O7-wQR" secondAttribute="leading" constant="21" id="V0s-zJ-N7N"/>
-                            <constraint firstItem="ssI-gQ-ReT" firstAttribute="top" secondItem="KM3-2R-fme" secondAttribute="top" constant="55" id="oMb-gq-XaF"/>
-                            <constraint firstItem="o9T-iP-qBo" firstAttribute="top" secondItem="KM3-2R-fme" secondAttribute="top" constant="55" id="ovC-KI-H7Y"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="bottom" secondItem="YsG-O7-wQR" secondAttribute="bottom" id="v61-MJ-FME"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="top" secondItem="KM3-2R-fme" secondAttribute="top" constant="114" id="vFf-8P-D8e"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="K4h-Np-ub0"/>
                     <connections>
-                        <outlet property="lblTitle" destination="ssI-gQ-ReT" id="DLo-F4-bkp"/>
                         <outlet property="tblMoreView" destination="gSe-os-ruZ" id="vHp-L4-VTO"/>
                     </connections>
                 </viewController>
@@ -238,11 +212,7 @@
         <image name="Ic_More" width="31" height="35"/>
         <image name="Ic_Profile" width="38" height="35"/>
         <image name="Offers" width="37" height="35"/>
-        <image name="cart.fill" catalog="system" width="128" height="102"/>
         <image name="home" width="31" height="30"/>
-        <namedColor name="loginsignupcolor">
-            <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
