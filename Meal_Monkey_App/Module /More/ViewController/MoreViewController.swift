@@ -11,6 +11,9 @@ class MoreViewController: UIViewController {
         super.viewDidLoad()
 
         self.title = "More"
+        
+        setLeftAlignedTitle("More")
+        setCartButton(target: self, action: #selector(cartButtonTapped))
 
         let cartButton = UIBarButtonItem(
             image: UIImage(systemName: "cart.fill"),

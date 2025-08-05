@@ -19,25 +19,26 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WE-rR-4oS">
-                        <rect key="frame" x="288" y="14.666666666666664" width="40" height="11"/>
+                        <rect key="frame" x="267" y="14.666666666666664" width="40" height="11"/>
                         <constraints>
-                            <constraint firstAttribute="width" constant="40" id="N1d-jw-7Ud"/>
+                            <constraint firstAttribute="width" constant="40" id="eV4-NE-EkH"/>
+                            <constraint firstAttribute="height" constant="11" id="kCI-vw-AUy"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="9"/>
                         <color key="textColor" name="placeholdercolor"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="11" translatesAutoresizingMaskIntoConstraints="NO" id="CSr-RN-mGN">
-                        <rect key="frame" x="28.666666666666657" y="14" width="259.33333333333337" height="50"/>
+                        <rect key="frame" x="28.666666666666671" y="14" width="238.33333333333331" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TX-Cd-UpF">
-                                <rect key="frame" x="0.0" y="0.0" width="259.33333333333331" height="16.333333333333332"/>
+                                <rect key="frame" x="0.0" y="0.0" width="238.33333333333334" height="16.333333333333332"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <color key="textColor" name="loginsignupcolor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-Lb-szu">
-                                <rect key="frame" x="0.0" y="27.333333333333336" width="259.33333333333331" height="22.666666666666664"/>
+                                <rect key="frame" x="0.0" y="27.333333333333336" width="238.33333333333334" height="22.666666666666664"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="placeholdercolor"/>
                                 <nil key="highlightedColor"/>
@@ -45,7 +46,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unh-zM-FbH">
-                        <rect key="frame" x="314.33333333333331" y="46.666666666666664" width="13.666666666666686" height="12"/>
+                        <rect key="frame" x="293.33333333333331" y="46.666666666666664" width="13.666666666666686" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="3Ti-6m-m2Q"/>
                             <constraint firstAttribute="width" constant="13.67" id="flZ-n9-gtM"/>
@@ -65,11 +66,11 @@
                     </imageView>
                 </subviews>
                 <constraints>
+                    <constraint firstAttribute="trailing" secondItem="Unh-zM-FbH" secondAttribute="trailing" constant="21" id="2jf-KB-W3c"/>
                     <constraint firstItem="UMR-Lb-szu" firstAttribute="centerY" secondItem="Unh-zM-FbH" secondAttribute="centerY" id="9I3-PQ-RPA"/>
                     <constraint firstAttribute="bottom" secondItem="CSr-RN-mGN" secondAttribute="bottom" constant="12" id="L6R-qc-tJV"/>
                     <constraint firstItem="CSr-RN-mGN" firstAttribute="leading" secondItem="7Xh-yP-MG3" secondAttribute="trailing" constant="10" id="RLB-hn-gwe"/>
-                    <constraint firstAttribute="trailing" secondItem="Unh-zM-FbH" secondAttribute="trailing" id="d2x-AM-eRS"/>
-                    <constraint firstAttribute="trailing" secondItem="5WE-rR-4oS" secondAttribute="trailing" id="flL-VK-Lt9"/>
+                    <constraint firstAttribute="trailing" secondItem="5WE-rR-4oS" secondAttribute="trailing" constant="21" id="S9s-Ff-OIE"/>
                     <constraint firstItem="7Xh-yP-MG3" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="16" id="gZY-jH-KJo"/>
                     <constraint firstItem="Unh-zM-FbH" firstAttribute="top" secondItem="5WE-rR-4oS" secondAttribute="bottom" constant="21" id="kqZ-JD-Lv7"/>
                     <constraint firstItem="7Xh-yP-MG3" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="5" id="uma-uR-bk1"/>
@@ -80,6 +81,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
                 <outlet property="btnStar" destination="Unh-zM-FbH" id="7go-80-0ND"/>
+                <outlet property="imgDotRightConstraint" destination="RLB-hn-gwe" id="QDn-CF-ore"/>
+                <outlet property="lblRightTitleWidth" destination="eV4-NE-EkH" id="snn-Ta-SYr"/>
                 <outlet property="lblRightsideTitle" destination="5WE-rR-4oS" id="KM5-LR-tpO"/>
                 <outlet property="lblTitle" destination="4TX-Cd-UpF" id="VT9-aQ-dXi"/>
                 <outlet property="lblTitle2" destination="UMR-Lb-szu" id="hJV-8W-fLQ"/>
