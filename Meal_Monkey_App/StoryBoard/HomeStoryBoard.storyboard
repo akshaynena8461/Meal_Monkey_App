@@ -19,10 +19,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lNT-0S-vWj">
-                                <rect key="frame" x="0.0" y="109" width="393" height="663"/>
+                                <rect key="frame" x="0.0" y="162" width="393" height="610"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Search food" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0ls-fl-UEJ">
-                                        <rect key="frame" x="21" y="0.0" width="351" height="55"/>
+                                        <rect key="frame" x="21" y="25" width="351" height="55"/>
                                         <color key="backgroundColor" name="txtfieldbg"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="vVU-6P-RWV"/>
@@ -32,13 +32,13 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Side bar orange" translatesAutoresizingMaskIntoConstraints="NO" id="MLs-FG-6iT">
-                                        <rect key="frame" x="0.0" y="85" width="97" height="556"/>
+                                        <rect key="frame" x="0.0" y="110" width="97" height="478"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="97" id="NnA-gT-Qr0"/>
                                         </constraints>
                                     </imageView>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="ToI-2N-2j6">
-                                        <rect key="frame" x="21" y="85" width="351" height="556"/>
+                                        <rect key="frame" x="21" y="110" width="351" height="478"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="Y6W-OH-hqX" id="BxU-ek-8MO"/>
@@ -49,7 +49,7 @@
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstItem="MLs-FG-6iT" firstAttribute="top" secondItem="0ls-fl-UEJ" secondAttribute="bottom" constant="30" id="DaA-mj-ipL"/>
-                                    <constraint firstItem="0ls-fl-UEJ" firstAttribute="top" secondItem="lNT-0S-vWj" secondAttribute="top" id="PWZ-ZV-mEK"/>
+                                    <constraint firstItem="0ls-fl-UEJ" firstAttribute="top" secondItem="lNT-0S-vWj" secondAttribute="top" constant="25" id="PWZ-ZV-mEK"/>
                                     <constraint firstAttribute="trailing" secondItem="0ls-fl-UEJ" secondAttribute="trailing" constant="21" id="S0S-Tb-OFH"/>
                                     <constraint firstItem="ToI-2N-2j6" firstAttribute="leading" secondItem="lNT-0S-vWj" secondAttribute="leading" constant="21" id="SSE-aI-3bF"/>
                                     <constraint firstAttribute="bottom" secondItem="ToI-2N-2j6" secondAttribute="bottom" constant="22" id="Tvs-sc-YPV"/>
@@ -65,7 +65,7 @@
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="lNT-0S-vWj" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="top" constant="109" id="5Xd-hu-kOU"/>
+                            <constraint firstItem="lNT-0S-vWj" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" id="5Xd-hu-kOU"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="lNT-0S-vWj" secondAttribute="trailing" id="eSu-RI-7Cc"/>
                             <constraint firstItem="lNT-0S-vWj" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="oMj-EX-n7u"/>
                             <constraint firstAttribute="bottom" secondItem="lNT-0S-vWj" secondAttribute="bottom" constant="80" id="y2L-xY-chK"/>
