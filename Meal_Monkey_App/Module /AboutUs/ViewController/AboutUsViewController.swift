@@ -33,27 +33,26 @@ class AboutUsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = cartButton
 
         switch objPagetype {
-            
+
         case .PayMent:
             print("Payment")
         case .MyOrders:
             print("My Orders")
         case .Notification:
-            self.title = "Notification"
             setLeftAlignedTitle("Notification")
             setLeftAlignedTitleWithBack(
                 "Notification",
                 target: self,
-                action: #selector(notificationBtnTapped)
+                action: #selector(backBtnTapped)
             )
-            setCartButton(target: self, action: #selector(cartButtonTapped))
+            setCartButton(target: self, action: #selector(backBtnTapped))
             arrCurrent = AboutModel.addNotificationData()
         case .Inbox:
             setLeftAlignedTitle("Inbox")
             setLeftAlignedTitleWithBack(
                 "Inbox",
                 target: self,
-                action: #selector(inboxBtnTapped)
+                action: #selector(backBtnTapped)
             )
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addInboxData()
@@ -61,7 +60,7 @@ class AboutUsViewController: UIViewController {
             setLeftAlignedTitleWithBack(
                 "About Us",
                 target: self,
-                action: #selector(aboutBtnTapped)
+                action: #selector(backBtnTapped)
             )
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addAboutData()
@@ -78,16 +77,8 @@ class AboutUsViewController: UIViewController {
         print("Cart button tapped")
 
     }
-    @objc func aboutBtnTapped() {
-        navigationController?.popViewController(animated: true)
 
-    }
-    @objc func notificationBtnTapped() {
+    @objc func backBtnTapped() {
         navigationController?.popViewController(animated: true)
     }
-    @objc func inboxBtnTapped() {
-        navigationController?.popViewController(animated: true)
-
-    }
-
 }

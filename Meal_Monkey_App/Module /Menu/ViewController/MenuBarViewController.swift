@@ -20,6 +20,8 @@ class MenuBarViewController: UIViewController {
         setLeftAlignedTitle("Menu")
         setCartButton(target: self, action: #selector(openCart))
         
+        tblMenuView.showsVerticalScrollIndicator = false
+        
         EditStyle.setborder(textfields: [txtSearch])
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 34)
         

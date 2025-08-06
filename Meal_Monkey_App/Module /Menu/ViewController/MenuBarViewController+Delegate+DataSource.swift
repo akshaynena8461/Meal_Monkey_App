@@ -19,6 +19,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
+        cell.selectionStyle = .none
         
         cell.configMenuCell(menu: arrMenuData[indexPath.row])
         

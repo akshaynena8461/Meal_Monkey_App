@@ -43,28 +43,26 @@ extension UIViewController {
     func setLeftAlignedTitleWithBack(
         _ title: String,
         font: UIFont = .systemFont(ofSize: 29),
-        textColor: UIColor = UIColor(named: "NavigationColor") ?? .black,
+        textColor: UIColor = UIColor(named: "loginsignupcolor") ?? .black,
         target: Any?,
         action: Selector
     ) {
-        let backButton = UIButton(type: .system)
-        backButton.setImage(
-            UIImage(systemName: "chevron.backward"),
-            for: .normal
-        )
-        backButton.tintColor = textColor
-        backButton.addTarget(target, action: action, for: .touchUpInside)
-        let titleLabel = UILabel()
-        titleLabel.text = title
-        titleLabel.font = font
-        titleLabel.textColor = textColor
-        titleLabel.sizeToFit()
-        let stackView = UIStackView(arrangedSubviews: [backButton, titleLabel])
-        stackView.axis = .horizontal
-        stackView.spacing = 8
-        let leftItem = UIBarButtonItem(customView: stackView)
+        let button = UIButton(type: .system)
+        
+        button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setTitle("  \(title)", for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = font
+        button.tintColor = textColor
+        
+        button.addTarget(target, action: action, for: .touchUpInside)
+        
+        button.sizeToFit()
+        
+        let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
+
 
     func setLeftAlignedTitle(
         _ title: String,
