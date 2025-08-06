@@ -23,27 +23,29 @@ class DessertsModel {
             DessertsModel(
                 strTitle: "French Apple Pie",
                 floatRating: 4.9,
-                strTitle2: "Minute by tuk tuk - Desserts",
+                strTitle2: "Minute by tuk tuk • Desserts",
                 strImage: "Dessert_Img_1"
             ),
             DessertsModel(
                 strTitle: "Dark Chocolate Cake",
                 floatRating: 4.9,
-                strTitle2: "Minute by tuk tuk - Desserts",
+                strTitle2: "Minute by tuk tuk • Desserts",
                 strImage: "Dessert_Img_2"
             ),
             DessertsModel(
                 strTitle: "Street Shake",
                 floatRating: 4.9,
-                strTitle2: "Minute by tuk tuk - Desserts",
+                strTitle2: "Minute by tuk tuk • Desserts",
                 strImage: "Dessert_Img_3"
             ),
             DessertsModel(
                 strTitle: "Fudgy Chewy Brownies",
                 floatRating: 4.9,
-                strTitle2: "Minute by tuk tuk - Desserts",
+                strTitle2: "Minute by tuk tuk • Desserts",
                 strImage: "Dessert_Img_4"
             ),
         ]
     }
+    
+  
 }

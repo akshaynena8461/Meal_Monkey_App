@@ -26,10 +26,18 @@ class DessertsTableViewCell: UITableViewCell {
 
     func configDessertCell(dessert: DessertsModel) {
         lblTitle.text = dessert.strTitle
-        lblTitle2.text = dessert.strTitle2
+        lblTitle2.attributedText = getStyledText(dessert.strTitle2 ?? "")
         lblRating.text = "\(dessert.floatRating ?? 0.0)"
         imgDessert.image = UIImage(named: dessert.strImage ?? "")
-
     }
+    
+    private func getStyledText(_ text: String) -> NSAttributedString {
+           let attributed = NSMutableAttributedString(string: text)
+           if let dotRange = text.range(of: "•") {
+               let nsRange = NSRange(dotRange, in: text)
+               attributed.addAttribute(.foregroundColor, value: UIColor.orange, range: nsRange)
+           }
+           return attributed
+       }
 
 }

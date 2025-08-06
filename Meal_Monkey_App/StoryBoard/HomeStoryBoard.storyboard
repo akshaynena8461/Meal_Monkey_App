@@ -118,10 +118,10 @@
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="620"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmR-Fv-evK">
-                                                <rect key="frame" x="0.0" y="0.0" width="351" height="656"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="351" height="636"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ekN-Ck-ebk">
-                                                        <rect key="frame" x="124.66666666666666" y="21.666666666666664" width="102" height="98.666666666666686"/>
+                                                        <rect key="frame" x="124.66666666666666" y="1.6666666666666643" width="102" height="98.666666666666686"/>
                                                         <color key="tintColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="102" id="gKV-f4-oQ9"/>
@@ -129,7 +129,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F50-B7-csZ">
-                                                        <rect key="frame" x="142.33333333333334" y="141" width="66.333333333333343" height="16.333333333333343"/>
+                                                        <rect key="frame" x="142.33333333333334" y="120.99999999999999" width="66.333333333333343" height="16.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="10"/>
                                                         <color key="tintColor" name="loginbtnbg"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="10" maxY="0.0"/>
@@ -141,13 +141,13 @@
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Akshay!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Th-WrL">
-                                                        <rect key="frame" x="117.33333333333334" y="170.33333333333331" width="116.66666666666666" height="18.666666666666657"/>
+                                                        <rect key="frame" x="117.33333333333334" y="150.33333333333331" width="116.66666666666666" height="18.666666666666657"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                         <color key="textColor" name="loginsignupcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-XC-B32">
-                                                        <rect key="frame" x="152.66666666666666" y="200" width="46" height="26"/>
+                                                        <rect key="frame" x="152.66666666666666" y="180" width="46" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Sign Out">
@@ -158,7 +158,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="foW-kM-mrq">
-                                                        <rect key="frame" x="0.0" y="274" width="351" height="275"/>
+                                                        <rect key="frame" x="0.0" y="254" width="351" height="275"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQa-ns-FzI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="56"/>
@@ -199,7 +199,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dd-5Z-ovl">
-                                                        <rect key="frame" x="0.0" y="566" width="351" height="56"/>
+                                                        <rect key="frame" x="0.0" y="546" width="351" height="56"/>
                                                         <color key="backgroundColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="EbL-6L-cpe"/>
@@ -214,7 +214,7 @@
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fAm-L4-eAm">
-                                                        <rect key="frame" x="132.66666666666666" y="97" width="86" height="25"/>
+                                                        <rect key="frame" x="132.66666666666666" y="77" width="86" height="25"/>
                                                         <color key="tintColor" name="Camera_Icon_color"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="86" id="4pO-Uk-cPy"/>
@@ -228,7 +228,7 @@
                                                     <constraint firstItem="fAm-L4-eAm" firstAttribute="centerX" secondItem="F50-B7-csZ" secondAttribute="centerX" id="3J8-qr-bux"/>
                                                     <constraint firstItem="eqJ-XC-B32" firstAttribute="centerX" secondItem="EiO-Th-WrL" secondAttribute="centerX" id="AI5-kv-aMn"/>
                                                     <constraint firstItem="eqJ-XC-B32" firstAttribute="top" secondItem="EiO-Th-WrL" secondAttribute="bottom" constant="11" id="IGu-Uc-PxR"/>
-                                                    <constraint firstItem="ekN-Ck-ebk" firstAttribute="top" secondItem="bmR-Fv-evK" secondAttribute="top" constant="20" id="J6b-bR-lQ0"/>
+                                                    <constraint firstItem="ekN-Ck-ebk" firstAttribute="top" secondItem="bmR-Fv-evK" secondAttribute="top" id="J6b-bR-lQ0"/>
                                                     <constraint firstAttribute="trailing" secondItem="foW-kM-mrq" secondAttribute="trailing" id="Lj2-CH-iK4"/>
                                                     <constraint firstItem="foW-kM-mrq" firstAttribute="top" secondItem="eqJ-XC-B32" secondAttribute="bottom" constant="48" id="OIk-NY-3fu"/>
                                                     <constraint firstItem="1dd-5Z-ovl" firstAttribute="top" secondItem="foW-kM-mrq" secondAttribute="bottom" constant="17" id="QoN-cI-SZn"/>
@@ -312,14 +312,66 @@
         <!--Offers View Controller-->
         <scene sceneID="U2j-f3-RsZ">
             <objects>
-                <viewController storyboardIdentifier="OffersViewController" id="y9I-cQ-9b1" customClass="OffersViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="OffersViewController" id="y9I-cQ-9b1" customClass="OffersViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16J-vO-Qkj">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="2UI-yZ-j0d">
+                                <rect key="frame" x="0.0" y="288" width="393" height="447"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="y9I-cQ-9b1" id="M9p-rA-90q"/>
+                                    <outlet property="delegate" destination="y9I-cQ-9b1" id="7cO-ZF-foN"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me4-Kq-ZXz">
+                                <rect key="frame" x="21" y="177" width="348" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="dS7-H8-QFq"/>
+                                </constraints>
+                                <string key="text">Find discounts, Offers special
+meals and more!</string>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <color key="textColor" name="loginsignupcolor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PLd-1F-0Yd">
+                                <rect key="frame" x="21" y="236" width="81" height="16"/>
+                                <color key="backgroundColor" name="loginbtnbg"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="o7G-Hp-eiJ"/>
+                                    <constraint firstAttribute="width" constant="81" id="pmX-j5-L7M"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                <state key="normal" title="Check Offers">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnCheckOffersClick:" destination="y9I-cQ-9b1" eventType="touchUpInside" id="GJL-sP-ba8"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="bDB-It-QcW"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="PLd-1F-0Yd" firstAttribute="top" secondItem="me4-Kq-ZXz" secondAttribute="bottom" constant="24" id="6Ew-VR-LHu"/>
+                            <constraint firstItem="me4-Kq-ZXz" firstAttribute="top" secondItem="bDB-It-QcW" secondAttribute="top" constant="15" id="MSf-ih-aBy"/>
+                            <constraint firstItem="bDB-It-QcW" firstAttribute="trailing" secondItem="2UI-yZ-j0d" secondAttribute="trailing" id="NPk-Zh-vqP"/>
+                            <constraint firstItem="2UI-yZ-j0d" firstAttribute="leading" secondItem="bDB-It-QcW" secondAttribute="leading" id="Pga-tl-nOV"/>
+                            <constraint firstItem="bDB-It-QcW" firstAttribute="bottom" secondItem="2UI-yZ-j0d" secondAttribute="bottom" id="Yff-7S-QPO"/>
+                            <constraint firstItem="me4-Kq-ZXz" firstAttribute="leading" secondItem="bDB-It-QcW" secondAttribute="leading" constant="21" id="dU8-Ah-88x"/>
+                            <constraint firstItem="PLd-1F-0Yd" firstAttribute="leading" secondItem="bDB-It-QcW" secondAttribute="leading" constant="21" id="rzG-kx-LVr"/>
+                            <constraint firstItem="bDB-It-QcW" firstAttribute="trailing" secondItem="me4-Kq-ZXz" secondAttribute="trailing" constant="24" id="u4s-g9-Ulp"/>
+                            <constraint firstItem="2UI-yZ-j0d" firstAttribute="top" secondItem="PLd-1F-0Yd" secondAttribute="bottom" constant="36" id="w7p-XE-GAV"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="28y-qt-aKd"/>
+                    <connections>
+                        <outlet property="btnCheckOffers" destination="PLd-1F-0Yd" id="qH5-HA-iUV"/>
+                        <outlet property="tblOffersView" destination="2UI-yZ-j0d" id="TFX-ap-Zby"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="I6Q-Dl-ZPq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

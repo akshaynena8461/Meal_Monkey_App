@@ -39,16 +39,19 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
 
+        let storyboard = UIStoryboard(
+            name: "MenuStoryBoard",
+            bundle: nil
+        )
+
         switch indexPath.row {
+
         case 0:
             print("Food")
         case 1:
             print("Bevarages")
         case 2:
-            let storyboard = UIStoryboard(
-                name: "DessertsStoryBoard",
-                bundle: nil
-            )
+
             if let dessertvc = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
