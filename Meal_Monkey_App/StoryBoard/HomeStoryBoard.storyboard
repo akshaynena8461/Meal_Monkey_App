@@ -325,7 +325,7 @@
                                     <outlet property="delegate" destination="y9I-cQ-9b1" id="7cO-ZF-foN"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me4-Kq-ZXz">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="me4-Kq-ZXz">
                                 <rect key="frame" x="21" y="177" width="348" height="35"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="35" id="dS7-H8-QFq"/>

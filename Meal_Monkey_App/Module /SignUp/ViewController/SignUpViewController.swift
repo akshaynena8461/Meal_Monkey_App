@@ -31,7 +31,7 @@ class SignUpViewController: UIViewController {
 
     @IBAction func btnEye2Click(_ sender: Any) {
         isPasswordVisible = !isPasswordVisible
-        txtPassword.isSecureTextEntry = !isPasswordVisible
+        txtConfirmPassword.isSecureTextEntry = !isPasswordVisible
 
         let imageName = isPasswordVisible ? "eye" : "eye.slash"
 

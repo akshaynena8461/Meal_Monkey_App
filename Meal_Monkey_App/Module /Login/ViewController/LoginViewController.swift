@@ -2,6 +2,7 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var stackPassword: UIStackView!
     @IBOutlet weak var btnEye: UIButton!
     @IBOutlet weak var btnSignUp: UIButton!
     @IBOutlet weak var btngooglelogin: UIButton!
@@ -16,15 +17,16 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        //        setupPasswordToggle(textField: txtPassword)
 
         EditStyle.setborder(textfields: [
-            txtEmail, txtPassword, btnlogin, btnfacebooklogin, btngooglelogin,
+            txtEmail, btnlogin, btnfacebooklogin, btngooglelogin,
         ])
         EditStyle.setPadding(
             textFields: [txtEmail, txtPassword],
             paddingWidth: 34
         )
+        EditStyle.addStackBorder(stackViews: [stackPassword])
+
     }
 
     @IBAction func btnloginclick(_ sender: Any) {
