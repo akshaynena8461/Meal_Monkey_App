@@ -2,10 +2,10 @@ import Foundation
 import UIKit
 
 class EditStyle {
-    class func setborder(textfields: [UIView]) {
+    class func setborder(textfields: [UIView],cornerRadious:CGFloat) {
         for textField in textfields {
             textField.layer.borderColor = UIColor.lightGray.cgColor
-            textField.layer.cornerRadius = 28
+            textField.layer.cornerRadius = cornerRadious
             textField.clipsToBounds = false
         }
 

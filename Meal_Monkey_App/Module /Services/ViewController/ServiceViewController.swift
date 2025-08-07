@@ -25,7 +25,7 @@ class ServiceViewController: UIViewController {
         lblTItle1.text = "Find Food You Love"
         lblTitle2.text = "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
         
-        EditStyle.setborder(textfields: [btnNext])
+        EditStyle.setborder(textfields: [btnNext],cornerRadious: 28)
 
         collectionIntro.register(UINib(nibName: "ServiceCollectionViewCell", bundle: nil), forCellWithReuseIdentifier: "ServiceCollectionViewCell")
     }

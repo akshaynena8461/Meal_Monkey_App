@@ -22,7 +22,7 @@ class MenuBarViewController: UIViewController {
         
         tblMenuView.showsVerticalScrollIndicator = false
         
-        EditStyle.setborder(textfields: [txtSearch])
+        EditStyle.setborder(textfields: [txtSearch],cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 34)
         
         tblMenuView.register(UINib(nibName: "MenuTableViewCell", bundle: nil), forCellReuseIdentifier: "MenuTableViewCell")

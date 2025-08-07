@@ -19,12 +19,13 @@ class LoginViewController: UIViewController {
         self.navigationController?.navigationBar.isHidden = true
 
         EditStyle.setborder(textfields: [
-            txtEmail, btnlogin, btnfacebooklogin, btngooglelogin,
-        ])
+            txtEmail, btnlogin, btnfacebooklogin, btngooglelogin
+        ],cornerRadious: 28)
         EditStyle.setPadding(
             textFields: [txtEmail, txtPassword],
             paddingWidth: 34
         )
+        
         EditStyle.addStackBorder(stackViews: [stackPassword])
 
     }

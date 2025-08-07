@@ -15,7 +15,7 @@ class NewPasswordViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        EditStyle.setborder(textfields: [btnNext,txtPassword,txtConfirmPassword])
+        EditStyle.setborder(textfields: [btnNext,txtPassword,txtConfirmPassword],cornerRadious: 28)
         
         EditStyle.setPadding(textFields: [txtPassword,txtConfirmPassword], paddingWidth: 34)
 

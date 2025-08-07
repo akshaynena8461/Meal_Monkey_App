@@ -27,11 +27,17 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         didSelectRowAt indexPath: IndexPath
     ) {
-        tableView.deselectRow(at: indexPath, animated: true)  // Optional: deselect after tap
+        tableView.deselectRow(at: indexPath, animated: true)
 
+        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+
+        
         switch indexPath.row {
         case 0:
             print("Payment Details selected")
+            if let paymentvc = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController{
+                self.navigationController?.pushViewController(paymentvc, animated: true)
+            }
 
         case 1:
             print("My Orders selected")
@@ -39,7 +45,6 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:
             print("Notification selected")
             print("About Us selected")
-            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
             if let aboutvc = storyboard.instantiateViewController(
                 withIdentifier: "AboutUsViewController"
             ) as? AboutUsViewController {
@@ -53,7 +58,6 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         case 3:
             print("Inbox selected")
             print("About Us selected")
-            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
             if let aboutvc = storyboard.instantiateViewController(
                 withIdentifier: "AboutUsViewController"
             ) as? AboutUsViewController {
@@ -66,7 +70,6 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
         case 4:
             print("About Us selected")
-            let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
             if let aboutvc = storyboard.instantiateViewController(
                 withIdentifier: "AboutUsViewController"
             ) as? AboutUsViewController {

@@ -16,7 +16,7 @@ class DessertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        EditStyle.setborder(textfields: [txtSearch])
+        EditStyle.setborder(textfields: [txtSearch],cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 34)
 
         tblDessertsView.showsVerticalScrollIndicator = false

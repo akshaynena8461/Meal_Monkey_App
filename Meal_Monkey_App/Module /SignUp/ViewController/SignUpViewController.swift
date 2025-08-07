@@ -49,7 +49,7 @@ class SignUpViewController: UIViewController {
             txtAddress,
             txtName,
             btnSignUp,
-        ])
+        ],cornerRadious: 28)
 
         EditStyle.setPadding(
             textFields: [
@@ -62,10 +62,9 @@ class SignUpViewController: UIViewController {
             ],
             paddingWidth: 34
         )
+        
+        EditStyle.addStackBorder(stackViews: [stackPassword,stackConfirmPassword])
 
-        EditStyle.addStackBorder(stackViews: [
-            stackPassword, stackConfirmPassword,
-        ])
     }
 
     @IBAction func btnloginclick(_ sender: Any) {

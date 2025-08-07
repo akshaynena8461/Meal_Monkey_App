@@ -33,7 +33,7 @@ class ProfileViewController: UIViewController {
         setLeftAlignedTitle("Profile")
         setCartButton(target: self, action: #selector(cartBtnTapped))
         
-        EditStyle.setborder(textfields: [txtName,txtEmail,txtMobile,txtAddress,btnSave])
+        EditStyle.setborder(textfields: [txtName,txtEmail,txtMobile,txtAddress,btnSave],cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtName,txtEmail,txtMobile,txtAddress], paddingWidth: 34)
 
     }

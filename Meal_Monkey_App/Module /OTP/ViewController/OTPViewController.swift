@@ -29,7 +29,7 @@ class OTPViewController: UIViewController {
             txtDigit3,
             txtDigit4,
         ])
-        EditStyle.setborder(textfields: [btnNext])
+        EditStyle.setborder(textfields: [btnNext],cornerRadious: 28)
 
         for tf in allviews {
             tf.delegate = self
