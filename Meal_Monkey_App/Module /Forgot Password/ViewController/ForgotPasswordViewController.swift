@@ -18,7 +18,7 @@ class ForgotPasswordViewController: UIViewController {
 
     @IBAction func btnsendclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
-            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "NewPasswordViewController") as? NewPasswordViewController {
+            if let signUpVC = storyboard.instantiateViewController(withIdentifier: "OTPViewController") as? OTPViewController {
                 self.navigationController?.pushViewController(signUpVC, animated: true)
             }
     }

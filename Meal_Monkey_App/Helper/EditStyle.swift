@@ -27,7 +27,15 @@ class EditStyle {
             }
         }
     }
+    class func setOTPtextFieldborder(textfields: [UIView]) {
+        for textField in textfields {
+            textField.layer.borderColor = UIColor.lightGray.cgColor
+            textField.layer.cornerRadius = 12
+            textField.clipsToBounds = false
+        }
 
+    }
+     
     class func addStackBorder(stackViews: [UIView]) {
         for stackView in stackViews {
             stackView.layer.cornerRadius = 28
