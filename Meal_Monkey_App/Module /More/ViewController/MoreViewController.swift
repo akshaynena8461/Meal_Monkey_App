@@ -9,8 +9,6 @@ class MoreViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "More"
         
         setLeftAlignedTitle("More")
         setCartButton(target: self, action: #selector(cartButtonTapped))

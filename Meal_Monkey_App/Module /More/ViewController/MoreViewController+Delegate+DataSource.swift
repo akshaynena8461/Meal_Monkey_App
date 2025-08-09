@@ -41,7 +41,9 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
         case 1:
             print("My Orders selected")
-
+            if let myorderVc = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController{
+                self.navigationController?.pushViewController(myorderVc, animated: true)
+            }
         case 2:
             print("Notification selected")
             print("About Us selected")

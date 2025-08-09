@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class PaymentViewController: UIViewController {
@@ -8,6 +6,7 @@ class PaymentViewController: UIViewController {
     @IBOutlet weak var viewScroll: UIScrollView!
     var arrCard: [PaymentModel] = PaymentModel.addcardDetails()
 
+    @IBOutlet weak var backView: UIView!
     @IBAction func btnAddCardClick(_ sender: Any) {
     }
     @IBOutlet weak var btnAddCard: UIButton!
@@ -27,15 +26,27 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        subView.layer.cornerRadius = 20
-        subView.layer.maskedCorners = [
+        backView.isHidden = true
+
+        viewScroll.layer.cornerRadius = 20
+        viewScroll.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner,
         ]
-        
-        subView.layer.shadowColor = UIColor.black.cgColor
-        subView.layer.shadowOpacity = 0.2
-        subView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        subView.layer.shadowRadius = 10
+
+        viewScroll.layer.shadowColor = UIColor.black.cgColor
+        viewScroll.layer.shadowOpacity = 0.3
+        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
+        viewScroll.layer.shadowRadius = 10
+
+        addCardPageView.layer.cornerRadius = 20
+        addCardPageView.layer.maskedCorners = [
+            .layerMinXMinYCorner, .layerMaxXMinYCorner,
+        ]
+
+        addCardPageView.layer.shadowColor = UIColor.black.cgColor
+        addCardPageView.layer.shadowOpacity = 0.3
+        addCardPageView.layer.shadowOffset = CGSize(width: 0, height: -2)
+        addCardPageView.layer.shadowRadius = 10
 
         EditStyle.setPadding(
             textFields: [
@@ -77,6 +88,7 @@ class PaymentViewController: UIViewController {
     }
 
     @IBAction func btnAddAnotherDebitOrCreditCardClick(_ sender: Any) {
+        backView.isHidden = false
         tblPaymentView.isHidden = true
         addCardPageView.isHidden = false
         btnAddAnotherDebitOrCreditCard.isHidden = true
@@ -87,6 +99,7 @@ class PaymentViewController: UIViewController {
 
     }
     @IBAction func btnCloseClick(_ sender: Any) {
+        backView.isHidden = true
         tblPaymentView.isHidden = false
         btnAddAnotherDebitOrCreditCard.isHidden = false
         UIView.animate(

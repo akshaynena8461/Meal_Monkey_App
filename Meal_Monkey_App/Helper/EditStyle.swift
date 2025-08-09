@@ -24,6 +24,8 @@ class EditStyle {
                 )
                 textField.leftView = paddingView
                 textField.leftViewMode = .always
+                textField.rightView = paddingView
+                textField.rightViewMode = .always
             }
         }
     }
