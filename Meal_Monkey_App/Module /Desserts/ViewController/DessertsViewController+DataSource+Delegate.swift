@@ -1,9 +1,4 @@
-//
-//  DessertsViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 06/08/25.
-//
+
 
 import UIKit
 
@@ -11,7 +6,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int
     {
-        arrDessert.count
+        return arrProducts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
@@ -24,7 +19,8 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
             ) as! DessertsTableViewCell
 
         cell.selectionStyle = .none
-        cell.configDessertCell(dessert: arrDessert[indexPath.row])
+
+        cell.configDessertCell(dessert: arrProducts[indexPath.row])
 
         return cell
 

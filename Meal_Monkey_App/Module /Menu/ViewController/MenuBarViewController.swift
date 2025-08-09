@@ -1,9 +1,4 @@
-//
-//  MenuViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 05/08/25.
-//
+
 
 import UIKit
 
@@ -13,6 +8,7 @@ class MenuBarViewController: UIViewController {
     
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblMenuView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         

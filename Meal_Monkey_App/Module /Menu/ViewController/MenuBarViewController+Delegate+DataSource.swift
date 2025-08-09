@@ -1,9 +1,4 @@
-//
-//  MenuViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 05/08/25.
-//
+
 
 import UIKit
 
@@ -48,13 +43,36 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
 
         case 0:
             print("Food")
+            if let foodvc = storyboard.instantiateViewController(
+                withIdentifier: "DessertsViewController"
+            ) as? DessertsViewController {
+                foodvc.selectedProductType = .food
+                self.navigationController?.pushViewController(
+                    foodvc,
+                    animated: true
+                )
+            }
         case 1:
-            print("Bevarages")
+            print("Beverages")
+    
+            if let beveragesvc = storyboard.instantiateViewController(
+                withIdentifier: "DessertsViewController"
+            ) as? DessertsViewController {
+                beveragesvc.selectedProductType = .Beverages
+
+                self.navigationController?.pushViewController(
+                    beveragesvc,
+                    animated: true
+                )
+            }
         case 2:
+           
 
             if let dessertvc = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
+                dessertvc.selectedProductType = .Desserts
+
                 self.navigationController?.pushViewController(
                     dessertvc,
                     animated: true
@@ -67,4 +85,13 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
 
     }
 
+    @objc func CartBtnTapped() {
+        print("Cart Btn Tapped")
+    }
+
+    @objc func BackBtnTapped() {
+        self.navigationController?.popViewController(animated: true)
+    }
+
 }
+

@@ -117,6 +117,15 @@ class CheckOutViewController: UIViewController {
     }
 
     @IBAction func btnChangeAddressClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        if let changeAddressVc = storyboard.instantiateViewController(
+            withIdentifier: "ChangeAddressViewController"
+        ) as? ChangeAddressViewController {
+            self.navigationController?.pushViewController(
+                changeAddressVc,
+                animated: true
+            )
+        }
 
     }
     @IBAction func btnCloseThankYouClick(_ sender: Any) {

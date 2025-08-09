@@ -25,10 +25,10 @@ class DessertsTableViewCell: UITableViewCell {
     }
 
     func configDessertCell(dessert: DessertsModel) {
-        lblTitle.text = dessert.strTitle
-        lblTitle2.attributedText = getStyledText(dessert.strTitle2 ?? "")
-        lblRating.text = "\(dessert.floatRating ?? 0.0)"
-        imgDessert.image = UIImage(named: dessert.strImage ?? "")
+        lblTitle.text = dessert.strProductName
+        lblTitle2.attributedText = getStyledText(dessert.strProductDescription)
+        lblRating.text = "\(dessert.floatProductRating)"
+        imgDessert.image = UIImage(named: dessert.strProductImage)
     }
     
     private func getStyledText(_ text: String) -> NSAttributedString {

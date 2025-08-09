@@ -1,29 +1,21 @@
-//
-//  HomeTabBarViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 04/08/25.
-//
+
 
 import UIKit
 
 class HomeTabBarViewController: UIViewController {
 
+    var arrPopularProducts : [ProductModel] = []
+    var arrMostPopularProducts: [ProductModel] = []
+    
+    var arrProductData:[ProductModel] = ProductModel.addProductData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        arrPopularProducts = arrProductData.filter{$0.floatProductRating == 4.5}
+        arrMostPopularProducts = arrProductData.filter{$0.floatProductRating == 5}
 
-        // Do any additional setup after loading the view.
     }
-    
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

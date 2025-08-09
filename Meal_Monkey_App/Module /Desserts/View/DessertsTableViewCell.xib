@@ -18,23 +18,26 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y4G-uc-ZUa">
-                        <rect key="frame" x="0.0" y="4" width="320" height="216"/>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y4G-uc-ZUa">
+                        <rect key="frame" x="0.0" y="4" width="320" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="cAU-Nq-XHM"/>
+                        </constraints>
                     </imageView>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dessert_Img_Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Jpy-dQ-Ki6">
-                        <rect key="frame" x="0.0" y="117" width="320" height="103"/>
+                        <rect key="frame" x="0.0" y="101" width="320" height="103"/>
                     </imageView>
                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Ig-SW8">
-                        <rect key="frame" x="21" y="154" width="278" height="44"/>
+                        <rect key="frame" x="21" y="145" width="278" height="37.666666666666657"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gox-eY-QtR">
-                                <rect key="frame" x="0.0" y="0.0" width="278" height="25"/>
+                                <rect key="frame" x="0.0" y="0.0" width="278" height="18.666666666666668"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="o1g-LN-1xx">
-                                <rect key="frame" x="0.0" y="31" width="278" height="13"/>
+                                <rect key="frame" x="0.0" y="24.666666666666657" width="278" height="13"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e0a-cW-o9Y">
                                         <rect key="frame" x="0.0" y="-0.33333333333333215" width="14" height="12.666666666666666"/>
@@ -44,7 +47,7 @@
                                             <constraint firstAttribute="height" constant="13" id="iMr-eR-qqe"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgs-Rx-csr">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgs-Rx-csr">
                                         <rect key="frame" x="17" y="0.0" width="29.666666666666671" height="13"/>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,16 +65,16 @@
                     </stackView>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Jpy-dQ-Ki6" secondAttribute="trailing" id="3Dy-pL-lYl"/>
-                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="trailing" secondItem="Jpy-dQ-Ki6" secondAttribute="trailing" id="6lr-8L-PM3"/>
-                    <constraint firstAttribute="bottom" secondItem="Jpy-dQ-Ki6" secondAttribute="bottom" id="BUc-zq-lJ2"/>
-                    <constraint firstItem="Jpy-dQ-Ki6" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="HQf-Q7-7hd"/>
-                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="Trc-m1-rVa"/>
-                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="top" secondItem="Jpy-dQ-Ki6" secondAttribute="top" constant="37" id="Yga-bh-v9d"/>
-                    <constraint firstAttribute="bottom" secondItem="hwO-Ig-SW8" secondAttribute="bottom" constant="22" id="aTC-ep-fDB"/>
-                    <constraint firstAttribute="trailing" secondItem="hwO-Ig-SW8" secondAttribute="trailing" constant="21" id="baL-N5-3gP"/>
+                    <constraint firstAttribute="trailing" secondItem="hwO-Ig-SW8" secondAttribute="trailing" constant="21" id="68L-TZ-Bdh"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="trailing" secondItem="Jpy-dQ-Ki6" secondAttribute="trailing" id="EXw-M9-fbi"/>
+                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="145" id="JgJ-n4-PM3"/>
+                    <constraint firstAttribute="bottom" secondItem="hwO-Ig-SW8" secondAttribute="bottom" constant="12" id="Kfh-cK-pcn"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="bottom" secondItem="Jpy-dQ-Ki6" secondAttribute="bottom" id="TuU-M2-L8Z"/>
                     <constraint firstAttribute="bottom" secondItem="y4G-uc-ZUa" secondAttribute="bottom" id="e5o-pp-xi5"/>
-                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="leading" secondItem="Jpy-dQ-Ki6" secondAttribute="leading" id="hhm-oF-4J5"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gZd-4s-P0i"/>
+                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="iZB-Oo-GDE"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="nWG-p7-b5Q"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="leading" secondItem="Jpy-dQ-Ki6" secondAttribute="leading" id="rfe-md-T2U"/>
                     <constraint firstItem="y4G-uc-ZUa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="z1y-3O-8wn"/>
                 </constraints>
             </tableViewCellContentView>
