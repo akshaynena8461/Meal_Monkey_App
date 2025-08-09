@@ -11,14 +11,16 @@ class DessertsViewController: UIViewController {
     
     var selectedProductType: ProductType = .Desserts
     
-    var arrProducts: [DessertsModel] {
+    var arrProductData:[ProductModel] = ProductModel.addProductData()
+
+    var arrProducts: [ProductModel] {
         switch selectedProductType {
         case .food:
-            return DessertsModel.addFoodData()
+            return arrProductData.filter { $0.objProductType == .food }
         case .Desserts:
-            return DessertsModel.addDessertsData()
+            return arrProductData.filter { $0.objProductType == .Desserts }
         case .Beverages:
-            return DessertsModel.addBeveragesData()
+            return arrProductData.filter { $0.objProductType == .Beverages }
         }
     }
 

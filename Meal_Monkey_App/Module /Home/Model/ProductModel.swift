@@ -578,7 +578,7 @@ class ProductModel {
                     "Traditional Gujarati mixed vegetable curry",
                 floatProductRating: 4.5,
                 doubleProductPrice: 150.0,
-                strProductImage: "undhiyu.jpg",
+                strProductImage: "Ic_Undhiyu",
                 intTotalNumberOfRatings: 120,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -590,7 +590,7 @@ class ProductModel {
                     "Soft and fluffy steamed gram flour snack",
                 floatProductRating: 4.7,
                 doubleProductPrice: 50.0,
-                strProductImage: "khaman_dhokla.jpg",
+                strProductImage: "Ic_Khaman_Dhokla",
                 intTotalNumberOfRatings: 200,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -602,7 +602,7 @@ class ProductModel {
                     "Spiced flatbread made from whole wheat flour",
                 floatProductRating: 4.4,
                 doubleProductPrice: 40.0,
-                strProductImage: "thepla.jpg",
+                strProductImage: "Ic_Thepla",
                 intTotalNumberOfRatings: 180,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -614,7 +614,7 @@ class ProductModel {
                     "Sweet-tangy tomato curry topped with sev",
                 floatProductRating: 4.3,
                 doubleProductPrice: 90.0,
-                strProductImage: "sev_tameta.jpg",
+                strProductImage: "Ic_Sev_Tameta",
                 intTotalNumberOfRatings: 110,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -626,7 +626,7 @@ class ProductModel {
                     "Pearl millet flatbread served with jaggery & ghee",
                 floatProductRating: 4.6,
                 doubleProductPrice: 60.0,
-                strProductImage: "bajra_rotla.jpg",
+                strProductImage: "Ic_Bajra_Rotla_Ringan_Olo",
                 intTotalNumberOfRatings: 95,
                 objProductCategory: .Gujarati,
                 objProductType: .food
@@ -638,7 +638,7 @@ class ProductModel {
                 strProductDescription: "Sweetened thickened milk with cardamom",
                 floatProductRating: 4.8,
                 doubleProductPrice: 120.0,
-                strProductImage: "basundi.jpg",
+                strProductImage: "Ic_Basundi",
                 intTotalNumberOfRatings: 130,
                 objProductCategory: .Gujarati,
                 objProductType: .Desserts
@@ -650,7 +650,7 @@ class ProductModel {
                     "Sweet yogurt dessert flavored with saffron",
                 floatProductRating: 4.9,
                 doubleProductPrice: 100.0,
-                strProductImage: "shrikhand.jpg",
+                strProductImage: "Ic_Shrikhand",
                 intTotalNumberOfRatings: 150,
                 objProductCategory: .Gujarati,
                 objProductType: .Desserts
@@ -662,7 +662,7 @@ class ProductModel {
                     "Gram flour fudge with ghee & dry fruits",
                 floatProductRating: 4.6,
                 doubleProductPrice: 140.0,
-                strProductImage: "mohanthal.jpg",
+                strProductImage: "Ic_Mohanthal",
                 intTotalNumberOfRatings: 85,
                 objProductCategory: .Gujarati,
                 objProductType: .Desserts
@@ -674,7 +674,7 @@ class ProductModel {
                     "Flaky sweet made from rice flour & sugar syrup",
                 floatProductRating: 4.5,
                 doubleProductPrice: 150.0,
-                strProductImage: "sutarfeni.jpg",
+                strProductImage: "Ic_SutarFeni",
                 intTotalNumberOfRatings: 75,
                 objProductCategory: .Gujarati,
                 objProductType: .Desserts
@@ -685,7 +685,7 @@ class ProductModel {
                 strProductDescription: "Sweet made from mawa & dry fruits",
                 floatProductRating: 4.4,
                 doubleProductPrice: 160.0,
-                strProductImage: "ghari.jpg",
+                strProductImage: "Ic_Ghari",
                 intTotalNumberOfRatings: 60,
                 objProductCategory: .Gujarati,
                 objProductType: .Desserts
@@ -697,7 +697,7 @@ class ProductModel {
                 strProductDescription: "Refreshing buttermilk with spices",
                 floatProductRating: 4.7,
                 doubleProductPrice: 20.0,
-                strProductImage: "chaas.jpg",
+                strProductImage: "Ic_Chaas",
                 intTotalNumberOfRatings: 210,
                 objProductCategory: .Gujarati,
                 objProductType: .Beverages
@@ -708,7 +708,7 @@ class ProductModel {
                 strProductDescription: "Spiced Indian tea brewed with milk",
                 floatProductRating: 4.8,
                 doubleProductPrice: 25.0,
-                strProductImage: "masala_chai.jpg",
+                strProductImage: "Ic_Masala_Chai",
                 intTotalNumberOfRatings: 300,
                 objProductCategory: .Gujarati,
                 objProductType: .Beverages
@@ -719,7 +719,7 @@ class ProductModel {
                 strProductDescription: "Sweet-sour drink made from kokum fruit",
                 floatProductRating: 4.5,
                 doubleProductPrice: 30.0,
-                strProductImage: "kokum_sharbat.jpg",
+                strProductImage: "Ic_Kokum_Sharbat",
                 intTotalNumberOfRatings: 90,
                 objProductCategory: .Gujarati,
                 objProductType: .Beverages
@@ -730,7 +730,7 @@ class ProductModel {
                 strProductDescription: "Fresh lemon water with sugar and salt",
                 floatProductRating: 4.6,
                 doubleProductPrice: 15.0,
-                strProductImage: "limbu_pani.jpg",
+                strProductImage: "Ic_Limbu_Pani",
                 intTotalNumberOfRatings: 250,
                 objProductCategory: .Gujarati,
                 objProductType: .Beverages
@@ -741,7 +741,7 @@ class ProductModel {
                 strProductDescription: "Cold milk drink with spices & nuts",
                 floatProductRating: 4.7,
                 doubleProductPrice: 50.0,
-                strProductImage: "thandai.jpg",
+                strProductImage: "Ic_Thandai",
                 intTotalNumberOfRatings: 80,
                 objProductCategory: .Gujarati,
                 objProductType: .Beverages

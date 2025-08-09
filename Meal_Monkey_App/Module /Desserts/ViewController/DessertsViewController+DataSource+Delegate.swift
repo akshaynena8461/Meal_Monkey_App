@@ -25,5 +25,25 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         return cell
 
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+
+        switch indexPath.row{
+        case 0:
+            if let productvc = storyboard.instantiateViewController(
+                withIdentifier: "ProductDetailViewController"
+            ) as? ProductDetailViewController {
+                self.navigationController?.pushViewController(
+                    productvc,
+                    animated: true
+                )
+            }
+        default:
+            break;
+        }
+            
+        
+    }
 
 }

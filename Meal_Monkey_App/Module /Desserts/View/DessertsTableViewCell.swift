@@ -24,7 +24,7 @@ class DessertsTableViewCell: UITableViewCell {
 
     }
 
-    func configDessertCell(dessert: DessertsModel) {
+    func configDessertCell(dessert: ProductModel) {
         lblTitle.text = dessert.strProductName
         lblTitle2.attributedText = getStyledText(dessert.strProductDescription)
         lblRating.text = "\(dessert.floatProductRating)"

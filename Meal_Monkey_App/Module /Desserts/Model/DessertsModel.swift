@@ -1,10 +1,7 @@
 import Foundation
 
 class DessertsModel {
-    //    var strTitle: String?
-    //    var floatRating: Float?
-    //    var strTitle2: String?
-    //    var strImage: String?
+   
 
     var intId: Int = 0
     var strProductName: String = ""
