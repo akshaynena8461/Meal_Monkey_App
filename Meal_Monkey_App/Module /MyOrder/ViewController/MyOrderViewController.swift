@@ -14,6 +14,10 @@ class MyOrderViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        tblMyOrderView.showsVerticalScrollIndicator = false
+        
+        tblMyOrderView.register(UINib(nibName: "MyOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyOrderTableViewCell")
+        
         setLeftAlignedTitleWithBack("My Order", target: self, action: #selector(BackBtnTapped))
         EditStyle.setborder(textfields: [btnCheckOut], cornerRadious: 28)
 

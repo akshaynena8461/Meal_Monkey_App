@@ -56,6 +56,15 @@ class ProductDetailViewController: UIViewController {
     @IBAction func btnMinusClick(_ sender: Any) {
     }
     @IBAction func btnAddCardClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let carVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                carVc,
+                animated: true
+            )
+        }
     }
     @IBAction func btnPortionClick(_ sender: Any) {
     }
