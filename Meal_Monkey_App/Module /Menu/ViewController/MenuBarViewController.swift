@@ -26,6 +26,15 @@ class MenuBarViewController: UIViewController {
     }
     @objc func openCart(){
         print("Cart Page")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
     @objc func menuBtnTapped(){
         print("Menu Btn")

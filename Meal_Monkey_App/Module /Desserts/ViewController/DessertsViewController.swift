@@ -66,6 +66,15 @@ class DessertsViewController: UIViewController {
     }
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)

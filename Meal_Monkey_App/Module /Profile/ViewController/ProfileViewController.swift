@@ -45,5 +45,14 @@ class ProfileViewController: UIViewController {
     }
     @objc func cartBtnTapped(){
         print("Cart Btn Tapped")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
 }

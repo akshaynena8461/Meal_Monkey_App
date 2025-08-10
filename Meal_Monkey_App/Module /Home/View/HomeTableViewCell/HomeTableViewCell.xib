@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="239" id="Web-XA-gyb" customClass="HomeTableViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="494" height="239"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Web-XA-gyb" id="0Ut-M3-wjl">
+                <rect key="frame" x="0.0" y="0.0" width="494" height="239"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2Ty-zx-5hJ">
+                        <rect key="frame" x="17" y="10" width="455.33333333333331" height="96"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Popular Restaurents" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XWp-fS-rJW">
+                                <rect key="frame" x="0.0" y="0.0" width="410.33333333333331" height="96"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
+                                <color key="textColor" name="loginsignupcolor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="bottom" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Ov-Xj-b7z">
+                                <rect key="frame" x="410.33333333333331" y="0.0" width="45" height="96"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                <color key="tintColor" name="LineViewBgColor"/>
+                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="8" maxY="0.0"/>
+                                <state key="normal" title="View all">
+                                    <color key="titleColor" name="loginbtnbg"/>
+                                </state>
+                                <connections>
+                                    <action selector="btnViewAllClick:" destination="Web-XA-gyb" eventType="touchUpInside" id="1wf-E0-g39"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                    </stackView>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="IIG-Lz-LCS">
+                        <rect key="frame" x="0.0" y="116" width="494" height="113"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="113" id="NoC-dz-9vI"/>
+                        </constraints>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="Hng-qW-bD9">
+                            <size key="itemSize" width="128" height="128"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <connections>
+                            <outlet property="dataSource" destination="Web-XA-gyb" id="KRK-CO-7Kf"/>
+                            <outlet property="delegate" destination="Web-XA-gyb" id="Ufd-AA-FVU"/>
+                        </connections>
+                    </collectionView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="2Ty-zx-5hJ" firstAttribute="top" secondItem="0Ut-M3-wjl" secondAttribute="top" constant="10" id="6HN-PO-EZO"/>
+                    <constraint firstAttribute="trailing" secondItem="IIG-Lz-LCS" secondAttribute="trailing" id="RCB-4Z-31F"/>
+                    <constraint firstItem="IIG-Lz-LCS" firstAttribute="leading" secondItem="0Ut-M3-wjl" secondAttribute="leading" id="XXg-VQ-kg1"/>
+                    <constraint firstItem="IIG-Lz-LCS" firstAttribute="top" secondItem="2Ty-zx-5hJ" secondAttribute="bottom" constant="10" id="frj-nT-yLR"/>
+                    <constraint firstAttribute="trailing" secondItem="2Ty-zx-5hJ" secondAttribute="trailing" constant="21.699999999999999" id="hmu-RJ-Ox5"/>
+                    <constraint firstItem="2Ty-zx-5hJ" firstAttribute="leading" secondItem="0Ut-M3-wjl" secondAttribute="leading" constant="17" id="t6P-h2-oDx"/>
+                    <constraint firstAttribute="bottom" secondItem="IIG-Lz-LCS" secondAttribute="bottom" constant="10" id="vNv-Gd-TBd"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="5Ab-3G-jjk"/>
+            <connections>
+                <outlet property="btnViewAll" destination="8Ov-Xj-b7z" id="FLW-GU-21y"/>
+                <outlet property="homeCollectionView" destination="IIG-Lz-LCS" id="sIh-6R-6fc"/>
+                <outlet property="homeCollectionViewHeight" destination="NoC-dz-9vI" id="fTk-xo-0zv"/>
+                <outlet property="lblCollectionViewTitle" destination="XWp-fS-rJW" id="47m-aq-TXe"/>
+            </connections>
+            <point key="canvasLocation" x="180.15267175572518" y="89.08450704225352"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="LineViewBgColor">
+            <color red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="loginbtnbg">
+            <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="loginsignupcolor">
+            <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

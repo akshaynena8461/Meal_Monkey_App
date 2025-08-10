@@ -36,6 +36,15 @@ class MoreViewController: UIViewController {
     }
     @objc func cartButtonTapped() {
         print("Cart button tapped")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
 
     }
 

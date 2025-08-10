@@ -32,7 +32,6 @@ class LoginViewController: UIViewController {
 
     @IBAction func btnloginclick(_ sender: Any) {
         showMainTabBar()
-
     }
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)

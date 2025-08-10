@@ -25,6 +25,15 @@ class OffersViewController: UIViewController {
     
     @objc func CartBtnTapped() {
         print("Cart Tapped")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
     }
     
     @IBAction func btnCheckOffersClick(_ sender: Any) {

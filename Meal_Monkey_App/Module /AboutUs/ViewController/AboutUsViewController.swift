@@ -41,7 +41,7 @@ class AboutUsViewController: UIViewController {
                 target: self,
                 action: #selector(backBtnTapped)
             )
-            setCartButton(target: self, action: #selector(backBtnTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addNotificationData()
         case .Inbox:
             setLeftAlignedTitle("Inbox")
@@ -71,6 +71,15 @@ class AboutUsViewController: UIViewController {
 
     @objc func cartButtonTapped() {
         print("Cart button tapped")
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: "CartViewController"
+        ) as? CartViewController {
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
+        }
 
     }
 
