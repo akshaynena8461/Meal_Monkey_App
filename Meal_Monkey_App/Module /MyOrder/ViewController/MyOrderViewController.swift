@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class MyOrderViewController: UIViewController {
@@ -13,12 +11,19 @@ class MyOrderViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         tblMyOrderView.showsVerticalScrollIndicator = false
-        
-        tblMyOrderView.register(UINib(nibName: "MyOrderTableViewCell", bundle: nil), forCellReuseIdentifier: "MyOrderTableViewCell")
-        
-        setLeftAlignedTitleWithBack("My Order", target: self, action: #selector(BackBtnTapped))
+
+        tblMyOrderView.register(
+            UINib(nibName: "MyOrderTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "MyOrderTableViewCell"
+        )
+
+        setLeftAlignedTitleWithBack(
+            "My Order",
+            target: self,
+            action: #selector(BackBtnTapped)
+        )
         EditStyle.setborder(textfields: [btnCheckOut], cornerRadious: 28)
 
     }
@@ -26,7 +31,7 @@ class MyOrderViewController: UIViewController {
     @IBAction func btnAddNotesClick(_ sender: Any) {
 
     }
-    
+
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }

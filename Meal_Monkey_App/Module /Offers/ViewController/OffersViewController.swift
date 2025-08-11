@@ -1,4 +1,3 @@
-
 import UIKit
 
 class OffersViewController: UIViewController {
@@ -14,7 +13,7 @@ class OffersViewController: UIViewController {
         tblOffersView.showsVerticalScrollIndicator = false
         setLeftAlignedTitle("Latest Offers")
         setCartButton(target: self, action: #selector(CartBtnTapped))
-        
+
         btnCheckOffers.layer.cornerRadius = 7.42
 
         tblOffersView.register(
@@ -22,7 +21,7 @@ class OffersViewController: UIViewController {
             forCellReuseIdentifier: "OffersTableViewCell"
         )
     }
-    
+
     @objc func CartBtnTapped() {
         print("Cart Tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -35,7 +34,7 @@ class OffersViewController: UIViewController {
             )
         }
     }
-    
+
     @IBAction func btnCheckOffersClick(_ sender: Any) {
     }
 }

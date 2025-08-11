@@ -19,24 +19,23 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="jyf-4o-Q3g">
-                        <rect key="frame" x="0.0" y="10" width="320" height="34.333333333333336"/>
+                        <rect key="frame" x="0.0" y="10" width="320" height="27"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="widget.medium" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="pHg-xA-svH">
-                                <rect key="frame" x="0.0" y="1.6666666666666643" width="37" height="31.666666666666671"/>
+                                <rect key="frame" x="0.0" y="1.6666666666666661" width="37" height="24.333333333333336"/>
                                 <color key="tintColor" name="loginbtnbg"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="37" id="0vS-rq-qdx"/>
-                                    <constraint firstAttribute="height" constant="22" id="FIC-Lz-bmx"/>
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="johndoe@email.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Y4E-Ga-NNR">
-                                <rect key="frame" x="42" y="0.0" width="154.33333333333334" height="34.333333333333336"/>
+                                <rect key="frame" x="42" y="0.0" width="154.33333333333334" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="lbltxtColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nkg-tl-GWY">
-                                <rect key="frame" x="201.33333333333334" y="0.0" width="118.66666666666666" height="34.333333333333336"/>
+                                <rect key="frame" x="201.33333333333334" y="0.0" width="118.66666666666666" height="27"/>
                                 <color key="tintColor" name="loginbtnbg"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>

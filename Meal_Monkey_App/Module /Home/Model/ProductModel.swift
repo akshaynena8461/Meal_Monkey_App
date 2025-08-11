@@ -936,7 +936,8 @@ enum ProductType: String {
     case Desserts
 }
 
-enum ProductCategory: String {
+enum ProductCategory: String, CaseIterable {
+    case All
     case Punjabi
     case Chinese
     case Gujarati

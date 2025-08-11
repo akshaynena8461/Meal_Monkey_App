@@ -445,7 +445,7 @@ meals and more!</string>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="gSe-os-ruZ">
-                                <rect key="frame" x="21" y="90" width="351" height="645"/>
+                                <rect key="frame" x="21" y="90" width="372" height="645"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="hxt-EQ-C5r" id="pCN-yM-VbV"/>
@@ -456,7 +456,7 @@ meals and more!</string>
                         <viewLayoutGuide key="safeArea" id="YsG-O7-wQR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="YsG-O7-wQR" firstAttribute="trailing" secondItem="gSe-os-ruZ" secondAttribute="trailing" constant="21" id="4Vv-1z-RGk"/>
+                            <constraint firstItem="YsG-O7-wQR" firstAttribute="trailing" secondItem="gSe-os-ruZ" secondAttribute="trailing" id="4Vv-1z-RGk"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="top" secondItem="KM3-2R-fme" secondAttribute="top" constant="90" id="Bfw-zS-YKp"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="leading" secondItem="YsG-O7-wQR" secondAttribute="leading" constant="21" id="dit-rf-vSj"/>
                             <constraint firstItem="gSe-os-ruZ" firstAttribute="bottom" secondItem="YsG-O7-wQR" secondAttribute="bottom" id="ty9-gG-uEG"/>

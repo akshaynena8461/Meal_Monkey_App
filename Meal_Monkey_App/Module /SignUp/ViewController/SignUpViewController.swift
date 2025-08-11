@@ -42,14 +42,17 @@ class SignUpViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        EditStyle.setborder(textfields: [
-            txtName,
-            txtEmail,
-            txtMobile,
-            txtAddress,
-            txtName,
-            btnSignUp,
-        ],cornerRadious: 28)
+        EditStyle.setborder(
+            textfields: [
+                txtName,
+                txtEmail,
+                txtMobile,
+                txtAddress,
+                txtName,
+                btnSignUp,
+            ],
+            cornerRadious: 28
+        )
 
         EditStyle.setPadding(
             textFields: [
@@ -62,8 +65,10 @@ class SignUpViewController: UIViewController {
             ],
             paddingWidth: 34
         )
-        
-        EditStyle.addStackBorder(stackViews: [stackPassword,stackConfirmPassword])
+
+        EditStyle.addStackBorder(stackViews: [
+            stackPassword, stackConfirmPassword,
+        ])
 
     }
 

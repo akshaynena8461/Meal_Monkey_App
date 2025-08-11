@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
@@ -54,7 +52,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
             }
         case 1:
             print("Beverages")
-    
+
             if let beveragesvc = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
@@ -66,7 +64,6 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
                 )
             }
         case 2:
-           
 
             if let dessertvc = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
@@ -94,4 +91,3 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
     }
 
 }
-

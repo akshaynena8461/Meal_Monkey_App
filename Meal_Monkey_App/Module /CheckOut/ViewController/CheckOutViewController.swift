@@ -7,6 +7,17 @@ class CheckOutViewController: UIViewController {
     @IBAction func btnTrackMyOrderClick(_ sender: Any) {
     }
     @IBAction func btnBackToHomeClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+        if let homeVc = storyboard.instantiateViewController(
+            withIdentifier: "HomeViewController"
+        ) as? HomeViewController {
+            self.navigationController?.pushViewController(
+                homeVc,
+                animated: true
+            )
+        }
+
+        
     }
     @IBOutlet weak var btnTrackMyOrder: UIButton!
     @IBOutlet weak var thankYouScrollView: UIScrollView!
@@ -76,6 +87,11 @@ class CheckOutViewController: UIViewController {
         viewScroll.layer.shadowOpacity = 0.3
         viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewScroll.layer.shadowRadius = 10
+        
+        addCardPageView.layer.cornerRadius = 20
+        addCardPageView.layer.maskedCorners = [
+            .layerMinXMinYCorner, .layerMaxXMinYCorner,
+        ]
 
         thankYouScrollView.layer.cornerRadius = 20
         thankYouScrollView.layer.maskedCorners = [
@@ -87,16 +103,10 @@ class CheckOutViewController: UIViewController {
         thankYouScrollView.layer.shadowOffset = CGSize(width: 0, height: -2)
         thankYouScrollView.layer.shadowRadius = 10
 
-        addCardPageView.layer.cornerRadius = 20
-        addCardPageView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
         ThankYouPage.layer.cornerRadius = 20
         ThankYouPage.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner,
         ]
-
         EditStyle.setborder(textfields: [btnSendOrder], cornerRadious: 28)
 
         addCardPageView.isHidden = true

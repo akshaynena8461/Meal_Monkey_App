@@ -1,17 +1,13 @@
-
-
 import UIKit
 
 class DessertsViewController: UIViewController {
 
-   
-
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblDessertsView: UITableView!
-    
+
     var selectedProductType: ProductType = .Desserts
-    
-    var arrProductData:[ProductModel] = ProductModel.addProductData()
+
+    var arrProductData: [ProductModel] = ProductModel.addProductData()
 
     var arrProducts: [ProductModel] {
         switch selectedProductType {
@@ -64,6 +60,7 @@ class DessertsViewController: UIViewController {
         )
 
     }
+    
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -76,6 +73,7 @@ class DessertsViewController: UIViewController {
             )
         }
     }
+    
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }

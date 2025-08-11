@@ -28,9 +28,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         switch indexPath.row {
         case 0:
             cell.collectionType = .category
+            cell.selectedCategory = selectedCategory
             cell.lblCollectionViewTitle.isHidden = true
             cell.btnViewAll.isHidden = true
             cell.homeCollectionView.layoutIfNeeded()
+            cell.categories = ProductCategory.allCases
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
@@ -46,9 +48,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionType = .mostPopular
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
-            cell.homeCollectionViewHeight.constant =
-                cell.homeCollectionView.collectionViewLayout
-                .collectionViewContentSize.height
+            cell.homeCollectionViewHeight.constant = 185
             cell.lblCollectionViewTitle.text = "Most Popular"
         case 3:
             cell.collectionType = .RecentItems

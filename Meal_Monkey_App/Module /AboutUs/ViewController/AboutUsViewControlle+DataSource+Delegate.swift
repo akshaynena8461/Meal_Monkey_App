@@ -2,19 +2,8 @@ import UIKit
 
 extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
-//        switch objPagetype {
-//        case .AboutUs:
-//            return arrCurrent.count
-//        case .Notification:
-//            return arrCurrent.count
-//        case .Inbox:
-//        default:
-//            return 0
-//        }
+        -> Int {
         return arrCurrent.count
-
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
@@ -34,11 +23,11 @@ extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
         case .Notification:
             cell.configNotificationcell(
                 about: arrCurrent[indexPath.row]
-                
+
             )
         case .Inbox:
             cell.configInboxcell(about: arrCurrent[indexPath.row])
-            
+
         default:
             return UITableViewCell()
         }

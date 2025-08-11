@@ -1,5 +1,7 @@
 import UIKit
 
+
+
 class HomeTableViewCell: UITableViewCell {
 
     @IBOutlet weak var homeCollectionViewHeight: NSLayoutConstraint!
@@ -8,28 +10,62 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
 
     var collectionType: CollectionType = .category
+    var selectedCategory: ProductCategory = .All
 
+    var categories: [ProductCategory] = [] {
+        didSet {
+            homeCollectionView.reloadData()
+            DispatchQueue.main.async {
+                self.homeCollectionView.layoutIfNeeded()
+                self.updateCollectionHeight()
+            }
+        }
+    }
+
+    func updateCollectionHeight() {
+         if let layout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout,
+            layout.scrollDirection == .vertical {
+             self.homeCollectionViewHeight.constant = self.homeCollectionView.collectionViewLayout.collectionViewContentSize.height
+         }
+     }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
 
-        homeCollectionView.register(
-            UINib(nibName: "ProductCategoryCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "ProductCategoryCollectionViewCell"
-        )
-        homeCollectionView.register(
-            UINib(nibName: "PopularItemCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "PopularItemCollectionViewCell"
-        )
-        homeCollectionView.register(
-            UINib(nibName: "MostPopularCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "MostPopularCollectionViewCell"
-        )
-        homeCollectionView.register(
-            UINib(nibName: "RecentItemCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "RecentItemCollectionViewCell"
+        registerCells(
+            for: homeCollectionView,
+            cells: [
+                (
+                    "ProductCategoryCollectionViewCell",
+                    "ProductCategoryCollectionViewCell"
+                ),
+                (
+                    "PopularItemCollectionViewCell",
+                    "PopularItemCollectionViewCell"
+                ),
+                (
+                    "MostPopularCollectionViewCell",
+                    "MostPopularCollectionViewCell"
+                ),
+                (
+                    "RecentItemCollectionViewCell",
+                    "RecentItemCollectionViewCell"
+                ),
+            ]
         )
     }
-
+    
+    func registerCells(
+        for collectionView: UICollectionView,
+        cells: [(String, String)]
+    ) {
+        for (nibName, identifier) in cells {
+            collectionView.register(
+                UINib(nibName: nibName, bundle: nil),
+                forCellWithReuseIdentifier: identifier
+            )
+        }
+    }
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -48,12 +84,12 @@ extension HomeTableViewCell: UICollectionViewDataSource,
         switch collectionType {
 
         case .category:
-
-            let cell =
-                collectionView.dequeueReusableCell(
+            let cell = collectionView.dequeueReusableCell(
                     withReuseIdentifier: "ProductCategoryCollectionViewCell",
                     for: indexPath
                 ) as! ProductCategoryCollectionViewCell
+
+            cell.confingProductCategory(category: categories[indexPath.row])
             return cell
 
         case .popular:
@@ -62,6 +98,9 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     withReuseIdentifier: "PopularItemCollectionViewCell",
                     for: indexPath
                 ) as! PopularItemCollectionViewCell
+            cell.configPopularProduct(product: HomeViewController.arrProductData.filter {
+                $0.floatProductRating  > 4 && $0.floatProductRating <= 4.5
+            }[indexPath.row] )
             return cell
 
         case .mostPopular:
@@ -70,6 +109,10 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     withReuseIdentifier: "MostPopularCollectionViewCell",
                     for: indexPath
                 ) as! MostPopularCollectionViewCell
+            
+            cell.congigMostPopularCell(product: HomeViewController.arrProductData.filter {
+                $0.floatProductRating > 4.5
+            }[indexPath.row])
             return cell
 
         case .RecentItems:
@@ -89,11 +132,14 @@ extension HomeTableViewCell: UICollectionViewDataSource,
     ) -> Int {
         switch collectionType {
         case .category:
-            return 10
+            return categories.count
         case .popular:
-            return 5
+            return  HomeViewController.arrProductData.filter {
+                $0.floatProductRating  > 4 && $0.floatProductRating <= 4.5}.count
         case .mostPopular:
-            return 5
+            return HomeViewController.arrProductData.filter {
+                $0.floatProductRating > 4.5
+            }.count
         case .RecentItems:
             return 5
         }
@@ -107,13 +153,14 @@ extension HomeTableViewCell: UICollectionViewDataSource,
 
         switch collectionType {
         case .category:
-            return CGSize(width: 88, height: 113)
+            return CGSize(width: 98, height: 113)
         case .popular:
-            return CGSize(width: 375, height: 242)
+            return CGSize(width: collectionView.frame.size.width, height: 243)
         case .mostPopular:
             return CGSize(width: 228, height: 185)
         case .RecentItems:
-            return CGSize(width: 296, height: 79)
+            return CGSize(width: collectionView.frame.size.width, height: 79)
+
         }
     }
 }

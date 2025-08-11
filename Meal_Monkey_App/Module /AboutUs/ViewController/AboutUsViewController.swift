@@ -1,7 +1,4 @@
-
-
 import UIKit
-
 
 class AboutUsViewController: UIViewController {
 

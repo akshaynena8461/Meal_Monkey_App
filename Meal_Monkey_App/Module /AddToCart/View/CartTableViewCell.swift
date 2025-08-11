@@ -2,7 +2,7 @@ import UIKit
 
 class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var btnDelete: UIButton!
-    
+
     @IBOutlet weak var lblProductTitle: UILabel!
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblQty: UILabel!
@@ -21,9 +21,9 @@ class CartTableViewCell: UITableViewCell {
 
     }
     @IBAction func btnDeleteClick(_ sender: Any) {
-   
+
     }
-    
+
     func configCartCell(product: ProductModel) {
         lblProductTitle.text = product.strProductName
         lblCategory.text = "\(product.objProductCategory)"
@@ -31,7 +31,5 @@ class CartTableViewCell: UITableViewCell {
         lblDescription.text = product.strProductDescription
         lblQty.text = "Qty : \(product.intProductQty ?? 0)"
     }
-
-   
 
 }

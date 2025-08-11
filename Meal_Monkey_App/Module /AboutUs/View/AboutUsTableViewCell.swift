@@ -9,7 +9,6 @@ import UIKit
 
 class AboutUsTableViewCell: UITableViewCell {
 
-
     @IBOutlet weak var lblRightTitleWidth: NSLayoutConstraint!
     @IBOutlet weak var btnStar: UIButton!
     @IBOutlet weak var lblRightsideTitle: UILabel!
@@ -20,9 +19,9 @@ class AboutUsTableViewCell: UITableViewCell {
     }
     @IBAction func btnStarClick(_ sender: Any) {
     }
-    
+
     @IBOutlet weak var imgDotRightConstraint: NSLayoutConstraint!
-    
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
@@ -42,12 +41,12 @@ class AboutUsTableViewCell: UITableViewCell {
         lblTitle2.text = about.strTimezone
         imgDotRightConstraint.constant = 35
     }
-    
+
     func configInboxcell(about: AboutModel) {
         lblTitle.text = about.strText
         btnStar.isHidden = false
         lblRightsideTitle.text = about.strRightSideText
         lblTitle2.text = about.strText2
     }
-    
+
 }

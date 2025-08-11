@@ -19,10 +19,10 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Nmw-if-3WG">
-                        <rect key="frame" x="0.0" y="10" width="386" height="83"/>
+                        <rect key="frame" x="0.0" y="10" width="365" height="83"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dXF-Dg-HQ9">
-                                <rect key="frame" x="82" y="30" width="294" height="23"/>
+                                <rect key="frame" x="82" y="30" width="273" height="23"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" name="loginsignupcolor"/>
                                 <nil key="highlightedColor"/>
@@ -36,15 +36,14 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-Pn-r1Y">
-                                <rect key="frame" x="339" y="26" width="33" height="33"/>
+                                <rect key="frame" x="342" y="26" width="33" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="2Ud-NM-6Jj"/>
                                     <constraint firstAttribute="height" constant="33" id="593-at-ZWJ"/>
                                 </constraints>
+                                <color key="tintColor" name="secondarylabelcolor"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                <state key="normal" image="Ic_rightArraow">
-                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
-                                </state>
+                                <state key="normal" image="Ic_arrow"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" name="More_View_Background"/>
@@ -54,14 +53,14 @@
                             <constraint firstItem="7yR-GS-etw" firstAttribute="leading" secondItem="Nmw-if-3WG" secondAttribute="leading" constant="10" id="NGO-5R-onh"/>
                             <constraint firstItem="dXF-Dg-HQ9" firstAttribute="centerY" secondItem="Nmw-if-3WG" secondAttribute="centerY" id="XKX-jn-fFn"/>
                             <constraint firstAttribute="bottom" secondItem="dXF-Dg-HQ9" secondAttribute="bottom" constant="30" id="cUF-zX-EnL"/>
-                            <constraint firstAttribute="trailing" secondItem="RSF-Pn-r1Y" secondAttribute="trailing" constant="14" id="fyS-6q-Pis"/>
+                            <constraint firstAttribute="trailing" secondItem="RSF-Pn-r1Y" secondAttribute="trailing" constant="-10" id="fyS-6q-Pis"/>
                             <constraint firstItem="7yR-GS-etw" firstAttribute="top" secondItem="Nmw-if-3WG" secondAttribute="top" constant="13" id="qX5-jE-bEh"/>
                             <constraint firstAttribute="trailing" secondItem="dXF-Dg-HQ9" secondAttribute="trailing" constant="10" id="wlN-UK-44I"/>
                         </constraints>
                     </view>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="Nmw-if-3WG" secondAttribute="trailing" id="UAO-fO-I8X"/>
+                    <constraint firstAttribute="trailing" secondItem="Nmw-if-3WG" secondAttribute="trailing" constant="21" id="UAO-fO-I8X"/>
                     <constraint firstItem="Nmw-if-3WG" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="ahg-cm-pub"/>
                     <constraint firstAttribute="bottom" secondItem="Nmw-if-3WG" secondAttribute="bottom" id="ayN-6N-U3L"/>
                     <constraint firstItem="Nmw-if-3WG" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="gkU-uE-q2a"/>
@@ -78,7 +77,7 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="Ic_rightArraow" width="7" height="14"/>
+        <image name="Ic_arrow" width="39" height="39"/>
         <namedColor name="More_View_Background">
             <color red="0.96470588235294119" green="0.96470588235294119" blue="0.96470588235294119" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
@@ -87,6 +86,9 @@
         </namedColor>
         <namedColor name="loginsignupcolor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="secondarylabelcolor">
+            <color red="0.48627450980392156" green="0.49019607843137253" blue="0.49411764705882355" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

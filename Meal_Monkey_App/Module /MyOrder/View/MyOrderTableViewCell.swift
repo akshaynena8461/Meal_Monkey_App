@@ -1,5 +1,3 @@
-
-
 import UIKit
 
 class MyOrderTableViewCell: UITableViewCell {
@@ -12,5 +10,5 @@ class MyOrderTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
-    
+
 }

@@ -2,7 +2,7 @@ import Foundation
 import UIKit
 
 class EditStyle {
-    class func setborder(textfields: [UIView],cornerRadious:CGFloat) {
+    class func setborder(textfields: [UIView], cornerRadious: CGFloat) {
         for textField in textfields {
             textField.layer.borderColor = UIColor.lightGray.cgColor
             textField.layer.cornerRadius = cornerRadious
@@ -37,7 +37,7 @@ class EditStyle {
         }
 
     }
-     
+
     class func addStackBorder(stackViews: [UIView]) {
         for stackView in stackViews {
             stackView.layer.cornerRadius = 28
@@ -58,21 +58,20 @@ extension UIViewController {
         action: Selector
     ) {
         let button = UIButton(type: .system)
-        
+
         button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
         button.setTitle("  \(title)", for: .normal)
         button.setTitleColor(textColor, for: .normal)
         button.titleLabel?.font = font
         button.tintColor = textColor
-        
+
         button.addTarget(target, action: action, for: .touchUpInside)
-        
+
         button.sizeToFit()
-        
+
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
-
 
     func setLeftAlignedTitle(
         _ title: String,

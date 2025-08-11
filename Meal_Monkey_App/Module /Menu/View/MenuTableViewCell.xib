@@ -21,8 +21,8 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uXt-eC-dZD">
                         <rect key="frame" x="0.0" y="12" width="398" height="125"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle_Menu" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-m7-Sbo">
-                                <rect key="frame" x="0.0" y="12" width="398" height="113"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Rectangle_Menu" translatesAutoresizingMaskIntoConstraints="NO" id="l0c-m7-Sbo">
+                                <rect key="frame" x="21" y="12" width="377" height="113"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gcM-U1-J3d">
                                 <rect key="frame" x="0.0" y="33.666666666666657" width="70" height="70"/>
@@ -32,16 +32,16 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="-60" translatesAutoresizingMaskIntoConstraints="NO" id="83M-aY-fAK">
-                                <rect key="frame" x="82" y="12" width="250" height="113"/>
+                                <rect key="frame" x="82" y="12" width="271" height="113"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="249" verticalCompressionResistancePriority="749" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sIC-rQ-rgV">
-                                        <rect key="frame" x="0.0" y="0.0" width="250" height="86.666666666666671"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="271" height="86.666666666666671"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="22"/>
                                         <color key="textColor" name="loginsignupcolor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="246" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cfp-0C-bMG">
-                                        <rect key="frame" x="0.0" y="26.666666666666664" width="250" height="86.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="26.666666666666664" width="271" height="86.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                         <color key="textColor" name="placeholdercolor"/>
                                         <nil key="highlightedColor"/>
@@ -49,7 +49,7 @@
                                 </subviews>
                             </stackView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrBtnCircle" translatesAutoresizingMaskIntoConstraints="NO" id="IkG-qH-a9J">
-                                <rect key="frame" x="344" y="52" width="33" height="33"/>
+                                <rect key="frame" x="365" y="52" width="33" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="OSy-c8-K0X"/>
                                     <constraint firstAttribute="height" constant="33" id="c4n-ya-rov"/>
@@ -58,11 +58,11 @@
                         </subviews>
                         <constraints>
                             <constraint firstItem="gcM-U1-J3d" firstAttribute="leading" secondItem="uXt-eC-dZD" secondAttribute="leading" id="0xY-Uz-cF5"/>
-                            <constraint firstAttribute="trailing" secondItem="IkG-qH-a9J" secondAttribute="trailing" constant="21" id="9Bf-jS-hdC"/>
+                            <constraint firstAttribute="trailing" secondItem="IkG-qH-a9J" secondAttribute="trailing" id="9Bf-jS-hdC"/>
                             <constraint firstItem="83M-aY-fAK" firstAttribute="top" secondItem="uXt-eC-dZD" secondAttribute="top" constant="12" id="Gdh-w5-cxs"/>
                             <constraint firstItem="83M-aY-fAK" firstAttribute="leading" secondItem="gcM-U1-J3d" secondAttribute="trailing" constant="12" id="Ipz-NB-6xl"/>
                             <constraint firstItem="IkG-qH-a9J" firstAttribute="centerY" secondItem="83M-aY-fAK" secondAttribute="centerY" id="KEn-cd-OLx"/>
-                            <constraint firstItem="l0c-m7-Sbo" firstAttribute="leading" secondItem="uXt-eC-dZD" secondAttribute="leading" id="M0L-Vo-sZE"/>
+                            <constraint firstItem="l0c-m7-Sbo" firstAttribute="leading" secondItem="uXt-eC-dZD" secondAttribute="leading" constant="21" id="M0L-Vo-sZE"/>
                             <constraint firstItem="l0c-m7-Sbo" firstAttribute="top" secondItem="uXt-eC-dZD" secondAttribute="top" constant="12" id="PK5-3q-Wvv"/>
                             <constraint firstItem="IkG-qH-a9J" firstAttribute="leading" secondItem="83M-aY-fAK" secondAttribute="trailing" constant="12" id="Pn2-yh-Qjj"/>
                             <constraint firstAttribute="bottom" secondItem="83M-aY-fAK" secondAttribute="bottom" id="aOs-vy-iZU"/>

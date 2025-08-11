@@ -12,94 +12,98 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="PopularItemCollectionViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="300" height="183"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="300" height="183"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offers_Img_1" translatesAutoresizingMaskIntoConstraints="NO" id="6jk-3E-omK">
-                        <rect key="frame" x="0.0" y="0.0" width="300" height="132.33333333333334"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="132.33333333333334" id="yyL-JJ-7Us"/>
-                        </constraints>
-                    </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="yKa-jm-Ztn">
-                        <rect key="frame" x="21" y="142.33333333333334" width="258" height="40.666666666666657"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pVU-e2-W33">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="256"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minute by tuk tuk" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGX-L7-mmb">
-                                <rect key="frame" x="0.0" y="0.0" width="258" height="20.666666666666668"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                <color key="textColor" name="loginsignupcolor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Usm-rb-YlP">
-                                <rect key="frame" x="0.0" y="25.666666666666657" width="258" height="15"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="iaC-ZU-7Eg">
+                                <rect key="frame" x="21" y="201" width="333" height="45"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ic_Star_Filled" translatesAutoresizingMaskIntoConstraints="NO" id="Vmq-nB-Lwb">
-                                        <rect key="frame" x="0.0" y="0.0" width="13.666666666666666" height="15"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="13.789999999999999" id="18R-fI-Ui5"/>
-                                            <constraint firstAttribute="height" constant="14.9" id="Vq2-SU-6BF"/>
-                                        </constraints>
-                                    </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lca-DV-bAN">
-                                        <rect key="frame" x="17.666666666666664" y="0.0" width="44" height="15"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
-                                        <color key="textColor" name="loginbtnbg"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Minute by tuk tuk" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7H-RG-vgU">
+                                        <rect key="frame" x="0.0" y="0.0" width="333" height="29"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" name="loginsignupcolor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(124 ratings)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RVy-hs-qVM">
-                                        <rect key="frame" x="65.666666666666671" y="0.0" width="61.333333333333329" height="15"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                        <color key="textColor" name="secondarylabelcolor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Café" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dMF-Au-0kn">
-                                        <rect key="frame" x="131" y="0.0" width="61.666666666666657" height="15"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                        <color key="textColor" name="secondarylabelcolor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Western Food" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="84I-KB-d8f">
-                                        <rect key="frame" x="196.66666666666666" y="0.0" width="61.333333333333343" height="15"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                        <color key="textColor" name="secondarylabelcolor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="dbw-N3-25Z">
+                                        <rect key="frame" x="0.0" y="32" width="333" height="13"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="daj-UM-SOL">
+                                                <rect key="frame" x="0.0" y="0.0" width="10" height="13"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="13" id="4VD-Yh-J1Z"/>
+                                                    <constraint firstAttribute="width" constant="10" id="6zN-vH-BNh"/>
+                                                </constraints>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="" image="Ic_Star_Filled"/>
+                                            </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AFY-6q-kdx">
+                                                <rect key="frame" x="14.999999999999998" y="0.0" width="18.333333333333329" height="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" name="secondarylabelcolor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="(124) Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bsC-mg-Kve">
+                                                <rect key="frame" x="38.333333333333343" y="0.0" width="69" height="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" name="secondarylabelcolor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Western Food" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H9B-sT-YhB">
+                                                <rect key="frame" x="112.33333333333336" y="0.0" width="220.66666666666663" height="13"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" name="secondarylabelcolor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offers_Img_1" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-gx-bVS">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="193" id="42Z-Xc-ulW"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
-                    </stackView>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="iaC-ZU-7Eg" secondAttribute="trailing" constant="21" id="2V5-pQ-rt3"/>
+                            <constraint firstItem="bOT-gx-bVS" firstAttribute="leading" secondItem="pVU-e2-W33" secondAttribute="leading" id="4we-vA-Nud"/>
+                            <constraint firstAttribute="bottom" secondItem="iaC-ZU-7Eg" secondAttribute="bottom" constant="10" id="IIu-9b-U71"/>
+                            <constraint firstAttribute="trailing" secondItem="bOT-gx-bVS" secondAttribute="trailing" id="Yha-XK-1cv"/>
+                            <constraint firstItem="iaC-ZU-7Eg" firstAttribute="leading" secondItem="pVU-e2-W33" secondAttribute="leading" constant="21" id="a5a-Yj-Sv3"/>
+                            <constraint firstItem="bOT-gx-bVS" firstAttribute="top" secondItem="pVU-e2-W33" secondAttribute="top" id="sjN-w5-uZf"/>
+                            <constraint firstItem="iaC-ZU-7Eg" firstAttribute="top" secondItem="bOT-gx-bVS" secondAttribute="bottom" constant="8" id="ymK-bz-LBn"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="yKa-jm-Ztn" secondAttribute="bottom" id="C8c-ra-8E6"/>
-                <constraint firstItem="yKa-jm-Ztn" firstAttribute="top" secondItem="6jk-3E-omK" secondAttribute="bottom" constant="10" id="EfJ-lg-NDt"/>
-                <constraint firstAttribute="trailing" secondItem="yKa-jm-Ztn" secondAttribute="trailing" constant="21" id="Fvh-a6-Ll1"/>
-                <constraint firstItem="6jk-3E-omK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="MdL-Dz-vLU"/>
-                <constraint firstAttribute="trailing" secondItem="6jk-3E-omK" secondAttribute="trailing" id="XUv-bb-oAw"/>
-                <constraint firstItem="yKa-jm-Ztn" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="21" id="mm0-vz-j4J"/>
-                <constraint firstItem="6jk-3E-omK" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ssK-So-Wd8"/>
+                <constraint firstAttribute="bottom" secondItem="pVU-e2-W33" secondAttribute="bottom" id="Cjl-1P-tpx"/>
+                <constraint firstAttribute="trailing" secondItem="pVU-e2-W33" secondAttribute="trailing" id="gBi-LF-MwQ"/>
+                <constraint firstItem="pVU-e2-W33" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="uXy-xr-MBp"/>
+                <constraint firstItem="pVU-e2-W33" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="ySc-lJ-2pn"/>
             </constraints>
-            <size key="customSize" width="300" height="183"/>
+            <size key="customSize" width="375" height="256"/>
             <connections>
-                <outlet property="imgProduct" destination="6jk-3E-omK" id="ZWx-MS-rWk"/>
-                <outlet property="lblCategory" destination="84I-KB-d8f" id="bTN-0Z-L2Z"/>
-                <outlet property="lblDescription" destination="dMF-Au-0kn" id="fLp-2J-22F"/>
-                <outlet property="lblNumberOfRating" destination="RVy-hs-qVM" id="u6z-xx-LPA"/>
-                <outlet property="lblRating" destination="lca-DV-bAN" id="gtM-44-2Ef"/>
+                <outlet property="imgProduct" destination="bOT-gx-bVS" id="eXQ-o9-ZST"/>
+                <outlet property="lblCategory" destination="H9B-sT-YhB" id="2Ir-q2-48p"/>
+                <outlet property="lblNumberOfRating" destination="bsC-mg-Kve" id="a7f-wC-eEf"/>
+                <outlet property="lblProductName" destination="c7H-RG-vgU" id="YxV-mF-WNw"/>
+                <outlet property="lblRating" destination="AFY-6q-kdx" id="sM6-BK-hz1"/>
             </connections>
-            <point key="canvasLocation" x="200" y="66.549295774647888"/>
+            <point key="canvasLocation" x="167.17557251908397" y="92.253521126760575"/>
         </collectionViewCell>
     </objects>
     <resources>
         <image name="Ic_Star_Filled" width="16" height="15"/>
         <image name="Offers_Img_1" width="375" height="193"/>
-        <namedColor name="loginbtnbg">
-            <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
         <namedColor name="loginsignupcolor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

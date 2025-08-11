@@ -1,10 +1,3 @@
-//
-//  DessertsTableViewCell.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 06/08/25.
-//
-
 import UIKit
 
 class DessertsTableViewCell: UITableViewCell {
@@ -17,7 +10,6 @@ class DessertsTableViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
     }
-    
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -30,14 +22,18 @@ class DessertsTableViewCell: UITableViewCell {
         lblRating.text = "\(dessert.floatProductRating)"
         imgDessert.image = UIImage(named: dessert.strProductImage)
     }
-    
+
     private func getStyledText(_ text: String) -> NSAttributedString {
-           let attributed = NSMutableAttributedString(string: text)
-           if let dotRange = text.range(of: "•") {
-               let nsRange = NSRange(dotRange, in: text)
-               attributed.addAttribute(.foregroundColor, value: UIColor.orange, range: nsRange)
-           }
-           return attributed
-       }
+        let attributed = NSMutableAttributedString(string: text)
+        if let dotRange = text.range(of: "•") {
+            let nsRange = NSRange(dotRange, in: text)
+            attributed.addAttribute(
+                .foregroundColor,
+                value: UIColor.orange,
+                range: nsRange
+            )
+        }
+        return attributed
+    }
 
 }

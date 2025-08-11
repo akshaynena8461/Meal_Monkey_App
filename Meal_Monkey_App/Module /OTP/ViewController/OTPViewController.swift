@@ -1,10 +1,3 @@
-//
-//  OTPViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 07/08/25.
-//
-
 import UIKit
 
 class OTPViewController: UIViewController {
@@ -16,20 +9,18 @@ class OTPViewController: UIViewController {
     @IBOutlet weak var txtDigit2: UITextField!
     @IBOutlet weak var txtDigit1: UITextField!
 
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
         let allviews = [txtDigit1!, txtDigit2!, txtDigit3!, txtDigit4!]
 
-        
         EditStyle.setOTPtextFieldborder(textfields: [
             txtDigit1,
             txtDigit2,
             txtDigit3,
             txtDigit4,
         ])
-        EditStyle.setborder(textfields: [btnNext],cornerRadious: 28)
+        EditStyle.setborder(textfields: [btnNext], cornerRadious: 28)
 
         for tf in allviews {
             tf.delegate = self

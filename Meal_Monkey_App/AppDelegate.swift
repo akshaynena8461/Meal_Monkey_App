@@ -3,9 +3,12 @@
 import UIKit
 import CoreData
 
+var app = UIApplication.shared.delegate as! AppDelegate
+
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
+    var arrCart:[ProductModel] = []
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {

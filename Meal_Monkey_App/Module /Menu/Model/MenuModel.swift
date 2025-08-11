@@ -14,9 +14,13 @@ class MenuModel {
 
     class func addMenuData() -> [MenuModel] {
         return [
-            MenuModel(strTitle: "Food", intItem: 120,strImage: "Food"),
-            MenuModel(strTitle: "Beverages", intItem: 220,strImage: "Beverages"),
-            MenuModel(strTitle: "Desserts", intItem: 155,strImage: "Desserts"),
+            MenuModel(strTitle: "Food", intItem: 120, strImage: "Food"),
+            MenuModel(
+                strTitle: "Beverages",
+                intItem: 220,
+                strImage: "Beverages"
+            ),
+            MenuModel(strTitle: "Desserts", intItem: 155, strImage: "Desserts"),
         ]
     }
 }

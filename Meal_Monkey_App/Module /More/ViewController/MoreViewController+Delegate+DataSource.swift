@@ -31,18 +31,27 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
         let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
 
-        
         switch indexPath.row {
         case 0:
             print("Payment Details selected")
-            if let paymentvc = storyboard.instantiateViewController(withIdentifier: "PaymentViewController") as? PaymentViewController{
-                self.navigationController?.pushViewController(paymentvc, animated: true)
+            if let paymentvc = storyboard.instantiateViewController(
+                withIdentifier: "PaymentViewController"
+            ) as? PaymentViewController {
+                self.navigationController?.pushViewController(
+                    paymentvc,
+                    animated: true
+                )
             }
 
         case 1:
             print("My Orders selected")
-            if let myorderVc = storyboard.instantiateViewController(withIdentifier: "MyOrderViewController") as? MyOrderViewController{
-                self.navigationController?.pushViewController(myorderVc, animated: true)
+            if let myorderVc = storyboard.instantiateViewController(
+                withIdentifier: "MyOrderViewController"
+            ) as? MyOrderViewController {
+                self.navigationController?.pushViewController(
+                    myorderVc,
+                    animated: true
+                )
             }
         case 2:
             print("Notification selected")

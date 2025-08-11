@@ -11,18 +11,18 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var btnCurrentLocation: UIButton!
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
-   
+
     @IBAction func btnChooseSavedPlacedClick(_ sender: Any) {
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        
-        EditStyle.setborder(textfields: [txtSearchAddress], cornerRadious: 28)
-        
-        EditStyle.setPadding(textFields: [txtSearchAddress], paddingWidth: 34)
-        
+        EditStyle.setborder(textfields: [txtSearchAddress],
+                            cornerRadious: 28)
+        EditStyle.setPadding(textFields: [txtSearchAddress],
+                             paddingWidth: 34)
+
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         checkLocationPermission()
@@ -38,8 +38,11 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
             self.addPinAtCenterAndReverseGeocode()
         }
-        
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(mapTapped(_:)))
+
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(mapTapped(_:))
+        )
         mapView.addGestureRecognizer(tapGesture)
 
         setLeftAlignedTitleWithBack(
@@ -49,23 +52,29 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         )
 
     }
-    
+
     @objc func mapTapped(_ gesture: UITapGestureRecognizer) {
         let touchPoint = gesture.location(in: mapView)
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
-        
+
         // Remove old pins
-        mapView.removeAnnotations(mapView.annotations.filter { !($0 is MKUserLocation) })
-        
+        mapView.removeAnnotations(
+            mapView.annotations.filter { !($0 is MKUserLocation) }
+        )
+
         // Add new pin
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = "Loading address..."
         mapView.addAnnotation(annotation)
-        
+
         // Get location details
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        CLGeocoder().reverseGeocodeLocation(location) { [weak self] placemarks, error in
+        let location = CLLocation(
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude
+        )
+        CLGeocoder().reverseGeocodeLocation(location) {
+            [weak self] placemarks, error in
             guard let self = self else { return }
             if let placemark = placemarks?.first {
                 let name = placemark.name ?? ""
@@ -74,15 +83,16 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
                 annotation.title = name
                 annotation.subtitle = "\(city), \(country)"
             } else {
-                annotation.title = "Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)"
+                annotation.title =
+                    "Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)"
                 annotation.subtitle = nil
             }
-            
+
             // Refresh annotation view
             self.mapView.selectAnnotation(annotation, animated: true)
         }
     }
-    
+
     func checkLocationPermission() {
         if #available(iOS 14.0, *) {
             switch locationManager.authorizationStatus {
@@ -142,7 +152,8 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         // Move map to current location
         let region = MKCoordinateRegion(
             center: location.coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.01, longitudeDelta: 0.01)
+            span: MKCoordinateSpan(latitudeDelta: 0.01,
+                                   longitudeDelta: 0.01)
         )
         mapView.setRegion(region, animated: true)
 
@@ -211,21 +222,31 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         }
     }
 
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
+        -> MKAnnotationView?
+    {
         if annotation is MKUserLocation {
-            return nil // keep blue dot for user location
+            return nil  // keep blue dot for user location
         }
 
         let identifier = "CustomPin"
-        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: identifier)
+        var annotationView = mapView.dequeueReusableAnnotationView(
+            withIdentifier: identifier
+        )
 
         if annotationView == nil {
-            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: identifier)
+            annotationView = MKAnnotationView(
+                annotation: annotation,
+                reuseIdentifier: identifier
+            )
             annotationView?.canShowCallout = true
 
             // Set custom image from assets as pin
-            annotationView?.image = UIImage(named: "Ic_Location_Pin") // asset name
-            annotationView?.centerOffset = CGPoint(x: 0, y: -(annotationView?.image?.size.height ?? 0) / 2)
+            annotationView?.image = UIImage(named: "Ic_Location_Pin")  // asset name
+            annotationView?.centerOffset = CGPoint(
+                x: 0,
+                y: -(annotationView?.image?.size.height ?? 0) / 2
+            )
 
             // Right detail button
             let button = UIButton(type: .detailDisclosure)
@@ -239,19 +260,19 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
 
     @IBAction func btnCurrentLocationTapped(_ sender: Any) {
         if CLLocationManager.locationServicesEnabled() {
-                switch locationManager.authorizationStatus {
-                case .notDetermined:
-                    locationManager.requestWhenInUseAuthorization()
-                case .denied, .restricted:
-                    showPermissionAlert()
-                case .authorizedWhenInUse, .authorizedAlways:
-                    locationManager.startUpdatingLocation()
-                @unknown default:
-                    break
-                }
-            } else {
+            switch locationManager.authorizationStatus {
+            case .notDetermined:
+                locationManager.requestWhenInUseAuthorization()
+            case .denied, .restricted:
                 showPermissionAlert()
+            case .authorizedWhenInUse, .authorizedAlways:
+                locationManager.startUpdatingLocation()
+            @unknown default:
+                break
             }
+        } else {
+            showPermissionAlert()
+        }
     }
     func goToCurrentLocation() {
         if let location = locationManager.location?.coordinate {

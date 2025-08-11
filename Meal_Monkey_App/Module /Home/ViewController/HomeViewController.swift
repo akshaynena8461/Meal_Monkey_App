@@ -1,37 +1,34 @@
 import UIKit
 
+
+
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var txtSearchFood: UITextField!
-  
-    var selectedCategory:ProductCategory = .Gujarati
-    
-    var arrPopularProducts: [ProductModel] = []
-    var arrMostPopularProducts: [ProductModel] = []
-
+    var selectedCategory: ProductCategory = .Gujarati
     @IBOutlet weak var tblHomeView: UITableView!
-    var arrProductData: [ProductModel] = ProductModel.addProductData()
+    
+    static var arrProductData: [ProductModel] = ProductModel.addProductData()
+    var arrRecentItem:[ProductModel] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        tblHomeView.showsVerticalScrollIndicator = false
+        tabBarController?.tabBar.isHidden = false
         setLeftAlignedTitle("Good morning Akshay!")
         setCartButton(target: self, action: #selector(CartButtonTapped))
 
-        arrPopularProducts = arrProductData.filter {
-            $0.floatProductRating == 4.5
-        }
-        arrMostPopularProducts = arrProductData.filter {
-            $0.floatProductRating == 5
-        }
-        
         EditStyle.setborder(textfields: [txtSearchFood], cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearchFood], paddingWidth: 34)
-        
-        tblHomeView.register(UINib(nibName: "HomeTableViewCell", bundle: nil), forCellReuseIdentifier: "HomeTableViewCell")
-        
+
+        tblHomeView.register(
+            UINib(nibName: "HomeTableViewCell", bundle: nil),
+            forCellReuseIdentifier: "HomeTableViewCell"
+        )
+
         tblHomeView.reloadData()
-        
+
     }
 
     @objc func CartButtonTapped() {
