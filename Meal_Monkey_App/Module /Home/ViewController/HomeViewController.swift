@@ -4,11 +4,10 @@ import UIKit
 
 class HomeViewController: UIViewController,HomeTableViewCellDelegate {
 
-    
-
     @IBOutlet weak var txtSearchFood: UITextField!
-    var selectedCategory: ProductCategory = .Gujarati
+    var selectedCategory: ProductCategory = .All
     @IBOutlet weak var tblHomeView: UITableView!
+    var objProductCategory:ProductModel?
 
     static var arrProductData: [ProductModel] = ProductModel.addProductData()
     var arrRecentItem:[ProductModel] = []

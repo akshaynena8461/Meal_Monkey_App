@@ -1,9 +1,3 @@
-//
-//  AboutUsTableViewCell.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 04/08/25.
-//
 
 import UIKit
 
@@ -14,18 +8,20 @@ class AboutUsTableViewCell: UITableViewCell {
     @IBOutlet weak var lblRightsideTitle: UILabel!
     @IBOutlet weak var lblTitle2: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
+    
     @IBAction func btnStarClick(_ sender: Any) {
     }
-
+    
     @IBOutlet weak var imgDotRightConstraint: NSLayoutConstraint!
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
+    
     func configaboutcell(about: AboutModel) {
         lblTitle.text = about.strText
         lblTitle2.isHidden = true

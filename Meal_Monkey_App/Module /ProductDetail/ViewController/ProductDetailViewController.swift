@@ -106,7 +106,7 @@ class ProductDetailViewController: UIViewController {
         lblTitle.text = product.strProductName
         lblDescription.text = product.strProductDescription
         imgProduct.image = UIImage(named: product.strProductImage)
-        lblRatings.text = "\(product.floatProductRating)"
+        lblRatings.text = "\(product.floatProductRating) star Ratings"
         updatePriceAndQuantityUI()
     }
 

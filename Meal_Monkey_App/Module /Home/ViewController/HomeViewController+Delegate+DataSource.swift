@@ -40,14 +40,14 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Popular"
-
+            
             if selectedCategory == .All {
                 cell.arrProducts = HomeViewController.arrProductData.filter {
                     $0.floatProductRating >= 4 && $0.floatProductRating <= 4.5
                 }
             } else {
                 cell.arrProducts = HomeViewController.arrProductData.filter {
-                    $0.floatProductRating > 4.5
+                    $0.floatProductRating >= 4 && $0.floatProductRating <= 4.5
                         && $0.objProductCategory == selectedCategory
                 }
             }
@@ -77,11 +77,11 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.collectionType = .RecentItems
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
+            cell.arrProducts = arrRecentItem
+            cell.lblCollectionViewTitle.text = "Recent Items"
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
-            cell.arrProducts = arrRecentItem
-            cell.lblCollectionViewTitle.text = "Recent Items"
 
         default:
             break

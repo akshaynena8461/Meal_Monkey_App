@@ -29,8 +29,9 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-
         let selectedProduct = HomeViewController.arrProductData[indexPath.row]
+        
+        RecentItemsHelper.shared.addProduct(selectedProduct)
 
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
             detailVC.product = selectedProduct

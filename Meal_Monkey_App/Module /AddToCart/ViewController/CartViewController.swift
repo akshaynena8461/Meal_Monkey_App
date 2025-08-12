@@ -14,7 +14,6 @@ class CartViewController: UIViewController {
             lblEmpty.isHidden = false
             btnPlaceOrder.isHidden = true
         }
-
         setLeftAlignedTitleWithBack(
             "Cart Page",
             target: self,

@@ -26,25 +26,28 @@ class HomeTableViewCell: UITableViewCell {
     var categories: [ProductCategory] = [] {
         didSet {
             homeCollectionView.reloadData()
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
+            DispatchQueue.main.async {
                 self.homeCollectionView.layoutIfNeeded()
-                self.homeCollectionViewHeight.constant =
-                    self.homeCollectionView.collectionViewLayout
-                    .collectionViewContentSize.height
+                self.updateCollectionHeight()
+    
             }
         }
     }
+    func updateCollectionHeight() {
+            if let layout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout,
+               layout.scrollDirection == .vertical {
+                self.homeCollectionViewHeight.constant = self.homeCollectionView.collectionViewLayout.collectionViewContentSize.height
+            }
+        }
+    
+    
 
     var arrProducts: [ProductModel] = [] {
         didSet {
             homeCollectionView.reloadData()
-            DispatchQueue.main.async { [weak self] in
-                guard let self = self else { return }
+            DispatchQueue.main.async {
                 self.homeCollectionView.layoutIfNeeded()
-                self.homeCollectionViewHeight.constant =
-                    self.homeCollectionView.collectionViewLayout
-                    .collectionViewContentSize.height
+                self.updateCollectionHeight()
             }
         }
     }
@@ -127,9 +130,7 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     for: indexPath
                 ) as! PopularItemCollectionViewCell
             cell.configPopularProduct(
-                product: HomeViewController.arrProductData.filter {
-                    $0.floatProductRating > 4 && $0.floatProductRating <= 4.5
-                }[indexPath.row]
+                product: arrProducts[indexPath.row]
             )
             return cell
 
@@ -141,9 +142,7 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                 ) as! MostPopularCollectionViewCell
 
             cell.congigMostPopularCell(
-                product: HomeViewController.arrProductData.filter {
-                    $0.floatProductRating > 4.5
-                }[indexPath.row]
+                product: arrProducts[indexPath.row]
             )
             return cell
 
@@ -203,6 +202,7 @@ extension HomeTableViewCell: UICollectionViewDataSource,
             )
 
         default:
+            print("prodct 1")
             print("arrProducts[indexPath.row] : ", arrProducts[indexPath.row])
             let selectedProduct = arrProducts[indexPath.row]
             print("selectedProduct ", selectedProduct)
