@@ -4,7 +4,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int
     {
-        return arrProducts.count
+        return  HomeViewController.arrProductData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
@@ -18,7 +18,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.selectionStyle = .none
 
-        cell.configDessertCell(dessert: arrProducts[indexPath.row])
+        cell.configDessertCell(dessert:  HomeViewController.arrProductData[indexPath.row])
 
         return cell
 
@@ -30,18 +30,12 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     ) {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
 
-        switch indexPath.row {
-        case 0:
-            if let productvc = storyboard.instantiateViewController(
-                withIdentifier: "ProductDetailViewController"
-            ) as? ProductDetailViewController {
-                self.navigationController?.pushViewController(
-                    productvc,
-                    animated: true
-                )
-            }
-        default:
-            break
+        let selectedProduct = HomeViewController.arrProductData[indexPath.row]
+
+        if let detailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
+            detailVC.product = selectedProduct
+            
+            navigationController?.pushViewController(detailVC, animated: true)
         }
 
     }

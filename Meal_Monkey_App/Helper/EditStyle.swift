@@ -73,6 +73,30 @@ extension UIViewController {
         self.navigationItem.leftBarButtonItem = leftItem
     }
 
+    
+    func setLeftAlignedTitleWithBackInProductDetailPage(
+        _ title: String,
+        font: UIFont = .systemFont(ofSize: 29),
+        textColor: UIColor = UIColor(named: "Color") ?? .black,
+        target: Any?,
+        action: Selector
+    ) {
+        let button = UIButton(type: .system)
+
+        button.setImage(UIImage(systemName: "chevron.backward"), for: .normal)
+        button.setTitle("  \(title)", for: .normal)
+        button.setTitleColor(textColor, for: .normal)
+        button.titleLabel?.font = font
+        button.tintColor = textColor
+
+        button.addTarget(target, action: action, for: .touchUpInside)
+
+        button.sizeToFit()
+
+        let leftItem = UIBarButtonItem(customView: button)
+        self.navigationItem.leftBarButtonItem = leftItem
+    }
+    
     func setLeftAlignedTitle(
         _ title: String,
         font: UIFont = .systemFont(ofSize: 29),
@@ -105,5 +129,24 @@ extension UIViewController {
         cartButton.tintColor = tintColor
         self.navigationItem.rightBarButtonItem = cartButton
     }
+    
+    func setCartButtonInProuductDetail(
+        target: Any?,
+        action: Selector,
+        tintColor: UIColor = UIColor(named: "Color") ?? .black
+    ) {
+        let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(
+            .alwaysTemplate
+        )
+        let cartButton = UIBarButtonItem(
+            image: cartImage,
+            style: .plain,
+            target: target,
+            action: action
+        )
+        cartButton.tintColor = tintColor
+        self.navigationItem.rightBarButtonItem = cartButton
+    }
+
 
 }

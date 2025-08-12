@@ -17,6 +17,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
                 for: indexPath
             ) as! HomeTableViewCell
 
+        cell.delegate = self
         if let layout = cell.homeCollectionView.collectionViewLayout
             as? UICollectionViewFlowLayout
         {
@@ -31,25 +32,47 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.selectedCategory = selectedCategory
             cell.lblCollectionViewTitle.isHidden = true
             cell.btnViewAll.isHidden = true
-            cell.homeCollectionView.layoutIfNeeded()
+            cell.homeCollectionViewHeight.constant = 113
             cell.categories = ProductCategory.allCases
-            cell.homeCollectionViewHeight.constant =
-                cell.homeCollectionView.collectionViewLayout
-                .collectionViewContentSize.height
+
         case 1:
             cell.collectionType = .popular
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
+            cell.lblCollectionViewTitle.text = "Popular"
+
+            if selectedCategory == .All {
+                cell.arrProducts = HomeViewController.arrProductData.filter {
+                    $0.floatProductRating >= 4 && $0.floatProductRating <= 4.5
+                }
+            } else {
+                cell.arrProducts = HomeViewController.arrProductData.filter {
+                    $0.floatProductRating > 4.5
+                        && $0.objProductCategory == selectedCategory
+                }
+            }
+
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
-            cell.lblCollectionViewTitle.text = "Popular"
+
         case 2:
             cell.collectionType = .mostPopular
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.homeCollectionViewHeight.constant = 185
             cell.lblCollectionViewTitle.text = "Most Popular"
+            if selectedCategory == .All {
+                cell.arrProducts = HomeViewController.arrProductData.filter {
+                    $0.floatProductRating > 4.5
+                }
+            } else {
+                cell.arrProducts = HomeViewController.arrProductData.filter {
+                    $0.floatProductRating > 4.5
+                        && $0.objProductCategory == selectedCategory
+                }
+            }
+
         case 3:
             cell.collectionType = .RecentItems
             cell.lblCollectionViewTitle.isHidden = false
@@ -57,6 +80,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
+            cell.arrProducts = arrRecentItem
             cell.lblCollectionViewTitle.text = "Recent Items"
 
         default:
@@ -67,5 +91,4 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
         cell.homeCollectionView.reloadData()
         return cell
     }
-
 }

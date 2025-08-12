@@ -6,17 +6,15 @@ class DessertsViewController: UIViewController {
     @IBOutlet weak var tblDessertsView: UITableView!
 
     var selectedProductType: ProductType = .Desserts
-
-    var arrProductData: [ProductModel] = ProductModel.addProductData()
-
+    
     var arrProducts: [ProductModel] {
         switch selectedProductType {
         case .food:
-            return arrProductData.filter { $0.objProductType == .food }
+            return HomeViewController.arrProductData.filter { $0.objProductType == .food }
         case .Desserts:
-            return arrProductData.filter { $0.objProductType == .Desserts }
+            return  HomeViewController.arrProductData.filter { $0.objProductType == .Desserts }
         case .Beverages:
-            return arrProductData.filter { $0.objProductType == .Beverages }
+            return  HomeViewController.arrProductData.filter { $0.objProductType == .Beverages }
         }
     }
 

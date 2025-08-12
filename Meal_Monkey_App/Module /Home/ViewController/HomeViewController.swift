@@ -2,12 +2,14 @@ import UIKit
 
 
 
-class HomeViewController: UIViewController {
+class HomeViewController: UIViewController,HomeTableViewCellDelegate {
+
+    
 
     @IBOutlet weak var txtSearchFood: UITextField!
     var selectedCategory: ProductCategory = .Gujarati
     @IBOutlet weak var tblHomeView: UITableView!
-    
+
     static var arrProductData: [ProductModel] = ProductModel.addProductData()
     var arrRecentItem:[ProductModel] = []
 
@@ -30,6 +32,12 @@ class HomeViewController: UIViewController {
         tblHomeView.reloadData()
 
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        arrRecentItem = RecentItemsHelper.shared.getRecentItems()
+        tblHomeView.reloadData()
+    }
+    
 
     @objc func CartButtonTapped() {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -42,5 +50,32 @@ class HomeViewController: UIViewController {
             )
         }
     }
+    
+    func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
+        selectedCategory = category
+        DispatchQueue.main.async {
+            self.tblHomeView.reloadData()
+        }
+    }
 
+    func HomeTableViewCell(
+        _ cell: HomeTableViewCell,
+        didSelectProduct product: ProductModel
+    ) {
+        RecentItemsHelper.shared.addProduct(product)
+
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let detailVC = storyboard.instantiateViewController(
+            withIdentifier: "ProductDetailViewController"
+        ) as? ProductDetailViewController {
+            detailVC.product = product
+            self.navigationController?.pushViewController(
+                detailVC,
+                animated: true
+            )
+        }
+
+        arrRecentItem = RecentItemsHelper.shared.getRecentItems()
+        tblHomeView.reloadData()
+    }
 }

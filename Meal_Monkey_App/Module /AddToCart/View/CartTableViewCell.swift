@@ -11,9 +11,13 @@ class CartTableViewCell: UITableViewCell {
     @IBOutlet weak var lblCategory: UILabel!
 
     @IBOutlet weak var imgProduct: UIImageView!
+    
+    var onDelete: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
-        EditStyle.setborder(textfields: [imgProduct], cornerRadious: 20)
+//        EditStyle.setborder(textfields: [imgProduct], cornerRadious: 20)
+        imgProduct.layer.cornerRadius = 10
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -21,11 +25,12 @@ class CartTableViewCell: UITableViewCell {
 
     }
     @IBAction func btnDeleteClick(_ sender: Any) {
-
+        onDelete?()
     }
 
     func configCartCell(product: ProductModel) {
         lblProductTitle.text = product.strProductName
+        lblType.text = "\(product.objProductType)"
         lblCategory.text = "\(product.objProductCategory)"
         lblPrice.text = "\(product.doubleProductPrice)"
         lblDescription.text = product.strProductDescription

@@ -1,8 +1,19 @@
 import UIKit
 
-
+protocol HomeTableViewCellDelegate: AnyObject {
+    func HomeTableViewCell(
+        _ cell: HomeTableViewCell,
+        didSelectProduct product: ProductModel
+    )
+    func HomeTableViewCell(
+        _ cell: HomeTableViewCell,
+        didSelectCategory category: ProductCategory
+    )
+}
 
 class HomeTableViewCell: UITableViewCell {
+
+    weak var delegate: HomeTableViewCellDelegate?
 
     @IBOutlet weak var homeCollectionViewHeight: NSLayoutConstraint!
     @IBOutlet weak var homeCollectionView: UICollectionView!
@@ -15,22 +26,38 @@ class HomeTableViewCell: UITableViewCell {
     var categories: [ProductCategory] = [] {
         didSet {
             homeCollectionView.reloadData()
-            DispatchQueue.main.async {
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
                 self.homeCollectionView.layoutIfNeeded()
-                self.updateCollectionHeight()
+                self.homeCollectionViewHeight.constant =
+                    self.homeCollectionView.collectionViewLayout
+                    .collectionViewContentSize.height
             }
         }
     }
 
-    func updateCollectionHeight() {
-         if let layout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout,
-            layout.scrollDirection == .vertical {
-             self.homeCollectionViewHeight.constant = self.homeCollectionView.collectionViewLayout.collectionViewContentSize.height
-         }
-     }
-    
+    var arrProducts: [ProductModel] = [] {
+        didSet {
+            homeCollectionView.reloadData()
+            DispatchQueue.main.async { [weak self] in
+                guard let self = self else { return }
+                self.homeCollectionView.layoutIfNeeded()
+                self.homeCollectionViewHeight.constant =
+                    self.homeCollectionView.collectionViewLayout
+                    .collectionViewContentSize.height
+            }
+        }
+    }
+
     override func awakeFromNib() {
         super.awakeFromNib()
+
+        homeCollectionView.delegate = self
+        
+        homeCollectionView.register(
+            UINib(nibName: "RecentItemCollectionViewCell", bundle: nil),
+            forCellWithReuseIdentifier: "RecentItemCollectionViewCell"
+        )
 
         registerCells(
             for: homeCollectionView,
@@ -54,7 +81,7 @@ class HomeTableViewCell: UITableViewCell {
             ]
         )
     }
-    
+
     func registerCells(
         for collectionView: UICollectionView,
         cells: [(String, String)]
@@ -84,7 +111,8 @@ extension HomeTableViewCell: UICollectionViewDataSource,
         switch collectionType {
 
         case .category:
-            let cell = collectionView.dequeueReusableCell(
+            let cell =
+                collectionView.dequeueReusableCell(
                     withReuseIdentifier: "ProductCategoryCollectionViewCell",
                     for: indexPath
                 ) as! ProductCategoryCollectionViewCell
@@ -98,9 +126,11 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     withReuseIdentifier: "PopularItemCollectionViewCell",
                     for: indexPath
                 ) as! PopularItemCollectionViewCell
-            cell.configPopularProduct(product: HomeViewController.arrProductData.filter {
-                $0.floatProductRating  > 4 && $0.floatProductRating <= 4.5
-            }[indexPath.row] )
+            cell.configPopularProduct(
+                product: HomeViewController.arrProductData.filter {
+                    $0.floatProductRating > 4 && $0.floatProductRating <= 4.5
+                }[indexPath.row]
+            )
             return cell
 
         case .mostPopular:
@@ -109,10 +139,12 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     withReuseIdentifier: "MostPopularCollectionViewCell",
                     for: indexPath
                 ) as! MostPopularCollectionViewCell
-            
-            cell.congigMostPopularCell(product: HomeViewController.arrProductData.filter {
-                $0.floatProductRating > 4.5
-            }[indexPath.row])
+
+            cell.congigMostPopularCell(
+                product: HomeViewController.arrProductData.filter {
+                    $0.floatProductRating > 4.5
+                }[indexPath.row]
+            )
             return cell
 
         case .RecentItems:
@@ -121,6 +153,7 @@ extension HomeTableViewCell: UICollectionViewDataSource,
                     withReuseIdentifier: "RecentItemCollectionViewCell",
                     for: indexPath
                 ) as! RecentItemCollectionViewCell
+            cell.configureRecentItemCell(recentItem: arrProducts[indexPath.row])
             return cell
 
         }
@@ -133,15 +166,8 @@ extension HomeTableViewCell: UICollectionViewDataSource,
         switch collectionType {
         case .category:
             return categories.count
-        case .popular:
-            return  HomeViewController.arrProductData.filter {
-                $0.floatProductRating  > 4 && $0.floatProductRating <= 4.5}.count
-        case .mostPopular:
-            return HomeViewController.arrProductData.filter {
-                $0.floatProductRating > 4.5
-            }.count
-        case .RecentItems:
-            return 5
+        default:
+            return arrProducts.count
         }
     }
 
@@ -163,7 +189,29 @@ extension HomeTableViewCell: UICollectionViewDataSource,
 
         }
     }
+
+    func collectionView(
+        _ collectionView: UICollectionView,
+        didSelectItemAt indexPath: IndexPath
+    ) {
+        switch collectionType {
+        case .category:
+            let selectedCategory = categories[indexPath.row]
+            delegate?.HomeTableViewCell(
+                self,
+                didSelectCategory: selectedCategory
+            )
+
+        default:
+            print("arrProducts[indexPath.row] : ", arrProducts[indexPath.row])
+            let selectedProduct = arrProducts[indexPath.row]
+            print("selectedProduct ", selectedProduct)
+            delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)
+
+        }
+    }
 }
+
 enum CollectionType: String {
     case category
     case popular
