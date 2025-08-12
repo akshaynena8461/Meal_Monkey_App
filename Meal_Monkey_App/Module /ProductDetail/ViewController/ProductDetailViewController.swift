@@ -135,7 +135,7 @@ class ProductDetailViewController: UIViewController {
     
     func updatePriceAndQuantityUI() {
         guard let product = product else { return }
-        let total = product.doubleProductPrice * Double(quantity)
+        let total = (product.doubleProductPrice) * Double(quantity)
         //        lblPrice.text = "$\(String(format: "%.2f", product.doubleProductPrice))"
         lblTotal.text = "$\(String(format: "%.2f", total))"
         lblCount.text = "\(quantity)"

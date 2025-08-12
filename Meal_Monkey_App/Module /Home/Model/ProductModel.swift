@@ -11,19 +11,12 @@ class ProductModel {
     var intTotalNumberOfRatings: Int = 0
     var objProductCategory: ProductCategory = .Gujarati
     var objProductType: ProductType = .food
+    var intOrderId: Int?
+    var arrProducts:[ProductModel]?
+    var dblTotalAmount: Double?
+    
 
-    init(
-        intId: Int,
-        strProductName: String,
-        strProductDescription: String,
-        floatProductRating: Float,
-        doubleProductPrice: Double,
-        strProductImage: String,
-        intProductQty: Int? = nil,
-        intTotalNumberOfRatings: Int,
-        objProductCategory: ProductCategory,
-        objProductType: ProductType
-    ) {
+    init(intId: Int, strProductName: String, strProductDescription: String, floatProductRating: Float, doubleProductPrice: Double, strProductImage: String, intProductQty: Int? = nil, intTotalNumberOfRatings: Int, objProductCategory: ProductCategory, objProductType: ProductType, intOrderId: Int? = nil, arrProducts: [ProductModel]? = nil, dblTotalAmount: Double? = nil) {
         self.intId = intId
         self.strProductName = strProductName
         self.strProductDescription = strProductDescription
@@ -34,6 +27,9 @@ class ProductModel {
         self.intTotalNumberOfRatings = intTotalNumberOfRatings
         self.objProductCategory = objProductCategory
         self.objProductType = objProductType
+        self.intOrderId = intOrderId
+        self.arrProducts = arrProducts
+        self.dblTotalAmount = dblTotalAmount
     }
 
     class func addProductData() -> [ProductModel] {
