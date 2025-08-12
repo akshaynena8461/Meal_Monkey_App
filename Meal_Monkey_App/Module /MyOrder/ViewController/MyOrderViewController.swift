@@ -2,12 +2,16 @@ import UIKit
 
 class MyOrderViewController: UIViewController {
 
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var btnCheckOut: UIButton!
     @IBOutlet weak var lblTotal: UILabel!
     @IBOutlet weak var lbldeliveryCost: UILabel!
     @IBOutlet weak var lblsubTotal: UILabel!
     @IBOutlet weak var btnAddNotes: UIButton!
     @IBOutlet weak var tblMyOrderView: UITableView!
+
+    var arrOrderDetail: [ProductModel] = []
+    let deliveryCost: Double = 5.0
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,8 +30,18 @@ class MyOrderViewController: UIViewController {
         )
         EditStyle.setborder(textfields: [btnCheckOut], cornerRadious: 28)
 
+        calculateTotals()
+
     }
 
+    func calculateTotals() {
+        let subtotal = arrOrderDetail.reduce(0) {
+            $0 + ($1.doubleProductPrice * Double($1.intProductQty!))
+        }
+        lblsubTotal.text = "$\(String(format: "%.2f", subtotal))"
+        lbldeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
+        lblTotal.text = "$\(String(format: "%.2f", subtotal + deliveryCost))"
+    }
     @IBAction func btnAddNotesClick(_ sender: Any) {
 
     }

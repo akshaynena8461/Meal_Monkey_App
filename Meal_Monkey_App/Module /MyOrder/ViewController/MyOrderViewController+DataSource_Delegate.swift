@@ -4,7 +4,7 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int
     {
-        return 10
+        return arrOrderDetail.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
@@ -17,7 +17,8 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
             ) as! MyOrderTableViewCell
 
         cell.selectionStyle = .none
-        return cell
+        cell.configMyOrderDetailCell(product: arrOrderDetail[indexPath.row])
+         return cell
     }
 
 }
