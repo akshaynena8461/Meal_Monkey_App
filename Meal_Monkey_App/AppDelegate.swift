@@ -11,6 +11,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var arrCart:[ProductModel] = []
     var arrOrder:[[ProductModel]] = []
     var cartItems:[ProductModel] = []
+    var arrCard:[PaymentModel] = []
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.

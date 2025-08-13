@@ -4,21 +4,6 @@ class CheckOutViewController: UIViewController {
 
     @IBOutlet weak var btnChangeAddress: UIButton!
     @IBOutlet weak var btnBackToHome: UIButton!
-    @IBAction func btnTrackMyOrderClick(_ sender: Any) {
-    }
-    @IBAction func btnBackToHomeClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
-        if let homeVc = storyboard.instantiateViewController(
-            withIdentifier: "HomeViewController"
-        ) as? HomeViewController {
-            self.navigationController?.pushViewController(
-                homeVc,
-                animated: true
-            )
-        }
-
-        
-    }
     @IBOutlet weak var btnTrackMyOrder: UIButton!
     @IBOutlet weak var thankYouScrollView: UIScrollView!
     @IBOutlet weak var btnCloseThankYou: UIButton!
@@ -44,8 +29,6 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var checkoutDetailPage: UIView!
     @IBOutlet weak var btnAddAnotherCard: UIButton!
 
-    var arrCards: [String] = ["Card1", "Card2", "Card3"]
-
     override func viewDidLoad() {
         super.viewDidLoad()
         backView.isHidden = true
@@ -54,7 +37,6 @@ class CheckOutViewController: UIViewController {
         thankYouScrollView.showsVerticalScrollIndicator = false
         viewScroll.showsVerticalScrollIndicator = false
 
-        ThankYouPage.isHidden = true
         setLeftAlignedTitleWithBack(
             "Checkout",
             target: self,
@@ -87,7 +69,7 @@ class CheckOutViewController: UIViewController {
         viewScroll.layer.shadowOpacity = 0.3
         viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
         viewScroll.layer.shadowRadius = 10
-        
+
         addCardPageView.layer.cornerRadius = 20
         addCardPageView.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner,
@@ -109,7 +91,6 @@ class CheckOutViewController: UIViewController {
         ]
         EditStyle.setborder(textfields: [btnSendOrder], cornerRadious: 28)
 
-        addCardPageView.isHidden = true
 
         tblCheckOutView.register(
             UINib(nibName: "CaseOnDeliveryCell", bundle: nil),
@@ -203,6 +184,83 @@ class CheckOutViewController: UIViewController {
 
     }
 
-    @IBAction func btnAddAnotherCardClick(_ sender: Any) {
+    func addCard() {
+        var newCard = PaymentModel()
+        newCard.strCardNumber = txtCardNumber.text
+        app.arrCard.append(newCard)
+
+        if let last4 = newCard.strCardNumber?.suffix(4) {
+            print("Added card **** **** **** \(last4)")
+        }
+
     }
+    @IBAction func btnAddAnotherCardClick(_ sender: Any) {
+
+        guard
+            let number = txtCardNumber.text?.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ),
+            !number.isEmpty
+        else {
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "Please enter a card number.",
+                viewController: self
+            )
+            return
+        }
+
+        let digitOnly = CharacterSet.decimalDigits.isSuperset(
+            of: CharacterSet(charactersIn: number)
+        )
+        guard digitOnly, number.count == 16 else {
+            UIAlertController.showAlert(
+                title: "Invalid Card",
+                message: "Card number must be exactly 16 digits.",
+                viewController: self
+            )
+            return
+        }
+
+        addCard()
+        UIAlertController.showAlert(
+            title: "Success",
+            message: "Card Added Successfully",
+            viewController: self
+        )
+
+        DispatchQueue.main.async {
+            self.tblCheckOutView.reloadData()
+        }
+        backView.isHidden = true
+        tblCheckOutView.isHidden = false
+        checkoutDetailPage.isHidden = false
+        btnAddAnotherCard.isHidden = false
+        UIView.animate(withDuration: 0.3) {
+            self.addCardPageView.transform = CGAffineTransform(
+                translationX: 0,
+                y: self.view.frame.height
+            )
+        } completion: { _ in
+            self.addCardPageView.isHidden = true
+        }
+
+        txtCardNumber.text = ""
+    }
+
+    @IBAction func btnTrackMyOrderClick(_ sender: Any) {
+    }
+    @IBAction func btnBackToHomeClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+        if let homeVc = storyboard.instantiateViewController(
+            withIdentifier: "HomeViewController"
+        ) as? HomeViewController {
+            self.navigationController?.pushViewController(
+                homeVc,
+                animated: true
+            )
+        }
+
+    }
+
 }

@@ -172,7 +172,7 @@ class ProductDetailViewController: UIViewController {
         }
     }
 
-    @IBAction func btnAddCardClick(_ sender: Any) {
+    @IBAction func btnAddToCartClick(_ sender: Any) {
         guard let product = product else { return }
         checkProduct(productToAdd: product)
         UIAlertController.showAlert(

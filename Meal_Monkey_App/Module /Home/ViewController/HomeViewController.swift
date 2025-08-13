@@ -4,6 +4,8 @@ import UIKit
 
 class HomeViewController: UIViewController,HomeTableViewCellDelegate {
 
+    
+    
     @IBOutlet weak var txtSearchFood: UITextField!
     var selectedCategory: ProductCategory = .All
     @IBOutlet weak var tblHomeView: UITableView!
@@ -11,6 +13,9 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
 
     static var arrProductData: [ProductModel] = ProductModel.addProductData()
     var arrRecentItem:[ProductModel] = []
+    var filteredProducts:[ProductModel] = []
+    var searchText: String = ""
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,6 +33,10 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
             forCellReuseIdentifier: "HomeTableViewCell"
         )
 
+        
+        txtSearchFood.addTarget(self, action: #selector(searchTextChanged), for: .editingChanged)
+        filteredProducts = Self.arrProductData
+
         tblHomeView.reloadData()
 
     }
@@ -37,6 +46,23 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
         tblHomeView.reloadData()
     }
     
+    @objc func searchTextChanged() {
+        searchText = txtSearchFood.text?.lowercased() ?? ""
+        tblHomeView.reloadData()
+    }
+    func filterProducts() {
+        let searchText = txtSearchFood.text?.lowercased() ?? ""
+
+        filteredProducts = Self.arrProductData.filter { product in
+            let matchesCategory = (selectedCategory == .All) || (product.objProductCategory == selectedCategory)
+            let matchesName = searchText.isEmpty || product.strProductName.lowercased().contains(searchText)
+            return matchesCategory && matchesName
+        }
+
+        tblHomeView.reloadData()
+    }
+
+
 
     @objc func CartButtonTapped() {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -52,6 +78,7 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
     
     func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
         selectedCategory = category
+        filterProducts()
         DispatchQueue.main.async {
             self.tblHomeView.reloadData()
         }

@@ -52,6 +52,9 @@ class CartViewController: UIViewController {
                 animated: true
             )
         }
+        lblEmpty.isHidden = false
+        btnPlaceOrder.isHidden = true
+        tblCartView.reloadData()
 
     }
 }

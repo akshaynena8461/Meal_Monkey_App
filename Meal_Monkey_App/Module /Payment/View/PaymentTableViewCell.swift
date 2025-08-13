@@ -5,6 +5,8 @@ class PaymentTableViewCell: UITableViewCell {
     @IBOutlet weak var btnDelete: UIButton!
     @IBOutlet weak var lblCardNumber: UILabel!
 
+    var onDelete: (() -> Void)?
+
     override func awakeFromNib() {
         super.awakeFromNib()
 
@@ -14,6 +16,7 @@ class PaymentTableViewCell: UITableViewCell {
     }
 
     @IBAction func btnDeleteClick(_ sender: Any) {
+        onDelete?()
 
     }
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -22,7 +25,12 @@ class PaymentTableViewCell: UITableViewCell {
     }
 
     func configPaymentCell(payment: PaymentModel) {
-        lblCardNumber.text = "\(payment.intCardNumber ?? 0)"
+        if let cardNumber = payment.strCardNumber, cardNumber.count >= 4 {
+            let last4 = cardNumber.suffix(4)
+            lblCardNumber.text = "**** **** **** \(last4)"
+        } else {
+            lblCardNumber.text = "Invalid Card"
+        }
     }
 
 }

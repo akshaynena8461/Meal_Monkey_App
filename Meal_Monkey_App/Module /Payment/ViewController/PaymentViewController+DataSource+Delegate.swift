@@ -1,15 +1,9 @@
-//
-//  PaymentViewController.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 07/08/25.
-//
 
 import UIKit
 
 extension PaymentViewController: UITableViewDelegate,UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrCard.count
+        return app.arrCard.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -17,7 +11,18 @@ extension PaymentViewController: UITableViewDelegate,UITableViewDataSource {
         
         cell.selectionStyle = .none
         
-        cell.configPaymentCell(payment: arrCard[indexPath.row])
+        cell.onDelete = { [weak self] in
+            guard let self = self,
+                let appDelegate =
+                    (UIApplication.shared.delegate as? AppDelegate)
+            else { return }
+
+            app.arrCard.remove(at: indexPath.row)
+            lblEmpty.isHidden = !app.arrCard.isEmpty
+            self.tblPaymentView.reloadData()
+        }
+        
+        cell.configPaymentCell(payment: app.arrCard[indexPath.row])
         
         return cell
     }
