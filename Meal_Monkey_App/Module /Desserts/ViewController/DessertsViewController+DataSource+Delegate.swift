@@ -4,7 +4,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
         -> Int
     {
-        return  HomeViewController.arrProductData.count
+        return  filteredProducts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
@@ -18,7 +18,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.selectionStyle = .none
 
-        cell.configDessertCell(dessert:  HomeViewController.arrProductData[indexPath.row])
+        cell.configDessertCell(dessert: filteredProducts[indexPath.row])
 
         return cell
 
@@ -29,7 +29,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-        let selectedProduct = HomeViewController.arrProductData[indexPath.row]
+        let selectedProduct = filteredProducts[indexPath.row]
         
         RecentItemsHelper.shared.addProduct(selectedProduct)
 

@@ -31,12 +31,12 @@ class OTPViewController: UIViewController {
     }
 
     @IBAction func btnNextClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Services", bundle: nil)
-        if let signUpVC = storyboard.instantiateViewController(
-            withIdentifier: "ServiceViewController"
-        ) as? ServiceViewController {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        if let newPasswordVc = storyboard.instantiateViewController(
+            withIdentifier: "NewPasswordViewController"
+        ) as? NewPasswordViewController {
             self.navigationController?.pushViewController(
-                signUpVC,
+                newPasswordVc,
                 animated: true
             )
         }

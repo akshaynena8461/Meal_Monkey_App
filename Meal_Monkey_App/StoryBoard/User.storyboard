@@ -624,22 +624,41 @@ link to  create a new password via email</string>
                                         <color key="textColor" name="secondarylabelcolor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wc1-8o-pPh">
-                                        <rect key="frame" x="34" y="192" width="325" height="56"/>
-                                        <color key="backgroundColor" name="txtfieldbg"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="U8G-Ha-tG0"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Uw5-hy-405">
+                                        <rect key="frame" x="34" y="248" width="325" height="56"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="0C6-Ac-tV8">
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="56"/>
+                                                <color key="backgroundColor" name="txtfieldbg"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="Th1-b9-SmZ"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qin-28-23G">
+                                                <rect key="frame" x="269" y="0.0" width="56" height="56"/>
+                                                <color key="backgroundColor" name="txtfieldbg"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="RMu-rb-KrE"/>
+                                                    <constraint firstAttribute="height" constant="56" id="myx-tD-E5V"/>
+                                                </constraints>
+                                                <color key="tintColor" name="placeholdercolor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" image="eye.slash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="btnEye2Click:" destination="2ud-ge-nfA" eventType="touchUpInside" id="vTu-BU-aFP"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aIu-Hd-lts">
-                                        <rect key="frame" x="34" y="360" width="325" height="56"/>
+                                        <rect key="frame" x="34" y="332" width="325" height="56"/>
                                         <color key="backgroundColor" name="loginbtnbg"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="tRB-2L-qAE"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Next"/>
@@ -647,31 +666,49 @@ link to  create a new password via email</string>
                                             <action selector="btnNextClick:" destination="2ud-ge-nfA" eventType="touchUpInside" id="dq5-gv-Z28"/>
                                         </connections>
                                     </button>
-                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Confirm Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbE-zt-CcI">
-                                        <rect key="frame" x="34" y="276" width="325" height="56"/>
-                                        <color key="backgroundColor" name="txtfieldbg"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="56" id="vlv-pS-tR1"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dnw-Lj-FZs">
+                                        <rect key="frame" x="34" y="164" width="325" height="56"/>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="NbH-dX-TLp">
+                                                <rect key="frame" x="0.0" y="0.0" width="269" height="56"/>
+                                                <color key="backgroundColor" name="txtfieldbg"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="56" id="ihh-Fs-xZP"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ob-8w-Xnw">
+                                                <rect key="frame" x="269" y="0.0" width="56" height="56"/>
+                                                <color key="backgroundColor" name="txtfieldbg"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="56" id="LLG-0j-nvj"/>
+                                                </constraints>
+                                                <color key="tintColor" name="placeholdercolor"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="" image="eye.slash" catalog="system"/>
+                                                <connections>
+                                                    <action selector="btnEyeClick:" destination="2ud-ge-nfA" eventType="touchUpInside" id="DqR-SP-I6F"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="mbE-zt-CcI" secondAttribute="trailing" constant="34" id="66z-Yb-W2v"/>
-                                    <constraint firstItem="mbE-zt-CcI" firstAttribute="top" secondItem="wc1-8o-pPh" secondAttribute="bottom" constant="28" id="CUy-NH-ABA"/>
+                                    <constraint firstAttribute="trailing" secondItem="dnw-Lj-FZs" secondAttribute="trailing" constant="34" id="08p-Ib-Jqi"/>
                                     <constraint firstItem="50y-nZ-6mY" firstAttribute="centerX" secondItem="4GK-mg-dVy" secondAttribute="centerX" id="Cby-j8-GeX"/>
                                     <constraint firstItem="aIu-Hd-lts" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="GqB-b7-kYK"/>
-                                    <constraint firstAttribute="trailing" secondItem="wc1-8o-pPh" secondAttribute="trailing" constant="34" id="Qmp-LD-A5S"/>
-                                    <constraint firstItem="wc1-8o-pPh" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="Xgk-el-n0e"/>
-                                    <constraint firstItem="wc1-8o-pPh" firstAttribute="top" secondItem="50y-nZ-6mY" secondAttribute="bottom" constant="59" id="ejM-gZ-PZH"/>
+                                    <constraint firstItem="aIu-Hd-lts" firstAttribute="top" secondItem="Uw5-hy-405" secondAttribute="bottom" constant="28" id="N1m-mX-DAR"/>
+                                    <constraint firstItem="dnw-Lj-FZs" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="Vc9-sX-jvI"/>
+                                    <constraint firstItem="Uw5-hy-405" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="c8J-8T-hvN"/>
                                     <constraint firstItem="8o1-M9-f9j" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="70" id="f60-Vx-601"/>
                                     <constraint firstItem="50y-nZ-6mY" firstAttribute="top" secondItem="8o1-M9-f9j" secondAttribute="bottom" constant="13" id="hhd-VR-FCN"/>
-                                    <constraint firstItem="mbE-zt-CcI" firstAttribute="leading" secondItem="4GK-mg-dVy" secondAttribute="leading" constant="34" id="iuw-NR-A6d"/>
                                     <constraint firstItem="8o1-M9-f9j" firstAttribute="top" secondItem="4GK-mg-dVy" secondAttribute="top" constant="42" id="ixD-ja-tVx"/>
-                                    <constraint firstItem="aIu-Hd-lts" firstAttribute="top" secondItem="mbE-zt-CcI" secondAttribute="bottom" constant="28" id="nJT-Kv-d5p"/>
+                                    <constraint firstItem="dnw-Lj-FZs" firstAttribute="top" secondItem="50y-nZ-6mY" secondAttribute="bottom" constant="31" id="mbQ-37-jhA"/>
                                     <constraint firstAttribute="trailing" secondItem="8o1-M9-f9j" secondAttribute="trailing" constant="70" id="pja-tw-9TN"/>
+                                    <constraint firstItem="Uw5-hy-405" firstAttribute="top" secondItem="dnw-Lj-FZs" secondAttribute="bottom" constant="28" id="rxQ-jT-bHT"/>
+                                    <constraint firstAttribute="trailing" secondItem="Uw5-hy-405" secondAttribute="trailing" constant="34" id="uQl-vZ-6Ob"/>
                                     <constraint firstAttribute="trailing" secondItem="aIu-Hd-lts" secondAttribute="trailing" constant="34" id="zfS-sV-KHj"/>
                                 </constraints>
                             </view>
@@ -687,8 +724,10 @@ link to  create a new password via email</string>
                     </view>
                     <connections>
                         <outlet property="btnNext" destination="aIu-Hd-lts" id="Ych-C5-sTW"/>
-                        <outlet property="txtConfirmPassword" destination="mbE-zt-CcI" id="hEq-Ul-Owr"/>
-                        <outlet property="txtPassword" destination="wc1-8o-pPh" id="Zuy-rA-fcY"/>
+                        <outlet property="stackConfirmPassword" destination="Uw5-hy-405" id="Ldk-Pb-WA6"/>
+                        <outlet property="stackPassword" destination="dnw-Lj-FZs" id="e54-tF-KPk"/>
+                        <outlet property="txtConfirmPassword" destination="0C6-Ac-tV8" id="OSG-rs-7ZX"/>
+                        <outlet property="txtPassword" destination="NbH-dX-TLp" id="lRR-6p-GB1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TNj-M3-qv5" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -717,24 +756,22 @@ your Mobile</string>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="eaP-uf-wUc">
                                         <rect key="frame" x="34.333333333333343" y="224" width="308" height="56"/>
                                         <subviews>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x1d-1H-xKm">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="x1d-1H-xKm">
                                                 <rect key="frame" x="0.0" y="0.0" width="56" height="56"/>
                                                 <color key="backgroundColor" name="txtfieldbg"/>
                                                 <color key="textColor" name="placeholdercolor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-O4-ehW">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="k6V-O4-ehW">
                                                 <rect key="frame" x="84" y="0.0" width="56" height="56"/>
                                                 <color key="backgroundColor" name="txtfieldbg"/>
-                                                <color key="textColor" name="placeholdercolor"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="37"/>
+                                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
-                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQt-fr-Bl8">
+                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="*" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FQt-fr-Bl8">
                                                 <rect key="frame" x="168" y="0.0" width="56" height="56"/>
                                                 <color key="backgroundColor" name="txtfieldbg"/>
-                                                <color key="textColor" name="placeholdercolor"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="37"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>

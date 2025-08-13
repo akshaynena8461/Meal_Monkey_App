@@ -5,7 +5,11 @@ class DessertsViewController: UIViewController {
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblDessertsView: UITableView!
 
+    @IBOutlet weak var lblNoProduct: UILabel!
     var selectedProductType: ProductType = .Desserts
+    
+     var filteredProducts: [ProductModel] = []
+       private var isSearching = false
     
     var arrProducts: [ProductModel] {
         switch selectedProductType {
@@ -21,11 +25,16 @@ class DessertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lblNoProduct.isHidden = true
         EditStyle.setborder(textfields: [txtSearch], cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 34)
 
         tblDessertsView.showsVerticalScrollIndicator = false
 
+        txtSearch.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
+         
+        filteredProducts = arrProducts
+        
         switch selectedProductType {
         case .food:
             setLeftAlignedTitleWithBack(
@@ -58,6 +67,25 @@ class DessertsViewController: UIViewController {
         )
 
     }
+    
+    @objc private func searchTextChanged(_ textField: UITextField) {
+        let searchText = textField.text?.lowercased() ?? ""
+        
+        if searchText.isEmpty {
+            isSearching = false
+            filteredProducts = arrProducts
+        } else {
+            isSearching = true
+            filteredProducts = arrProducts.filter { product in
+                product.strProductName.lowercased().contains(searchText)
+            }
+        }
+        lblNoProduct.isHidden = !filteredProducts.isEmpty
+
+        
+        tblDessertsView.reloadData()
+    }
+
     
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
