@@ -40,16 +40,17 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.lblCollectionViewTitle.isHidden = false
             cell.btnViewAll.isHidden = false
             cell.lblCollectionViewTitle.text = "Popular"
-            
-            if selectedCategory == .All {
-                cell.arrProducts = HomeViewController.arrProductData.filter {
+
+            cell.arrProducts = HomeViewController.arrProductData.filter {
+                let matchesRating =
                     $0.floatProductRating >= 4 && $0.floatProductRating <= 4.5
-                }
-            } else {
-                cell.arrProducts = HomeViewController.arrProductData.filter {
-                    $0.floatProductRating >= 4 && $0.floatProductRating <= 4.5
-                        && $0.objProductCategory == selectedCategory
-                }
+                let matchesCategory =
+                    (selectedCategory == .All)
+                    || ($0.objProductCategory == selectedCategory)
+                let matchesSearch =
+                    searchText.isEmpty
+                    || $0.strProductName.lowercased().contains(searchText)
+                return matchesRating && matchesCategory && matchesSearch
             }
 
             cell.homeCollectionViewHeight.constant =
@@ -62,15 +63,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.btnViewAll.isHidden = false
             cell.homeCollectionViewHeight.constant = 185
             cell.lblCollectionViewTitle.text = "Most Popular"
-            if selectedCategory == .All {
-                cell.arrProducts = HomeViewController.arrProductData.filter {
-                    $0.floatProductRating > 4.5
-                }
-            } else {
-                cell.arrProducts = HomeViewController.arrProductData.filter {
-                    $0.floatProductRating > 4.5
-                        && $0.objProductCategory == selectedCategory
-                }
+
+            cell.arrProducts = HomeViewController.arrProductData.filter {
+                let matchesRating = $0.floatProductRating > 4.5
+                let matchesCategory =
+                    (selectedCategory == .All)
+                    || ($0.objProductCategory == selectedCategory)
+                let matchesSearch =
+                    searchText.isEmpty
+                    || $0.strProductName.lowercased().contains(searchText)
+                return matchesRating && matchesCategory && matchesSearch
             }
 
         case 3:
@@ -82,6 +84,13 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
+            
+            cell.arrProducts = arrRecentItem.filter {
+                    let matchesCategory = (selectedCategory == .All) || ($0.objProductCategory == selectedCategory)
+                    let matchesSearch = searchText.isEmpty || $0.strProductName.lowercased().contains(searchText)
+                    return matchesCategory && matchesSearch
+                }
+            
 
         default:
             break
