@@ -1,7 +1,13 @@
 import UIKit
 
-class CheckOutViewController: UIViewController {
-
+class CheckOutViewController: UIViewController,ChangeAddressDelegate {
+    
+    @IBOutlet weak var lblAddress: UILabel!
+    
+    func didSelectAddress(_ address: String) {
+           lblAddress.text = address
+       }
+    
     @IBOutlet weak var btnChangeAddress: UIButton!
     @IBOutlet weak var btnBackToHome: UIButton!
     @IBOutlet weak var btnTrackMyOrder: UIButton!
@@ -29,10 +35,14 @@ class CheckOutViewController: UIViewController {
     @IBOutlet weak var checkoutDetailPage: UIView!
     @IBOutlet weak var btnAddAnotherCard: UIButton!
 
+    var arrCheckOutData:[ProductModel] = []
+    var deliveryCost:Double = 5.0
+    var discountCost:Double = 4.0
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         backView.isHidden = true
-
         tblCheckOutView.showsVerticalScrollIndicator = false
         thankYouScrollView.showsVerticalScrollIndicator = false
         viewScroll.showsVerticalScrollIndicator = false
@@ -104,7 +114,19 @@ class CheckOutViewController: UIViewController {
             UINib(nibName: "UPIViewCell", bundle: nil),
             forCellReuseIdentifier: "UPIViewCell"
         )
+        
+        calculateTotals()
 
+    }
+    
+    func calculateTotals() {
+        let subtotal = arrCheckOutData.reduce(0) {
+            $0 + ($1.doubleProductPrice * Double($1.intProductQty!))
+        }
+        lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
+        lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
+        lblDiscount.text = "$\(String(format: "%.2f", discountCost))"
+        lblTotal.text = "$\(String(format: "%.2f", subtotal + deliveryCost - discountCost))"
     }
 
     @IBAction func btnChangeAddressClick(_ sender: Any) {
@@ -112,12 +134,13 @@ class CheckOutViewController: UIViewController {
         if let changeAddressVc = storyboard.instantiateViewController(
             withIdentifier: "ChangeAddressViewController"
         ) as? ChangeAddressViewController {
+            changeAddressVc.delegate = self
             self.navigationController?.pushViewController(
                 changeAddressVc,
                 animated: true
             )
+            self.tabBarController?.tabBar.isHidden = false
         }
-
     }
     @IBAction func btnCloseThankYouClick(_ sender: Any) {
 
@@ -180,6 +203,8 @@ class CheckOutViewController: UIViewController {
             }
         ) { _ in
             self.addCardPageView.isHidden = true
+            self.tabBarController?.tabBar.isHidden = false
+
         }
 
     }
@@ -244,6 +269,8 @@ class CheckOutViewController: UIViewController {
         } completion: { _ in
             self.addCardPageView.isHidden = true
         }
+        self.tabBarController?.tabBar.isHidden = false
+
 
         txtCardNumber.text = ""
     }

@@ -74,7 +74,7 @@
                                     <outlet property="delegate" destination="boo-XN-RWt" id="SNT-AT-NKB"/>
                                 </connections>
                             </tableView>
-                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cards" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xq-Vd-5ig">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No Cards" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8xq-Vd-5ig">
                                 <rect key="frame" x="154.33333333333334" y="432.66666666666669" width="84.666666666666657" height="23"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="20"/>
                                 <color key="textColor" name="placeholdercolor"/>
@@ -572,19 +572,17 @@ at anytime </string>
                                     <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYI-2f-0vJ">
                                         <rect key="frame" x="0.0" y="15" width="351" height="48"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-pz-e8u">
-                                                <rect key="frame" x="0.0" y="0.0" width="123.33333333333333" height="48"/>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-pz-e8u">
+                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="48"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="48" id="B1o-Wl-gPE"/>
                                                 </constraints>
-                                                <string key="text">653 Nostrand Ave., 
-Brooklyn, NY 11216</string>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
                                                 <color key="textColor" name="loginsignupcolor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-Y0-l8d">
-                                                <rect key="frame" x="123.33333333333336" y="0.0" width="227.66666666666663" height="48"/>
+                                                <rect key="frame" x="44.333333333333343" y="0.0" width="306.66666666666663" height="48"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                 <color key="tintColor" name="loginbtnbg"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -606,30 +604,30 @@ Brooklyn, NY 11216</string>
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="626"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bAP-IP-IDq">
-                                                <rect key="frame" x="0.0" y="0.0" width="385" height="634.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="393" height="634.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Img_ThankYou" translatesAutoresizingMaskIntoConstraints="NO" id="CBG-Pj-jTo">
-                                                        <rect key="frame" x="68.666666666666686" y="43" width="248" height="226"/>
+                                                        <rect key="frame" x="77" y="43" width="248" height="226"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="226" id="5mh-9T-mgg"/>
                                                             <constraint firstAttribute="width" constant="248" id="HoH-Rr-6hE"/>
                                                         </constraints>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="for your order" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bMZ-Rp-MBj">
-                                                        <rect key="frame" x="140.33333333333334" y="335" width="104.33333333333334" height="20.333333333333314"/>
+                                                        <rect key="frame" x="149" y="335" width="104.33333333333331" height="20.333333333333314"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                         <color key="textColor" name="secondarylabelcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nBl-KL-6B0">
-                                                        <rect key="frame" x="22" y="368.33333333333337" width="341" height="48.333333333333314"/>
+                                                        <rect key="frame" x="22" y="368.33333333333337" width="358" height="48.333333333333314"/>
                                                         <string key="text">Your Order is now being processed. We will let you know once the order is picked from the outlet. Check the status of your Order</string>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <color key="textColor" name="secondarylabelcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f65-Jw-og4">
-                                                        <rect key="frame" x="21" y="453.66666666666663" width="343" height="56"/>
+                                                        <rect key="frame" x="21" y="453.66666666666663" width="351" height="56"/>
                                                         <color key="backgroundColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="JDn-kU-3HH"/>
@@ -644,7 +642,7 @@ Brooklyn, NY 11216</string>
                                                         </connections>
                                                     </button>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ad1-Ue-tSY">
-                                                        <rect key="frame" x="21" y="527.66666666666663" width="343" height="56"/>
+                                                        <rect key="frame" x="21" y="527.66666666666663" width="351" height="56"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="XdB-sc-Pbb"/>
                                                         </constraints>
@@ -658,13 +656,13 @@ Brooklyn, NY 11216</string>
                                                         </connections>
                                                     </button>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Thank You!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nOV-ys-ERt">
-                                                        <rect key="frame" x="127.33333333333333" y="300" width="130.33333333333337" height="30"/>
+                                                        <rect key="frame" x="136" y="300" width="130.33333333333337" height="30"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="26"/>
                                                         <color key="textColor" name="loginsignupcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="69T-xk-RQS">
-                                                        <rect key="frame" x="360" y="13" width="9" height="9"/>
+                                                        <rect key="frame" x="371" y="13" width="9" height="9"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="9" id="4Qx-ac-jwu"/>
                                                             <constraint firstAttribute="height" constant="9" id="gpY-P8-lDj"/>
@@ -685,24 +683,24 @@ Brooklyn, NY 11216</string>
                                                     <constraint firstItem="ad1-Ue-tSY" firstAttribute="top" secondItem="f65-Jw-og4" secondAttribute="bottom" constant="18" id="APg-xy-5Lc"/>
                                                     <constraint firstItem="nOV-ys-ERt" firstAttribute="top" secondItem="CBG-Pj-jTo" secondAttribute="bottom" constant="31" id="VIW-96-g6A"/>
                                                     <constraint firstAttribute="trailing" secondItem="f65-Jw-og4" secondAttribute="trailing" constant="21" id="Vqk-bG-17A"/>
-                                                    <constraint firstItem="nOV-ys-ERt" firstAttribute="centerX" secondItem="nBl-KL-6B0" secondAttribute="centerX" id="Xrq-Al-cMm"/>
                                                     <constraint firstItem="f65-Jw-og4" firstAttribute="leading" secondItem="bAP-IP-IDq" secondAttribute="leading" constant="21" id="ZYo-0v-VRr"/>
                                                     <constraint firstItem="nBl-KL-6B0" firstAttribute="top" secondItem="bMZ-Rp-MBj" secondAttribute="bottom" constant="13" id="aR0-VU-mrV"/>
                                                     <constraint firstItem="nOV-ys-ERt" firstAttribute="centerX" secondItem="bMZ-Rp-MBj" secondAttribute="centerX" id="bbX-Xe-yEV"/>
-                                                    <constraint firstAttribute="trailing" secondItem="69T-xk-RQS" secondAttribute="trailing" constant="16" id="gSe-tL-Hjf"/>
+                                                    <constraint firstAttribute="trailing" secondItem="69T-xk-RQS" secondAttribute="trailing" constant="13" id="gSe-tL-Hjf"/>
+                                                    <constraint firstItem="CBG-Pj-jTo" firstAttribute="centerX" secondItem="nBl-KL-6B0" secondAttribute="centerX" id="k2x-iV-5OM"/>
                                                     <constraint firstAttribute="bottom" secondItem="ad1-Ue-tSY" secondAttribute="bottom" constant="51" id="mgJ-tb-r8h"/>
-                                                    <constraint firstAttribute="trailing" secondItem="nBl-KL-6B0" secondAttribute="trailing" constant="22" id="oRZ-kx-9Ni"/>
+                                                    <constraint firstAttribute="trailing" secondItem="nBl-KL-6B0" secondAttribute="trailingMargin" constant="21" id="oRZ-kx-9Ni"/>
                                                     <constraint firstItem="ad1-Ue-tSY" firstAttribute="leading" secondItem="bAP-IP-IDq" secondAttribute="leading" constant="21" id="rFl-LI-2Ne"/>
+                                                    <constraint firstItem="CBG-Pj-jTo" firstAttribute="centerX" secondItem="nOV-ys-ERt" secondAttribute="centerX" id="rp3-N3-5zJ"/>
                                                     <constraint firstAttribute="trailing" secondItem="ad1-Ue-tSY" secondAttribute="trailing" constant="21" id="uKI-gB-yhU"/>
                                                     <constraint firstItem="CBG-Pj-jTo" firstAttribute="top" secondItem="bAP-IP-IDq" secondAttribute="top" constant="43" id="yXf-Dx-Iqs"/>
                                                     <constraint firstItem="nBl-KL-6B0" firstAttribute="leading" secondItem="bAP-IP-IDq" secondAttribute="leading" constant="22" id="yk4-Xu-yMn"/>
-                                                    <constraint firstItem="nOV-ys-ERt" firstAttribute="centerX" secondItem="CBG-Pj-jTo" secondAttribute="centerX" id="yvn-A3-BBy"/>
                                                 </constraints>
                                             </view>
                                         </subviews>
                                         <constraints>
                                             <constraint firstItem="bAP-IP-IDq" firstAttribute="leading" secondItem="eD0-jJ-d8I" secondAttribute="leading" id="3Id-HH-L9E"/>
-                                            <constraint firstItem="bAP-IP-IDq" firstAttribute="width" secondItem="eD0-jJ-d8I" secondAttribute="width" multiplier="0.979644" id="BHH-Vc-Ekp"/>
+                                            <constraint firstItem="bAP-IP-IDq" firstAttribute="width" secondItem="eD0-jJ-d8I" secondAttribute="width" id="BHH-Vc-Ekp"/>
                                             <constraint firstItem="bAP-IP-IDq" firstAttribute="top" secondItem="eD0-jJ-d8I" secondAttribute="top" id="TcA-AZ-v7B"/>
                                             <constraint firstItem="bAP-IP-IDq" firstAttribute="height" secondItem="eD0-jJ-d8I" secondAttribute="height" priority="250" id="UZK-4M-Jkh"/>
                                             <constraint firstAttribute="trailing" secondItem="bAP-IP-IDq" secondAttribute="trailing" id="YvM-Tg-1Yk"/>
@@ -1122,6 +1120,7 @@ at anytime </string>
                         <outlet property="btnSendOrder" destination="ahK-l0-Epc" id="W7R-kD-t2K"/>
                         <outlet property="btnTrackMyOrder" destination="f65-Jw-og4" id="QlY-Ab-IAQ"/>
                         <outlet property="checkoutDetailPage" destination="31w-xq-D9j" id="VED-ad-v46"/>
+                        <outlet property="lblAddress" destination="uIP-pz-e8u" id="vc3-Kh-SKb"/>
                         <outlet property="lblDeliveryCost" destination="OW1-R1-cLm" id="ymZ-IP-ejY"/>
                         <outlet property="lblDiscount" destination="bzJ-Jz-0Ld" id="o0B-Sl-W1F"/>
                         <outlet property="lblSubTotal" destination="ucs-nr-xJ5" id="BC8-FJ-gDL"/>

@@ -1,6 +1,8 @@
 import UIKit
 
-class MyOrderViewController: UIViewController {
+class MyOrderViewController: UIViewController,ChangeAddressDelegate {
+   
+    
 
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var btnCheckOut: UIButton!
@@ -9,6 +11,10 @@ class MyOrderViewController: UIViewController {
     @IBOutlet weak var lblsubTotal: UILabel!
     @IBOutlet weak var btnAddNotes: UIButton!
     @IBOutlet weak var tblMyOrderView: UITableView!
+
+    func didSelectAddress(_ address: String) {
+        lblAddress.text = address
+    }
 
     var arrOrderDetail: [ProductModel] = []
     let deliveryCost: Double = 5.0
@@ -55,6 +61,7 @@ class MyOrderViewController: UIViewController {
         if let checkoutVc = storyboard.instantiateViewController(
             withIdentifier: "CheckOutViewController"
         ) as? CheckOutViewController {
+            checkoutVc.arrCheckOutData = app.arrOrder.flatMap { $0 }
             self.navigationController?.pushViewController(
                 checkoutVc,
                 animated: true

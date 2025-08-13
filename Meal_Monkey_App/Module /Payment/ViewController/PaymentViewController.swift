@@ -22,6 +22,12 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
 
         backView.isHidden = true
+        
+        lblEmpty.isHidden = true
+        
+        if app.arrCard.count == 0{
+            lblEmpty.isHidden = false
+        }
 
         viewScroll.layer.cornerRadius = 20
         viewScroll.layer.maskedCorners = [
@@ -71,9 +77,15 @@ class PaymentViewController: UIViewController {
             UINib(nibName: "PaymentTableViewCell", bundle: nil),
             forCellReuseIdentifier: "PaymentTableViewCell"
         )
-
     }
 
+    
+//    override func viewWillAppear(_ animated: Bool) {
+//        lblEmpty.isHidden = !app.arrCard.isEmpty
+//        tblPaymentView.reloadData()
+//    }
+//    
+    
     @objc func CartBtnTapped() {
         print("Cart Btn Tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -129,6 +141,7 @@ class PaymentViewController: UIViewController {
         }
     
         addCard()
+        lblEmpty.isHidden = !app.arrCard.isEmpty
         UIAlertController.showAlert(
             title: "Success",
             message: "Card Added Successfully",

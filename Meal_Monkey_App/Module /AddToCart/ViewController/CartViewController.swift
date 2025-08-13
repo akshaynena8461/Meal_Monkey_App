@@ -10,6 +10,7 @@ class CartViewController: UIViewController {
 
         super.viewDidLoad()
 
+        lblEmpty.isHidden = true
         if app.arrCart.count == 0 {
             lblEmpty.isHidden = false
             btnPlaceOrder.isHidden = true
@@ -25,9 +26,11 @@ class CartViewController: UIViewController {
             UINib(nibName: "CartTableViewCell", bundle: nil),
             forCellReuseIdentifier: "CartTableViewCell"
         )
+        tblCartView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        lblEmpty.isHidden = !app.arrCart.isEmpty
         tblCartView.reloadData()
     }
 

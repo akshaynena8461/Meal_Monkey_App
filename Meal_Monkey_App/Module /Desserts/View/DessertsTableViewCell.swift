@@ -18,22 +18,8 @@ class DessertsTableViewCell: UITableViewCell {
 
     func configDessertCell(dessert: ProductModel) {
         lblTitle.text = dessert.strProductName
-        lblTitle2.attributedText = getStyledText(dessert.strProductDescription)
+        lblTitle2.text = "\(dessert.objProductType)"
         lblRating.text = "\(dessert.floatProductRating)"
         imgDessert.image = UIImage(named: dessert.strProductImage)
     }
-
-    private func getStyledText(_ text: String) -> NSAttributedString {
-        let attributed = NSMutableAttributedString(string: text)
-        if let dotRange = text.range(of: "•") {
-            let nsRange = NSRange(dotRange, in: text)
-            attributed.addAttribute(
-                .foregroundColor,
-                value: UIColor.orange,
-                range: nsRange
-            )
-        }
-        return attributed
-    }
-
 }

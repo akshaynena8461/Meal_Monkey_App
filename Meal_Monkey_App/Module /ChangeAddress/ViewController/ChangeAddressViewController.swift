@@ -1,49 +1,38 @@
-import CoreLocation
 import MapKit
 import UIKit
 
-class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
+protocol ChangeAddressDelegate: AnyObject {
+    func didSelectAddress(_ address: String)
+}
+
+class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate,
+    UISearchBarDelegate, MKMapViewDelegate
+{
+
+    weak var delegate: ChangeAddressDelegate?
 
     @IBOutlet weak var mapView: MKMapView!
-
     @IBOutlet weak var txtSearchAddress: UITextField!
     @IBOutlet weak var btnChooseSavedPlace: UIButton!
     @IBOutlet weak var btnCurrentLocation: UIButton!
+
     let locationManager = CLLocationManager()
     let geocoder = CLGeocoder()
-
-    @IBAction func btnChooseSavedPlacedClick(_ sender: Any) {
-    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        EditStyle.setborder(textfields: [txtSearchAddress],
-                            cornerRadious: 28)
-        EditStyle.setPadding(textFields: [txtSearchAddress],
-                             paddingWidth: 34)
+        mapView.delegate = self
 
-        locationManager.delegate = self
-        locationManager.desiredAccuracy = kCLLocationAccuracyBest
-        checkLocationPermission()
+        setupUI()
+        setupLocation()
+        setupMap()
+    }
 
-        mapView.showsUserLocation = true
-
-        let location = CLLocationCoordinate2D(
-            latitude: 23.0225,
-            longitude: 72.5714
-        )
-        centerMap(on: location)
-
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
-            self.addPinAtCenterAndReverseGeocode()
-        }
-
-        let tapGesture = UITapGestureRecognizer(
-            target: self,
-            action: #selector(mapTapped(_:))
-        )
-        mapView.addGestureRecognizer(tapGesture)
+    private func setupUI() {
+        EditStyle.setborder(textfields: [txtSearchAddress], cornerRadious: 28)
+        EditStyle.setPadding(textFields: [txtSearchAddress], paddingWidth: 34)
+        mapView.delegate = self
 
         setLeftAlignedTitleWithBack(
             "Change Address",
@@ -51,48 +40,126 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
             action: #selector(BackBtnTapped)
         )
 
+        let tapGesture = UITapGestureRecognizer(
+            target: self,
+            action: #selector(mapTapped(_:))
+        )
+        mapView.addGestureRecognizer(tapGesture)
+
+        // Add search button action
+        txtSearchAddress.addTarget(
+            self,
+            action: #selector(searchAddress),
+            for: .editingDidEndOnExit
+        )
     }
 
+    private func setupLocation() {
+        locationManager.delegate = self
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        checkLocationPermission()
+    }
+
+    private func setupMap() {
+        mapView.showsUserLocation = true
+        // Default location (e.g., your city)
+        let defaultLocation = CLLocationCoordinate2D(
+            latitude: 23.0225,
+            longitude: 72.5714
+        )
+        centerMap(on: defaultLocation)
+        addPinAtCenterAndReverseGeocode()
+    }
+
+    // MARK: - Map tap
     @objc func mapTapped(_ gesture: UITapGestureRecognizer) {
         let touchPoint = gesture.location(in: mapView)
         let coordinate = mapView.convert(touchPoint, toCoordinateFrom: mapView)
+        updatePinAndAddress(at: coordinate)
+    }
 
-        // Remove old pins
+    private func updatePinAndAddress(at coordinate: CLLocationCoordinate2D) {
+        // Remove previous pins except user location
         mapView.removeAnnotations(
             mapView.annotations.filter { !($0 is MKUserLocation) }
         )
 
-        // Add new pin
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = "Loading address..."
         mapView.addAnnotation(annotation)
 
-        // Get location details
         let location = CLLocation(
             latitude: coordinate.latitude,
             longitude: coordinate.longitude
         )
-        CLGeocoder().reverseGeocodeLocation(location) {
+        geocoder.reverseGeocodeLocation(location) {
             [weak self] placemarks, error in
             guard let self = self else { return }
+
+            var fullAddress = "Unknown Location"
             if let placemark = placemarks?.first {
                 let name = placemark.name ?? ""
                 let city = placemark.locality ?? ""
                 let country = placemark.country ?? ""
+                fullAddress = "\(name), \(city), \(country)"
+
                 annotation.title = name
                 annotation.subtitle = "\(city), \(country)"
-            } else {
-                annotation.title =
-                    "Lat: \(coordinate.latitude), Lon: \(coordinate.longitude)"
-                annotation.subtitle = nil
             }
 
-            // Refresh annotation view
             self.mapView.selectAnnotation(annotation, animated: true)
+            self.delegate?.didSelectAddress(fullAddress)
         }
     }
 
+    // MARK: - Search Address
+    @objc func searchAddress() {
+        guard let query = txtSearchAddress.text, !query.isEmpty else { return }
+        geocoder.geocodeAddressString(query) { [weak self] placemarks, error in
+            guard let self = self, let placemark = placemarks?.first,
+                let location = placemark.location
+            else { return }
+            let coordinate = location.coordinate
+            self.centerMap(on: coordinate)
+            self.updatePinAndAddress(at: coordinate)
+        }
+        txtSearchAddress.resignFirstResponder()
+    }
+
+    // MARK: - Current Location
+    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
+        goToCurrentLocation()
+    }
+
+    func goToCurrentLocation() {
+        if let coordinate = locationManager.location?.coordinate {
+            centerMap(on: coordinate)
+            updatePinAndAddress(at: coordinate)
+        } else {
+            locationManager.startUpdatingLocation()
+        }
+    }
+
+    // MARK: - Map helpers
+    func centerMap(
+        on location: CLLocationCoordinate2D,
+        regionRadius: CLLocationDistance = 1000
+    ) {
+        let region = MKCoordinateRegion(
+            center: location,
+            latitudinalMeters: regionRadius,
+            longitudinalMeters: regionRadius
+        )
+        mapView.setRegion(region, animated: true)
+    }
+
+    func addPinAtCenterAndReverseGeocode() {
+        let centerCoord = mapView.centerCoordinate
+        updatePinAndAddress(at: centerCoord)
+    }
+
+    // MARK: - Location Permission
     func checkLocationPermission() {
         if #available(iOS 14.0, *) {
             switch locationManager.authorizationStatus {
@@ -124,9 +191,7 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
                 "Please enable location access in Settings to use this feature.",
             preferredStyle: .alert
         )
-        alert.addAction(
-            UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
         alert.addAction(
             UIAlertAction(
                 title: "Open Settings",
@@ -143,31 +208,14 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         present(alert, animated: true)
     }
 
+    // MARK: - CLLocationManagerDelegate
     func locationManager(
         _ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
     ) {
         guard let location = locations.last else { return }
-
-        // Move map to current location
-        let region = MKCoordinateRegion(
-            center: location.coordinate,
-            span: MKCoordinateSpan(latitudeDelta: 0.01,
-                                   longitudeDelta: 0.01)
-        )
-        mapView.setRegion(region, animated: true)
-
-        // Remove old pins
-        let annotations = mapView.annotations.filter { !($0 is MKUserLocation) }
-        mapView.removeAnnotations(annotations)
-
-        // Add pin for current location
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location.coordinate
-        annotation.title = "You are here"
-        mapView.addAnnotation(annotation)
-
-        // Stop further updates to save battery
+        centerMap(on: location.coordinate)
+        updatePinAndAddress(at: location.coordinate)
         locationManager.stopUpdatingLocation()
     }
 
@@ -178,55 +226,23 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         print("Failed to get location: \(error.localizedDescription)")
     }
 
-    func centerMap(
-        on location: CLLocationCoordinate2D,
-        regionRadius: CLLocationDistance = 1000
-    ) {
-        let coordinateRegion = MKCoordinateRegion(
-            center: location,
-            latitudinalMeters: regionRadius,
-            longitudinalMeters: regionRadius
-        )
-        mapView.setRegion(coordinateRegion, animated: true)
-    }
-
-    func addPinAtCenterAndReverseGeocode() {
-        let centerCoord = mapView.centerCoordinate
-        let location = CLLocation(
-            latitude: centerCoord.latitude,
-            longitude: centerCoord.longitude
-        )
-
-        geocoder.reverseGeocodeLocation(location) { placemarks, error in
-            if let error = error {
-                print("Reverse geocoding failed: \(error.localizedDescription)")
-                return
+    // MARK: - Navigation
+    @objc func BackBtnTapped() {
+        if let selectedAnnotation = mapView.annotations.first(where: {
+            !($0 is MKUserLocation)
+        }) {
+            if let title = selectedAnnotation.title ?? "", !title.isEmpty {
+                delegate?.didSelectAddress(title)
             }
-
-            var address = "Unknown Location"
-            if let placemark = placemarks?.first {
-                address = """
-                    \(placemark.name ?? ""),
-                    \(placemark.locality ?? ""),
-                    \(placemark.administrativeArea ?? ""),
-                    \(placemark.postalCode ?? ""),
-                    \(placemark.country ?? "")
-                    """
-            }
-
-            let annotation = MKPointAnnotation()
-            annotation.coordinate = centerCoord
-            annotation.title = "Selected Location"
-            annotation.subtitle = address
-            self.mapView.addAnnotation(annotation)
         }
+        navigationController?.popViewController(animated: true)
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
         -> MKAnnotationView?
     {
         if annotation is MKUserLocation {
-            return nil  // keep blue dot for user location
+            return nil
         }
 
         let identifier = "CustomPin"
@@ -241,14 +257,16 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
             )
             annotationView?.canShowCallout = true
 
-            // Set custom image from assets as pin
-            annotationView?.image = UIImage(named: "Ic_Location_Pin")  // asset name
+            // Set your custom image
+            annotationView?.image = UIImage(named: "Ic_Location_Pin")
+
+            // Optional: center the pin bottom on the coordinate
             annotationView?.centerOffset = CGPoint(
                 x: 0,
                 y: -(annotationView?.image?.size.height ?? 0) / 2
             )
 
-            // Right detail button
+            // Optional: add a detail button on callout
             let button = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = button
         } else {
@@ -256,41 +274,6 @@ class ChangeAddressViewController: UIViewController, CLLocationManagerDelegate {
         }
 
         return annotationView
-    }
-
-    @IBAction func btnCurrentLocationTapped(_ sender: Any) {
-        if CLLocationManager.locationServicesEnabled() {
-            switch locationManager.authorizationStatus {
-            case .notDetermined:
-                locationManager.requestWhenInUseAuthorization()
-            case .denied, .restricted:
-                showPermissionAlert()
-            case .authorizedWhenInUse, .authorizedAlways:
-                locationManager.startUpdatingLocation()
-            @unknown default:
-                break
-            }
-        } else {
-            showPermissionAlert()
-        }
-    }
-    func goToCurrentLocation() {
-        if let location = locationManager.location?.coordinate {
-            let region = MKCoordinateRegion(
-                center: location,
-                span: MKCoordinateSpan(
-                    latitudeDelta: 0.01,
-                    longitudeDelta: 0.01
-                )
-            )
-            mapView.setRegion(region, animated: true)
-        } else {
-            locationManager.startUpdatingLocation()
-        }
-    }
-
-    @objc func BackBtnTapped() {
-        self.navigationController?.popViewController(animated: true)
     }
 
 }
