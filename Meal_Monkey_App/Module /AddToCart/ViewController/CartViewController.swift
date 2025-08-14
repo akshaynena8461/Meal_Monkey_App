@@ -43,7 +43,6 @@ class CartViewController: UIViewController {
         if !app.arrCart.isEmpty {
             app.arrOrder.append(app.arrCart)
             app.arrCart.removeAll()
-
         }
 
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -58,6 +57,5 @@ class CartViewController: UIViewController {
         lblEmpty.isHidden = false
         btnPlaceOrder.isHidden = true
         tblCartView.reloadData()
-
     }
 }

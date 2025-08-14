@@ -7,18 +7,24 @@ class DessertsViewController: UIViewController {
 
     @IBOutlet weak var lblNoProduct: UILabel!
     var selectedProductType: ProductType = .Desserts
-    
-     var filteredProducts: [ProductModel] = []
-       private var isSearching = false
-    
+
+    var filteredProducts: [ProductModel] = []
+    private var isSearching = false
+
     var arrProducts: [ProductModel] {
         switch selectedProductType {
         case .food:
-            return HomeViewController.arrProductData.filter { $0.objProductType == .food }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .food
+            }
         case .Desserts:
-            return  HomeViewController.arrProductData.filter { $0.objProductType == .Desserts }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .Desserts
+            }
         case .Beverages:
-            return  HomeViewController.arrProductData.filter { $0.objProductType == .Beverages }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .Beverages
+            }
         }
     }
 
@@ -31,10 +37,14 @@ class DessertsViewController: UIViewController {
 
         tblDessertsView.showsVerticalScrollIndicator = false
 
-        txtSearch.addTarget(self, action: #selector(searchTextChanged(_:)), for: .editingChanged)
-         
+        txtSearch.addTarget(
+            self,
+            action: #selector(searchTextChanged(_:)),
+            for: .editingChanged
+        )
+
         filteredProducts = arrProducts
-        
+
         switch selectedProductType {
         case .food:
             setLeftAlignedTitleWithBack(
@@ -67,10 +77,10 @@ class DessertsViewController: UIViewController {
         )
 
     }
-    
+
     @objc private func searchTextChanged(_ textField: UITextField) {
         let searchText = textField.text?.lowercased() ?? ""
-        
+
         if searchText.isEmpty {
             isSearching = false
             filteredProducts = arrProducts
@@ -81,12 +91,9 @@ class DessertsViewController: UIViewController {
             }
         }
         lblNoProduct.isHidden = !filteredProducts.isEmpty
-
-        
         tblDessertsView.reloadData()
     }
 
-    
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -99,7 +106,7 @@ class DessertsViewController: UIViewController {
             )
         }
     }
-    
+
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }

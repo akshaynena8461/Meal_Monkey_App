@@ -2,15 +2,14 @@ import UIKit
 
 class ProductDetailViewController: UIViewController {
 
+    @IBOutlet weak var detailPageViewinScollView: UIView!
     @IBOutlet weak var stackStars: UIStackView!
     @IBOutlet weak var btnHeart: UIButton!
     @IBOutlet weak var imgProduct: UIImageView!
     @IBOutlet weak var ProductDetailView: UIView!
-
     @IBOutlet weak var viewScroll: UIScrollView!
     @IBOutlet weak var stackIngredients: UIStackView!
     @IBOutlet weak var stackPortion: UIStackView!
-
     @IBOutlet weak var lblTotal: UILabel!
     @IBOutlet weak var btnAddCart: UIButton!
     @IBOutlet weak var btnPlus: UIButton!
@@ -31,9 +30,9 @@ class ProductDetailViewController: UIViewController {
 
     @IBAction func btnHeartClick(_ sender: Any) {
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         fillStars(for: product?.floatProductRating ?? 0.0, in: stackStars)
         viewScroll.showsVerticalScrollIndicator = false
@@ -55,28 +54,23 @@ class ProductDetailViewController: UIViewController {
             target: self,
             action: #selector(cartBtnTapped)
         )
-        EditStyle.setborder(textfields: [btnMinus, btnPlus], cornerRadious: 15)
+        EditStyle.setborder(
+            textfields: [btnMinus, btnPlus, lblCount],
+            cornerRadious: 15
+        )
+        lblCount.layer.borderWidth = 1
+        lblCount.layer.borderColor = UIColor.systemGray.cgColor
         EditStyle.setborder(textfields: [btnAddCart], cornerRadious: 7.42)
 
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [
+        detailPageViewinScollView.layer.cornerRadius = 42
+        detailPageViewinScollView.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner,
         ]
-
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.3
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
-
-        ProductDetailView.layer.cornerRadius = 20
-        ProductDetailView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        ProductDetailView.layer.shadowColor = UIColor.black.cgColor
-        ProductDetailView.layer.shadowOpacity = 0.3
-        ProductDetailView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        ProductDetailView.layer.shadowRadius = 10
+        detailPageViewinScollView.clipsToBounds = true
+        detailPageViewinScollView.layer.shadowColor = UIColor.black.cgColor
+        detailPageViewinScollView.layer.shadowOpacity = 0.3
+        detailPageViewinScollView.layer.shadowOffset = CGSize(width: 0, height: -2)
+        detailPageViewinScollView.layer.shadowRadius = 30
 
         if let product = product {
             imgProduct.image = UIImage(named: product.strProductImage)
@@ -85,6 +79,7 @@ class ProductDetailViewController: UIViewController {
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
     }
+    
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -114,7 +109,7 @@ class ProductDetailViewController: UIViewController {
         for (index, view) in stackView.arrangedSubviews.enumerated() {
             if let imageView = view as? UIImageView {
                 let starIndex = Float(index) + 1.0
-                
+
                 if rating >= starIndex {
                     // Full star
                     imageView.image = UIImage(systemName: "star.fill")
@@ -122,7 +117,7 @@ class ProductDetailViewController: UIViewController {
                 } else if rating + 0.5 >= starIndex {
                     // Half star
                     imageView.image = UIImage(systemName: "star.lefthalf.fill")
-                    imageView.tintColor = .systemYellow
+                    imageView.tintColor = .systemOrange
                 } else {
                     // Empty star
                     imageView.image = UIImage(systemName: "star")
@@ -132,7 +127,6 @@ class ProductDetailViewController: UIViewController {
         }
     }
 
-    
     func updatePriceAndQuantityUI() {
         guard let product = product else { return }
         let total = (product.doubleProductPrice) * Double(quantity)
@@ -158,7 +152,8 @@ class ProductDetailViewController: UIViewController {
         if let existingIndex = app.arrCart.firstIndex(where: {
             $0.intId == productToAdd.intId
         }) {
-            app.arrCart[existingIndex].intProductQty = quantity
+            app.arrCart[existingIndex].intProductQty =
+                quantity + (productToAdd.intProductQty ?? 1)
             print(
                 "Updated \(productToAdd.strProductName) quantity to \(quantity)."
             )
@@ -180,10 +175,11 @@ class ProductDetailViewController: UIViewController {
             message: "Item Added to Cart",
             viewController: self
         )
-
     }
+
     @IBAction func btnPortionClick(_ sender: Any) {
     }
+
     @IBAction func btnIngredientsClick(_ sender: Any) {
     }
 }

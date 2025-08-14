@@ -42,6 +42,7 @@
                         </subviews>
                     </stackView>
                 </subviews>
+                <color key="backgroundColor" name="Select_box_BgColor"/>
                 <constraints>
                     <constraint firstAttribute="bottom" secondItem="TAd-5D-ewD" secondAttribute="bottom" constant="10" id="Ann-eF-c6R"/>
                     <constraint firstItem="TAd-5D-ewD" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="KEe-3I-rdq"/>
@@ -59,6 +60,9 @@
         </tableViewCell>
     </objects>
     <resources>
+        <namedColor name="Select_box_BgColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="loginsignupcolor">
             <color red="0.29019607843137257" green="0.29411764705882354" blue="0.30196078431372547" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

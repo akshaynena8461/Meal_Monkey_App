@@ -33,6 +33,11 @@ class LoginViewController: UIViewController {
 
     }
 
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.tabBarController?.tabBar.isHidden = true
+    }
+    
     @IBAction func btnloginclick(_ sender: Any) {
         showMainTabBar()
     }
@@ -71,7 +76,7 @@ class LoginViewController: UIViewController {
         isPasswordVisible = !isPasswordVisible
         txtPassword.isSecureTextEntry = !isPasswordVisible
 
-        let imageName = isPasswordVisible ? "eye" : "eye.slash"
+        let imageName = isPasswordVisible ? "eye": "eye.slash"
 
         if let button = sender as? UIButton {
             button.setImage(UIImage(systemName: imageName), for: .normal)
@@ -91,6 +96,7 @@ class LoginViewController: UIViewController {
 
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
+                tabBarController.selectedIndex = 2
             }
         }
     }

@@ -48,7 +48,7 @@ class NewPasswordViewController: UIViewController {
         txtConfirmPassword.isSecureTextEntry.toggle()
         sender.setImage(
             UIImage(
-                systemName: txtPassword.isSecureTextEntry ? "eye.slash" : "eye"
+                systemName: txtConfirmPassword.isSecureTextEntry ? "eye.slash" : "eye"
             ),
             for: .normal
         )

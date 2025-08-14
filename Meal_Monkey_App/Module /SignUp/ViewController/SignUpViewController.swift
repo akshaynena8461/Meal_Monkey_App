@@ -22,7 +22,7 @@ class SignUpViewController: UIViewController {
         isPasswordVisible.toggle()
         txtPassword.isSecureTextEntry = !isPasswordVisible
 
-        let imageName = isPasswordVisible ? "eye" : "eye.slash"
+        let imageName = isPasswordVisible ? "eye.slash" : "eye"
 
         if let button = sender as? UIButton {
             button.setImage(UIImage(systemName: imageName), for: .normal)

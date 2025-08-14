@@ -2,22 +2,6 @@ import UIKit
 
 class ProfileViewController: UIViewController {
 
-    @IBAction func btnEditProfileClick(_ sender: Any) {
-    }
-    @IBAction func btnSaveClick(_ sender: Any) {
-    }
-    @IBAction func btnSignOutClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
-        if let signOutVc = storyboard.instantiateViewController(
-            withIdentifier: "LoginViewController"
-        ) as? LoginViewController {
-            self.navigationController?.pushViewController(
-                signOutVc,
-                animated: true
-            )
-        }
-        
-    }
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var txtMobile: UITextField!
@@ -28,6 +12,7 @@ class ProfileViewController: UIViewController {
     @IBOutlet weak var btnEditProfile: UIButton!
     @IBOutlet weak var btnSignOut: UIButton!
     @IBOutlet weak var imgProfile: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -40,11 +25,11 @@ class ProfileViewController: UIViewController {
             target: self,
             action: #selector(addImage)
         )
+        
         imgProfile.addGestureRecognizer(imageGesture)
-
         setLeftAlignedTitle("Profile")
         setCartButton(target: self, action: #selector(cartBtnTapped))
-
+       
         EditStyle.setborder(
             textfields: [txtName, txtEmail, txtMobile, txtAddress, btnSave],
             cornerRadious: 28
@@ -53,7 +38,6 @@ class ProfileViewController: UIViewController {
             textFields: [txtName, txtEmail, txtMobile, txtAddress],
             paddingWidth: 34
         )
-
     }
     @objc func addImage() {
         let pickerController = UIImagePickerController()
@@ -69,6 +53,24 @@ class ProfileViewController: UIViewController {
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,
+                animated: true
+            )
+        }
+    }
+    
+    @IBAction func btnEditProfileClick(_ sender: Any) {
+    }
+    
+    @IBAction func btnSaveClick(_ sender: Any) {
+    }
+    
+    @IBAction func btnSignOutClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        if let signOutVc = storyboard.instantiateViewController(
+            withIdentifier: "LoginViewController"
+        ) as? LoginViewController {
+            self.navigationController?.pushViewController(
+                signOutVc,
                 animated: true
             )
         }

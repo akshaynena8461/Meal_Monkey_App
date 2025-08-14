@@ -1,6 +1,6 @@
 import Foundation
 
-class PaymentModel {
+class PaymentModel:Codable{
     var strCardNumber: String?
     var strMonth: String?
     var strYear: String?

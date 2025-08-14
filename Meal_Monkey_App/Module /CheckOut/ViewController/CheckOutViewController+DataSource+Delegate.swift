@@ -3,8 +3,7 @@ import UIKit
 extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         if app.arrCard.isEmpty {
             return 2
         }
@@ -15,12 +14,12 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
-        
-        let totalRows = tblCheckOutView.numberOfRows(inSection: indexPath.section)
 
+        let totalRows = tblCheckOutView.numberOfRows(
+            inSection: indexPath.section
+        )
 
         switch indexPath.row {
-
         case 0:
             return tableView.dequeueReusableCell(
                 withIdentifier: "CaseOnDeliveryCell",
@@ -42,7 +41,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                     for: indexPath
                 ) as! CardViewCell
 
-            
+            cell.selectionStyle = .none
             cell.configPaymentCell(payment: app.arrCard[cardIndex])
             return cell
         }

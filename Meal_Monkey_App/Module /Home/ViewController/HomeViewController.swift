@@ -1,21 +1,18 @@
 import UIKit
 
+class HomeViewController: UIViewController, HomeTableViewCellDelegate,
+    ChangeAddressDelegate {
 
-
-class HomeViewController: UIViewController,HomeTableViewCellDelegate {
-
-    
-    
+    @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var txtSearchFood: UITextField!
     var selectedCategory: ProductCategory = .All
     @IBOutlet weak var tblHomeView: UITableView!
-    var objProductCategory:ProductModel?
+    var objProductCategory: ProductModel?
 
     static var arrProductData: [ProductModel] = ProductModel.addProductData()
-    var arrRecentItem:[ProductModel] = []
-    var filteredProducts:[ProductModel] = []
+    var arrRecentItem: [ProductModel] = []
+    var filteredProducts: [ProductModel] = []
     var searchText: String = ""
-    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,19 +30,29 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
             forCellReuseIdentifier: "HomeTableViewCell"
         )
 
-        
-        txtSearchFood.addTarget(self, action: #selector(searchTextChanged), for: .editingChanged)
+        txtSearchFood.addTarget(
+            self,
+            action: #selector(searchTextChanged),
+            for: .editingChanged
+        )
         filteredProducts = Self.arrProductData
 
         tblHomeView.reloadData()
 
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        arrRecentItem = RecentItemsHelper.shared.getRecentItems()
-        tblHomeView.reloadData()
+
+    @IBAction func btnCurrentLocationClick(_ sender: Any) {
+        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        if let changeAddressVc = storyboard.instantiateViewController(
+            withIdentifier: "ChangeAddressViewController"
+        ) as? ChangeAddressViewController {
+            self.navigationController?.pushViewController(
+                changeAddressVc,
+                animated: true
+            )
+        }
+        
     }
-    
     @objc func searchTextChanged() {
         searchText = txtSearchFood.text?.lowercased() ?? ""
         tblHomeView.reloadData()
@@ -54,15 +61,32 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
         let searchText = txtSearchFood.text?.lowercased() ?? ""
 
         filteredProducts = Self.arrProductData.filter { product in
-            let matchesCategory = (selectedCategory == .All) || (product.objProductCategory == selectedCategory)
-            let matchesName = searchText.isEmpty || product.strProductName.lowercased().contains(searchText)
+            let matchesCategory =
+                (selectedCategory == .All)
+                || (product.objProductCategory == selectedCategory)
+            let matchesName =
+                searchText.isEmpty
+                || product.strProductName.lowercased().contains(searchText)
             return matchesCategory && matchesName
         }
 
         tblHomeView.reloadData()
     }
 
+    func didSelectAddress(_ address: String) {
+        lblAddress.text = address
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
 
+        if let savedAddress = UserDefaults.standard.string(
+            forKey: "SelectedAddress"
+        ) {
+            lblAddress.text = savedAddress
+        }
+        arrRecentItem = RecentItemsHelper.shared.getRecentItems()
+        tblHomeView.reloadData()
+    }
 
     @objc func CartButtonTapped() {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -75,8 +99,11 @@ class HomeViewController: UIViewController,HomeTableViewCellDelegate {
             )
         }
     }
-    
-    func HomeTableViewCell(_ cell: HomeTableViewCell, didSelectCategory category: ProductCategory) {
+
+    func HomeTableViewCell(
+        _ cell: HomeTableViewCell,
+        didSelectCategory category: ProductCategory
+    ) {
         selectedCategory = category
         filterProducts()
         DispatchQueue.main.async {

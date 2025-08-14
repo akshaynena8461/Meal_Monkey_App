@@ -166,7 +166,7 @@
                                                                     <constraint firstAttribute="height" constant="56" id="dJV-hY-gX2"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3Tr-o9-QwT">
                                                                 <rect key="frame" x="0.0" y="73" width="351" height="56"/>
@@ -175,7 +175,7 @@
                                                                     <constraint firstAttribute="height" constant="56" id="gbh-zK-8Ma"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile No" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2pd-Qj-nqk">
                                                                 <rect key="frame" x="0.0" y="146" width="351" height="56"/>
@@ -184,7 +184,7 @@
                                                                     <constraint firstAttribute="height" constant="56" id="wJr-nF-33U"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-Bu-9f2">
                                                                 <rect key="frame" x="0.0" y="219" width="351" height="56"/>
@@ -193,7 +193,7 @@
                                                                     <constraint firstAttribute="height" constant="56" id="4dZ-7E-Bic"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits"/>
+                                                                <textInputTraits key="textInputTraits" returnKeyType="done"/>
                                                             </textField>
                                                         </subviews>
                                                     </stackView>
@@ -314,6 +314,9 @@
                                         <color key="tintColor" name="loginbtnbg"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="" image="Ic_Select_Location"/>
+                                        <connections>
+                                            <action selector="btnCurrentLocationClick:" destination="pXP-02-Goj" eventType="touchUpInside" id="J6r-As-TDc"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -359,6 +362,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="I3Q-X2-axt"/>
                     <connections>
+                        <outlet property="lblAddress" destination="rZL-Cl-vfl" id="ZPh-wD-7uF"/>
                         <outlet property="tblHomeView" destination="vwW-Pr-5fa" id="867-qC-V8Y"/>
                         <outlet property="txtSearchFood" destination="h87-cv-Bqa" id="KlZ-6t-XVm"/>
                     </connections>

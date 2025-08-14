@@ -1,32 +1,70 @@
-
-
-import UIKit
 import CoreData
+import UIKit
 
 var app = UIApplication.shared.delegate as! AppDelegate
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
-    var arrCart:[ProductModel] = []
-    var arrOrder:[[ProductModel]] = []
-    var cartItems:[ProductModel] = []
-    var arrCard:[PaymentModel] = []
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+    var arrCart: [ProductModel] = []
+    var arrOrder: [[ProductModel]] = []
+    var cartItems: [ProductModel] = []
+    var arrCard: [PaymentModel] = []
+
+    func application(
+        _ application: UIApplication,
+        didFinishLaunchingWithOptions launchOptions: [UIApplication
+            .LaunchOptionsKey: Any]?
+    ) -> Bool {
+        if let data = UserDefaults.standard.data(forKey: "cartData") {
+            let decoder = JSONDecoder()
+            if let savedCart = try? decoder.decode(
+                [ProductModel].self,
+                from: data
+            ) {
+                app.arrCart = savedCart
+            }
+        }
+        if let data = UserDefaults.standard.data(forKey: "orderlistData") {
+            let decoder = JSONDecoder()
+            if let savedOrder = try? decoder.decode(
+                [[ProductModel]].self,
+                from: data
+            ) {
+                app.arrOrder = savedOrder
+            }
+        }
+        if let data = UserDefaults.standard.data(forKey: "cardData") {
+            let decoder = JSONDecoder()
+            if let savedCard = try? decoder.decode(
+                [PaymentModel].self,
+                from: data
+            ) {
+                app.arrCard = savedCard
+            }
+        }
         return true
     }
 
     // MARK: UISceneSession Lifecycle
 
-    func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
+    func application(
+        _ application: UIApplication,
+        configurationForConnecting connectingSceneSession: UISceneSession,
+        options: UIScene.ConnectionOptions
+    ) -> UISceneConfiguration {
         // Called when a new scene session is being created.
         // Use this method to select a configuration to create the new scene with.
-        return UISceneConfiguration(name: "Default Configuration", sessionRole: connectingSceneSession.role)
+        return UISceneConfiguration(
+            name: "Default Configuration",
+            sessionRole: connectingSceneSession.role
+        )
     }
 
-    func application(_ application: UIApplication, didDiscardSceneSessions sceneSessions: Set<UISceneSession>) {
+    func application(
+        _ application: UIApplication,
+        didDiscardSceneSessions sceneSessions: Set<UISceneSession>
+    ) {
         // Called when the user discards a scene session.
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
@@ -42,11 +80,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
          error conditions that could cause the creation of the store to fail.
         */
         let container = NSPersistentContainer(name: "Meal_Monkey_App")
-        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
+        container.loadPersistentStores(completionHandler: {
+            (storeDescription, error) in
             if let error = error as NSError? {
                 // Replace this implementation with code to handle the error appropriately.
                 // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-                 
+
                 /*
                  Typical reasons for an error here include:
                  * The parent directory does not exist, cannot be created, or disallows writing.
@@ -63,7 +102,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -77,5 +116,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
 
-}
+    func applicationWillTerminate(_ application: UIApplication) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(app.arrCart) {
+            UserDefaults.standard.set(encoded, forKey: "cartData")
+            UserDefaults.standard.synchronize()
+        }
+        if let encoded = try? encoder.encode(app.arrOrder) {
+            UserDefaults.standard.set(encoded, forKey: "orderlistData")
+            UserDefaults.standard.synchronize()
+        }
+        if let encoded = try? encoder.encode(app.arrCard) {
+            UserDefaults.standard.set(encoded, forKey: "cardData")
+            UserDefaults.standard.synchronize()
+        }
+    }
 
+}

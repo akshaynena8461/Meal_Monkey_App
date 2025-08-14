@@ -343,11 +343,15 @@ at anytime </string>
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ic_restaurantFood" translatesAutoresizingMaskIntoConstraints="NO" id="GVY-uS-f4g">
-                                <rect key="frame" x="21" y="146" width="80" height="81"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Ic_Monkey_Face" translatesAutoresizingMaskIntoConstraints="NO" id="GVY-uS-f4g">
+                                <rect key="frame" x="21" y="138" width="80" height="80"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="f7x-63-iR5"/>
+                                    <constraint firstAttribute="height" constant="80" id="qbt-hB-4Ho"/>
+                                </constraints>
                             </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="n9p-LU-HTK">
-                                <rect key="frame" x="0.0" y="261" width="393" height="252.33333333333337"/>
+                                <rect key="frame" x="0.0" y="251.99999999999997" width="393" height="261.33333333333326"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>
                                     <outlet property="dataSource" destination="ySd-XR-0j6" id="Wrp-mG-3M3"/>
@@ -518,7 +522,7 @@ at anytime </string>
                         <viewLayoutGuide key="safeArea" id="SB8-CK-x0H"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="GVY-uS-f4g" firstAttribute="top" secondItem="SB8-CK-x0H" secondAttribute="top" constant="28" id="2Yo-NF-MHf"/>
+                            <constraint firstItem="GVY-uS-f4g" firstAttribute="top" secondItem="SB8-CK-x0H" secondAttribute="top" constant="20" id="2Yo-NF-MHf"/>
                             <constraint firstItem="Fvn-AQ-Ucj" firstAttribute="top" secondItem="SB8-CK-x0H" secondAttribute="top" constant="28" id="4E0-mK-dDF"/>
                             <constraint firstItem="E0T-Zh-Z7C" firstAttribute="top" secondItem="N1q-BC-2QC" secondAttribute="bottom" constant="25" id="4ah-ha-ldv"/>
                             <constraint firstItem="SB8-CK-x0H" firstAttribute="trailing" secondItem="E0T-Zh-Z7C" secondAttribute="trailing" constant="21" id="6eF-4f-l6l"/>
@@ -1275,9 +1279,9 @@ at anytime </string>
         <image name="Ic_AddCardBtn" width="12" height="24"/>
         <image name="Ic_AddNotes" width="7" height="12"/>
         <image name="Ic_Current_Location_Target" width="52" height="58"/>
+        <image name="Ic_Monkey_Face" width="104" height="106"/>
         <image name="Ic_Star_Filled" width="16" height="15"/>
         <image name="Ic_location-pin" width="11" height="15"/>
-        <image name="Ic_restaurantFood" width="80" height="81"/>
         <image name="Ic_rightArraow" width="7" height="14"/>
         <image name="Img_ThankYou" width="227" height="250"/>
         <namedColor name="BackViewColor">

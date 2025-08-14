@@ -27,6 +27,7 @@ class CartTableViewCell: UITableViewCell {
     }
 
     func configCartCell(product: ProductModel) {
+        imgProduct.image = UIImage(named: product.strProductImage)
         lblProductTitle.text = product.strProductName
         lblType.text = "\(product.objProductType)"
         lblCategory.text = "\(product.objProductCategory)"

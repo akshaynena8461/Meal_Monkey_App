@@ -1,6 +1,6 @@
 import Foundation
 
-class ProductModel {
+class ProductModel:Codable{
     var intId: Int = 0
     var strProductName: String = ""
     var strProductDescription: String = ""
@@ -204,7 +204,7 @@ class ProductModel {
                     "A spicy and tangy buttermilk-based curry with sundakkai (turkey berry), offering a unique flavor profile and served with rice.",
                 floatProductRating: 4.4,
                 doubleProductPrice: 130,
-                strProductImage: "ic_sundaikkai_morkulambu",
+                strProductImage: "Ic_sundaikkai_morkulambu",
                 intTotalNumberOfRatings: 100,
                 objProductCategory: .SouthIndian,
                 objProductType: .Beverages
@@ -919,13 +919,13 @@ class ProductModel {
         ]
     }
 }
-enum ProductType: String {
+enum ProductType: String,Codable {
     case food
     case Beverages
     case Desserts
 }
 
-enum ProductCategory: String, CaseIterable {
+enum ProductCategory:String,Codable,CaseIterable {
     case All
     case Punjabi
     case Chinese
