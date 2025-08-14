@@ -140,7 +140,7 @@
                                                                 </constraints>
                                                                 <color key="tintColor" name="placeholdercolor"/>
                                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                <state key="normal" title="" image="eye.slash" catalog="system">
+                                                                <state key="normal" title="" image="eye" catalog="system">
                                                                     <color key="titleColor" name="More_icons_border_color"/>
                                                                 </state>
                                                                 <connections>
@@ -345,7 +345,7 @@
                                                                         </constraints>
                                                                         <color key="tintColor" name="placeholdercolor"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" title="" image="eye.slash" catalog="system"/>
+                                                                        <state key="normal" title="" image="eye" catalog="system"/>
                                                                         <connections>
                                                                             <action selector="btnEye1Click:" destination="8p6-EF-Be5" eventType="touchUpInside" id="8DB-Jj-vQI"/>
                                                                         </connections>
@@ -373,7 +373,7 @@
                                                                         </constraints>
                                                                         <color key="tintColor" name="placeholdercolor"/>
                                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                                        <state key="normal" image="eye.slash" catalog="system"/>
+                                                                        <state key="normal" image="eye" catalog="system"/>
                                                                         <connections>
                                                                             <action selector="btnEye2Click:" destination="8p6-EF-Be5" eventType="touchUpInside" id="I25-xg-KCk"/>
                                                                         </connections>
@@ -860,7 +860,7 @@ continue to reset your password</string>
     </scenes>
     <resources>
         <image name="Googlepluclogo" width="20" height="13"/>
-        <image name="eye.slash" catalog="system" width="128" height="97"/>
+        <image name="eye" catalog="system" width="128" height="79"/>
         <image name="facebooklogo" width="8" height="16"/>
         <namedColor name="Facebookbtncolor">
             <color red="0.21176470588235294" green="0.49803921568627452" blue="0.75294117647058822" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
