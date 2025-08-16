@@ -24,7 +24,6 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 
             appDelegate.arrCart.remove(at: indexPath.row)
             lblEmpty.isHidden = !app.arrCart.isEmpty
-            self.btnPlaceOrder.isHidden = true
             self.tblCartView.reloadData()
         }
         return cell

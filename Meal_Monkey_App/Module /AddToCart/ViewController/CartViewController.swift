@@ -1,3 +1,4 @@
+import CoreData
 import UIKit
 
 class CartViewController: UIViewController {
@@ -31,6 +32,7 @@ class CartViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         lblEmpty.isHidden = !app.arrCart.isEmpty
+      
         tblCartView.reloadData()
     }
 

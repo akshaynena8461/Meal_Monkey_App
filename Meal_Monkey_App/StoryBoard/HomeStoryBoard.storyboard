@@ -117,7 +117,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="620"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmR-Fv-evK">
-                                                <rect key="frame" x="0.0" y="0.0" width="351" height="636"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="351" height="632.66666666666663"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="person.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ekN-Ck-ebk">
                                                         <rect key="frame" x="124.66666666666666" y="1.6666666666666643" width="102" height="98.666666666666686"/>
@@ -139,14 +139,25 @@
                                                             <action selector="btnEditProfileClick:" destination="8Nw-mt-pCU" eventType="touchUpInside" id="q1u-OY-WY2"/>
                                                         </connections>
                                                     </button>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there Akshay!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Th-WrL">
-                                                        <rect key="frame" x="117.33333333333334" y="150.33333333333331" width="116.66666666666666" height="18.666666666666657"/>
-                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
-                                                        <color key="textColor" name="loginsignupcolor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Y0G-Oc-yNR">
+                                                        <rect key="frame" x="124.66666666666666" y="150.33333333333331" width="101.66666666666666" height="20.333333333333343"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hi there" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EiO-Th-WrL">
+                                                                <rect key="frame" x="0.0" y="0.0" width="56.333333333333336" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                                                <color key="textColor" name="loginsignupcolor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2g0-In-PQb">
+                                                                <rect key="frame" x="60.333333333333343" y="0.0" width="41.333333333333343" height="20.333333333333332"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eqJ-XC-B32">
-                                                        <rect key="frame" x="152.66666666666666" y="180" width="46" height="26"/>
+                                                        <rect key="frame" x="152.66666666666666" y="176.66666666666669" width="46" height="26"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="11"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="Sign Out">
@@ -157,7 +168,7 @@
                                                         </connections>
                                                     </button>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="17" translatesAutoresizingMaskIntoConstraints="NO" id="foW-kM-mrq">
-                                                        <rect key="frame" x="0.0" y="254" width="351" height="275"/>
+                                                        <rect key="frame" x="0.0" y="250.66666666666669" width="351" height="275.00000000000006"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="oQa-ns-FzI">
                                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="56"/>
@@ -187,7 +198,7 @@
                                                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="V2e-Bu-9f2">
-                                                                <rect key="frame" x="0.0" y="219" width="351" height="56"/>
+                                                                <rect key="frame" x="0.0" y="218.99999999999994" width="351" height="56"/>
                                                                 <color key="backgroundColor" name="txtfieldbg"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="56" id="4dZ-7E-Bic"/>
@@ -198,7 +209,7 @@
                                                         </subviews>
                                                     </stackView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1dd-5Z-ovl">
-                                                        <rect key="frame" x="0.0" y="546" width="351" height="56"/>
+                                                        <rect key="frame" x="0.0" y="542.66666666666663" width="351" height="56"/>
                                                         <color key="backgroundColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="EbL-6L-cpe"/>
@@ -209,7 +220,7 @@
                                                             <color key="titleColor" name="More_View_Background"/>
                                                         </state>
                                                         <connections>
-                                                            <action selector="btnSaveClick:" destination="8Nw-mt-pCU" eventType="touchUpInside" id="TxZ-67-Mzn"/>
+                                                            <action selector="btnSaveClick:" destination="8Nw-mt-pCU" eventType="touchUpInside" id="4xy-fu-hd3"/>
                                                         </connections>
                                                     </button>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CameraIcon" translatesAutoresizingMaskIntoConstraints="NO" id="fAm-L4-eAm">
@@ -223,20 +234,20 @@
                                                 </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
-                                                    <constraint firstItem="EiO-Th-WrL" firstAttribute="top" secondItem="F50-B7-csZ" secondAttribute="bottom" constant="13" id="18C-zY-n59"/>
                                                     <constraint firstItem="fAm-L4-eAm" firstAttribute="centerX" secondItem="F50-B7-csZ" secondAttribute="centerX" id="3J8-qr-bux"/>
-                                                    <constraint firstItem="eqJ-XC-B32" firstAttribute="centerX" secondItem="EiO-Th-WrL" secondAttribute="centerX" id="AI5-kv-aMn"/>
-                                                    <constraint firstItem="eqJ-XC-B32" firstAttribute="top" secondItem="EiO-Th-WrL" secondAttribute="bottom" constant="11" id="IGu-Uc-PxR"/>
+                                                    <constraint firstItem="Y0G-Oc-yNR" firstAttribute="top" secondItem="F50-B7-csZ" secondAttribute="bottom" constant="13" id="6I1-ym-8Tg"/>
+                                                    <constraint firstItem="eqJ-XC-B32" firstAttribute="top" secondItem="Y0G-Oc-yNR" secondAttribute="bottom" constant="6" id="ICL-Hr-7bG"/>
                                                     <constraint firstItem="ekN-Ck-ebk" firstAttribute="top" secondItem="bmR-Fv-evK" secondAttribute="top" id="J6b-bR-lQ0"/>
                                                     <constraint firstAttribute="trailing" secondItem="foW-kM-mrq" secondAttribute="trailing" id="Lj2-CH-iK4"/>
+                                                    <constraint firstItem="eqJ-XC-B32" firstAttribute="centerX" secondItem="Y0G-Oc-yNR" secondAttribute="centerX" id="Nk6-7o-FD9"/>
                                                     <constraint firstItem="foW-kM-mrq" firstAttribute="top" secondItem="eqJ-XC-B32" secondAttribute="bottom" constant="48" id="OIk-NY-3fu"/>
                                                     <constraint firstItem="1dd-5Z-ovl" firstAttribute="top" secondItem="foW-kM-mrq" secondAttribute="bottom" constant="17" id="QoN-cI-SZn"/>
                                                     <constraint firstItem="fAm-L4-eAm" firstAttribute="centerX" secondItem="foW-kM-mrq" secondAttribute="centerX" id="RQe-S0-Dya"/>
-                                                    <constraint firstItem="ekN-Ck-ebk" firstAttribute="centerX" secondItem="EiO-Th-WrL" secondAttribute="centerX" id="TUC-TS-Pu2"/>
                                                     <constraint firstItem="1dd-5Z-ovl" firstAttribute="leading" secondItem="bmR-Fv-evK" secondAttribute="leading" id="TqK-ei-NDH"/>
                                                     <constraint firstItem="F50-B7-csZ" firstAttribute="top" secondItem="ekN-Ck-ebk" secondAttribute="bottom" constant="19" id="ZVV-xo-wyv"/>
                                                     <constraint firstItem="foW-kM-mrq" firstAttribute="leading" secondItem="bmR-Fv-evK" secondAttribute="leading" id="drt-E5-vuz"/>
                                                     <constraint firstAttribute="trailing" secondItem="1dd-5Z-ovl" secondAttribute="trailing" id="f08-hs-l3u"/>
+                                                    <constraint firstItem="Y0G-Oc-yNR" firstAttribute="centerX" secondItem="bmR-Fv-evK" secondAttribute="centerX" id="nkF-SD-tba"/>
                                                     <constraint firstItem="ekN-Ck-ebk" firstAttribute="centerX" secondItem="F50-B7-csZ" secondAttribute="centerX" id="noi-sv-Iis"/>
                                                     <constraint firstAttribute="bottom" secondItem="1dd-5Z-ovl" secondAttribute="bottom" constant="34" id="uHc-0R-Rae"/>
                                                     <constraint firstItem="fAm-L4-eAm" firstAttribute="bottom" secondItem="ekN-Ck-ebk" secondAttribute="bottom" id="upj-fk-FI3"/>
@@ -281,6 +292,7 @@
                         <outlet property="btnSignOut" destination="eqJ-XC-B32" id="N8A-uQ-qZU"/>
                         <outlet property="imgProfile" destination="ekN-Ck-ebk" id="KxK-xO-KrD"/>
                         <outlet property="lblTitle" destination="EiO-Th-WrL" id="536-Jk-6Nx"/>
+                        <outlet property="lblUserName" destination="2g0-In-PQb" id="yma-jl-gDc"/>
                         <outlet property="stackDetail" destination="foW-kM-mrq" id="xIj-E5-je9"/>
                         <outlet property="txtAddress" destination="V2e-Bu-9f2" id="wRl-QQ-BDk"/>
                         <outlet property="txtEmail" destination="3Tr-o9-QwT" id="v6w-Vy-NhN"/>

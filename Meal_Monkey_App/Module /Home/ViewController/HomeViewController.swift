@@ -1,7 +1,8 @@
 import UIKit
 
 class HomeViewController: UIViewController, HomeTableViewCellDelegate,
-    ChangeAddressDelegate {
+    ChangeAddressDelegate
+{
 
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var txtSearchFood: UITextField!
@@ -9,7 +10,8 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @IBOutlet weak var tblHomeView: UITableView!
     var objProductCategory: ProductModel?
 
-    static var arrProductData: [ProductModel] = ProductModel.addProductData()
+    //    static var arrProductData: [ProductModel] = ProductModel.addProductData()
+    static var arrProductData: [ProductModel] = []
     var arrRecentItem: [ProductModel] = []
     var filteredProducts: [ProductModel] = []
     var searchText: String = ""
@@ -35,7 +37,22 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
             action: #selector(searchTextChanged),
             for: .editingChanged
         )
-        filteredProducts = Self.arrProductData
+
+        let productUrl =
+            "https://mocki.io/v1/61d284ed-b0a1-493c-805c-efb4f68fdc53"
+
+        APICalls.getProductData(
+            from: productUrl,
+            modelType: ProductModel.self
+        ) { products in
+            DispatchQueue.main.async {
+                Self.arrProductData = products
+                print("Products loaded: \(Self.arrProductData)")
+                self.filteredProducts = Self.arrProductData
+                print("filterProducts : ", self.filteredProducts)
+                self.tblHomeView.reloadData()
+            }
+        }
 
         tblHomeView.reloadData()
 
@@ -51,7 +68,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
                 animated: true
             )
         }
-        
+
     }
     @objc func searchTextChanged() {
         searchText = txtSearchFood.text?.lowercased() ?? ""

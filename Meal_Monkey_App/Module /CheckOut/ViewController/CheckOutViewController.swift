@@ -285,6 +285,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
     @IBAction func btnTrackMyOrderClick(_ sender: Any) {
     }
+    
     @IBAction func btnBackToHomeClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
         if let homeVc = storyboard.instantiateViewController(
@@ -295,7 +296,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
                 animated: true
             )
         }
-
+        self.tabBarController?.selectedIndex = 2
     }
 
 }

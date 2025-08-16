@@ -9,12 +9,12 @@ class OrderListViewController: UIViewController {
         super.viewDidLoad()
 
         lblEmpty.isHidden = true
-        
-        if app.arrOrder.count == 0{
+
+        if app.arrOrder.count == 0 {
             lblEmpty.isHidden = false
-            
+
         }
-        
+
         setLeftAlignedTitleWithBack(
             "Order List",
             target: self,
@@ -25,8 +25,8 @@ class OrderListViewController: UIViewController {
             forCellReuseIdentifier: "OrderListTableViewCell"
         )
     }
- 
-    
+
+
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }

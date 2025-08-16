@@ -20,9 +20,14 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var lblRatings: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
 
+    let currentUserEmail = UserDefaults.standard.string(
+        forKey: "loggedInUserEmail"
+    )
+    
+
     var product: ProductModel?
     var quantity: Int = 1
-    var cartItems: [(product: ProductModel, quantity: Int)] = []
+    //    var cartItems: [(product: ProductModel, quantity: Int)] = []
 
     private var appDelegate: AppDelegate? {
         return UIApplication.shared.delegate as? AppDelegate
@@ -30,7 +35,7 @@ class ProductDetailViewController: UIViewController {
 
     @IBAction func btnHeartClick(_ sender: Any) {
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +74,10 @@ class ProductDetailViewController: UIViewController {
         detailPageViewinScollView.clipsToBounds = true
         detailPageViewinScollView.layer.shadowColor = UIColor.black.cgColor
         detailPageViewinScollView.layer.shadowOpacity = 0.3
-        detailPageViewinScollView.layer.shadowOffset = CGSize(width: 0, height: -2)
+        detailPageViewinScollView.layer.shadowOffset = CGSize(
+            width: 0,
+            height: -2
+        )
         detailPageViewinScollView.layer.shadowRadius = 30
 
         if let product = product {
@@ -79,7 +87,7 @@ class ProductDetailViewController: UIViewController {
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
     }
-    
+
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }
@@ -170,6 +178,7 @@ class ProductDetailViewController: UIViewController {
     @IBAction func btnAddToCartClick(_ sender: Any) {
         guard let product = product else { return }
         checkProduct(productToAdd: product)
+        
         UIAlertController.showAlert(
             title: "Success",
             message: "Item Added to Cart",
