@@ -2,12 +2,14 @@ import UIKit
 
 extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int {
+        -> Int
+    {
         return arrMenuData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell {
+        -> UITableViewCell
+    {
 
         let cell =
             tableView.dequeueReusableCell(
@@ -35,7 +37,10 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
             bundle: nil
         )
 
-        switch indexPath.row {
+        var row = indexPath.row
+        var selectedItem = arrMenuData[row].intTag
+
+        switch selectedItem {
 
         case 0:
             print("Food")

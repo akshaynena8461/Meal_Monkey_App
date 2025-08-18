@@ -26,14 +26,16 @@ class OrderListViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        if let loggedInUser = CoreDataManager.shared.fetchUserbyEmail(
-            byEmail: UserDefaults.standard.string(forKey: "loggedInUserEmail")
-                ?? "",
-        ) {
-            app.arrOrder = CoreDataManager.shared.fetchOrders(for: loggedInUser)
-            tblOrderList.reloadData()
-            lblEmpty.isHidden = !app.arrOrder.isEmpty
+        super.viewWillAppear(animated)
+
+        if let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail"),
+           let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) {
+            
+            app.arrOrder = CoreDataManager.shared.fetchOrders(for: user)
         }
+
+        lblEmpty.isHidden = !app.arrOrder.isEmpty
+        tblOrderList.reloadData()
     }
 
     @objc func backBtnTapped() {

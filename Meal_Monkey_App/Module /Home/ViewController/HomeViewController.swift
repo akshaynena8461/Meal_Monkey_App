@@ -54,7 +54,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         }
         tblHomeView.reloadData()
     }
-
+    
     @IBAction func btnCurrentLocationClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
         if let changeAddressVc = storyboard.instantiateViewController(

@@ -82,7 +82,7 @@ class CoreDataManager {
 
     func saveOrder(for user: User, products: [ProductModel]) {
         let order = OrderList(context: context)
-        order.userEmail = user.email
+        order.user = user
         order.products = products.toData()
         saveContext()
         print("Order saved for user: \(user.email ?? "")")
@@ -90,11 +90,7 @@ class CoreDataManager {
 
     func fetchOrders(for user: User) -> [[ProductModel]] {
         let fetchRequest: NSFetchRequest<OrderList> = OrderList.fetchRequest()
-        fetchRequest.predicate = NSPredicate(
-            format: "user == %@",
-            user.email ?? ""
-        )
-
+        fetchRequest.predicate = NSPredicate(format: "user == %@", user)
         do {
             let orders = try context.fetch(fetchRequest)
             return orders.compactMap { $0.products?.toProducts() }

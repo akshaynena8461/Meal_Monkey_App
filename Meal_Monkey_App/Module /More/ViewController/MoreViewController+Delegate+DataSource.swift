@@ -26,10 +26,12 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
         tableView.deselectRow(at: indexPath, animated: true)
-
+        let row = indexPath.row
         let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
 
-        switch indexPath.row {
+        let selectedItem = arrMore[row].intTag
+        
+        switch selectedItem {
         case 0:
             print("Payment Details selected")
             if let paymentvc = storyboard.instantiateViewController(

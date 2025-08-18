@@ -21,7 +21,7 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var lblDescription: UILabel!
     @IBOutlet weak var lblRatings: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
-
+    
     let currentUserEmail = UserDefaults.standard.string(
         forKey: "loggedInUserEmail"
     )
@@ -29,16 +29,16 @@ class ProductDetailViewController: UIViewController {
     var onHeartTapped:(() -> Void)?
     
     
-
+    
     var products: ProductModel?
     var quantity: Int = 1
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         fillStars(for: products?.floatProductRating ?? 0.0, in: stackStars)
         viewScroll.showsVerticalScrollIndicator = false
-
+        
         EditStyle.setborder(
             textfields: [stackPortion, stackIngredients],
             cornerRadious: 4
@@ -46,7 +46,7 @@ class ProductDetailViewController: UIViewController {
         lblCount.text = "\(quantity)"
         btnMinus.isEnabled = false
         configureUI()
-
+        
         setLeftAlignedTitleWithBackInProductDetailPage(
             "",
             target: self,
@@ -63,7 +63,7 @@ class ProductDetailViewController: UIViewController {
         lblCount.layer.borderWidth = 1
         lblCount.layer.borderColor = UIColor.systemGray.cgColor
         EditStyle.setborder(textfields: [btnAddCart], cornerRadious: 7.42)
-
+        
         detailPageViewinScollView.layer.cornerRadius = 42
         detailPageViewinScollView.layer.maskedCorners = [
             .layerMinXMinYCorner, .layerMaxXMinYCorner,
@@ -76,7 +76,7 @@ class ProductDetailViewController: UIViewController {
             height: -2
         )
         detailPageViewinScollView.layer.shadowRadius = 30
-
+        
         if let product = products {
             imgProduct.image = UIImage(named: product.strProductImage)
             lblTitle.text = product.strProductName
@@ -90,30 +90,27 @@ class ProductDetailViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-            if let product = products {
-                let isFav = app.arrWishList.contains(where: { $0.intId == product.intId })
-                product.objAddFavorite = isFav
-                let imageName = isFav ? "heart.fill" : "heart"
-                btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
-            }
-    }
-
-    @IBAction func btnHeartClick(_ sender: AnyObject) {
-
-        guard let products = self.products else { return }
-        
-        products.objAddFavorite = !(products.objAddFavorite ?? false)
-        let imageName =
-        (products.objAddFavorite ?? false) ? "heart.fill" : "heart"
-        btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
-
-        if let index = app.arrWishList.firstIndex(where: {
-            $0.intId == products.intId
-        }) {
-            app.arrWishList.remove(at: index)
-        } else {
-            app.arrWishList.append(products)
+        if let product = products {
+            let isFav = app.arrWishList.contains(where: { $0.intId == product.intId })
+            product.objAddFavorite = isFav
+            let imageName = isFav ? "heart.fill" : "heart"
+            btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
         }
+    }
+    
+    @IBAction func btnHeartClick(_ sender: AnyObject) {
+        
+        guard let product = self.products,
+                let currentUserEmail = currentUserEmail,
+                let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) else { return }
+
+          if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
+              CoreDataManager.shared.removeFromWishlist(for: user, productId: product.intId)
+              btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+          } else {
+              CoreDataManager.shared.addToWishlist(for: user, productId: product.intId)
+              btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
+          }
     }
     
     func updateWishlistData() {
@@ -125,11 +122,11 @@ class ProductDetailViewController: UIViewController {
             }
         }
     }
-
+    
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-
+    
     @objc func cartBtnTapped() {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
@@ -141,7 +138,7 @@ class ProductDetailViewController: UIViewController {
             )
         }
     }
-
+    
     func configureUI() {
         guard let product = products else { return }
         lblTitle.text = product.strProductName
@@ -150,12 +147,12 @@ class ProductDetailViewController: UIViewController {
         lblRatings.text = "\(product.floatProductRating) star Ratings"
         updatePriceAndQuantityUI()
     }
-
+    
     func fillStars(for rating: Float, in stackView: UIStackView) {
         for (index, view) in stackView.arrangedSubviews.enumerated() {
             if let imageView = view as? UIImageView {
                 let starIndex = Float(index) + 1.0
-
+                
                 if rating >= starIndex {
                     // Full star
                     imageView.image = UIImage(systemName: "star.fill")
@@ -172,7 +169,7 @@ class ProductDetailViewController: UIViewController {
             }
         }
     }
-
+    
     func updatePriceAndQuantityUI() {
         guard let product = products else { return }
         let total = (product.doubleProductPrice) * Double(quantity)
@@ -180,7 +177,7 @@ class ProductDetailViewController: UIViewController {
         lblCount.text = "\(quantity)"
         btnMinus.isEnabled = quantity > 1
     }
-
+    
     @IBAction func btnPlucClick(_ sender: Any) {
         quantity += 1
         updatePriceAndQuantityUI()
@@ -191,37 +188,22 @@ class ProductDetailViewController: UIViewController {
             updatePriceAndQuantityUI()
         }
     }
-
-    func checkProduct(productToAdd: ProductModel) {
-
-        if let existingIndex = app.arrCart.firstIndex(where: {
-            $0.intId == productToAdd.intId
-        }) {
-            app.arrCart[existingIndex].intProductQty =
-                quantity + (productToAdd.intProductQty ?? 1)
-            print(
-                "Updated \(productToAdd.strProductName) quantity to \(quantity)."
-            )
-        }
-
-        else {
-            let newProduct = productToAdd
-            newProduct.intProductQty = quantity
-            app.arrCart.append(newProduct)
-            print(
-                "Added \(productToAdd.strProductName) with quantity \(quantity)."
-            )
-        }
-    }
-
+    
     @IBAction func btnAddToCartClick(_ sender: Any) {
         guard let product = products else { return }
-        //        checkProduct(productToAdd: product)
         
         if let currentUserEmail = currentUserEmail,
            let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) {
             
             CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+            
+            if let index = app.arrCart.firstIndex(where: { $0.intId == product.intId }) {
+                app.arrCart[index].intProductQty = (app.arrCart[index].intProductQty ?? 0) + quantity
+            } else {
+                var newProduct = product
+                newProduct.intProductQty = quantity
+                app.arrCart.append(newProduct)
+            }
             
             UIAlertController.showAlert(
                 title: "Success",
@@ -230,10 +212,10 @@ class ProductDetailViewController: UIViewController {
             )
         }
     }
-
+    
     @IBAction func btnPortionClick(_ sender: Any) {
     }
-
+    
     @IBAction func btnIngredientsClick(_ sender: Any) {
     }
 }

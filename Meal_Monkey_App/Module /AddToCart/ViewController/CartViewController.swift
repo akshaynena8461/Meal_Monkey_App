@@ -13,10 +13,12 @@ class CartViewController: UIViewController {
 
         super.viewDidLoad()
 
-//        lblEmpty.isHidden = true
         if app.arrCart.count == 0 {
             lblEmpty.isHidden = false
             btnPlaceOrder.isHidden = true
+        } else {
+            lblEmpty.isHidden = true
+            btnPlaceOrder.isHidden = false
         }
         setLeftAlignedTitleWithBack(
             "Cart Page",
@@ -31,6 +33,7 @@ class CartViewController: UIViewController {
         )
         tblCartView.reloadData()
     }
+
     override func viewWillAppear(_ animated: Bool) {
         lblEmpty.isHidden = !app.arrCart.isEmpty
         updateWishlistData()
@@ -73,36 +76,30 @@ class CartViewController: UIViewController {
     }
 
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
-
+        guard
+            let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail"),
+            let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail)
+        else {
+            print("No logged in user found")
+            return
+        }
+        
         if !app.arrCart.isEmpty {
-            app.arrOrder.append(app.arrCart)
+            // ✅ Save order to Core Data
+            CoreDataManager.shared.saveOrder(for: user, products: app.arrCart)
+            
+            // Clear cart
+            CoreDataManager.shared.clearCart(for: user)
             app.arrCart.removeAll()
         }
-        guard let product = products else { return }
-
-        if let currentUserEmail = UserDefaults.standard.string(
-            forKey: "loggedInUserEmail"
-        ),
-            let user = CoreDataManager.shared.fetchUserbyEmail(
-                byEmail: currentUserEmail
-            )
-        {
-            CoreDataManager.shared.clearCart(for:user)
-            CoreDataManager.shared.saveOrder(for: user, products: [product])
-        }
-        let storyboard = UIStoryboard(
-            name: "ProductStoryBoard",
-            bundle: nil
-        )
+        
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
         if let orderlistVc = storyboard.instantiateViewController(
             withIdentifier: "OrderListViewController"
         ) as? OrderListViewController {
-            self.navigationController?.pushViewController(
-                orderlistVc,
-                animated: true
-            )
+            self.navigationController?.pushViewController(orderlistVc, animated: true)
         }
-
+        
         lblEmpty.isHidden = false
         btnPlaceOrder.isHidden = true
         tblCartView.reloadData()
