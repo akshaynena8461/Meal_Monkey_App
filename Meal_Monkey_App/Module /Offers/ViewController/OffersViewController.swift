@@ -3,9 +3,8 @@ import UIKit
 class OffersViewController: UIViewController {
 
     @IBOutlet weak var btnCheckOffers: UIButton!
-    var arrOffers: [OfferModel] = OfferModel.addOffersData()
-
     @IBOutlet weak var tblOffersView: UITableView!
+    var arrOffers: [OfferModel] = OfferModel.addOffersData()
 
     override func viewDidLoad() {
         super.viewDidLoad()

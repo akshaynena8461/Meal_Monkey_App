@@ -32,8 +32,8 @@ class MoreViewController: UIViewController {
             UINib(nibName: "MoreTableViewCell", bundle: nil),
             forCellReuseIdentifier: "MoreTableViewCell"
         )
-
     }
+    
     @objc func cartButtonTapped() {
         print("Cart button tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -45,7 +45,5 @@ class MoreViewController: UIViewController {
                 animated: true
             )
         }
-
     }
-
 }

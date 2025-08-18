@@ -7,6 +7,7 @@ class NewPasswordViewController: UIViewController {
     @IBOutlet weak var stackPassword: UIStackView!
     @IBOutlet weak var txtConfirmPassword: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -14,7 +15,6 @@ class NewPasswordViewController: UIViewController {
             textfields: [btnNext],
             cornerRadious: 28
         )
-        
         EditStyle.addStackBorder(stackViews: [stackPassword,stackConfirmPassword])
         
         EditStyle.setPadding(
@@ -33,8 +33,8 @@ class NewPasswordViewController: UIViewController {
                 animated: true
             )
         }
-
     }
+    
     @IBAction func btnEyeClick(_ sender: UIButton) {
         txtPassword.isSecureTextEntry.toggle()
         sender.setImage(
@@ -44,6 +44,7 @@ class NewPasswordViewController: UIViewController {
             for: .normal
         )
     }
+    
     @IBAction func btnEye2Click(_ sender: UIButton) {
         txtConfirmPassword.isSecureTextEntry.toggle()
         sender.setImage(
@@ -53,5 +54,4 @@ class NewPasswordViewController: UIViewController {
             for: .normal
         )
     }
-
 }

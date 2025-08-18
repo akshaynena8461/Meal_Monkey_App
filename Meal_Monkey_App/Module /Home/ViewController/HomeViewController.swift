@@ -10,7 +10,6 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @IBOutlet weak var tblHomeView: UITableView!
     var objProductCategory: ProductModel?
 
-    //    static var arrProductData: [ProductModel] = ProductModel.addProductData()
     static var arrProductData: [ProductModel] = []
     var arrRecentItem: [ProductModel] = []
     var filteredProducts: [ProductModel] = []
@@ -53,9 +52,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
                 self.tblHomeView.reloadData()
             }
         }
-
         tblHomeView.reloadData()
-
     }
 
     @IBAction func btnCurrentLocationClick(_ sender: Any) {
@@ -68,12 +65,13 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
                 animated: true
             )
         }
-
     }
+    
     @objc func searchTextChanged() {
         searchText = txtSearchFood.text?.lowercased() ?? ""
         tblHomeView.reloadData()
     }
+    
     func filterProducts() {
         let searchText = txtSearchFood.text?.lowercased() ?? ""
 
@@ -86,13 +84,13 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
                 || product.strProductName.lowercased().contains(searchText)
             return matchesCategory && matchesName
         }
-
         tblHomeView.reloadData()
     }
 
     func didSelectAddress(_ address: String) {
         lblAddress.text = address
     }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -133,18 +131,17 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         didSelectProduct product: ProductModel
     ) {
         RecentItemsHelper.shared.addProduct(product)
-
+        
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
         if let detailVC = storyboard.instantiateViewController(
             withIdentifier: "ProductDetailViewController"
         ) as? ProductDetailViewController {
-            detailVC.product = product
+            detailVC.products = product
             self.navigationController?.pushViewController(
                 detailVC,
                 animated: true
             )
         }
-
         arrRecentItem = RecentItemsHelper.shared.getRecentItems()
         tblHomeView.reloadData()
     }

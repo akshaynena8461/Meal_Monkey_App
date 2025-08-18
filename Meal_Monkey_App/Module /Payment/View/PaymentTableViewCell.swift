@@ -17,11 +17,10 @@ class PaymentTableViewCell: UITableViewCell {
 
     @IBAction func btnDeleteClick(_ sender: Any) {
         onDelete?()
-
     }
+
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     func configPaymentCell(payment: PaymentModel) {
@@ -32,5 +31,4 @@ class PaymentTableViewCell: UITableViewCell {
             lblCardNumber.text = "Invalid Card"
         }
     }
-
 }

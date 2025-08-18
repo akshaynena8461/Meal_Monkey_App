@@ -11,5 +11,4 @@ class ServiceCollectionViewCell: UICollectionViewCell {
     func configServiceCell(imgName: String) {
         imgView.image = UIImage(named: imgName)
     }
-
 }

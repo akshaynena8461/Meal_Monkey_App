@@ -2,13 +2,13 @@ import Foundation
 import UIKit
 
 class EditStyle {
+    
     class func setborder(textfields: [UIView], cornerRadious: CGFloat) {
         for textField in textfields {
             textField.layer.borderColor = UIColor.lightGray.cgColor
             textField.layer.cornerRadius = cornerRadious
             textField.clipsToBounds = false
         }
-
     }
 
     class func setPadding(textFields: [UIView], paddingWidth: CGFloat) {
@@ -29,15 +29,15 @@ class EditStyle {
             }
         }
     }
+    
     class func setOTPtextFieldborder(textfields: [UIView]) {
         for textField in textfields {
             textField.layer.borderColor = UIColor.lightGray.cgColor
             textField.layer.cornerRadius = 12
             textField.clipsToBounds = false
         }
-
     }
-
+    
     class func addStackBorder(stackViews: [UIView]) {
         for stackView in stackViews {
             stackView.layer.cornerRadius = 28
@@ -45,7 +45,6 @@ class EditStyle {
             stackView.clipsToBounds = true
         }
     }
-
 }
 
 extension UIViewController {
@@ -66,14 +65,12 @@ extension UIViewController {
         button.tintColor = textColor
 
         button.addTarget(target, action: action, for: .touchUpInside)
-
         button.sizeToFit()
 
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
 
-    
     func setLeftAlignedTitleWithBackInProductDetailPage(
         _ title: String,
         font: UIFont = .systemFont(ofSize: 29),
@@ -90,13 +87,12 @@ extension UIViewController {
         button.tintColor = textColor
 
         button.addTarget(target, action: action, for: .touchUpInside)
-
         button.sizeToFit()
 
         let leftItem = UIBarButtonItem(customView: button)
         self.navigationItem.leftBarButtonItem = leftItem
     }
-    
+
     func setLeftAlignedTitle(
         _ title: String,
         font: UIFont = .systemFont(ofSize: 29),
@@ -129,7 +125,7 @@ extension UIViewController {
         cartButton.tintColor = tintColor
         self.navigationItem.rightBarButtonItem = cartButton
     }
-    
+
     func setCartButtonInProuductDetail(
         target: Any?,
         action: Selector,
@@ -147,6 +143,4 @@ extension UIViewController {
         cartButton.tintColor = tintColor
         self.navigationItem.rightBarButtonItem = cartButton
     }
-
-
 }

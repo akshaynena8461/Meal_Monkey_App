@@ -1,8 +1,6 @@
 import UIKit
 
-class MyOrderViewController: UIViewController,ChangeAddressDelegate {
-   
-    
+class MyOrderViewController: UIViewController, ChangeAddressDelegate {
 
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var btnCheckOut: UIButton!
@@ -11,10 +9,6 @@ class MyOrderViewController: UIViewController,ChangeAddressDelegate {
     @IBOutlet weak var lblsubTotal: UILabel!
     @IBOutlet weak var btnAddNotes: UIButton!
     @IBOutlet weak var tblMyOrderView: UITableView!
-
-    func didSelectAddress(_ address: String) {
-        lblAddress.text = address
-    }
 
     var arrOrderDetail: [ProductModel] = []
     let deliveryCost: Double = 5.0
@@ -34,10 +28,14 @@ class MyOrderViewController: UIViewController,ChangeAddressDelegate {
             target: self,
             action: #selector(BackBtnTapped)
         )
+
         EditStyle.setborder(textfields: [btnCheckOut], cornerRadious: 28)
 
         calculateTotals()
-
+    }
+    
+    func didSelectAddress(_ address: String) {
+        lblAddress.text = address
     }
 
     func calculateTotals() {
@@ -48,6 +46,7 @@ class MyOrderViewController: UIViewController,ChangeAddressDelegate {
         lbldeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
         lblTotal.text = "$\(String(format: "%.2f", subtotal + deliveryCost))"
     }
+
     @IBAction func btnAddNotesClick(_ sender: Any) {
 
     }
@@ -68,5 +67,4 @@ class MyOrderViewController: UIViewController,ChangeAddressDelegate {
             )
         }
     }
-
 }

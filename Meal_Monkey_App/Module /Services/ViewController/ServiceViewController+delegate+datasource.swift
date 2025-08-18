@@ -1,8 +1,7 @@
 import UIKit
 
 extension ServiceViewController: UICollectionViewDataSource,
-    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
-{
+    UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
 
     internal func collectionView(
         _ collectionView: UICollectionView,
@@ -66,6 +65,5 @@ extension ServiceViewController: UIScrollViewDelegate {
             break
 
         }
-
     }
 }

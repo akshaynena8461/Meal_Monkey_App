@@ -4,11 +4,10 @@ class ForgotPasswordViewController: UIViewController {
 
     @IBOutlet weak var btnsend: UIButton!
     @IBOutlet weak var txtemail: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
         EditStyle.setborder(textfields: [txtemail, btnsend], cornerRadious: 28)
-
         EditStyle.setPadding(textFields: [txtemail], paddingWidth: 34)
     }
 
@@ -23,5 +22,4 @@ class ForgotPasswordViewController: UIViewController {
             )
         }
     }
-
 }

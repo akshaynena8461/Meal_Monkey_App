@@ -22,7 +22,6 @@ extension UIAlertController {
                 }
             )
         )
-
         viewController.present(alert, animated: true)
     }
 
@@ -40,5 +39,4 @@ extension UIAlertController {
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailPredicate.evaluate(with: email)
     }
-
 }

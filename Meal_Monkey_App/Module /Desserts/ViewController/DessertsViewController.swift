@@ -4,10 +4,9 @@ class DessertsViewController: UIViewController {
 
     @IBOutlet weak var txtSearch: UITextField!
     @IBOutlet weak var tblDessertsView: UITableView!
-
     @IBOutlet weak var lblNoProduct: UILabel!
-    var selectedProductType: ProductType = .Desserts
 
+    var selectedProductType: ProductType = .Desserts
     var filteredProducts: [ProductModel] = []
     private var isSearching = false
 
@@ -34,7 +33,6 @@ class DessertsViewController: UIViewController {
         lblNoProduct.isHidden = true
         EditStyle.setborder(textfields: [txtSearch], cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearch], paddingWidth: 34)
-
         tblDessertsView.showsVerticalScrollIndicator = false
 
         txtSearch.addTarget(
@@ -42,7 +40,6 @@ class DessertsViewController: UIViewController {
             action: #selector(searchTextChanged(_:)),
             for: .editingChanged
         )
-
         filteredProducts = arrProducts
 
         switch selectedProductType {
@@ -68,14 +65,12 @@ class DessertsViewController: UIViewController {
             )
 
         }
-
         setCartButton(target: self, action: #selector(CartBtnTapped))
 
         tblDessertsView.register(
             UINib(nibName: "DessertsTableViewCell", bundle: nil),
             forCellReuseIdentifier: "DessertsTableViewCell"
         )
-
     }
 
     @objc private func searchTextChanged(_ textField: UITextField) {

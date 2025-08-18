@@ -11,7 +11,7 @@ extension UIViewController {
         return passwordPredicate.evaluate(with: password)
     }
     
-     func isValidEmail(_ email: String) -> Bool {
+    func isValidEmail(_ email: String) -> Bool {
         let emailRegEx = #"^[a-z0-9]+@gmail.com$"#
         let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegEx)
         return emailPredicate.evaluate(with: email)
@@ -27,7 +27,6 @@ extension UIViewController {
                 as? UIWindowScene,
                 let sceneDelegate = windowScene.delegate as? SceneDelegate
             {
-
                 sceneDelegate.window?.rootViewController = tabBarController
                 sceneDelegate.window?.makeKeyAndVisible()
                 tabBarController.selectedIndex = 2

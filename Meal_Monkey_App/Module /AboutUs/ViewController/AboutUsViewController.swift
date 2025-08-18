@@ -3,10 +3,9 @@ import UIKit
 class AboutUsViewController: UIViewController {
 
     var objPagetype: PageType = .AboutUs
-
     var arrCurrent: [AboutModel] = []
-
     @IBOutlet weak var tblView: UITableView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.showsVerticalScrollIndicator = false
@@ -57,13 +56,14 @@ class AboutUsViewController: UIViewController {
             )
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addAboutData()
+        case .WishList:
+            print("Wishlist")
         }
 
         tblView.register(
             UINib(nibName: "AboutUsTableViewCell", bundle: nil),
             forCellReuseIdentifier: "AboutUsTableViewCell"
         )
-
     }
 
     @objc func cartButtonTapped() {
@@ -77,7 +77,6 @@ class AboutUsViewController: UIViewController {
                 animated: true
             )
         }
-
     }
 
     @objc func backBtnTapped() {

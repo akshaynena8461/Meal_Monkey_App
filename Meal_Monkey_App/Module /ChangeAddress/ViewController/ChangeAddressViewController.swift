@@ -21,7 +21,6 @@ class ChangeAddressViewController: UIViewController {
         super.viewDidLoad()
 
         mapView.delegate = self
-
         setupUI()
         setupLocation()
         setupMap()
@@ -37,14 +36,12 @@ class ChangeAddressViewController: UIViewController {
             target: self,
             action: #selector(BackBtnTapped)
         )
-
         let tapGesture = UITapGestureRecognizer(
             target: self,
             action: #selector(mapTapped(_:))
         )
         mapView.addGestureRecognizer(tapGesture)
 
-        // Add search button action
         txtSearchAddress.addTarget(
             self,
             action: #selector(searchAddress),
@@ -80,7 +77,6 @@ class ChangeAddressViewController: UIViewController {
         mapView.removeAnnotations(
             mapView.annotations.filter { !($0 is MKUserLocation) }
         )
-
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         annotation.title = "Loading address..."
@@ -103,14 +99,12 @@ class ChangeAddressViewController: UIViewController {
 
                 annotation.title = name
                 annotation.subtitle = "\(city), \(country)"
-
-    
             }
-
             self.mapView.selectAnnotation(annotation, animated: true)
             self.delegate?.didSelectAddress(fullAddress)
         }
     }
+
     func locationManager(
         _ manager: CLLocationManager,
         didUpdateLocations locations: [CLLocation]
@@ -225,5 +219,4 @@ class ChangeAddressViewController: UIViewController {
         }
         navigationController?.popViewController(animated: true)
     }
-
 }

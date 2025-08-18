@@ -1,8 +1,7 @@
-
-
 import Foundation
 
 class APICalls {
+    
     class func getProductData<T: Codable>(
         from urlString: String,
         modelType: T.Type,
@@ -15,13 +14,16 @@ class APICalls {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = "GET"
 
-        let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
+        let task = URLSession.shared.dataTask(with: urlRequest) {
+            data,
+            response,
+            error in
             if let error = error {
                 print("Error: \(error.localizedDescription)")
                 completion([])
                 return
             }
-            
+
             guard let data = data else {
                 print("No data received")
                 completion([])
@@ -36,7 +38,6 @@ class APICalls {
                 completion([])
             }
         }
-
         task.resume()
     }
 }

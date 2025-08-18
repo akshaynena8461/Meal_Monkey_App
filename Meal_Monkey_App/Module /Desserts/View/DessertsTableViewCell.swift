@@ -7,13 +7,13 @@ class DessertsTableViewCell: UITableViewCell {
     @IBOutlet weak var imgStar: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var imgDessert: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     func configDessertCell(dessert: ProductModel) {

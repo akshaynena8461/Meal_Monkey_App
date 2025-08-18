@@ -2,14 +2,12 @@ import UIKit
 
 extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         return arrMenuData.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
 
         let cell =
             tableView.dequeueReusableCell(
@@ -79,7 +77,6 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         default:
             break
         }
-
     }
 
     @objc func CartBtnTapped() {
@@ -89,5 +86,4 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-
 }

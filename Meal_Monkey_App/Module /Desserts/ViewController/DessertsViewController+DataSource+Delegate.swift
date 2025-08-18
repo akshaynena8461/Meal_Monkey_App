@@ -2,14 +2,12 @@ import UIKit
 
 extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         return  filteredProducts.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
         let cell =
             tableView.dequeueReusableCell(
                 withIdentifier: "DessertsTableViewCell",
@@ -17,11 +15,9 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
             ) as! DessertsTableViewCell
 
         cell.selectionStyle = .none
-
         cell.configDessertCell(dessert: filteredProducts[indexPath.row])
 
         return cell
-
     }
 
     func tableView(
@@ -34,11 +30,10 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         RecentItemsHelper.shared.addProduct(selectedProduct)
 
         if let detailVC = storyboard.instantiateViewController(withIdentifier: "ProductDetailViewController") as? ProductDetailViewController {
-            detailVC.product = selectedProduct
+            detailVC.products = selectedProduct
             
             navigationController?.pushViewController(detailVC, animated: true)
         }
 
     }
-
 }

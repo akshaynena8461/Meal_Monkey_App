@@ -1,8 +1,8 @@
 import UIKit
 
 extension ProfileViewController: UIImagePickerControllerDelegate,
-    UINavigationControllerDelegate
-{
+    UINavigationControllerDelegate {
+    
     func imagePickerController(
         _ picker: UIImagePickerController,
         didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey:

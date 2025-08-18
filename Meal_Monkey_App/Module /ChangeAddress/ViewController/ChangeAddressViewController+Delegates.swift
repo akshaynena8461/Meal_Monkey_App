@@ -2,8 +2,7 @@ import MapKit
 import UIKit
 
 extension ChangeAddressViewController: CLLocationManagerDelegate,
-    UISearchBarDelegate, MKMapViewDelegate
-{
+    UISearchBarDelegate, MKMapViewDelegate {
 
     func locationManager(
         _ manager: CLLocationManager,
@@ -13,8 +12,7 @@ extension ChangeAddressViewController: CLLocationManagerDelegate,
     }
 
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation)
-        -> MKAnnotationView?
-    {
+        -> MKAnnotationView? {
         if annotation is MKUserLocation {
             return nil
         }
@@ -30,24 +28,16 @@ extension ChangeAddressViewController: CLLocationManagerDelegate,
                 reuseIdentifier: identifier
             )
             annotationView?.canShowCallout = true
-
-            // Set your custom image
             annotationView?.image = UIImage(named: "Ic_Location_Pin")
-
-            // Optional: center the pin bottom on the coordinate
             annotationView?.centerOffset = CGPoint(
                 x: 0,
                 y: -(annotationView?.image?.size.height ?? 0) / 2
             )
-
-            // Optional: add a detail button on callout
             let button = UIButton(type: .detailDisclosure)
             annotationView?.rightCalloutAccessoryView = button
         } else {
             annotationView?.annotation = annotation
         }
-
         return annotationView
     }
-
 }

@@ -29,18 +29,21 @@ class HomeTableViewCell: UITableViewCell {
             DispatchQueue.main.async {
                 self.homeCollectionView.layoutIfNeeded()
                 self.updateCollectionHeight()
-    
+
             }
         }
     }
+    
     func updateCollectionHeight() {
-            if let layout = homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout,
-               layout.scrollDirection == .vertical {
-                self.homeCollectionViewHeight.constant = self.homeCollectionView.collectionViewLayout.collectionViewContentSize.height
-            }
+        if let layout = homeCollectionView.collectionViewLayout
+            as? UICollectionViewFlowLayout,
+            layout.scrollDirection == .vertical
+        {
+            self.homeCollectionViewHeight.constant =
+                self.homeCollectionView.collectionViewLayout
+                .collectionViewContentSize.height
         }
-    
-    
+    }
 
     var arrProducts: [ProductModel] = [] {
         didSet {
@@ -56,7 +59,7 @@ class HomeTableViewCell: UITableViewCell {
         super.awakeFromNib()
 
         homeCollectionView.delegate = self
-        
+
         homeCollectionView.register(
             UINib(nibName: "RecentItemCollectionViewCell", bundle: nil),
             forCellWithReuseIdentifier: "RecentItemCollectionViewCell"
@@ -96,6 +99,7 @@ class HomeTableViewCell: UITableViewCell {
             )
         }
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
@@ -104,8 +108,7 @@ class HomeTableViewCell: UITableViewCell {
     }
 }
 extension HomeTableViewCell: UICollectionViewDataSource,
-    UICollectionViewDelegateFlowLayout, UICollectionViewDelegate
-{
+    UICollectionViewDelegateFlowLayout, UICollectionViewDelegate {
     func collectionView(
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
@@ -185,7 +188,6 @@ extension HomeTableViewCell: UICollectionViewDataSource,
             return CGSize(width: 228, height: 185)
         case .RecentItems:
             return CGSize(width: collectionView.frame.size.width, height: 79)
-
         }
     }
 
@@ -207,7 +209,6 @@ extension HomeTableViewCell: UICollectionViewDataSource,
             let selectedProduct = arrProducts[indexPath.row]
             print("selectedProduct ", selectedProduct)
             delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)
-
         }
     }
 }

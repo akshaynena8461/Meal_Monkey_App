@@ -3,14 +3,12 @@ import UIKit
 extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         return arrMore.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
         let cell =
             tableView.dequeueReusableCell(
                 withIdentifier: "MoreTableViewCell",
@@ -45,7 +43,10 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
         case 1:
             print("My Orders selected")
-            let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+            let storyboard = UIStoryboard(
+                name: "ProductStoryBoard",
+                bundle: nil
+            )
 
             if let orderlistVc = storyboard.instantiateViewController(
                 withIdentifier: "OrderListViewController"
@@ -91,17 +92,32 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
                     animated: true
                 )
             }
-
+        case 5:
+            print("WishList Page")
+           
+            if let wishlistVc = storyboard.instantiateViewController(
+                withIdentifier: "WishListViewController"
+            ) as? WishListViewController {
+                
+//                wishlistVc.arrWishlistItems = app.arrWishList
+               
+                self.navigationController?.pushViewController(
+                    wishlistVc,
+                    animated: true
+                )
+            }
+            
         default:
             break
         }
     }
-
 }
+
 enum PageType {
     case PayMent
     case MyOrders
     case Notification
     case Inbox
     case AboutUs
+    case WishList
 }

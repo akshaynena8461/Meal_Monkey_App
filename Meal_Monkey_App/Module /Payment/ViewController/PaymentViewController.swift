@@ -22,32 +22,15 @@ class PaymentViewController: UIViewController {
         super.viewDidLoad()
 
         backView.isHidden = true
-        
+
         lblEmpty.isHidden = true
-        
-        if app.arrCard.count == 0{
+
+        if app.arrCard.count == 0 {
             lblEmpty.isHidden = false
         }
-
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.3
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
-
-        addCardPageView.layer.cornerRadius = 20
-        addCardPageView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        addCardPageView.layer.shadowColor = UIColor.black.cgColor
-        addCardPageView.layer.shadowOpacity = 0.3
-        addCardPageView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        addCardPageView.layer.shadowRadius = 10
+        
+        scrollViewStyle(scroll: [viewScroll], cornerRadious: 20)
+        pageStyle(page: [addCardPageView], cornerRadious: 20)
 
         EditStyle.setPadding(
             textFields: [
@@ -79,13 +62,35 @@ class PaymentViewController: UIViewController {
         )
     }
 
-    
-//    override func viewWillAppear(_ animated: Bool) {
-//        lblEmpty.isHidden = !app.arrCard.isEmpty
-//        tblPaymentView.reloadData()
-//    }
-//    
-    
+    func pageStyle(page: [UIView], cornerRadious: CGFloat) {
+        for item in page {
+            item.layer.cornerRadius = cornerRadious
+            item.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner,
+            ]
+
+            item.layer.shadowColor = UIColor.black.cgColor
+            item.layer.shadowOpacity = 0.3
+            item.layer.shadowOffset = CGSize(width: 0, height: -2)
+            item.layer.shadowRadius = 10
+        }
+    }
+
+    func scrollViewStyle(scroll: [UIScrollView], cornerRadious: CGFloat) {
+
+        for item in scroll {
+            item.layer.cornerRadius = cornerRadious
+            item.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner,
+            ]
+
+            item.layer.shadowColor = UIColor.black.cgColor
+            item.layer.shadowOpacity = 0.3
+            item.layer.shadowOffset = CGSize(width: 0, height: -2)
+            item.layer.shadowRadius = 10
+        }
+    }
+
     @objc func CartBtnTapped() {
         print("Cart Btn Tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -111,8 +116,8 @@ class PaymentViewController: UIViewController {
         if let last4 = newCard.strCardNumber?.suffix(4) {
             print("Added card **** **** **** \(last4)")
         }
-        
     }
+
     @IBAction func btnAddCardClick(_ sender: Any) {
         guard
             let number = txtCardNumber.text?.trimmingCharacters(
@@ -131,6 +136,7 @@ class PaymentViewController: UIViewController {
         let digitOnly = CharacterSet.decimalDigits.isSuperset(
             of: CharacterSet(charactersIn: number)
         )
+
         guard digitOnly, number.count == 16 else {
             UIAlertController.showAlert(
                 title: "Invalid Card",
@@ -139,7 +145,7 @@ class PaymentViewController: UIViewController {
             )
             return
         }
-    
+
         addCard()
         lblEmpty.isHidden = !app.arrCard.isEmpty
         UIAlertController.showAlert(
@@ -151,6 +157,7 @@ class PaymentViewController: UIViewController {
         DispatchQueue.main.async {
             self.tblPaymentView.reloadData()
         }
+
         backView.isHidden = true
         tblPaymentView.isHidden = false
         btnAddAnotherDebitOrCreditCard.isHidden = false
@@ -162,7 +169,6 @@ class PaymentViewController: UIViewController {
         } completion: { _ in
             self.addCardPageView.isHidden = true
         }
-
         txtCardNumber.text = ""
     }
 
@@ -175,6 +181,7 @@ class PaymentViewController: UIViewController {
             self.addCardPageView.transform = .identity
         }
     }
+
     @IBAction func btnCloseClick(_ sender: Any) {
         backView.isHidden = true
         tblPaymentView.isHidden = false
@@ -191,5 +198,4 @@ class PaymentViewController: UIViewController {
             self.addCardPageView.isHidden = true
         }
     }
-
 }

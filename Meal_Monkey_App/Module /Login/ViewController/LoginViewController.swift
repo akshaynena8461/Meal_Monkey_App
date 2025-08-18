@@ -30,7 +30,6 @@ class LoginViewController: UIViewController {
             textFields: [txtEmail, txtPassword],
             paddingWidth: 34
         )
-
         EditStyle.addStackBorder(stackViews: [stackPassword])
     }
 
@@ -49,7 +48,6 @@ class LoginViewController: UIViewController {
                 viewController: self
             )
         }
-
         let context = app.persistentContainer.viewContext
 
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
@@ -86,6 +84,7 @@ class LoginViewController: UIViewController {
             )
         }
     }
+    
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "User", bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(
@@ -160,32 +159,8 @@ class LoginViewController: UIViewController {
                     )
                 }
             }
-        }
-        catch {
+        } catch {
             print(" Failed to fetch users: \(error.localizedDescription)")
         }
     }
-
-    func deleteAllUsers() {
-        let context = (UIApplication.shared.delegate as! AppDelegate)
-            .persistentContainer.viewContext
-        let fetchRequest = NSFetchRequest<NSFetchRequestResult>(
-            entityName: "User"
-        )
-        fetchRequest.returnsObjectsAsFaults = false
-
-        do {
-            let results = try context.fetch(fetchRequest)
-            for object in results {
-                if let objData = object as? NSManagedObject {
-                    context.delete(objData)
-                }
-            }
-            try context.save()
-            print("✅ All User records deleted")
-        } catch {
-            print("❌ Failed to delete: \(error.localizedDescription)")
-        }
-    }
-
 }

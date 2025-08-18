@@ -13,7 +13,6 @@ class OTPViewController: UIViewController {
         super.viewDidLoad()
 
         let allviews = [txtDigit1!, txtDigit2!, txtDigit3!, txtDigit4!]
-
         EditStyle.setOTPtextFieldborder(textfields: [
             txtDigit1,
             txtDigit2,
@@ -49,5 +48,4 @@ class OTPViewController: UIViewController {
             viewController: self
         )
     }
-
 }

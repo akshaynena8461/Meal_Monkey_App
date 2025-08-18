@@ -65,35 +65,11 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             cornerRadious: 28
         )
 
-        viewScroll.layer.cornerRadius = 20
-        viewScroll.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        viewScroll.layer.shadowColor = UIColor.black.cgColor
-        viewScroll.layer.shadowOpacity = 0.3
-        viewScroll.layer.shadowOffset = CGSize(width: 0, height: -2)
-        viewScroll.layer.shadowRadius = 10
-
-        addCardPageView.layer.cornerRadius = 20
-        addCardPageView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        thankYouScrollView.layer.cornerRadius = 20
-        thankYouScrollView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
-
-        thankYouScrollView.layer.shadowColor = UIColor.black.cgColor
-        thankYouScrollView.layer.shadowOpacity = 0.3
-        thankYouScrollView.layer.shadowOffset = CGSize(width: 0, height: -2)
-        thankYouScrollView.layer.shadowRadius = 10
-
-        ThankYouPage.layer.cornerRadius = 20
-        ThankYouPage.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
+        scrollViewStyle(
+            scrollView: [viewScroll, thankYouScrollView],
+            cornerRadious: 20
+        )
+        pageStyle(page: [addCardPageView, ThankYouPage], cornerRadious: 20)
         EditStyle.setborder(textfields: [btnSendOrder], cornerRadious: 28)
 
         tblCheckOutView.register(
@@ -110,7 +86,28 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         )
 
         calculateTotals()
+    }
 
+    func pageStyle(page: [UIView], cornerRadious: CGFloat) {
+        for item in page {
+            item.layer.cornerRadius = cornerRadious
+            item.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner,
+            ]
+        }
+    }
+
+    func scrollViewStyle(scrollView: [UIScrollView], cornerRadious: CGFloat) {
+        for item in scrollView {
+            item.layer.cornerRadius = cornerRadious
+            item.layer.maskedCorners = [
+                .layerMinXMinYCorner, .layerMaxXMinYCorner,
+            ]
+            item.layer.shadowColor = UIColor.black.cgColor
+            item.layer.shadowOpacity = 0.3
+            item.layer.shadowOffset = CGSize(width: 0, height: -2)
+            item.layer.shadowRadius = 10
+        }
     }
 
     func didSelectAddress(_ address: String) {
@@ -151,6 +148,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             self.tabBarController?.tabBar.isHidden = false
         }
     }
+
     @IBAction func btnCloseThankYouClick(_ sender: Any) {
 
         ThankYouPage.isHidden = true
@@ -226,8 +224,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         if let last4 = newCard.strCardNumber?.suffix(4) {
             print("Added card **** **** **** \(last4)")
         }
-
     }
+    
     @IBAction func btnAddAnotherCardClick(_ sender: Any) {
 
         guard
@@ -284,8 +282,9 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     }
 
     @IBAction func btnTrackMyOrderClick(_ sender: Any) {
+   
     }
-    
+
     @IBAction func btnBackToHomeClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
         if let homeVc = storyboard.instantiateViewController(
@@ -298,5 +297,4 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         }
         self.tabBarController?.selectedIndex = 2
     }
-
 }

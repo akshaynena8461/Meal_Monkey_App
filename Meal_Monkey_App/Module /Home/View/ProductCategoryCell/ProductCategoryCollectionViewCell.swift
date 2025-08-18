@@ -10,7 +10,6 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         imgCategory.layer.cornerRadius = 10
     }
     
-
     func confingProductCategory(category: ProductCategory) {
         lblCategoryName.text = category.rawValue
         switch category {
@@ -28,7 +27,5 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
             imgCategory.image = UIImage(named: "ic_margherita_pizza")
             
         }
-      
     }
-
 }

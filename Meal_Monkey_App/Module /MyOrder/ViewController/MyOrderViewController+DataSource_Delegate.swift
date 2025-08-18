@@ -2,14 +2,12 @@ import UIKit
 
 extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         return arrOrderDetail.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
         let cell =
             tableView.dequeueReusableCell(
                 withIdentifier: "MyOrderTableViewCell",
@@ -18,7 +16,6 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
         cell.selectionStyle = .none
         cell.configMyOrderDetailCell(product: arrOrderDetail[indexPath.row])
-         return cell
+        return cell
     }
-
 }

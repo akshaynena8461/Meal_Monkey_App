@@ -23,8 +23,8 @@ class MenuBarViewController: UIViewController {
             UINib(nibName: "MenuTableViewCell", bundle: nil),
             forCellReuseIdentifier: "MenuTableViewCell"
         )
-
     }
+    
     @objc func openCart() {
         print("Cart Page")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -37,8 +37,8 @@ class MenuBarViewController: UIViewController {
             )
         }
     }
+    
     @objc func menuBtnTapped() {
         print("Menu Btn")
     }
-
 }

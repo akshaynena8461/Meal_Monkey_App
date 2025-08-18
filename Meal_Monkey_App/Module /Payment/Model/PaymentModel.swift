@@ -23,5 +23,4 @@ class PaymentModel:Codable{
         self.strFirstName = strFirstName
         self.strLastName = strLastName
     }
-
 }

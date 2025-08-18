@@ -16,6 +16,8 @@ class MoreModel {
             MoreModel(strTitle: "Notifications", strImage: "Ic_Notification"),
             MoreModel(strTitle: "Inbox", strImage: "Ic_inbox"),
             MoreModel(strTitle: "About Us", strImage: "Ic_About"),
+            MoreModel(strTitle: "WishList", strImage: "Ic_Heart"),
+
         ]
     }
 }

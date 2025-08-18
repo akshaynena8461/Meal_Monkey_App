@@ -1273,6 +1273,49 @@ at anytime </string>
             </objects>
             <point key="canvasLocation" x="3151.9083969465646" y="3.5211267605633805"/>
         </scene>
+        <!--Wish List View Controller-->
+        <scene sceneID="tpR-qp-SUm">
+            <objects>
+                <viewController storyboardIdentifier="WishListViewController" id="ifw-sr-rEd" customClass="WishListViewController" customModule="Meal_Monkey_App" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zUX-g8-z5a">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Ac3-GU-NCu">
+                                <rect key="frame" x="0.0" y="118" width="393" height="666"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="ifw-sr-rEd" id="fzV-Hk-qX0"/>
+                                    <outlet property="delegate" destination="ifw-sr-rEd" id="3CA-gO-7wG"/>
+                                </connections>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WishList is Empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="C6U-eR-uh3">
+                                <rect key="frame" x="121.66666666666669" y="440" width="150" height="22"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                <color key="textColor" name="placeholdercolor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="TYO-vE-Dam"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Ac3-GU-NCu" firstAttribute="leading" secondItem="TYO-vE-Dam" secondAttribute="leading" id="0rd-uk-WqD"/>
+                            <constraint firstItem="TYO-vE-Dam" firstAttribute="trailing" secondItem="Ac3-GU-NCu" secondAttribute="trailing" id="CAS-mh-nIZ"/>
+                            <constraint firstItem="C6U-eR-uh3" firstAttribute="centerY" secondItem="Ac3-GU-NCu" secondAttribute="centerY" id="axX-kH-g97"/>
+                            <constraint firstItem="Ac3-GU-NCu" firstAttribute="bottom" secondItem="TYO-vE-Dam" secondAttribute="bottom" id="hhA-Yr-4wB"/>
+                            <constraint firstItem="Ac3-GU-NCu" firstAttribute="top" secondItem="TYO-vE-Dam" secondAttribute="top" id="nGH-mP-3gJ"/>
+                            <constraint firstItem="C6U-eR-uh3" firstAttribute="centerX" secondItem="Ac3-GU-NCu" secondAttribute="centerX" id="wtk-wq-sYh"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="lblEmpty" destination="C6U-eR-uh3" id="rsy-hs-f59"/>
+                        <outlet property="tblWishlist" destination="Ac3-GU-NCu" id="gMs-8v-j4R"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bJU-ak-PDg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3924" y="4"/>
+        </scene>
     </scenes>
     <resources>
         <image name="BtnClose" width="31" height="34"/>

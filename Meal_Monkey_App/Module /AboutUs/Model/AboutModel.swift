@@ -53,7 +53,6 @@ class AboutModel {
                 strText:
                     "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact."
             ),
-
         ]
     }
 

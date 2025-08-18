@@ -9,7 +9,6 @@ class OrderListViewController: UIViewController {
         super.viewDidLoad()
 
         lblEmpty.isHidden = true
-
         if app.arrOrder.count == 0 {
             lblEmpty.isHidden = false
 
@@ -25,10 +24,19 @@ class OrderListViewController: UIViewController {
             forCellReuseIdentifier: "OrderListTableViewCell"
         )
     }
-
+    
+    override func viewWillAppear(_ animated: Bool) {
+        if let loggedInUser = CoreDataManager.shared.fetchUserbyEmail(
+            byEmail: UserDefaults.standard.string(forKey: "loggedInUserEmail")
+                ?? "",
+        ) {
+            app.arrOrder = CoreDataManager.shared.fetchOrders(for: loggedInUser)
+            tblOrderList.reloadData()
+            lblEmpty.isHidden = !app.arrOrder.isEmpty
+        }
+    }
 
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }
-
 }

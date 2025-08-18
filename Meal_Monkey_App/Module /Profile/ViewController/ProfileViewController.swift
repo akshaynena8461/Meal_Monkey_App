@@ -154,5 +154,4 @@ class ProfileViewController: UIViewController {
             print("Failed to update user: \(error)")
         }
     }
-
 }

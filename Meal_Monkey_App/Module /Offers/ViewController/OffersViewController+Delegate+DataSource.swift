@@ -2,14 +2,12 @@ import UIKit
 
 extension OffersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         arrOffers.count
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
         let cell =
             tableView.dequeueReusableCell(
                 withIdentifier: "OffersTableViewCell",

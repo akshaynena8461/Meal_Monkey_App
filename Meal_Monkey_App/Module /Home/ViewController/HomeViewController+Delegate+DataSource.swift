@@ -2,14 +2,12 @@ import UIKit
 
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+        -> Int {
         return 4
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+        -> UITableViewCell {
 
         let cell =
             tableView.dequeueReusableCell(
@@ -84,19 +82,19 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
             cell.homeCollectionViewHeight.constant =
                 cell.homeCollectionView.collectionViewLayout
                 .collectionViewContentSize.height
-            
-            cell.arrProducts = arrRecentItem.filter {
-                    let matchesCategory = (selectedCategory == .All) || ($0.objProductCategory == selectedCategory)
-                    let matchesSearch = searchText.isEmpty || $0.strProductName.lowercased().contains(searchText)
-                    return matchesCategory && matchesSearch
-                }
-            
 
+            cell.arrProducts = arrRecentItem.filter {
+                let matchesCategory =
+                    (selectedCategory == .All)
+                    || ($0.objProductCategory == selectedCategory)
+                let matchesSearch =
+                    searchText.isEmpty
+                    || $0.strProductName.lowercased().contains(searchText)
+                return matchesCategory && matchesSearch
+            }
         default:
             break
-
         }
-
         cell.homeCollectionView.reloadData()
         return cell
     }

@@ -1,9 +1,3 @@
-//
-//  MoreTableViewCell 2.swift
-//  Meal_Monkey_App
-//
-//  Created by Akshay Nena on 04/08/25.
-//
 
 import UIKit
 
@@ -30,12 +24,10 @@ class MoreTableViewCell: UITableViewCell {
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
     }
 
     func configMoreCell(more: MoreModel) {
         lblTitle.text = more.strTitle
         imgView.image = UIImage(named: more.strImage ?? "")
     }
-
 }
