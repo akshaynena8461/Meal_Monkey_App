@@ -36,7 +36,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RSF-Pn-r1Y">
-                                <rect key="frame" x="342" y="26" width="33" height="33"/>
+                                <rect key="frame" x="348.66666666666669" y="26" width="33" height="33"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="33" id="2Ud-NM-6Jj"/>
                                     <constraint firstAttribute="height" constant="33" id="593-at-ZWJ"/>
@@ -53,7 +53,7 @@
                             <constraint firstItem="7yR-GS-etw" firstAttribute="leading" secondItem="Nmw-if-3WG" secondAttribute="leading" constant="10" id="NGO-5R-onh"/>
                             <constraint firstItem="dXF-Dg-HQ9" firstAttribute="centerY" secondItem="Nmw-if-3WG" secondAttribute="centerY" id="XKX-jn-fFn"/>
                             <constraint firstAttribute="bottom" secondItem="dXF-Dg-HQ9" secondAttribute="bottom" constant="30" id="cUF-zX-EnL"/>
-                            <constraint firstAttribute="trailing" secondItem="RSF-Pn-r1Y" secondAttribute="trailing" constant="-10" id="fyS-6q-Pis"/>
+                            <constraint firstAttribute="trailing" secondItem="RSF-Pn-r1Y" secondAttribute="trailing" constant="-16.5" id="fyS-6q-Pis"/>
                             <constraint firstItem="7yR-GS-etw" firstAttribute="top" secondItem="Nmw-if-3WG" secondAttribute="top" constant="13" id="qX5-jE-bEh"/>
                             <constraint firstAttribute="trailing" secondItem="dXF-Dg-HQ9" secondAttribute="trailing" constant="10" id="wlN-UK-44I"/>
                         </constraints>

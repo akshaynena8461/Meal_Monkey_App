@@ -32,7 +32,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 ) as! CaseOnDeliveryCell
             cell.selectionStyle = .none
             let isSelected = selectedPaymentIndex == indexPath.row
-            var btnImage = isSelected ? "circle.fill" : "circle"
+            let btnImage = isSelected ? "circle.fill" : "circle"
             cell.btnSelectCaseOnDelivery.setImage(
                 UIImage(systemName: btnImage),
                 for: .normal
@@ -48,7 +48,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 ) as! UPIViewCell
             cell.selectionStyle = .none
             let isSelected = selectedPaymentIndex == indexPath.row
-            var btnImage = isSelected ? "circle.fill" : "circle"
+            let btnImage = isSelected ? "circle.fill" : "circle"
             cell.btnSelectUpi.setImage(
                 UIImage(systemName: btnImage),
                 for: .normal
@@ -65,7 +65,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 ) as! CardViewCell
             cell.selectionStyle = .none
             let isSelected = selectedPaymentIndex == indexPath.row
-            var btnImage = isSelected ? "circle.fill" : "circle"
+            let btnImage = isSelected ? "circle.fill" : "circle"
             cell.btnSelectCard.setImage(
                 UIImage(systemName: btnImage),
                 for: .normal

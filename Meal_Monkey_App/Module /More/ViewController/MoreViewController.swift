@@ -17,6 +17,7 @@ class MoreViewController: UIViewController {
 
         // Set the page title
         setLeftAlignedTitle("More")
+        tblMoreView.showsVerticalScrollIndicator = false
 
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(cartButtonTapped))

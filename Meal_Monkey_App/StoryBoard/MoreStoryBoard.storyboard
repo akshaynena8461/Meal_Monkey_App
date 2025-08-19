@@ -712,7 +712,6 @@ at anytime </string>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="eD0-jJ-d8I" secondAttribute="bottom" id="7lX-Vk-H4H"/>
                                     <constraint firstItem="eD0-jJ-d8I" firstAttribute="top" secondItem="s9R-z0-yfG" secondAttribute="top" id="Ga6-AU-Lpg"/>
@@ -1138,6 +1137,8 @@ at anytime </string>
                         <outlet property="txtSecurityCode" destination="idZ-da-FyK" id="pqS-Ev-uYc"/>
                         <outlet property="txtYear" destination="oPp-Mm-Qm7" id="tnu-bt-1Vr"/>
                         <outlet property="viewScroll" destination="1Ku-0o-6YE" id="Fft-vA-Zg7"/>
+                        <outlet property="viewinAddtoCartScrollView" destination="7s2-OD-bDO" id="jLK-i9-hNT"/>
+                        <outlet property="viewinThankYouScrollView" destination="bAP-IP-IDq" id="Ezg-Co-wMF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vJi-zX-evo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
