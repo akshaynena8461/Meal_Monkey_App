@@ -1,0 +1,128 @@
+import Foundation
+
+/// A model class that represents different types of content
+/// such as About info, Notifications, and Inbox messages.
+class AboutModel {
+    
+    // MARK: - Properties
+    
+    /// Main text content (used in About, Notifications, Inbox titles)
+    var strText: String?
+    
+    /// Used for showing time-related info (e.g., "5m ago", "1d ago")
+    var strTimezone: String?
+    
+    /// Used for right-aligned secondary info (e.g., "6th July" in Inbox)
+    var strRightSideText: String?
+    
+    /// Additional text content (e.g., Inbox message preview)
+    var strText2: String?
+    
+    
+    // MARK: - Initializer
+    
+    /// Initializes a new AboutModel instance with optional values.
+    init(
+        strText: String? = nil,
+        strTimezone: String? = nil,
+        strRightSideText: String? = nil,
+        strText2: String? = nil
+    ) {
+        self.strText = strText
+        self.strTimezone = strTimezone
+        self.strRightSideText = strRightSideText
+        self.strText2 = strText2
+    }
+    
+    
+    // MARK: - Mock Data for "About" Screen
+    
+    /// Provides static data for the "About Us" section of the app.
+    /// - Returns: Array of `AboutModel` containing descriptive text.
+    class func addAboutData() -> [AboutModel] {
+        return [
+            AboutModel(
+                strText:
+                    "Our mission is to deliver a seamless and intuitive shopping experience ..."
+            ),
+            AboutModel(
+                strText:
+                    "We are dedicated to maintaining high standards of performance ..."
+            ),
+            AboutModel(
+                strText:
+                    "Your feedback matters. If you have any questions, suggestions ..."
+            ),
+            AboutModel(
+                strText:
+                    "We believe that technology should serve people ..."
+            ),
+            AboutModel(
+                strText:
+                    "Security is our priority. We use industry-standard protocols ..."
+            ),
+            AboutModel(
+                strText:
+                    "We value accessibility and inclusiveness ..."
+            ),
+            AboutModel(
+                strText:
+                    "Sustainability matters to us. We support eco-friendly business practices ..."
+            ),
+        ]
+    }
+    
+    
+    // MARK: - Mock Data for "Notifications" Screen
+    
+    /// Provides static data for the notifications list.
+    /// Each item contains a message (strText) and a relative time (strTimezone).
+    /// - Returns: Array of `AboutModel` representing notifications.
+    class func addNotificationData() -> [AboutModel] {
+        return [
+            AboutModel(strText: "Order placed successfully", strTimezone: "Just now"),
+            AboutModel(strText: "Your payment has been confirmed", strTimezone: "5m ago"),
+            AboutModel(strText: "Your food is being prepared", strTimezone: "10m ago"),
+            AboutModel(strText: "Delivery agent assigned", strTimezone: "30m ago"),
+            AboutModel(strText: "Your order is on the way", strTimezone: "1h ago"),
+            AboutModel(strText: "Special discount available!", strTimezone: "2h ago"),
+            AboutModel(strText: "Download our new app update", strTimezone: "3h ago"),
+            AboutModel(strText: "Refer a friend and earn", strTimezone: "5h ago"),
+            AboutModel(strText: "Limited-time deal ending soon", strTimezone: "12h ago"),
+            AboutModel(strText: "Delivery completed", strTimezone: "1d ago"),
+            AboutModel(strText: "Rate your last meal", strTimezone: "2d ago"),
+            AboutModel(strText: "Weekend offer just for you", strTimezone: "3d ago"),
+            AboutModel(strText: "Free delivery on orders above ₹299", strTimezone: "5d ago"),
+            AboutModel(strText: "Thanks for being with us!", strTimezone: "6d ago"),
+            AboutModel(strText: "New restaurants added near you", strTimezone: "1w ago"),
+        ]
+    }
+    
+    
+    // MARK: - Mock Data for "Inbox" Screen
+    
+    /// Provides static data for the inbox messages.
+    /// Each item contains a sender/title (strText),
+    /// a right-side date (strRightSideText),
+    /// and a short message/preview (strText2).
+    /// - Returns: Array of `AboutModel` representing inbox messages.
+    class func addInboxData() -> [AboutModel] {
+        return [
+            AboutModel(strText: "MealMonkey Promotions", strRightSideText: "6th July", strText2: "Get 20% off on your next meal!"),
+            AboutModel(strText: "Order Update", strRightSideText: "6th July", strText2: "Your order is being prepared by the restaurant."),
+            AboutModel(strText: "Delivery Reminder", strRightSideText: "6th July", strText2: "Your delivery agent is on the way."),
+            AboutModel(strText: "Welcome to MealMonkey", strRightSideText: "6th July", strText2: "Thanks for joining us! Start exploring meals."),
+            AboutModel(strText: "Rate Your Experience", strRightSideText: "6th July", strText2: "How was your recent meal order?"),
+            AboutModel(strText: "Flash Sale", strRightSideText: "6th July", strText2: "Enjoy 30% off on all pasta orders today only."),
+            AboutModel(strText: "New Restaurants", strRightSideText: "6th July", strText2: "Discover trending restaurants in your area."),
+            AboutModel(strText: "Refer & Earn", strRightSideText: "6th July", strText2: "Invite friends and earn ₹100 credits!"),
+            AboutModel(strText: "Weekend Special", strRightSideText: "6th July", strText2: "Free dessert on orders above ₹499."),
+            AboutModel(strText: "MealMonkey Tips", strRightSideText: "6th July", strText2: "Customize your orders with special instructions."),
+            AboutModel(strText: "Order Cancelled", strRightSideText: "6th July", strText2: "Your order has been cancelled as requested."),
+            AboutModel(strText: "Loyalty Program", strRightSideText: "6th July", strText2: "Collect Monkey Points with every purchase."),
+            AboutModel(strText: "Security Update", strRightSideText: "6th July", strText2: "Your password was recently changed."),
+            AboutModel(strText: "Account Verified", strRightSideText: "6th July", strText2: "Your account has been successfully verified."),
+            AboutModel(strText: "Limited Time Deal", strRightSideText: "6th July", strText2: "Flat ₹50 off on biryani orders today."),
+        ]
+    }
+}

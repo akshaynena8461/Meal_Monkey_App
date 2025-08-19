@@ -1,0 +1,32 @@
+[
+    {
+        "categoryId": 1,
+        "categoryName": "All",
+        "categoryDisplayName": "All"
+    },
+    {
+        "categoryId": 2,
+        "categoryName": "Punjabi",
+        "categoryDisplayName": "Punjabi"
+    },
+    {
+        "categoryId": 3,
+        "categoryName": "Chinese",
+        "categoryDisplayName": "Chinese"
+    },
+    {
+        "categoryId": 4,
+        "categoryName": "Gujarati",
+        "categoryDisplayName": "Gujarati"
+    },
+    {
+        "categoryId": 5,
+        "categoryName": "SouthIndian",
+        "categoryDisplayName": "SouthIndian"
+    },
+    {
+        "categoryId": 6,
+        "categoryName": "WesternFood",
+        "categoryDisplayName": "WesternFood"
+    }
+]

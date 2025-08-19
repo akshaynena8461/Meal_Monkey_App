@@ -21,5 +21,15 @@
 			</array>
 		</dict>
 	</dict>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>We use your location to track deliveries and show nearby restaurants, even when the app is running in the background.</string>
+	<key>NSLocationUsageDescription</key>
+	<string>We use your location to provide relevant local content and features.</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We use your location to show your current position.
+
+We use your location to show your current position.
+
+We use your location to show your current position.</string>
 </dict>
 </plist>

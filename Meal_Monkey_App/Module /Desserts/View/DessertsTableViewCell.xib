@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23727" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="220" id="KGk-i7-Jjw" customClass="DessertsTableViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="220"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="y4G-uc-ZUa">
+                        <rect key="frame" x="0.0" y="4" width="320" height="200"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="cAU-Nq-XHM"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Dessert_Img_Rectangle" translatesAutoresizingMaskIntoConstraints="NO" id="Jpy-dQ-Ki6">
+                        <rect key="frame" x="0.0" y="101" width="320" height="103"/>
+                    </imageView>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="hwO-Ig-SW8">
+                        <rect key="frame" x="21" y="145" width="278" height="37.666666666666657"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gox-eY-QtR">
+                                <rect key="frame" x="0.0" y="0.0" width="278" height="18.666666666666668"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="o1g-LN-1xx">
+                                <rect key="frame" x="0.0" y="24.666666666666657" width="278" height="13"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="star.fill" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="e0a-cW-o9Y">
+                                        <rect key="frame" x="0.0" y="-0.33333333333333215" width="14" height="12.666666666666666"/>
+                                        <color key="tintColor" name="loginbtnbg"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="D5p-nT-8TK"/>
+                                            <constraint firstAttribute="height" constant="13" id="iMr-eR-qqe"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jgs-Rx-csr">
+                                        <rect key="frame" x="17" y="0.0" width="17" height="13"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="87G-ev-cCd">
+                                        <rect key="frame" x="37" y="0.0" width="82" height="13"/>
+                                        <attributedString key="attributedText">
+                                            <fragment content="Meal Monkey">
+                                                <attributes>
+                                                    <color key="NSColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="12" name="Helvetica"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content=" ">
+                                                <attributes>
+                                                    <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                                                    <font key="NSFont" size="12" name="Helvetica"/>
+                                                </attributes>
+                                            </fragment>
+                                            <fragment content="●">
+                                                <attributes>
+                                                    <color key="NSColor" red="0.91764706370000004" green="0.41568624970000001" blue="0.18823529780000001" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <font key="NSFont" size="12" name="Helvetica"/>
+                                                </attributes>
+                                            </fragment>
+                                        </attributedString>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdZ-7a-QgR">
+                                        <rect key="frame" x="122" y="0.0" width="156" height="13"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstAttribute="trailing" secondItem="hwO-Ig-SW8" secondAttribute="trailing" constant="21" id="68L-TZ-Bdh"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="trailing" secondItem="Jpy-dQ-Ki6" secondAttribute="trailing" id="EXw-M9-fbi"/>
+                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="145" id="JgJ-n4-PM3"/>
+                    <constraint firstAttribute="bottom" secondItem="hwO-Ig-SW8" secondAttribute="bottom" constant="12" id="Kfh-cK-pcn"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="bottom" secondItem="Jpy-dQ-Ki6" secondAttribute="bottom" id="TuU-M2-L8Z"/>
+                    <constraint firstAttribute="bottom" secondItem="y4G-uc-ZUa" secondAttribute="bottom" id="e5o-pp-xi5"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="gZd-4s-P0i"/>
+                    <constraint firstItem="hwO-Ig-SW8" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="21" id="iZB-Oo-GDE"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-16" id="nWG-p7-b5Q"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="leading" secondItem="Jpy-dQ-Ki6" secondAttribute="leading" id="rfe-md-T2U"/>
+                    <constraint firstItem="y4G-uc-ZUa" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="4" id="z1y-3O-8wn"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="imgDessert" destination="y4G-uc-ZUa" id="jz2-CR-TDe"/>
+                <outlet property="imgStar" destination="e0a-cW-o9Y" id="Tyx-J7-Sfo"/>
+                <outlet property="lblRating" destination="Jgs-Rx-csr" id="dQy-ei-DjX"/>
+                <outlet property="lblTitle" destination="gox-eY-QtR" id="0Ig-89-dxG"/>
+                <outlet property="lblTitle2" destination="xdZ-7a-QgR" id="Fqx-PG-uws"/>
+            </connections>
+            <point key="canvasLocation" x="103.81679389312977" y="100"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="Dessert_Img_Rectangle" width="375" height="103"/>
+        <image name="star.fill" catalog="system" width="128" height="116"/>
+        <namedColor name="loginbtnbg">
+            <color red="0.9882352941176471" green="0.37647058823529411" blue="0.066666666666666666" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>
