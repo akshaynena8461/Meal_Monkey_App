@@ -36,6 +36,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     var arrCheckOutData: [ProductModel] = []               // Array of products in checkout
     var deliveryCost: Double = 5.0                         // Default delivery cost
     var discountCost: Double = 4.0                         // Default discount amount
+    var selectedPaymentIndex:Int = 0                       // Default selectPaymentIndex
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -139,6 +140,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             self.ThankYouPage.transform = CGAffineTransform(translationX: 0, y: self.view.frame.height)
         }) { _ in
             self.ThankYouPage.isHidden = true
+            self.tabBarController?.tabBar.isHidden = false
         }
     }
 
@@ -237,10 +239,10 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
     @IBAction func btnBackToHomeClick(_ sender: Any) {
         // Navigate back to Home
-        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
-        if let homeVc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
-            self.navigationController?.pushViewController(homeVc, animated: true)
-        }
+//        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+//        if let homeVc = storyboard.instantiateViewController(withIdentifier: "HomeViewController") as? HomeViewController {
+//            self.navigationController?.pushViewController(homeVc, animated: true)
+//        }
         self.tabBarController?.selectedIndex = 2
     }
 }

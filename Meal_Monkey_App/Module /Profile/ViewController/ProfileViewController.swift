@@ -4,6 +4,7 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var profileScrollView: UIScrollView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var btnSave: UIButton!
     @IBOutlet weak var txtAddress: UITextField!
@@ -27,6 +28,7 @@ class ProfileViewController: UIViewController {
         fetUserData()
 
         // Set up profile image appearance
+        profileScrollView.showsVerticalScrollIndicator = false
         imgProfile.layer.cornerRadius = imgProfile.frame.size.width / 2
         imgProfile.layer.masksToBounds = true
         imgProfile.layer.borderWidth = 2

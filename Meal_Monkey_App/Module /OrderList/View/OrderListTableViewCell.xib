@@ -25,8 +25,8 @@
                             <constraint firstAttribute="width" constant="90" id="eKQ-gv-OPK"/>
                         </constraints>
                     </imageView>
-                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-Xv-VQU">
-                        <rect key="frame" x="110" y="10" width="200" height="65"/>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="cCV-Xv-VQU">
+                        <rect key="frame" x="110" y="10" width="200" height="70"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order No." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8sT-1B-4rY">
                                 <rect key="frame" x="0.0" y="0.0" width="200" height="18.666666666666668"/>
@@ -35,13 +35,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Products:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Di-8K-LqB">
-                                <rect key="frame" x="0.0" y="18.666666666666671" width="200" height="16.333333333333329"/>
+                                <rect key="frame" x="0.0" y="21.666666666666671" width="200" height="16.333333333333329"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                 <color key="textColor" name="secondarylabelcolor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Total:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WNH-A3-O3u">
-                                <rect key="frame" x="0.0" y="35" width="200" height="30"/>
+                                <rect key="frame" x="0.0" y="41" width="200" height="29"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="21"/>
                                 <color key="textColor" name="lbltxtColor"/>
                                 <nil key="highlightedColor"/>
@@ -51,7 +51,7 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="zRq-hw-ZMY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="Iv7-db-n7j"/>
-                    <constraint firstAttribute="bottom" secondItem="cCV-Xv-VQU" secondAttribute="bottom" constant="25" id="aQy-kQ-E6Y"/>
+                    <constraint firstAttribute="bottom" secondItem="cCV-Xv-VQU" secondAttribute="bottom" constant="20" id="aQy-kQ-E6Y"/>
                     <constraint firstItem="cCV-Xv-VQU" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="dIa-Iw-v9J"/>
                     <constraint firstItem="zRq-hw-ZMY" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="eeA-gm-ClD"/>
                     <constraint firstAttribute="trailing" secondItem="cCV-Xv-VQU" secondAttribute="trailing" constant="10" id="j31-fo-ask"/>

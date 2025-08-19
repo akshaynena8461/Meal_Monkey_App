@@ -11,47 +11,69 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="59" id="KGk-i7-Jjw" customClass="CaseOnDeliveryCell" customModule="Meal_Monkey_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="345" height="59"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="72" id="KGk-i7-Jjw" customClass="CaseOnDeliveryCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="345" height="72"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
-                <rect key="frame" x="0.0" y="0.0" width="345" height="59"/>
+                <rect key="frame" x="0.0" y="0.0" width="345" height="72"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CFs-dv-j11">
-                        <rect key="frame" x="0.0" y="10" width="345" height="39"/>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8QI-cr-AHu">
+                        <rect key="frame" x="0.0" y="10" width="345" height="52"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Case on delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-gD-YWK">
-                                <rect key="frame" x="0.0" y="0.0" width="126" height="39"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" name="lbltxtColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k63-EV-1kx">
-                                <rect key="frame" x="131" y="0.0" width="214" height="39"/>
-                                <color key="tintColor" name="loginbtnbg"/>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title=""/>
-                            </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="CFs-dv-j11">
+                                <rect key="frame" x="21" y="10" width="310" height="32"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Case on delivery" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fv8-gD-YWK">
+                                        <rect key="frame" x="0.0" y="0.0" width="291" height="32"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                        <color key="textColor" name="lbltxtColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k63-EV-1kx">
+                                        <rect key="frame" x="296" y="0.0" width="14" height="32"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="14" id="9hz-rX-akg"/>
+                                        </constraints>
+                                        <color key="tintColor" name="loginbtnbg"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="plain" image="circle" catalog="system" title="">
+                                            <preferredSymbolConfiguration key="preferredSymbolConfigurationForImage" scale="medium"/>
+                                        </buttonConfiguration>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
-                    </stackView>
+                        <color key="backgroundColor" name="ViewlineBgColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="CFs-dv-j11" secondAttribute="trailing" constant="14" id="DPj-ZT-hWE"/>
+                            <constraint firstItem="CFs-dv-j11" firstAttribute="leading" secondItem="8QI-cr-AHu" secondAttribute="leading" constant="21" id="Otv-ES-T8f"/>
+                            <constraint firstAttribute="bottom" secondItem="CFs-dv-j11" secondAttribute="bottom" constant="10" id="uT8-n8-fOE"/>
+                            <constraint firstItem="CFs-dv-j11" firstAttribute="top" secondItem="8QI-cr-AHu" secondAttribute="top" constant="10" id="xC6-Lr-Vw0"/>
+                        </constraints>
+                    </view>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="CFs-dv-j11" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="2wI-Mf-jb7"/>
-                    <constraint firstAttribute="bottom" secondItem="CFs-dv-j11" secondAttribute="bottom" constant="10" id="A6h-XH-AQG"/>
-                    <constraint firstAttribute="trailing" secondItem="CFs-dv-j11" secondAttribute="trailing" id="BCT-bl-D0f"/>
-                    <constraint firstItem="CFs-dv-j11" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="I6S-MS-zSy"/>
+                    <constraint firstAttribute="bottom" secondItem="8QI-cr-AHu" secondAttribute="bottom" constant="10" id="Ao6-xD-FAn"/>
+                    <constraint firstItem="8QI-cr-AHu" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="Gcb-uT-Stv"/>
+                    <constraint firstAttribute="trailing" secondItem="8QI-cr-AHu" secondAttribute="trailing" id="HwK-nb-4NS"/>
+                    <constraint firstItem="8QI-cr-AHu" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="inp-Bm-1rc"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="btnSelectCaseOnDelivery" destination="k63-EV-1kx" id="oyw-it-JUG"/>
+                <outlet property="mainView" destination="8QI-cr-AHu" id="rCE-V0-evv"/>
                 <outlet property="stackCaseOnDeleviery" destination="CFs-dv-j11" id="ROa-el-TTr"/>
             </connections>
-            <point key="canvasLocation" x="246.56488549618319" y="-20.070422535211268"/>
+            <point key="canvasLocation" x="246.56488549618319" y="11.267605633802818"/>
         </tableViewCell>
     </objects>
     <resources>
         <image name="circle" catalog="system" width="128" height="123"/>
+        <namedColor name="ViewlineBgColor">
+            <color red="0.4392156862745098" green="0.4392156862745098" blue="0.4392156862745098" alpha="0.059999998658895493" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
         <namedColor name="lbltxtColor">
             <color red="0.17647058823529413" green="0.17647058823529413" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

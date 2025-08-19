@@ -21,25 +21,6 @@ class MoreViewController: UIViewController {
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(cartButtonTapped))
 
-        // Create a UIBarButtonItem with a cart icon
-        let cartButton = UIBarButtonItem(
-            image: UIImage(systemName: "cart.fill"),
-            style: .plain,
-            target: self,
-            action: #selector(cartButtonTapped)
-        )
-
-        // Set custom tint color for the cart icon
-        cartButton.tintColor = UIColor(
-            red: 74 / 255,
-            green: 75 / 255,
-            blue: 77 / 255,
-            alpha: 1.0
-        )
-
-        // Add cart button to the navigation bar's right side
-        self.navigationItem.rightBarButtonItem = cartButton
-
         // Register the custom cell for the table view
         tblMoreView.register(
             UINib(nibName: "MoreTableViewCell", bundle: nil),

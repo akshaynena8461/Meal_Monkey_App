@@ -3,6 +3,8 @@ import UIKit
 class CardViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var btnSelectCard: UIButton!
     @IBOutlet weak var stackCard: UIStackView!   // Stack view containing card UI
     @IBOutlet weak var lblCardNumber: UILabel!   // Label to display masked card number
     
@@ -10,6 +12,8 @@ class CardViewCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Optional: Additional UI setup after loading from nib
+        mainView.layer.cornerRadius = 6
+        mainView.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

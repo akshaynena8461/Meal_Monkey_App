@@ -3,12 +3,16 @@ import UIKit
 class UPIViewCell: UITableViewCell {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var btnSelectUpi: UIButton!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var stackUPI: UIStackView!  // Stack view containing UPI payment UI elements
 
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
         // Optional: Customize UI after the cell has been loaded from nib
+        mainView.layer.cornerRadius = 6
+        mainView.layer.borderWidth = 1
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

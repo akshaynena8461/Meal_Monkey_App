@@ -60,7 +60,7 @@ class CartTableViewCell: UITableViewCell {
         lblProductTitle.text = product.strProductName
         lblType.text = "\(product.objProductType)"
         lblCategory.text = "\(product.objProductCategory)"
-        lblPrice.text = "\(product.doubleProductPrice)"
+        lblPrice.text = "\(product.doubleProductPrice * Double(product.intProductQty ?? 1))"
         lblQty.text = "\(product.intProductQty ?? 1)"  // Default quantity to 1 if nil
 
         // Configure buttons based on cell type

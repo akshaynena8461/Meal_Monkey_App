@@ -294,6 +294,7 @@
                         <outlet property="imgProfile" destination="ekN-Ck-ebk" id="KxK-xO-KrD"/>
                         <outlet property="lblTitle" destination="EiO-Th-WrL" id="536-Jk-6Nx"/>
                         <outlet property="lblUserName" destination="2g0-In-PQb" id="yma-jl-gDc"/>
+                        <outlet property="profileScrollView" destination="8FX-ue-N8M" id="oUo-IC-Wdi"/>
                         <outlet property="stackDetail" destination="foW-kM-mrq" id="xIj-E5-je9"/>
                         <outlet property="txtAddress" destination="V2e-Bu-9f2" id="wRl-QQ-BDk"/>
                         <outlet property="txtEmail" destination="3Tr-o9-QwT" id="v6w-Vy-NhN"/>

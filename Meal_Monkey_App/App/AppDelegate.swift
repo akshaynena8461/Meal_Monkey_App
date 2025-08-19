@@ -21,6 +21,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             .LaunchOptionsKey: Any]?
     ) -> Bool {
         // Called when the app has finished launching
+        if let savedData = UserDefaults.standard.data(forKey: "savedCards") {
+            let decoder = JSONDecoder()
+            if let decoded = try? decoder.decode(
+                [PaymentModel].self,
+                from: savedData
+            ) {
+                arrCard = decoded
+            }
+        }
         return true
     }
 
@@ -69,6 +78,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 let nserror = error as NSError
                 fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
             }
+        }
+    }
+
+    func applicationWillTerminate(_ application: UIApplication) {
+        let encoder = JSONEncoder()
+        if let encoded = try? encoder.encode(arrCard) {
+            UserDefaults.standard.set(encoded, forKey: "savedCards")
         }
     }
 }

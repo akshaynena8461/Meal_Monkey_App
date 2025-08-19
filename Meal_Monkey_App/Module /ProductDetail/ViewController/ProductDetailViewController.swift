@@ -81,13 +81,38 @@ class ProductDetailViewController: UIViewController {
     
     // MARK: - Update wishlist heart icon
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+        syncWishlistFromCoreData()
         guard let product = products else { return }
         let isFav = app.arrWishList.contains { $0.intId == product.intId }
         product.objAddFavorite = isFav
         let imageName = isFav ? "heart.fill" : "heart"
         btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
+//        updateWishlistData()
+    }
+    
+    func syncWishlistFromCoreData() {
+        guard let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail"),
+              let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) else {
+            app.arrWishList = []
+            return
+        }
+        
+        let wishlistIds = CoreDataManager.shared.fetchWishlistIds(for: user)
+        
+        // Refresh in-memory array from HomeViewController data
+        app.arrWishList = HomeViewController.arrProductData.filter {
+            wishlistIds.contains($0.intId)
+        }
+    }
+    
+    func updateWishlistData() {
+        for item in HomeViewController.arrProductData {
+            if app.arrWishList.firstIndex(where: { $0.intId == item.intId }) != nil {
+                item.objAddFavorite = true
+            } else {
+                item.objAddFavorite = false
+            }
+        }
     }
     
     // MARK: - Heart button tap
