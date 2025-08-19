@@ -14,8 +14,6 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Any additional UI setup can be done here, e.g., rounding corners, shadows
-        imgProduct.layer.cornerRadius = 10
-        imgProduct.clipsToBounds = true
     }
     
     // MARK: - Configure Cell

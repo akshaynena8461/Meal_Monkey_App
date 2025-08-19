@@ -50,7 +50,7 @@ class MoreModel {
             ),
             MoreModel(
                 strTitle: "WishList",
-                strImage: "Ic_Heart",
+                strImage: "Ic_heart_fill",
                 intTag: 5
             ),
         ]

@@ -124,7 +124,7 @@ class ProductDetailViewController: UIViewController {
             
             if rating >= starIndex {
                 imageView.image = UIImage(systemName: "star.fill")
-                imageView.tintColor = .systemYellow
+                imageView.tintColor = .systemOrange
             } else if rating + 0.5 >= starIndex {
                 imageView.image = UIImage(systemName: "star.lefthalf.fill")
                 imageView.tintColor = .systemOrange

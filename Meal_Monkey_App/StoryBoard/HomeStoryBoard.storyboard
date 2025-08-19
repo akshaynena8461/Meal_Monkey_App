@@ -89,6 +89,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" name="Select_box_BgColor"/>
+                        <color key="selectedImageTintColor" name="loginbtnbg"/>
                     </tabBar>
                     <connections>
                         <segue destination="xgm-Pp-eye" kind="relationship" relationship="viewControllers" id="TOq-pj-rzC"/>
@@ -490,7 +491,9 @@ meals and more!</string>
         <scene sceneID="GeW-vS-4QG">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mE2-ne-2VA" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Ic_More" id="8B0-MC-B7m"/>
+                    <tabBarItem key="tabBarItem" title="" image="Ic_More" id="8B0-MC-B7m">
+                        <color key="badgeColor" name="loginbtnbg"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="C6R-na-D9I">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -509,7 +512,9 @@ meals and more!</string>
         <scene sceneID="Aa6-2y-i0c">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6sx-uc-UFe" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Ic_Profile" id="EgV-P1-AP5"/>
+                    <tabBarItem key="tabBarItem" title="" image="Ic_Profile" id="EgV-P1-AP5">
+                        <color key="badgeColor" name="loginbtnbg"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="lyW-yi-lZS">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -528,7 +533,9 @@ meals and more!</string>
         <scene sceneID="6C1-j2-37f">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Rj1-ao-5mx" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="home" id="KC9-86-rNz"/>
+                    <tabBarItem key="tabBarItem" title="" image="home" id="KC9-86-rNz">
+                        <color key="badgeColor" name="loginbtnbg"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="X1S-GJ-wYx">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -547,7 +554,9 @@ meals and more!</string>
         <scene sceneID="DK1-mN-dLk">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="e9w-xO-EeU" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Offers" id="eip-mY-yhZ"/>
+                    <tabBarItem key="tabBarItem" title="" image="Offers" id="eip-mY-yhZ">
+                        <color key="badgeColor" name="loginbtnbg"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="dUk-Ki-q6h">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
@@ -566,7 +575,9 @@ meals and more!</string>
         <scene sceneID="4kN-H5-lsa">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="xgm-Pp-eye" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="" image="Ic_Menu" id="nOC-4n-BNS"/>
+                    <tabBarItem key="tabBarItem" title="" image="Ic_Menu" id="nOC-4n-BNS">
+                        <color key="badgeColor" name="loginbtnbg"/>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="s7p-F2-Sdx">
                         <rect key="frame" x="0.0" y="118" width="393" height="44"/>
