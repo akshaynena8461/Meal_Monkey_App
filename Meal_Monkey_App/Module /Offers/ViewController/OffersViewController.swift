@@ -1,26 +1,40 @@
 import UIKit
 
+/// ViewController to display the list of latest offers
 class OffersViewController: UIViewController {
 
-    @IBOutlet weak var btnCheckOffers: UIButton!
-    @IBOutlet weak var tblOffersView: UITableView!
-    var arrOffers: [OfferModel] = OfferModel.addOffersData()
+    // MARK: - Outlets
+    @IBOutlet weak var btnCheckOffers: UIButton!  // Button to check more offers
+    @IBOutlet weak var tblOffersView: UITableView! // TableView to display offers
 
+    // MARK: - Properties
+    var arrOffers: [OfferModel] = OfferModel.addOffersData() // Data source for offers
+
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        // Hide vertical scroll indicator
         tblOffersView.showsVerticalScrollIndicator = false
+
+        // Set the navigation title with left alignment
         setLeftAlignedTitle("Latest Offers")
+
+        // Add cart button to the navigation bar
         setCartButton(target: self, action: #selector(CartBtnTapped))
 
+        // Style the "Check Offers" button
         btnCheckOffers.layer.cornerRadius = 7.42
 
+        // Register the custom OffersTableViewCell for the table view
         tblOffersView.register(
             UINib(nibName: "OffersTableViewCell", bundle: nil),
             forCellReuseIdentifier: "OffersTableViewCell"
         )
     }
 
+    // MARK: - Actions
+    /// Handles cart button tap
     @objc func CartBtnTapped() {
         print("Cart Tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
@@ -34,6 +48,8 @@ class OffersViewController: UIViewController {
         }
     }
 
+    /// Handles the "Check Offers" button tap
     @IBAction func btnCheckOffersClick(_ sender: Any) {
+        // Implement functionality for checking offers here
     }
 }

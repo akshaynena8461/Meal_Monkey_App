@@ -1,11 +1,14 @@
 import Foundation
 
+// MARK: - MenuModel
 class MenuModel {
-    var strTitle: String?
-    var intItem: Int?
-    var strImage: String?
-    var intTag: Int?
+    // MARK: - Properties
+    var strTitle: String?     // Title of the menu item
+    var intItem: Int?         // Number of items in this menu category
+    var strImage: String?     // Image name for the menu category
+    var intTag: Int?          // Tag to identify the menu item (used for indexing or selection)
 
+    // MARK: - Initializer
     init(
         strTitle: String? = nil,
         intItem: Int? = nil,
@@ -18,6 +21,8 @@ class MenuModel {
         self.intTag = intTag
     }
 
+    // MARK: - Static Helper Method
+    /// Returns a predefined array of menu categories
     class func addMenuData() -> [MenuModel] {
         return [
             MenuModel(

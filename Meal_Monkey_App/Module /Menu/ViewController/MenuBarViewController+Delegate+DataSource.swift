@@ -1,82 +1,68 @@
 import UIKit
 
+// MARK: - UITableView Delegate & DataSource
 extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
-        -> Int
-    {
+
+    // Returns the number of rows in the table view (equal to the menu items count)
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrMenuData.count
     }
 
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
-        -> UITableViewCell
-    {
+    // Configures each table view cell
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 
-        let cell =
-            tableView.dequeueReusableCell(
-                withIdentifier: "MenuTableViewCell",
-                for: indexPath
-            ) as! MenuTableViewCell
+        // Dequeue a reusable MenuTableViewCell
+        let cell = tableView.dequeueReusableCell(
+            withIdentifier: "MenuTableViewCell",
+            for: indexPath
+        ) as! MenuTableViewCell
 
+        // Set cell styling
         cell.backgroundColor = .clear
         cell.contentView.backgroundColor = .clear
         cell.selectionStyle = .none
 
+        // Configure cell with menu data
         cell.configMenuCell(menu: arrMenuData[indexPath.row])
 
         return cell
-
     }
 
-    func tableView(
-        _ tableView: UITableView,
-        didSelectRowAt indexPath: IndexPath
-    ) {
+    // Handles what happens when a table view row is selected
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 
-        let storyboard = UIStoryboard(
-            name: "MenuStoryBoard",
-            bundle: nil
-        )
+        let storyboard = UIStoryboard(name: "MenuStoryBoard", bundle: nil)
 
-        var row = indexPath.row
-        var selectedItem = arrMenuData[row].intTag
+        // Get the selected menu item
+        let selectedItemTag = arrMenuData[indexPath.row].intTag
 
-        switch selectedItem {
+        switch selectedItemTag {
 
-        case 0:
+        case 0: // Food category
             print("Food")
-            if let foodvc = storyboard.instantiateViewController(
+            if let foodVC = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
-                foodvc.selectedProductType = .food
-                self.navigationController?.pushViewController(
-                    foodvc,
-                    animated: true
-                )
+                foodVC.selectedProductType = .food
+                self.navigationController?.pushViewController(foodVC, animated: true)
             }
-        case 1:
+
+        case 1: // Beverages category
             print("Beverages")
-
-            if let beveragesvc = storyboard.instantiateViewController(
+            if let beveragesVC = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
-                beveragesvc.selectedProductType = .Beverages
-
-                self.navigationController?.pushViewController(
-                    beveragesvc,
-                    animated: true
-                )
+                beveragesVC.selectedProductType = .Beverages
+                self.navigationController?.pushViewController(beveragesVC, animated: true)
             }
-        case 2:
 
-            if let dessertvc = storyboard.instantiateViewController(
+        case 2: // Desserts category
+            print("Desserts")
+            if let dessertVC = storyboard.instantiateViewController(
                 withIdentifier: "DessertsViewController"
             ) as? DessertsViewController {
-                dessertvc.selectedProductType = .Desserts
-
-                self.navigationController?.pushViewController(
-                    dessertvc,
-                    animated: true
-                )
+                dessertVC.selectedProductType = .Desserts
+                self.navigationController?.pushViewController(dessertVC, animated: true)
             }
 
         default:
@@ -84,10 +70,14 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         }
     }
 
+    // MARK: - Navigation button actions
+
+    /// Placeholder for cart button tap
     @objc func CartBtnTapped() {
         print("Cart Btn Tapped")
     }
 
+    /// Go back to previous screen
     @objc func BackBtnTapped() {
         self.navigationController?.popViewController(animated: true)
     }

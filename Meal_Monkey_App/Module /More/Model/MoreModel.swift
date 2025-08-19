@@ -1,22 +1,32 @@
 import Foundation
 
+// MARK: - MoreModel
+// This model represents a "More" menu item in the app (like Payment, Orders, Notifications, etc.)
 class MoreModel {
+    
+    // Title of the menu item
     var strTitle: String?
+    
+    // Image name associated with the menu item
     var strImage: String?
+    
+    // Optional integer tag to identify the menu item
     var intTag: Int?
-
+    
+    // Initializer
     init(strTitle: String? = nil, strImage: String? = nil, intTag: Int? = nil) {
         self.strTitle = strTitle
         self.strImage = strImage
         self.intTag = intTag
     }
-
+    
+    // Returns an array of default "More" menu items
     class func addMoreData() -> [MoreModel] {
         return [
             MoreModel(
-                strTitle: "Payment Details",
-                strImage: "Ic_Payment",
-                intTag: 0
+                strTitle: "Payment Details",  // Title displayed in the menu
+                strImage: "Ic_Payment",       // Icon image for Payment Details
+                intTag: 0                      // Unique tag to identify the item
             ),
             MoreModel(
                 strTitle: "My Orders",

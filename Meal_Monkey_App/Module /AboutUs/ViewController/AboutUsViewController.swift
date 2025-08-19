@@ -2,80 +2,62 @@ import UIKit
 
 class AboutUsViewController: UIViewController {
 
+    // MARK: - Properties
     var objPagetype: PageType = .AboutUs
     var arrCurrent: [AboutModel] = []
+    
     @IBOutlet weak var tblView: UITableView!
 
+    // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.showsVerticalScrollIndicator = false
 
-        let cartButton = UIBarButtonItem(
-            image: UIImage(systemName: "cart.fill"),
-            style: .plain,
-            target: self,
-            action: #selector(cartButtonTapped)
-        )
-        cartButton.tintColor = UIColor(
-            red: 74 / 255,
-            green: 75 / 255,
-            blue: 77 / 255,
-            alpha: 1.0
-        )
-        self.navigationItem.rightBarButtonItem = cartButton
-
-        switch objPagetype {
-
-        case .PayMent:
-            print("Payment")
-        case .MyOrders:
-            print("My Orders")
-        case .Notification:
-            setLeftAlignedTitle("Notification")
-            setLeftAlignedTitleWithBack(
-                "Notification",
-                target: self,
-                action: #selector(backBtnTapped)
-            )
-            setCartButton(target: self, action: #selector(cartButtonTapped))
-            arrCurrent = AboutModel.addNotificationData()
-        case .Inbox:
-            setLeftAlignedTitle("Inbox")
-            setLeftAlignedTitleWithBack(
-                "Inbox",
-                target: self,
-                action: #selector(backBtnTapped)
-            )
-            setCartButton(target: self, action: #selector(cartButtonTapped))
-            arrCurrent = AboutModel.addInboxData()
-        case .AboutUs:
-            setLeftAlignedTitleWithBack(
-                "About Us",
-                target: self,
-                action: #selector(backBtnTapped)
-            )
-            setCartButton(target: self, action: #selector(cartButtonTapped))
-            arrCurrent = AboutModel.addAboutData()
-        case .WishList:
-            print("Wishlist")
-        }
-
+        // Register custom cell
         tblView.register(
             UINib(nibName: "AboutUsTableViewCell", bundle: nil),
             forCellReuseIdentifier: "AboutUsTableViewCell"
         )
+
+        // Setup navigation bar + page data
+        configurePage()
     }
 
+    // MARK: - Page Setup
+    private func configurePage() {
+        switch objPagetype {
+        case .PayMent:
+            print("Payment")
+
+        case .MyOrders:
+            print("My Orders")
+
+        case .Notification:
+            setLeftAlignedTitleWithBack("Notification", target: self, action: #selector(backBtnTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
+            arrCurrent = AboutModel.addNotificationData()
+
+        case .Inbox:
+            setLeftAlignedTitleWithBack("Inbox", target: self, action: #selector(backBtnTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
+            arrCurrent = AboutModel.addInboxData()
+
+        case .AboutUs:
+            setLeftAlignedTitleWithBack("About Us", target: self, action: #selector(backBtnTapped))
+            setCartButton(target: self, action: #selector(cartButtonTapped))
+            arrCurrent = AboutModel.addAboutData()
+
+        case .WishList:
+            print("Wishlist")
+        }
+    }
+
+    // MARK: - Button Actions
     @objc func cartButtonTapped() {
         print("Cart button tapped")
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
+        if let cartVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            self.navigationController?.pushViewController(cartVc, animated: true)
         }
     }
 

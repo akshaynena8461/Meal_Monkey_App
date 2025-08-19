@@ -1,19 +1,31 @@
 import Foundation
 
-class ProductModel:Codable{
-    var intId: Int = 0
-    var strProductName: String = ""
-    var strProductDescription: String = ""
-    var floatProductRating: Float = 0.0
-    var doubleProductPrice: Double = 0.0
-    var strProductImage: String = ""
-    var intProductQty: Int?
-    var intTotalNumberOfRatings: Int = 0
-    var objProductCategory: ProductCategory = .Gujarati
-    var objProductType: ProductType = .food
-    var objAddFavorite:Bool?
-  
-    init(intId: Int, strProductName: String, strProductDescription: String, floatProductRating: Float, doubleProductPrice: Double, strProductImage: String, intProductQty: Int? = nil, intTotalNumberOfRatings: Int, objProductCategory: ProductCategory, objProductType: ProductType) {
+// MARK: - Product Model
+class ProductModel: Codable {
+    var intId: Int = 0                          // Unique product ID
+    var strProductName: String = ""             // Product name
+    var strProductDescription: String = ""      // Product description
+    var floatProductRating: Float = 0.0         // Product rating (0.0 - 5.0)
+    var doubleProductPrice: Double = 0.0        // Product price
+    var strProductImage: String = ""            // Image name for product
+    var intProductQty: Int?                      // Quantity (optional)
+    var intTotalNumberOfRatings: Int = 0        // Total number of ratings
+    var objProductCategory: ProductCategory = .Gujarati // Category enum
+    var objProductType: ProductType = .food     // Type enum (food, dessert, beverages)
+    var objAddFavorite: Bool?                   // Is product marked favorite (optional)
+
+    // MARK: - Initializer
+    init(intId: Int,
+         strProductName: String,
+         strProductDescription: String,
+         floatProductRating: Float,
+         doubleProductPrice: Double,
+         strProductImage: String,
+         intProductQty: Int? = nil,
+         intTotalNumberOfRatings: Int,
+         objProductCategory: ProductCategory,
+         objProductType: ProductType) {
+
         self.intId = intId
         self.strProductName = strProductName
         self.strProductDescription = strProductDescription
@@ -26,13 +38,16 @@ class ProductModel:Codable{
         self.objProductType = objProductType
     }
 }
-enum ProductType: String,Codable {
+
+// MARK: - Product Type Enum
+enum ProductType: String, Codable {
     case food
     case Beverages
     case Desserts
 }
 
-enum ProductCategory:String,Codable,CaseIterable {
+// MARK: - Product Category Enum
+enum ProductCategory: String, Codable, CaseIterable {
     case All
     case Punjabi
     case Chinese
@@ -41,14 +56,17 @@ enum ProductCategory:String,Codable,CaseIterable {
     case WesternFood
 }
 
+// MARK: - Array <ProductModel> Codable Extensions
 extension Array where Element == ProductModel {
     func toData() -> Data? {
+        // Converts array of ProductModel to JSON data
         return try? JSONEncoder().encode(self)
     }
 }
 
 extension Data {
     func toProducts() -> [ProductModel]? {
+        // Converts JSON data back to array of ProductModel
         return try? JSONDecoder().decode([ProductModel].self, from: self)
     }
 }

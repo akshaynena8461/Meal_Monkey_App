@@ -1,11 +1,14 @@
 import Foundation
 
+/// Model class representing an Offer item
 class OfferModel {
-    var strTitle: String?
-    var floatRating: Float?
-    var strTitle2: String?
-    var strImage: String?
+    // MARK: - Properties
+    var strTitle: String?        // Primary title of the offer (e.g., restaurant name)
+    var floatRating: Float?      // Rating of the offer/restaurant
+    var strTitle2: String?       // Secondary title or description (e.g., ratings info, cuisine type)
+    var strImage: String?        // Name of the image associated with the offer
 
+    // MARK: - Initializer
     init(
         strTitle: String? = nil,
         floatRating: Float? = nil,
@@ -18,6 +21,8 @@ class OfferModel {
         self.strImage = strImage
     }
 
+    // MARK: - Sample Data
+    /// Returns an array of sample OfferModel objects
     class func addOffersData() -> [OfferModel] {
         return [
             OfferModel(

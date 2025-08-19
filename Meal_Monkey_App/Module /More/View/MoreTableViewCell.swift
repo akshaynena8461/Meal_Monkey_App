@@ -1,23 +1,31 @@
-
 import UIKit
 
+// MARK: - MoreTableViewCell
+// Custom UITableViewCell for displaying a "More" menu item
 class MoreTableViewCell: UITableViewCell {
 
-    @IBOutlet weak var btnArrow: UIButton!
-    @IBOutlet weak var mainView: UIView!
-    @IBOutlet weak var lblTitle: UILabel!
-    @IBOutlet weak var imgView: UIImageView!
+    // MARK: - Outlets
+    
+    @IBOutlet weak var btnArrow: UIButton!       // Button for navigation arrow
+    @IBOutlet weak var mainView: UIView!         // Main container view for the cell
+    @IBOutlet weak var lblTitle: UILabel!        // Label to display the menu title
+    @IBOutlet weak var imgView: UIImageView!     // ImageView to display menu icon
 
+    // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        // Set border for image view
         imgView.layer.borderWidth = 1
-
+        imgView.layer.borderColor = UIColor(named: "More_icons_border_color")?.cgColor
+        
+        // Round corners of the main view
         mainView.layer.cornerRadius = 7
+        
+        // Round button (arrow) fully
         btnArrow.layer.cornerRadius = 50
-        imgView.layer.borderColor =
-            UIColor(named: "More_icons_border_color")?.cgColor
-
+        
+        // Make image view circular
         imgView.layer.cornerRadius = imgView.frame.size.width / 2
         imgView.clipsToBounds = true
     }
@@ -26,8 +34,11 @@ class MoreTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
     }
 
+    // MARK: - Configuration
+    /// Configures the cell with a MoreModel object
+    /// - Parameter more: MoreModel instance containing title and image
     func configMoreCell(more: MoreModel) {
-        lblTitle.text = more.strTitle
-        imgView.image = UIImage(named: more.strImage ?? "")
+        lblTitle.text = more.strTitle                    // Set title
+        imgView.image = UIImage(named: more.strImage ?? "") // Set icon image
     }
 }

@@ -2,8 +2,9 @@ import CoreData
 import UIKit
 
 class ProductDetailViewController: UIViewController {
-    @IBOutlet var mainView: UIView!
     
+    // MARK: - IBOutlets
+    @IBOutlet var mainView: UIView!
     @IBOutlet weak var detailPageViewinScollView: UIView!
     @IBOutlet weak var stackStars: UIStackView!
     @IBOutlet weak var btnHeart: UIButton!
@@ -22,123 +23,90 @@ class ProductDetailViewController: UIViewController {
     @IBOutlet weak var lblRatings: UILabel!
     @IBOutlet weak var lblTitle: UILabel!
     
-    let currentUserEmail = UserDefaults.standard.string(
-        forKey: "loggedInUserEmail"
-    )
+    // MARK: - Variables
+    let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail")
+    var onHeartTapped: (() -> Void)?  // Callback when heart button is tapped
+    var products: ProductModel?       // Current product being displayed
+    var quantity: Int = 1             // Current quantity of product for cart
     
-    var onHeartTapped:(() -> Void)?
-    
-    
-    
-    var products: ProductModel?
-    var quantity: Int = 1
-    
+    // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // Fill stars UI based on product rating
         fillStars(for: products?.floatProductRating ?? 0.0, in: stackStars)
+        
+        // Hide vertical scroll indicator
         viewScroll.showsVerticalScrollIndicator = false
         
-        EditStyle.setborder(
-            textfields: [stackPortion, stackIngredients],
-            cornerRadious: 4
-        )
+        // Style ingredient and portion stacks
+        EditStyle.setborder(textfields: [stackPortion, stackIngredients], cornerRadious: 4)
+        
+        // Initialize quantity label
         lblCount.text = "\(quantity)"
-        btnMinus.isEnabled = false
+        btnMinus.isEnabled = false  // Can't reduce below 1 initially
+        
+        // Configure UI with product data
         configureUI()
         
-        setLeftAlignedTitleWithBackInProductDetailPage(
-            "",
-            target: self,
-            action: #selector(backBtnTapped)
-        )
-        setCartButtonInProuductDetail(
-            target: self,
-            action: #selector(cartBtnTapped)
-        )
-        EditStyle.setborder(
-            textfields: [btnMinus, btnPlus, lblCount],
-            cornerRadious: 15
-        )
+        // Setup navigation buttons
+        setLeftAlignedTitleWithBackInProductDetailPage("", target: self, action: #selector(backBtnTapped))
+        setCartButtonInProuductDetail(target: self, action: #selector(cartBtnTapped))
+        
+        // Style quantity controls
+        EditStyle.setborder(textfields: [btnMinus, btnPlus, lblCount], cornerRadious: 15)
         lblCount.layer.borderWidth = 1
         lblCount.layer.borderColor = UIColor.systemGray.cgColor
+        
+        // Style "Add to Cart" button
         EditStyle.setborder(textfields: [btnAddCart], cornerRadious: 7.42)
         
+        // Style detail page view with rounded corners and shadow
         detailPageViewinScollView.layer.cornerRadius = 42
-        detailPageViewinScollView.layer.maskedCorners = [
-            .layerMinXMinYCorner, .layerMaxXMinYCorner,
-        ]
+        detailPageViewinScollView.layer.maskedCorners = [.layerMinXMinYCorner, .layerMaxXMinYCorner]
         detailPageViewinScollView.clipsToBounds = true
         detailPageViewinScollView.layer.shadowColor = UIColor.black.cgColor
         detailPageViewinScollView.layer.shadowOpacity = 0.3
-        detailPageViewinScollView.layer.shadowOffset = CGSize(
-            width: 0,
-            height: -2
-        )
+        detailPageViewinScollView.layer.shadowOffset = CGSize(width: 0, height: -2)
         detailPageViewinScollView.layer.shadowRadius = 30
         
+        // Populate product details
         if let product = products {
             imgProduct.image = UIImage(named: product.strProductImage)
             lblTitle.text = product.strProductName
             lblDescription.text = product.strProductDescription
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
-        detailPageViewinScollView.reloadInputViews()
-        ProductDetailView.reloadInputViews()
-        mainView.reloadInputViews()
     }
     
+    // MARK: - Update wishlist heart icon
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if let product = products {
-            let isFav = app.arrWishList.contains(where: { $0.intId == product.intId })
-            product.objAddFavorite = isFav
-            let imageName = isFav ? "heart.fill" : "heart"
-            btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
-        }
-    }
-    
-    @IBAction func btnHeartClick(_ sender: AnyObject) {
         
-        guard let product = self.products,
-                let currentUserEmail = currentUserEmail,
-                let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) else { return }
-
-          if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
-              CoreDataManager.shared.removeFromWishlist(for: user, productId: product.intId)
-              btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
-          } else {
-              CoreDataManager.shared.addToWishlist(for: user, productId: product.intId)
-              btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
-          }
+        guard let product = products else { return }
+        let isFav = app.arrWishList.contains { $0.intId == product.intId }
+        product.objAddFavorite = isFav
+        let imageName = isFav ? "heart.fill" : "heart"
+        btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
     }
     
-    func updateWishlistData() {
-        for item in HomeViewController.arrProductData {
-            if app.arrWishList.firstIndex(where: { $0.intId == item.intId }) != nil {
-                item.objAddFavorite = true
-            } else {
-                item.objAddFavorite = false
-            }
+    // MARK: - Heart button tap
+    @IBAction func btnHeartClick(_ sender: AnyObject) {
+        guard let product = products,
+              let currentUserEmail = currentUserEmail,
+              let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) else { return }
+        
+        // Toggle wishlist
+        if CoreDataManager.shared.isInWishlist(for: user, productId: product.intId) {
+            CoreDataManager.shared.removeFromWishlist(for: user, productId: product.intId)
+            btnHeart.setImage(UIImage(systemName: "heart"), for: .normal)
+        } else {
+            CoreDataManager.shared.addToWishlist(for: user, productId: product.intId)
+            btnHeart.setImage(UIImage(systemName: "heart.fill"), for: .normal)
         }
     }
     
-    @objc func backBtnTapped() {
-        self.navigationController?.popViewController(animated: true)
-    }
-    
-    @objc func cartBtnTapped() {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
-        }
-    }
-    
+    // MARK: - Configure product UI
     func configureUI() {
         guard let product = products else { return }
         lblTitle.text = product.strProductName
@@ -148,40 +116,40 @@ class ProductDetailViewController: UIViewController {
         updatePriceAndQuantityUI()
     }
     
+    // MARK: - Star rating UI
     func fillStars(for rating: Float, in stackView: UIStackView) {
         for (index, view) in stackView.arrangedSubviews.enumerated() {
-            if let imageView = view as? UIImageView {
-                let starIndex = Float(index) + 1.0
-                
-                if rating >= starIndex {
-                    // Full star
-                    imageView.image = UIImage(systemName: "star.fill")
-                    imageView.tintColor = .systemYellow
-                } else if rating + 0.5 >= starIndex {
-                    // Half star
-                    imageView.image = UIImage(systemName: "star.lefthalf.fill")
-                    imageView.tintColor = .systemOrange
-                } else {
-                    // Empty star
-                    imageView.image = UIImage(systemName: "star")
-                    imageView.tintColor = .systemGray
-                }
+            guard let imageView = view as? UIImageView else { continue }
+            let starIndex = Float(index) + 1
+            
+            if rating >= starIndex {
+                imageView.image = UIImage(systemName: "star.fill")
+                imageView.tintColor = .systemYellow
+            } else if rating + 0.5 >= starIndex {
+                imageView.image = UIImage(systemName: "star.lefthalf.fill")
+                imageView.tintColor = .systemOrange
+            } else {
+                imageView.image = UIImage(systemName: "star")
+                imageView.tintColor = .systemGray
             }
         }
     }
     
+    // MARK: - Update total price and quantity UI
     func updatePriceAndQuantityUI() {
         guard let product = products else { return }
-        let total = (product.doubleProductPrice) * Double(quantity)
+        let total = product.doubleProductPrice * Double(quantity)
         lblTotal.text = "$\(String(format: "%.2f", total))"
         lblCount.text = "\(quantity)"
         btnMinus.isEnabled = quantity > 1
     }
     
+    // MARK: - Quantity controls
     @IBAction func btnPlucClick(_ sender: Any) {
         quantity += 1
         updatePriceAndQuantityUI()
     }
+    
     @IBAction func btnMinusClick(_ sender: Any) {
         if quantity > 1 {
             quantity -= 1
@@ -189,33 +157,41 @@ class ProductDetailViewController: UIViewController {
         }
     }
     
+    // MARK: - Add to cart
     @IBAction func btnAddToCartClick(_ sender: Any) {
-        guard let product = products else { return }
+        guard let product = products,
+              let currentUserEmail = currentUserEmail,
+              let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) else { return }
         
-        if let currentUserEmail = currentUserEmail,
-           let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail) {
-            
-            CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
-            
-            if let index = app.arrCart.firstIndex(where: { $0.intId == product.intId }) {
-                app.arrCart[index].intProductQty = (app.arrCart[index].intProductQty ?? 0) + quantity
-            } else {
-                var newProduct = product
-                newProduct.intProductQty = quantity
-                app.arrCart.append(newProduct)
-            }
-            
-            UIAlertController.showAlert(
-                title: "Success",
-                message: "Item Added to Cart",
-                viewController: self
-            )
+        // Add product to CoreData cart
+        CoreDataManager.shared.addToCart(for: user, product: product, quantity: quantity)
+        
+        // Update app-level cart array
+        if let index = app.arrCart.firstIndex(where: { $0.intId == product.intId }) {
+            app.arrCart[index].intProductQty = (app.arrCart[index].intProductQty ?? 0) + quantity
+        } else {
+            var newProduct = product
+            newProduct.intProductQty = quantity
+            app.arrCart.append(newProduct)
+        }
+        
+        UIAlertController.showAlert(title: "Success", message: "Item Added to Cart", viewController: self)
+    }
+    
+    // MARK: - Navigation
+    @objc func backBtnTapped() {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @objc func cartBtnTapped() {
+        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+            navigationController?.pushViewController(cartVc, animated: true)
         }
     }
     
-    @IBAction func btnPortionClick(_ sender: Any) {
-    }
+    // MARK: - Portion & Ingredients (empty actions for future use)
+    @IBAction func btnPortionClick(_ sender: Any) {}
     
-    @IBAction func btnIngredientsClick(_ sender: Any) {
-    }
+    @IBAction func btnIngredientsClick(_ sender: Any) {}
 }
