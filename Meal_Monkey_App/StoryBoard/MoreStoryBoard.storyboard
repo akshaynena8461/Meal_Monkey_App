@@ -865,10 +865,10 @@ at anytime </string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31w-xq-D9j">
-                                <rect key="frame" x="0.0" y="140" width="393" height="644"/>
+                                <rect key="frame" x="0.0" y="160" width="393" height="624"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YJa-qj-stz">
-                                        <rect key="frame" x="21" y="79" width="351" height="300"/>
+                                        <rect key="frame" x="21" y="79" width="351" height="280"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="iVW-Kx-Tt7" id="zDS-UH-4xP"/>
@@ -876,14 +876,14 @@ at anytime </string>
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-sa-gaz">
-                                        <rect key="frame" x="0.0" y="394" width="393" height="12"/>
+                                        <rect key="frame" x="0.0" y="374" width="393" height="12"/>
                                         <color key="backgroundColor" name="ViewlineBgColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="Unr-vl-llG"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="c20-GE-CXw">
-                                        <rect key="frame" x="21" y="421" width="351" height="97"/>
+                                        <rect key="frame" x="21" y="401" width="351" height="97"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RU7-S6-lLs">
                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
@@ -952,7 +952,7 @@ at anytime </string>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2El-Pz-M5n">
                                                 <rect key="frame" x="0.0" y="82" width="351" height="15"/>
                                                 <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10a-4X-qn5">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Total" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10a-4X-qn5">
                                                         <rect key="frame" x="0.0" y="0.0" width="319" height="15"/>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
                                                         <color key="textColor" name="lbltxtColor"/>
@@ -972,14 +972,14 @@ at anytime </string>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-1m-9iC">
-                                        <rect key="frame" x="0.0" y="535" width="393" height="12"/>
+                                        <rect key="frame" x="0.0" y="515" width="393" height="12"/>
                                         <color key="backgroundColor" name="ViewlineBgColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="ewH-jQ-xQE"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahK-l0-Epc">
-                                        <rect key="frame" x="21" y="568" width="351" height="56"/>
+                                        <rect key="frame" x="21" y="548" width="351" height="56"/>
                                         <color key="backgroundColor" name="loginbtnbg"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="ELB-dj-PBX"/>
@@ -1048,7 +1048,7 @@ at anytime </string>
                                 </constraints>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nHT-x6-nIj">
-                                <rect key="frame" x="21" y="91" width="351" height="44"/>
+                                <rect key="frame" x="21" y="111" width="351" height="44"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-Mu-k4N">
                                         <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
@@ -1104,9 +1104,9 @@ at anytime </string>
                             <constraint firstItem="TnU-TC-HAr" firstAttribute="top" secondItem="DNw-jZ-Y2h" secondAttribute="top" constant="70" id="Uqk-wf-p9C"/>
                             <constraint firstItem="TnU-TC-HAr" firstAttribute="leading" secondItem="31w-xq-D9j" secondAttribute="leading" id="Zco-iz-2Q2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="TnU-TC-HAr" secondAttribute="bottom" constant="-30.666666666666629" id="htd-qK-TNx"/>
-                            <constraint firstItem="31w-xq-D9j" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="140" id="i9g-sk-lzY"/>
+                            <constraint firstItem="31w-xq-D9j" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="160" id="i9g-sk-lzY"/>
                             <constraint firstItem="nHT-x6-nIj" firstAttribute="leading" secondItem="DNw-jZ-Y2h" secondAttribute="leading" constant="21" id="kcj-Wc-Rt5"/>
-                            <constraint firstItem="nHT-x6-nIj" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="91" id="z0K-O8-4lL"/>
+                            <constraint firstItem="nHT-x6-nIj" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="111" id="z0K-O8-4lL"/>
                             <constraint firstItem="s9R-z0-yfG" firstAttribute="top" secondItem="MqB-IQ-w0o" secondAttribute="bottom" id="zOv-Ed-dSD"/>
                         </constraints>
                     </view>
