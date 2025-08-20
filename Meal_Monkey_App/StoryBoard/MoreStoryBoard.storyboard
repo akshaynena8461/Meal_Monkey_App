@@ -722,7 +722,7 @@ at anytime </string>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TnU-TC-HAr" userLabel="Add Card Page View">
                                 <rect key="frame" x="0.0" y="188" width="393" height="626.66666666666663"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Ku-0o-6YE">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Ku-0o-6YE">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="626.66666666666663"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7s2-OD-bDO">

@@ -43,7 +43,7 @@
                                         <color key="textColor" name="LabelOffer"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-rq-T5I">
+                                    <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="251" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="1SC-rq-T5I">
                                         <rect key="frame" x="0.0" y="41.666666666666657" width="220" height="10"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Cl-a4-WHy">
@@ -57,7 +57,7 @@
                                                 <state key="normal" image="Ic_Star_Filled"/>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="4.9" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RXc-Lj-DRD">
-                                                <rect key="frame" x="19" y="0.0" width="17" height="10"/>
+                                                <rect key="frame" x="14" y="0.0" width="17" height="10"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="17" id="fVh-Vt-VHE"/>
                                                 </constraints>
@@ -66,7 +66,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="247" verticalHuggingPriority="251" text="(124 ratings)" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2W-pL-egL">
-                                                <rect key="frame" x="46" y="0.0" width="174" height="10"/>
+                                                <rect key="frame" x="36" y="0.0" width="184" height="10"/>
                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="11"/>
                                                 <color key="textColor" name="LabelOffer"/>
                                                 <nil key="highlightedColor"/>
