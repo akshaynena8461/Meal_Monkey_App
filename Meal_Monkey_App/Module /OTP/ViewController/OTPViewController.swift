@@ -21,6 +21,8 @@ class OTPViewController: UIViewController {
 
         // Set rounded corner style for the Next button
         EditStyle.setborder(textfields: [btnNext], cornerRadious: 28)
+        
+
 
         // Configure each OTP text field
         for tf in allTextFields {

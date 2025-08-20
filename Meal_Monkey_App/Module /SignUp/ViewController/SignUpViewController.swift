@@ -212,19 +212,28 @@ class SignUpViewController: UIViewController {
         do {
             try context.save()
             print("User registered successfully.")
-            UIAlertController.showAlert(
+
+            let alert = UIAlertController(
                 title: "Success",
                 message: "User Saved Successfully",
-                viewController: self
+                preferredStyle: .alert
             )
+            alert.addAction(
+                UIAlertAction(title: "OK", style: .default) { _ in
+                    self.navigationController?.popViewController(animated: true)
+                }
+            )
+            present(alert, animated: true)
 
         } catch {
             print("Failed to save user: \(error.localizedDescription)")
-            UIAlertController.showAlert(
+            let alert = UIAlertController(
                 title: "Error",
                 message: "Something went wrong while saving.",
-                viewController: self
+                preferredStyle: .alert
             )
+            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            present(alert, animated: true)
         }
     }
 }

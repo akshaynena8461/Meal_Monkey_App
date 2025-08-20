@@ -132,6 +132,12 @@ class ProfileViewController: UIViewController {
                 txtAddress.text = currentUser.address
                 txtMobile.text = currentUser.mobileNumber
                 lblUserName.text = "\(currentUser.name ?? "Alise")!"
+
+                if let imageData = currentUser.userImage {
+                    imgProfile.image = UIImage(data: imageData)
+                } else {
+                    imgProfile.image = UIImage(named: "placeholder_profile")  // fallback image
+                }
             }
         } catch {
             print("Failed To fetch User: \(error)")
@@ -168,9 +174,15 @@ class ProfileViewController: UIViewController {
                 user.setValue(txtMobile.text, forKey: "mobileNumber")
                 user.setValue(txtAddress.text ?? "", forKey: "address")
 
+                if let newImage = imgProfile.image,  // e.g. from UIImageView
+                    let imageData = newImage.jpegData(compressionQuality: 0.8)
+                {
+                    user.setValue(imageData, forKey: "userImage")
+                }
+
                 // Save changes to Core Data
                 try context.save()
-                
+
                 // Show success alert
                 UIAlertController.showAlert(
                     title: "Success",

@@ -13,6 +13,7 @@ class ForgotPasswordViewController: UIViewController {
         // Style the text field and button
         EditStyle.setborder(textfields: [txtemail, btnsend], cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtemail], paddingWidth: 34)
+        
     }
 
     // MARK: - Actions
