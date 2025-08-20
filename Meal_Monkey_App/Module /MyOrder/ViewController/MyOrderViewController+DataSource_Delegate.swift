@@ -7,7 +7,7 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
     /// Returns the number of rows in the table view
     /// Each row represents a product in the order
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrOrderDetail.count
+        return app.arrOrderDetail.count
     }
 
     /// Configures and returns the cell for each row
@@ -24,7 +24,7 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
         cell.selectionStyle = .none
 
         // Configure cell with product details
-        cell.configMyOrderDetailCell(product: arrOrderDetail[indexPath.row])
+        cell.configMyOrderDetailCell(product: app.arrOrderDetail[indexPath.row])
 
         return cell
     }

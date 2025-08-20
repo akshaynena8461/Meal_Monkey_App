@@ -12,7 +12,6 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
     @IBOutlet weak var tblMyOrderView: UITableView! // TableView displaying order items
 
     // MARK: - Properties
-    var arrOrderDetail: [ProductModel] = []       // Array containing products in the order
     let deliveryCost: Double = 5.0                // Fixed delivery cost
 
     // MARK: - Lifecycle
@@ -51,7 +50,7 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
     // MARK: - Calculate Totals
     /// Computes subtotal, delivery cost, and total, and updates the UI
     func calculateTotals() {
-        let subtotal = arrOrderDetail.reduce(0) {
+        let subtotal = app.arrOrderDetail.reduce(0) {
             $0 + ($1.doubleProductPrice * Double($1.intProductQty!))
         }
 
@@ -77,7 +76,7 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
             withIdentifier: "CheckOutViewController"
         ) as? CheckOutViewController {
             // Pass the selected order items
-            checkoutVc.arrCheckOutData = app.arrOrder.flatMap { $0 }
+            checkoutVc.arrCheckOutData = app.arrOrderDetail
             self.navigationController?.pushViewController(
                 checkoutVc,
                 animated: true

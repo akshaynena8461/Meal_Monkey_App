@@ -12,7 +12,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var arrOrder: [[ProductModel]] = []  // Stores multiple orders (array of product arrays)
     var cartItems: [ProductModel] = []  // Temporary cart items
     var arrCard: [PaymentModel] = []  // Holds payment card information
-    var arrWishList: [ProductModel] = []  // Stores wishlist products
+    var arrWishList: [ProductModel] = [] // Stores wishlist products
+    var arrOrderDetail:[ProductModel] = [] //Store OrederDetails data
 
     // MARK: - App Launch
     func application(

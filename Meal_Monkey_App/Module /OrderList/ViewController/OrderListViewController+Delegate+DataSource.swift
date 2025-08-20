@@ -36,7 +36,7 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
         ) as? MyOrderViewController {
             
             // Pass the selected order's products to MyOrderViewController
-            myOrderVc.arrOrderDetail = app.arrOrder[indexPath.row]
+            app.arrOrderDetail = app.arrOrder[indexPath.row]
             
             // Push the detailed order view onto the navigation stack
             self.navigationController?.pushViewController(

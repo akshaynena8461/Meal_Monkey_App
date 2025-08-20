@@ -163,12 +163,14 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         let subtotal = arrCheckOutData.reduce(0) {
             $0 + ($1.doubleProductPrice * Double($1.intProductQty!))
         }
+        print("subtotal \(subtotal)")
+
         lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
         lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
         lblDiscount.text = "-$\(String(format: "%.2f", discountCost))"
-        lblTotal.text =
-            "$\(String(format: "%.2f", subtotal + deliveryCost - discountCost))"
+        lblTotal.text = "$\(String(format: "%.2f", subtotal + deliveryCost - discountCost))"
     }
+
 
     // MARK: - Actions
     @IBAction func btnChangeAddressClick(_ sender: Any) {
@@ -193,7 +195,6 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         checkoutDetailPage.isHidden = false
         addCardPageView.isHidden = true
         btnChangeAddress.isHidden = false
-
 
         UIView.animate(
             withDuration: 0.3,
@@ -264,7 +265,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
     // MARK: - Add Card Logic
     func addCard() {
-        var newCard = PaymentModel()
+        let newCard = PaymentModel()
         newCard.strCardNumber = txtCardNumber.text
         app.arrCard.append(newCard)
 
