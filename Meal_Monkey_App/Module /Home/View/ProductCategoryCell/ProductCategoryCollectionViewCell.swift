@@ -13,14 +13,22 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         imgCategory.layer.cornerRadius = 10
         imgCategory.clipsToBounds = true
     }
-    
+
     // MARK: - Configure Cell
     /// Configures the cell with category information
     /// - Parameter category: ProductCategory enum representing category type
     func confingProductCategory(category: ProductCategory) {
         // Set the label text to the raw value of the enum
         lblCategoryName.text = category.rawValue
-        
+
+//        if isSelected {
+//            // Active style
+//            lblCategoryName.textColor = .systemOrange
+//
+//        } else {
+//            // Normal style
+//            lblCategoryName.textColor = .darkGray
+//        }
         // Set the category image based on the selected category
         switch category {
         case .All:
@@ -36,5 +44,6 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         case .WesternFood:
             imgCategory.image = UIImage(named: "ic_margherita_pizza")
         }
+
     }
 }

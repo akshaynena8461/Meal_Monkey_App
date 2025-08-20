@@ -13,6 +13,8 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var homeCollectionView: UICollectionView!
     @IBOutlet weak var btnViewAll: UIButton!
     @IBOutlet weak var lblCollectionViewTitle: UILabel!
+    var selectedIndex: Int = 0
+
 
     // MARK: - Properties
     weak var delegate: HomeTableViewCellDelegate?
@@ -119,6 +121,12 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
                 for: indexPath
             ) as! ProductCategoryCollectionViewCell
             cell.confingProductCategory(category: categories[indexPath.row])
+            if selectedIndex == indexPath.item{
+                cell.lblCategoryName.textColor = .systemOrange
+            }
+            else{
+                cell.lblCategoryName.textColor = .darkGray
+            }
             return cell
 
         case .popular:
@@ -152,7 +160,9 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
         switch collectionType {
         case .category:
             let selectedCategory = categories[indexPath.row]
+            selectedIndex = indexPath.item
             delegate?.HomeTableViewCell(self, didSelectCategory: selectedCategory)
+//            collectionView.reloadData()
         default:
             let selectedProduct = arrProducts[indexPath.row]
             delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)
