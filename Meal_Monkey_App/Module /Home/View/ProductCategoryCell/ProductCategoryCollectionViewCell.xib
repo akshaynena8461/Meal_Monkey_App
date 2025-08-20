@@ -12,21 +12,21 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" misplaced="YES" id="gTV-IL-0wX" customClass="ProductCategoryCollectionViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="120" height="117"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ProductCategoryCollectionViewCell" customModule="Meal_Monkey_App" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="129" height="148"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="120" height="117"/>
+                <rect key="frame" x="0.0" y="0.0" width="129" height="148"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iUb-ht-PrK">
-                        <rect key="frame" x="9" y="0.0" width="102" height="135"/>
+                        <rect key="frame" x="9" y="0.0" width="111" height="148"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" image="Ic_restaurantFood" translatesAutoresizingMaskIntoConstraints="NO" id="ZGh-Sg-Xvt">
-                                <rect key="frame" x="0.0" y="10" width="102" height="84.666666666666671"/>
+                                <rect key="frame" x="0.0" y="10" width="111" height="97.666666666666671"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Offers" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hgh-M1-jFZ">
-                                <rect key="frame" x="27.333333333333339" y="104.66666666666667" width="47.666666666666657" height="20.333333333333329"/>
+                                <rect key="frame" x="31.666666666666668" y="117.66666666666667" width="47.666666666666657" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" name="secondarylabelcolor"/>
                                 <nil key="highlightedColor"/>
@@ -51,12 +51,12 @@
                 <constraint firstItem="iUb-ht-PrK" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="9" id="Qg9-OK-1ar"/>
                 <constraint firstAttribute="trailing" secondItem="iUb-ht-PrK" secondAttribute="trailing" constant="9" id="cAs-NV-ZEw"/>
             </constraints>
-            <size key="customSize" width="120" height="117"/>
+            <size key="customSize" width="129" height="148"/>
             <connections>
                 <outlet property="imgCategory" destination="ZGh-Sg-Xvt" id="227-kS-74i"/>
                 <outlet property="lblCategoryName" destination="Hgh-M1-jFZ" id="NA7-YL-8YB"/>
             </connections>
-            <point key="canvasLocation" x="-167.93893129770993" y="-5.2816901408450709"/>
+            <point key="canvasLocation" x="-350.38167938931298" y="-164.08450704225353"/>
         </collectionViewCell>
     </objects>
     <resources>
