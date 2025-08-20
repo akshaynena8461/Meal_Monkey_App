@@ -192,6 +192,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         backView.isHidden = true
         checkoutDetailPage.isHidden = false
         addCardPageView.isHidden = true
+        btnChangeAddress.isHidden = false
+
 
         UIView.animate(
             withDuration: 0.3,
@@ -213,6 +215,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         addCardPageView.isHidden = true
         checkoutDetailPage.isHidden = true
         backView.isHidden = false
+        btnChangeAddress.isHidden = true
 
         UIView.animate(withDuration: 0.3) {
             self.ThankYouPage.transform = .identity
@@ -230,6 +233,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         checkoutDetailPage.isHidden = true
         addCardPageView.isHidden = false
         ThankYouPage.isHidden = true
+        btnChangeAddress.isHidden = true
 
         UIView.animate(withDuration: 0.3) {
             self.addCardPageView.transform = .identity
@@ -242,6 +246,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         backView.isHidden = true
         checkoutDetailPage.isHidden = false
         addCardPageView.isHidden = true
+        btnChangeAddress.isHidden = false
 
         UIView.animate(
             withDuration: 0.3,

@@ -564,43 +564,6 @@ at anytime </string>
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="188"/>
                                 <color key="backgroundColor" name="BackViewColor"/>
                             </view>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nHT-x6-nIj">
-                                <rect key="frame" x="21" y="121" width="351" height="63"/>
-                                <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-Mu-k4N">
-                                        <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
-                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
-                                        <color key="textColor" name="loginsignupcolor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYI-2f-0vJ">
-                                        <rect key="frame" x="0.0" y="15" width="351" height="48"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-pz-e8u">
-                                                <rect key="frame" x="0.0" y="0.0" width="44.333333333333336" height="48"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="48" id="B1o-Wl-gPE"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
-                                                <color key="textColor" name="loginsignupcolor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-Y0-l8d">
-                                                <rect key="frame" x="44.333333333333343" y="0.0" width="306.66666666666663" height="48"/>
-                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
-                                                <color key="tintColor" name="loginbtnbg"/>
-                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Change">
-                                                    <color key="titleColor" name="loginbtnbg"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="btnChangeAddressClick:" destination="iVW-Kx-Tt7" eventType="touchUpInside" id="9YW-Oz-zl4"/>
-                                                </connections>
-                                            </button>
-                                        </subviews>
-                                    </stackView>
-                                </subviews>
-                            </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="s9R-z0-yfG">
                                 <rect key="frame" x="0.0" y="188" width="393" height="626"/>
                                 <subviews>
@@ -902,10 +865,10 @@ at anytime </string>
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31w-xq-D9j">
-                                <rect key="frame" x="0.0" y="190" width="393" height="594"/>
+                                <rect key="frame" x="0.0" y="140" width="393" height="644"/>
                                 <subviews>
                                     <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="YJa-qj-stz">
-                                        <rect key="frame" x="21" y="79" width="351" height="250"/>
+                                        <rect key="frame" x="21" y="79" width="351" height="300"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <connections>
                                             <outlet property="dataSource" destination="iVW-Kx-Tt7" id="zDS-UH-4xP"/>
@@ -913,14 +876,14 @@ at anytime </string>
                                         </connections>
                                     </tableView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8ed-sa-gaz">
-                                        <rect key="frame" x="0.0" y="344" width="393" height="12"/>
+                                        <rect key="frame" x="0.0" y="394" width="393" height="12"/>
                                         <color key="backgroundColor" name="ViewlineBgColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="Unr-vl-llG"/>
                                         </constraints>
                                     </view>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="c20-GE-CXw">
-                                        <rect key="frame" x="21" y="371" width="351" height="97"/>
+                                        <rect key="frame" x="21" y="421" width="351" height="97"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RU7-S6-lLs">
                                                 <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
@@ -1009,14 +972,14 @@ at anytime </string>
                                         </subviews>
                                     </stackView>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="x5p-1m-9iC">
-                                        <rect key="frame" x="0.0" y="485" width="393" height="12"/>
+                                        <rect key="frame" x="0.0" y="535" width="393" height="12"/>
                                         <color key="backgroundColor" name="ViewlineBgColor"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="12" id="ewH-jQ-xQE"/>
                                         </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ahK-l0-Epc">
-                                        <rect key="frame" x="21" y="518" width="351" height="56"/>
+                                        <rect key="frame" x="21" y="568" width="351" height="56"/>
                                         <color key="backgroundColor" name="loginbtnbg"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="ELB-dj-PBX"/>
@@ -1084,6 +1047,43 @@ at anytime </string>
                                     <constraint firstItem="8ed-sa-gaz" firstAttribute="leading" secondItem="31w-xq-D9j" secondAttribute="leading" id="tXw-us-eNO"/>
                                 </constraints>
                             </view>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="nHT-x6-nIj">
+                                <rect key="frame" x="21" y="91" width="351" height="44"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Delivery Address" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gl6-Mu-k4N">
+                                        <rect key="frame" x="0.0" y="0.0" width="351" height="15"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                        <color key="textColor" name="loginsignupcolor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oYI-2f-0vJ">
+                                        <rect key="frame" x="0.0" y="17" width="351" height="27"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uIP-pz-e8u">
+                                                <rect key="frame" x="0.0" y="0.0" width="200" height="27"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="200" id="sUi-yO-7I1"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="12"/>
+                                                <color key="textColor" name="loginsignupcolor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V9L-Y0-l8d">
+                                                <rect key="frame" x="200" y="0.0" width="151" height="27"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="13"/>
+                                                <color key="tintColor" name="loginbtnbg"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Change">
+                                                    <color key="titleColor" name="loginbtnbg"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="btnChangeAddressClick:" destination="iVW-Kx-Tt7" eventType="touchUpInside" id="9YW-Oz-zl4"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="DNw-jZ-Y2h"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -1104,9 +1104,9 @@ at anytime </string>
                             <constraint firstItem="TnU-TC-HAr" firstAttribute="top" secondItem="DNw-jZ-Y2h" secondAttribute="top" constant="70" id="Uqk-wf-p9C"/>
                             <constraint firstItem="TnU-TC-HAr" firstAttribute="leading" secondItem="31w-xq-D9j" secondAttribute="leading" id="Zco-iz-2Q2"/>
                             <constraint firstAttribute="bottomMargin" secondItem="TnU-TC-HAr" secondAttribute="bottom" constant="-30.666666666666629" id="htd-qK-TNx"/>
-                            <constraint firstItem="31w-xq-D9j" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="190" id="i9g-sk-lzY"/>
+                            <constraint firstItem="31w-xq-D9j" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="140" id="i9g-sk-lzY"/>
                             <constraint firstItem="nHT-x6-nIj" firstAttribute="leading" secondItem="DNw-jZ-Y2h" secondAttribute="leading" constant="21" id="kcj-Wc-Rt5"/>
-                            <constraint firstItem="nHT-x6-nIj" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="121" id="z0K-O8-4lL"/>
+                            <constraint firstItem="nHT-x6-nIj" firstAttribute="top" secondItem="3s8-5n-M1R" secondAttribute="top" constant="91" id="z0K-O8-4lL"/>
                             <constraint firstItem="s9R-z0-yfG" firstAttribute="top" secondItem="MqB-IQ-w0o" secondAttribute="bottom" id="zOv-Ed-dSD"/>
                         </constraints>
                     </view>

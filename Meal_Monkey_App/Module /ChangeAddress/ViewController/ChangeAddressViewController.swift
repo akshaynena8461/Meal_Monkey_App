@@ -9,15 +9,16 @@ protocol ChangeAddressDelegate: AnyObject {
 class ChangeAddressViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var mapView: MKMapView!                 // Map view showing location
-    @IBOutlet weak var txtSearchAddress: UITextField!      // Text field to search address
-    @IBOutlet weak var btnChooseSavedPlace: UIButton!     // Button to choose saved places (optional)
-    @IBOutlet weak var btnCurrentLocation: UIButton!      // Button to move map to current location
+    @IBOutlet weak var mapView: MKMapView!  // Map view showing location
+    @IBOutlet weak var txtSearchAddress: UITextField!  // Text field to search address
+    @IBOutlet weak var btnChooseSavedPlace: UIButton!  // Button to choose saved places (optional)
+    @IBOutlet weak var btnCurrentLocation: UIButton!  // Button to move map to current location
+    var fullAddress: String?   // Store last selected address
 
     // MARK: - Properties
-    weak var delegate: ChangeAddressDelegate?             // Delegate to send selected address back
-    let locationManager = CLLocationManager()             // Handles device location updates
-    let geocoder = CLGeocoder()                           // Converts between coordinates and addresses
+    weak var delegate: ChangeAddressDelegate?  // Delegate to send selected address back
+    let locationManager = CLLocationManager()  // Handles device location updates
+    let geocoder = CLGeocoder()  // Converts between coordinates and addresses
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -34,13 +35,13 @@ class ChangeAddressViewController: UIViewController {
         // Style the search text field
         EditStyle.setborder(textfields: [txtSearchAddress], cornerRadious: 28)
         EditStyle.setPadding(textFields: [txtSearchAddress], paddingWidth: 34)
-        
+
         setLeftAlignedTitleWithBack(
             "Change Address",
             target: self,
             action: #selector(BackBtnTapped)
         )
-        
+
         // Add tap gesture to map to detect user taps
         let tapGesture = UITapGestureRecognizer(
             target: self,
@@ -68,7 +69,10 @@ class ChangeAddressViewController: UIViewController {
         mapView.showsUserLocation = true
 
         // Set default location (example: Ahmedabad, India)
-        let defaultLocation = CLLocationCoordinate2D(latitude: 23.0225, longitude: 72.5714)
+        let defaultLocation = CLLocationCoordinate2D(
+            latitude: 23.0225,
+            longitude: 72.5714
+        )
         centerMap(on: defaultLocation)
         addPinAtCenterAndReverseGeocode()
     }
@@ -82,7 +86,9 @@ class ChangeAddressViewController: UIViewController {
 
     private func updatePinAndAddress(at coordinate: CLLocationCoordinate2D) {
         // Remove old annotations (except user location)
-        mapView.removeAnnotations(mapView.annotations.filter { !($0 is MKUserLocation) })
+        mapView.removeAnnotations(
+            mapView.annotations.filter { !($0 is MKUserLocation) }
+        )
 
         // Add a new annotation
         let annotation = MKPointAnnotation()
@@ -91,28 +97,36 @@ class ChangeAddressViewController: UIViewController {
         mapView.addAnnotation(annotation)
 
         // Reverse geocode to get human-readable address
-        let location = CLLocation(latitude: coordinate.latitude, longitude: coordinate.longitude)
-        geocoder.reverseGeocodeLocation(location) { [weak self] placemarks, error in
+        let location = CLLocation(
+            latitude: coordinate.latitude,
+            longitude: coordinate.longitude
+        )
+        geocoder.reverseGeocodeLocation(location) {
+            [weak self] placemarks, error in
             guard let self = self else { return }
 
-            var fullAddress = "Unknown Location"
+            var resoveAddress = "Unknown Location"
             if let placemark = placemarks?.first {
                 let name = placemark.name ?? ""
                 let city = placemark.locality ?? ""
                 let country = placemark.country ?? ""
-                fullAddress = "\(name), \(city), \(country)"
+                resoveAddress = "\(name), \(city), \(country)"
 
                 annotation.title = name
                 annotation.subtitle = "\(city), \(country)"
             }
 
+            self.fullAddress = resoveAddress
             self.mapView.selectAnnotation(annotation, animated: true)
-            self.delegate?.didSelectAddress(fullAddress)  // Notify delegate
+            self.delegate?.didSelectAddress(fullAddress ?? "")  // Notify delegate
         }
     }
 
     // MARK: - CLLocationManager Delegate
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+    func locationManager(
+        _ manager: CLLocationManager,
+        didUpdateLocations locations: [CLLocation]
+    ) {
         guard let location = locations.last else { return }
         centerMap(on: location.coordinate)
         updatePinAndAddress(at: location.coordinate)
@@ -124,7 +138,9 @@ class ChangeAddressViewController: UIViewController {
         guard let query = txtSearchAddress.text, !query.isEmpty else { return }
 
         geocoder.geocodeAddressString(query) { [weak self] placemarks, error in
-            guard let self = self, let placemark = placemarks?.first, let location = placemark.location else { return }
+            guard let self = self, let placemark = placemarks?.first,
+                let location = placemark.location
+            else { return }
             let coordinate = location.coordinate
             self.centerMap(on: coordinate)
             self.updatePinAndAddress(at: coordinate)
@@ -148,8 +164,15 @@ class ChangeAddressViewController: UIViewController {
     }
 
     // MARK: - Map Helpers
-    func centerMap(on location: CLLocationCoordinate2D, regionRadius: CLLocationDistance = 1000) {
-        let region = MKCoordinateRegion(center: location, latitudinalMeters: regionRadius, longitudinalMeters: regionRadius)
+    func centerMap(
+        on location: CLLocationCoordinate2D,
+        regionRadius: CLLocationDistance = 1000
+    ) {
+        let region = MKCoordinateRegion(
+            center: location,
+            latitudinalMeters: regionRadius,
+            longitudinalMeters: regionRadius
+        )
         mapView.setRegion(region, animated: true)
     }
 
@@ -184,28 +207,43 @@ class ChangeAddressViewController: UIViewController {
     }
 
     func showPermissionAlert() {
-        let alert = UIAlertController(title: "Location Permission Needed",
-                                      message: "Please enable location access in Settings to use this feature.",
-                                      preferredStyle: .alert)
+        let alert = UIAlertController(
+            title: "Location Permission Needed",
+            message:
+                "Please enable location access in Settings to use this feature.",
+            preferredStyle: .alert
+        )
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
-        alert.addAction(UIAlertAction(title: "Open Settings", style: .default, handler: { _ in
-            if let settingsURL = URL(string: UIApplication.openSettingsURLString) {
-                UIApplication.shared.open(settingsURL)
-            }
-        }))
+        alert.addAction(
+            UIAlertAction(
+                title: "Open Settings",
+                style: .default,
+                handler: { _ in
+                    if let settingsURL = URL(
+                        string: UIApplication.openSettingsURLString
+                    ) {
+                        UIApplication.shared.open(settingsURL)
+                    }
+                }
+            )
+        )
         present(alert, animated: true)
     }
 
     // MARK: - Back Button
     @objc func BackBtnTapped() {
         // If a pin is selected, save its title as the selected address
-        if let selectedAnnotation = mapView.annotations.first(where: { !($0 is MKUserLocation) }) {
-            if let title = selectedAnnotation.title ?? "", !title.isEmpty {
-                UserDefaults.standard.set(title, forKey: "SelectedAddress")
-                UserDefaults.standard.synchronize()
-                delegate?.didSelectAddress(title) // Notify delegate
-            }
+        if let myfullAddress = fullAddress, !myfullAddress.isEmpty {
+
+            // Save the full address in UserDefaults
+            UserDefaults.standard.set(fullAddress, forKey: "SelectedAddress")
+            UserDefaults.standard.synchronize()
+
+            // Notify delegate with full address
+            delegate?.didSelectAddress(fullAddress ?? "")
         }
+
+        // Pop view controller
         navigationController?.popViewController(animated: true)
     }
 }
