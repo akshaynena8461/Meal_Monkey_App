@@ -11,6 +11,7 @@ class SignUpViewController: UIViewController {
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
 
+    @IBOutlet weak var viewScroll: UIScrollView!
     @IBOutlet weak var btnEye1: UIButton!  // Toggle password visibility for txtPassword
     @IBOutlet weak var btnEye2: UIButton!  // Toggle password visibility for txtConfirmPassword
 
@@ -26,7 +27,9 @@ class SignUpViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
+        viewScroll.showsVerticalScrollIndicator = false
         // Apply rounded borders to text fields and buttons
         EditStyle.setborder(
             textfields: [

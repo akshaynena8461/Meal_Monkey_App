@@ -4,6 +4,7 @@ import UIKit
 class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var viewScroll: UIScrollView!
     @IBOutlet weak var stackPassword: UIStackView! // Stack containing password field and eye button
     @IBOutlet weak var btnEye: UIButton! // Button to toggle password visibility
     @IBOutlet weak var btnSignUp: UIButton! // Navigate to SignUp screen
@@ -21,6 +22,8 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
+        
+        viewScroll.showsVerticalScrollIndicator = false
 
         // Fetch all existing users from Core Data (for debug/log purposes)
         fetchAllUsers()

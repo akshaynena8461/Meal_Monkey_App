@@ -251,6 +251,7 @@
                         <outlet property="txtEmail" destination="N9F-d8-rHc" id="kDm-cK-nUr"/>
                         <outlet property="txtPassword" destination="zUq-xb-slw" id="vJM-JP-Is0"/>
                         <outlet property="view" destination="Wly-g2-nVA" id="QFx-On-MZP"/>
+                        <outlet property="viewScroll" destination="W5m-WI-SeB" id="1dr-19-zmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mxJ-eG-y6J" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -498,6 +499,7 @@
                         <outlet property="txtName" destination="lkz-OM-elq" id="en9-dj-Gyo"/>
                         <outlet property="txtPassword" destination="bjc-Wr-JuG" id="04A-DB-paU"/>
                         <outlet property="view" destination="YRs-cX-ZhL" id="KyM-L8-I14"/>
+                        <outlet property="viewScroll" destination="kZM-op-TYI" id="q8s-an-Kej"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QmE-MX-DSo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

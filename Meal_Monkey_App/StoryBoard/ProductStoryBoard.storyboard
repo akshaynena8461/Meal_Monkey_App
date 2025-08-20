@@ -31,7 +31,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="574"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh1-6r-ijj">
-                                                <rect key="frame" x="0.0" y="20" width="393" height="650.66666666666663"/>
+                                                <rect key="frame" x="0.0" y="40" width="393" height="650.66666666666663"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="Tandoori Chicken Pizza" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bYV-oF-e66">
                                                         <rect key="frame" x="22" y="31" width="230" height="25.333333333333329"/>
@@ -274,25 +274,15 @@
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zjp-CQ-S3w">
-                                                        <rect key="frame" x="325" y="496.33333333333337" width="47" height="47"/>
+                                                        <rect key="frame" x="319" y="496.33333333333337" width="47" height="47"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="47" id="bai-e1-Gfx"/>
                                                             <constraint firstAttribute="height" constant="47" id="pHF-zI-N18"/>
                                                         </constraints>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                                         <state key="normal" title="" image="Ic_Cart"/>
-                                                    </button>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-Px-Drt">
-                                                        <rect key="frame" x="353" y="12" width="19" height="15"/>
-                                                        <constraints>
-                                                            <constraint firstAttribute="height" constant="15" id="gzk-2d-X8G"/>
-                                                            <constraint firstAttribute="width" constant="19" id="j0i-Qb-kvT"/>
-                                                        </constraints>
-                                                        <color key="tintColor" name="loginbtnbg"/>
-                                                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Button" image="heart" catalog="system"/>
                                                         <connections>
-                                                            <action selector="btnHeartClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hb3-ii-YIl"/>
+                                                            <action selector="btnCartClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="BXg-tK-382"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -328,9 +318,8 @@
                                                     <constraint firstAttribute="bottom" secondItem="5RW-ql-iNP" secondAttribute="bottom" constant="46" id="YLd-tQ-kva"/>
                                                     <constraint firstItem="5xm-b0-Blt" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="70" id="YpZ-Yr-nAI"/>
                                                     <constraint firstItem="PWa-Yh-C97" firstAttribute="leading" secondItem="5RW-ql-iNP" secondAttribute="trailing" constant="17" id="ZSs-kL-Bse"/>
-                                                    <constraint firstItem="y1f-Px-Drt" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="12" id="boQ-r9-dvx"/>
                                                     <constraint firstItem="PWa-Yh-C97" firstAttribute="top" secondItem="obg-sk-l4d" secondAttribute="bottom" constant="9" id="ciw-V1-7it"/>
-                                                    <constraint firstAttribute="trailing" secondItem="Zjp-CQ-S3w" secondAttribute="trailing" constant="21" id="d5I-gI-Qt6"/>
+                                                    <constraint firstAttribute="trailing" secondItem="Zjp-CQ-S3w" secondAttribute="trailing" constant="27" id="d5I-gI-Qt6"/>
                                                     <constraint firstItem="sqD-LZ-P4h" firstAttribute="leading" secondItem="xh1-6r-ijj" secondAttribute="leading" constant="22" id="eCF-9k-pvY"/>
                                                     <constraint firstAttribute="trailing" secondItem="VCg-92-bPA" secondAttribute="trailing" constant="22" id="eMd-Qf-ETJ"/>
                                                     <constraint firstItem="lcH-CZ-VLv" firstAttribute="top" secondItem="VCg-92-bPA" secondAttribute="bottom" constant="15" id="fbw-N8-SnR"/>
@@ -344,18 +333,32 @@
                                                     <constraint firstItem="bYV-oF-e66" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="31" id="rW4-w8-oEV"/>
                                                     <constraint firstItem="acv-r1-6I4" firstAttribute="top" secondItem="Kfd-YO-2yQ" secondAttribute="bottom" constant="5" id="rzW-SM-5zf"/>
                                                     <constraint firstItem="z3A-yD-xuj" firstAttribute="top" secondItem="eQe-dc-7CP" secondAttribute="bottom" constant="29" id="sNO-4K-RbS"/>
-                                                    <constraint firstAttribute="trailing" secondItem="y1f-Px-Drt" secondAttribute="trailing" constant="21" id="z9a-kw-Raa"/>
                                                     <constraint firstAttribute="trailing" secondItem="5xm-b0-Blt" secondAttribute="trailing" constant="27" id="zie-O1-qAj"/>
                                                 </constraints>
                                             </view>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-Px-Drt">
+                                                <rect key="frame" x="331" y="32" width="20" height="16"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="16" id="2ky-g1-XDs"/>
+                                                    <constraint firstAttribute="width" constant="20" id="KYL-3s-c4W"/>
+                                                </constraints>
+                                                <color key="tintColor" name="loginbtnbg"/>
+                                                <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                                <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                <connections>
+                                                    <action selector="btnHeartClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hb3-ii-YIl"/>
+                                                </connections>
+                                            </button>
                                         </subviews>
                                         <constraints>
                                             <constraint firstAttribute="trailing" secondItem="xh1-6r-ijj" secondAttribute="trailing" id="K8U-r8-S4q"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="bottom" secondItem="EHu-JF-eQy" secondAttribute="bottom" constant="-7" id="KBZ-jB-7ev"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="leading" secondItem="EHu-JF-eQy" secondAttribute="leading" id="Njt-4H-x1f"/>
+                                            <constraint firstItem="y1f-Px-Drt" firstAttribute="trailing" secondItem="xh1-6r-ijj" secondAttribute="trailing" constant="-42" id="cCt-OW-S4q"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="width" secondItem="EHu-JF-eQy" secondAttribute="width" id="dWd-q4-v04"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="height" secondItem="EHu-JF-eQy" secondAttribute="height" priority="250" id="fGD-CQ-S3z"/>
-                                            <constraint firstItem="xh1-6r-ijj" firstAttribute="top" secondItem="EHu-JF-eQy" secondAttribute="top" constant="20" id="tgS-jt-D74"/>
+                                            <constraint firstItem="xh1-6r-ijj" firstAttribute="top" secondItem="EHu-JF-eQy" secondAttribute="top" constant="40" id="tgS-jt-D74"/>
+                                            <constraint firstItem="y1f-Px-Drt" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="-8" id="v7Y-EO-9Nj"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>
@@ -367,10 +370,17 @@
                                     <constraint firstItem="EHu-JF-eQy" firstAttribute="top" secondItem="K3r-Eg-eyE" secondAttribute="top" id="rqE-AR-WHb"/>
                                 </constraints>
                             </view>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-Y9-fts">
+                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
+                                <color key="tintColor" name="loginbtnbg"/>
+                                <color key="color" name="loginbtnbg"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="Bch-Y9-fts" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="27C-f1-wjI"/>
+                            <constraint firstItem="K3r-Eg-eyE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7No-gp-w4G"/>
                             <constraint firstItem="K3r-Eg-eyE" firstAttribute="top" secondItem="xbB-cg-t5W" secondAttribute="bottom" id="Bj9-An-Lsf"/>
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="leading" secondItem="K3r-Eg-eyE" secondAttribute="leading" id="CQh-NR-lsY"/>
                             <constraint firstAttribute="bottom" secondItem="K3r-Eg-eyE" secondAttribute="bottom" id="SYQ-mB-dID"/>
@@ -378,11 +388,14 @@
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="ny1-5d-hFw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="pnR-Wx-qXc"/>
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="-40" id="vcT-5h-48Y"/>
+                            <constraint firstItem="Bch-Y9-fts" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="x5Q-QJ-TOj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ProductDetailView" destination="K3r-Eg-eyE" id="mCh-CI-vIN"/>
+                        <outlet property="animate" destination="Bch-Y9-fts" id="JRE-hf-g62"/>
                         <outlet property="btnAddCart" destination="PWa-Yh-C97" id="tCU-e6-X8P"/>
+                        <outlet property="btnCart" destination="Zjp-CQ-S3w" id="Lqu-gg-GQe"/>
                         <outlet property="btnHeart" destination="y1f-Px-Drt" id="bMr-8f-YUx"/>
                         <outlet property="btnMinus" destination="eq0-z2-vZ0" id="BVM-0a-QL4"/>
                         <outlet property="btnPlus" destination="jHB-cD-1NS" id="8CJ-N7-nrO"/>
