@@ -339,9 +339,9 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         )
 
         // Step 3: Fetch current user
-        guard let currentUserEmail = currentUserEmail,
+        guard
             let user = CoreDataManager.shared.fetchUserbyEmail(
-                byEmail: currentUserEmail
+                byEmail: currentUserEmail ?? ""
             )
         else {
             UIAlertController.showAlert(

@@ -5,7 +5,7 @@ class MostPopularCollectionViewCell: UICollectionViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var lblProductName: UILabel!       // Product name label
     @IBOutlet weak var btnStars: UIButton!           // Stars button (can show ratings visually)
-    @IBOutlet weak var lblCategory: UILabel!         // Product category label
+    @IBOutlet weak var lblType: UILabel!         // Product category label
     @IBOutlet weak var lblDescription: UILabel!      // Product description label
     @IBOutlet weak var lblRating: UILabel!           // Numeric rating label
     @IBOutlet weak var imgMostPoularProduct: UIImageView! // Product image
@@ -24,7 +24,7 @@ class MostPopularCollectionViewCell: UICollectionViewCell {
     func congigMostPopularCell(product: ProductModel) {
         lblProductName.text = product.strProductName           // Set product name
         lblRating.text = "\(product.floatProductRating)"       // Show numeric rating
-        lblCategory.text = product.strProductName             // Currently using product name; replace with category if needed
+        lblType.text = "\(product.objProductType)"             // Show product category
         imgMostPoularProduct.image = UIImage(named: product.strProductImage) // Set product image
     }
 }

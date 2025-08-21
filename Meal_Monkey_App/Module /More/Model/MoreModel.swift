@@ -49,7 +49,7 @@ class MoreModel {
                 intTag: 4
             ),
             MoreModel(
-                strTitle: "WishList",
+                strTitle: "Wishlist",
                 strImage: "Ic_heart_fill",
                 intTag: 5
             ),

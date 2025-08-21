@@ -185,9 +185,9 @@ class PaymentViewController: UIViewController {
         )
 
         // Step 3: Fetch current user
-        guard let currentUserEmail = currentUserEmail,
+        guard
             let user = CoreDataManager.shared.fetchUserbyEmail(
-                byEmail: currentUserEmail
+                byEmail: currentUserEmail ?? ""
             )
         else {
             return
