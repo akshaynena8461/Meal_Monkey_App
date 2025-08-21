@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23721"/>
+        <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -337,14 +338,17 @@
                                                 </constraints>
                                             </view>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="y1f-Px-Drt">
-                                                <rect key="frame" x="331" y="32" width="20" height="16"/>
+                                                <rect key="frame" x="321" y="25" width="30" height="34"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="16" id="2ky-g1-XDs"/>
-                                                    <constraint firstAttribute="width" constant="20" id="KYL-3s-c4W"/>
+                                                    <constraint firstAttribute="height" constant="34" id="2ky-g1-XDs"/>
+                                                    <constraint firstAttribute="width" constant="30" id="KYL-3s-c4W"/>
                                                 </constraints>
                                                 <color key="tintColor" name="loginbtnbg"/>
                                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                <state key="normal" title="Button" image="heart" catalog="system"/>
+                                                <state key="normal" title="Button">
+                                                    <imageReference key="image" image="heart" catalog="system" symbolScale="large"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="btnHeartClick:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="Hb3-ii-YIl"/>
                                                 </connections>
@@ -358,7 +362,7 @@
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="width" secondItem="EHu-JF-eQy" secondAttribute="width" id="dWd-q4-v04"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="height" secondItem="EHu-JF-eQy" secondAttribute="height" priority="250" id="fGD-CQ-S3z"/>
                                             <constraint firstItem="xh1-6r-ijj" firstAttribute="top" secondItem="EHu-JF-eQy" secondAttribute="top" constant="40" id="tgS-jt-D74"/>
-                                            <constraint firstItem="y1f-Px-Drt" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="-8" id="v7Y-EO-9Nj"/>
+                                            <constraint firstItem="y1f-Px-Drt" firstAttribute="top" secondItem="xh1-6r-ijj" secondAttribute="top" constant="-15" id="v7Y-EO-9Nj"/>
                                         </constraints>
                                     </scrollView>
                                 </subviews>

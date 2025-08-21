@@ -21,14 +21,6 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         // Set the label text to the raw value of the enum
         lblCategoryName.text = category.rawValue
 
-//        if isSelected {
-//            // Active style
-//            lblCategoryName.textColor = .systemOrange
-//
-//        } else {
-//            // Normal style
-//            lblCategoryName.textColor = .darkGray
-//        }
         // Set the category image based on the selected category
         switch category {
         case .All:

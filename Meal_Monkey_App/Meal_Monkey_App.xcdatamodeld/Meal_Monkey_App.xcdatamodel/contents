@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="23788" systemVersion="24G84" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
+    <entity name="CardItem" representedClassName="CardItem" syncable="YES" codeGenerationType="class">
+        <attribute name="cardId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="cardNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expiryMonth" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="expiryYear" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="securityCode" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="User" inverseName="cardItem" inverseEntity="User"/>
+    </entity>
     <entity name="CartItem" representedClassName="CartItem" syncable="YES" codeGenerationType="class">
         <attribute name="productCategory" optional="YES" attributeType="String"/>
         <attribute name="productId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
@@ -23,6 +33,7 @@
         <attribute name="password" optional="YES" attributeType="String"/>
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userImage" optional="YES" attributeType="Binary"/>
+        <relationship name="cardItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardItem" inverseName="user" inverseEntity="CardItem"/>
         <relationship name="cartItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CartItem" inverseName="user" inverseEntity="CartItem"/>
         <relationship name="orderlist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="OrderList" inverseName="user" inverseEntity="OrderList"/>
         <relationship name="wishlist" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="WishListItem" inverseName="user" inverseEntity="WishListItem"/>
