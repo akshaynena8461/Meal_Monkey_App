@@ -5,9 +5,9 @@ class CardViewCell: UITableViewCell {
     // MARK: - IBOutlets
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var btnSelectCard: UIButton!
-    @IBOutlet weak var stackCard: UIStackView!   // Stack view containing card UI
-    @IBOutlet weak var lblCardNumber: UILabel!   // Label to display masked card number
-    
+    @IBOutlet weak var stackCard: UIStackView!  // Stack view containing card UI
+    @IBOutlet weak var lblCardNumber: UILabel!  // Label to display masked card number
+
     // MARK: - Lifecycle
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -20,17 +20,19 @@ class CardViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
         // Optional: Configure appearance when cell is selected
     }
-    
+
     // MARK: - Cell Configuration
     /// Configure the payment cell with a PaymentModel
     /// - Parameter payment: PaymentModel containing card information
     func configPaymentCell(payment: PaymentModel) {
-        if let cardNumber = payment.strCardNumber, cardNumber.count >= 4 {
-            // Show only last 4 digits, mask the rest
-            let last4 = cardNumber.suffix(4)
+        // Convert card number to string
+        let cardNumberString = String(payment.intCardNumber ?? 0)
+
+        if cardNumberString.count >= 4 {
+            let last4 = cardNumberString.suffix(4)
             lblCardNumber.text = "**** **** **** \(last4)"
         } else {
-            // Handle invalid or missing card numbers
+            // Display fallback text if card number is invalid
             lblCardNumber.text = "Invalid Card"
         }
     }

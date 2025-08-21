@@ -162,7 +162,6 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             let selectedCategory = categories[indexPath.row]
             selectedIndex = indexPath.item
             delegate?.HomeTableViewCell(self, didSelectCategory: selectedCategory)
-//            collectionView.reloadData()
         default:
             let selectedProduct = arrProducts[indexPath.row]
             delegate?.HomeTableViewCell(self, didSelectProduct: selectedProduct)

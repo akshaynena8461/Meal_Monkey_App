@@ -39,11 +39,13 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     var deliveryCost: Double = 5.0  // Default delivery cost
     var discountCost: Double = 4.0  // Default discount amount
     var selectedPaymentIndex: Int = 0  // Default selectPaymentIndex
+    var currentUserEmail = UserDefaults.standard.string(
+        forKey: "loggedInUserEmail"
+    )
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Initial UI setup
         backView.isHidden = true
         tblCheckOutView.showsVerticalScrollIndicator = false
@@ -156,6 +158,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         ) {
             lblAddress.text = savedAddress
         }
+        fetchUserCards()
     }
 
     // MARK: - Calculate totals
@@ -168,9 +171,9 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         lblSubTotal.text = "$\(String(format: "%.2f", subtotal))"
         lblDeliveryCost.text = "$\(String(format: "%.2f", deliveryCost))"
         lblDiscount.text = "-$\(String(format: "%.2f", discountCost))"
-        lblTotal.text = "$\(String(format: "%.2f", subtotal + deliveryCost - discountCost))"
+        lblTotal.text =
+            "$\(String(format: "%.2f", subtotal + deliveryCost - discountCost))"
     }
-
 
     // MARK: - Actions
     @IBAction func btnChangeAddressClick(_ sender: Any) {
@@ -266,20 +269,34 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     // MARK: - Add Card Logic
     func addCard() {
         let newCard = PaymentModel()
-        newCard.strCardNumber = txtCardNumber.text
+        newCard.intCardNumber = Int64(txtCardNumber.text ?? "")
         app.arrCard.append(newCard)
 
-        if let last4 = newCard.strCardNumber?.suffix(4) {
-            print("Added card **** **** **** \(last4)")
+        let cardNumber = "String\(newCard.intCardNumber ?? 0)"
+        let last4 = cardNumber.suffix(4)
+        print("Added card **** **** **** \(last4)")
+
+    }
+
+    private func fetchUserCards() {
+        guard let currentUserEmail = currentUserEmail,
+            let user = CoreDataManager.shared.fetchUserbyEmail(
+                byEmail: currentUserEmail
+            )
+        else {
+            return
         }
+
+        app.arrCard = CoreDataManager.shared.fetchCards(for: user)
+        tblCheckOutView.reloadData()
     }
 
     @IBAction func btnAddAnotherCardClick(_ sender: Any) {
-        // Validate card number
         guard
             let number = txtCardNumber.text?.trimmingCharacters(
                 in: .whitespacesAndNewlines
-            ), !number.isEmpty
+            ),
+            !number.isEmpty
         else {
             UIAlertController.showAlert(
                 title: "Error",
@@ -289,10 +306,11 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             return
         }
 
-        let digitOnly = CharacterSet.decimalDigits.isSuperset(
+        // Ensure only digits & exactly 16 digits
+        let isDigits = CharacterSet.decimalDigits.isSuperset(
             of: CharacterSet(charactersIn: number)
         )
-        guard digitOnly, number.count == 16 else {
+        guard isDigits, number.count == 16 else {
             UIAlertController.showAlert(
                 title: "Invalid Card",
                 message: "Card number must be exactly 16 digits.",
@@ -301,13 +319,50 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             return
         }
 
-        // Add card and update table view
-        addCard()
+        // Step 2: Build PaymentModel from inputs
+        let cardId = Int.random(in: 1000...9999)
+        let firstName = txtFirstName.text ?? ""
+        let lastName = txtLastName.text ?? ""
+        let cardNumber = Int64(number) ?? 0
+        let securityCode = Int64(txtSecurityCode.text ?? "") ?? 0
+        let expiryMonth = Int64(txtMonth.text ?? "") ?? 0
+        let expiryYear = Int64(txtYear.text ?? "") ?? 0
+
+        let newCard = PaymentModel(
+            intCardId: cardId,
+            intCardNumber: cardNumber,
+            intMonth: expiryMonth,
+            intYear: expiryYear,
+            intSecurityCode: securityCode,
+            strFirstName: firstName,
+            strLastName: lastName
+        )
+
+        // Step 3: Fetch current user
+        guard let currentUserEmail = currentUserEmail,
+            let user = CoreDataManager.shared.fetchUserbyEmail(
+                byEmail: currentUserEmail
+            )
+        else {
+            UIAlertController.showAlert(
+                title: "Error",
+                message: "No logged-in user found.",
+                viewController: self
+            )
+            return
+        }
+
+        // Step 4: Save card (Core Data)
+        CoreDataManager.shared.addCard(for: user, card: newCard)
+        fetchUserCards()
+
+        // Step 5: Update UI
         UIAlertController.showAlert(
             title: "Success",
             message: "Card Added Successfully",
             viewController: self
         )
+
         DispatchQueue.main.async { self.tblCheckOutView.reloadData() }
 
         // Close Add Card page

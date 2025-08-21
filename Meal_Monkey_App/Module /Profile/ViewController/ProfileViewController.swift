@@ -148,17 +148,46 @@ class ProfileViewController: UIViewController {
     @IBAction func btnSaveClick(_ sender: Any) {
         let context = app.persistentContainer.viewContext
 
-        // Get the logged-in user's email
+        // 1️⃣ Get logged-in email from UserDefaults
         guard
             let loggedInEmail = UserDefaults.standard.string(
                 forKey: "loggedInUserEmail"
             )
         else {
-            print("⚠️ No logged in user found")
+            print("❌ No logged-in user found in UserDefaults")
             return
         }
+        print("ℹ️ Logged in user email from UserDefaults: \(loggedInEmail)")
 
-        // Fetch the user from Core Data
+        // 2️⃣ Check for duplicate email (if changed)
+        if let newEmail = txtEmail.text, !newEmail.isEmpty,
+            newEmail != loggedInEmail
+        {
+            let emailCheckRequest = NSFetchRequest<NSFetchRequestResult>(
+                entityName: "User"
+            )
+            emailCheckRequest.predicate = NSPredicate(
+                format: "email == %@",
+                newEmail
+            )
+
+            do {
+                let existingUsers = try context.fetch(emailCheckRequest)
+                if !existingUsers.isEmpty {
+                    print("❌ Duplicate email found: \(newEmail)")
+                    UIAlertController.showAlert(
+                        title: "Email Exists",
+                        message: "This email is already registered.",
+                        viewController: self
+                    )
+                    return
+                }
+            } catch {
+                print("❌ Error checking existing email: \(error)")
+            }
+        }
+
+        // 3️⃣ Fetch the logged-in user
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
         fetchRequest.predicate = NSPredicate(
             format: "email == %@",
@@ -167,33 +196,59 @@ class ProfileViewController: UIViewController {
 
         do {
             let results = try context.fetch(fetchRequest)
-            if let user = results.first {
-                // Update user data with new values
-                user.setValue(txtName.text, forKey: "name")
-                user.setValue(txtEmail.text, forKey: "email")
-                user.setValue(txtMobile.text, forKey: "mobileNumber")
-                user.setValue(txtAddress.text ?? "", forKey: "address")
+            print("ℹ️ Fetch results count: \(results.count)")
 
-                if let newImage = imgProfile.image,  // e.g. from UIImageView
+            if let user = results.first {
+                print("✅ Found user: \(user)")
+
+                // 4️⃣ Update user data safely
+                if let name = txtName.text, !name.isEmpty {
+                    user.setValue(name, forKey: "name")
+                }
+                if let email = txtEmail.text, !email.isEmpty {
+                    user.setValue(email, forKey: "email")
+                }
+                if let mobile = txtMobile.text, !mobile.isEmpty {
+                    user.setValue(mobile, forKey: "mobileNumber")
+                }
+                if let address = txtAddress.text, !address.isEmpty {
+                    user.setValue(address, forKey: "address")
+                }
+
+                // 5️⃣ Update profile image if available
+                if let newImage = imgProfile.image,
                     let imageData = newImage.jpegData(compressionQuality: 0.8)
                 {
                     user.setValue(imageData, forKey: "userImage")
+                    print("📸 Profile image updated")
                 }
 
-                // Save changes to Core Data
+                // 6️⃣ Save to Core Data
                 try context.save()
+                print("💾 User saved successfully")
 
-                // Show success alert
+                // 7️⃣ Update UserDefaults if email changed
+                if let updatedEmail = txtEmail.text, !updatedEmail.isEmpty {
+                    UserDefaults.standard.set(
+                        updatedEmail,
+                        forKey: "loggedInUserEmail"
+                    )
+                    print(
+                        "🔄 UserDefaults updated with new email: \(updatedEmail)"
+                    )
+                }
+
+                // 8️⃣ Show success alert
                 UIAlertController.showAlert(
                     title: "Success",
-                    message: "Profile Updated",
+                    message: "Profile Updated Successfully ✅",
                     viewController: self
                 )
             } else {
-                print("No logged-in user found")
+                print("❌ No user found with email: \(loggedInEmail)")
             }
         } catch {
-            print("Failed to update user: \(error)")
+            print("❌ Failed to update user: \(error)")
         }
     }
 }

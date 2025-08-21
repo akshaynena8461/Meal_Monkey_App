@@ -24,7 +24,5 @@ class PopularItemCollectionViewCell: UICollectionViewCell {
         lblRating.text = "\(product.floatProductRating)"           // Set numeric rating
         lblCategory.text = "\(product.objProductCategory)"        // Set category (uses enum raw value)
         imgProduct.image = UIImage(named: product.strProductImage) // Set product image
-        // lblNumberOfRating.text can be set as "\(product.intTotalNumberOfRatings)" if needed
-        // lblDescription.text can be set as product.strProductDescription if you want to show description
     }
 }
