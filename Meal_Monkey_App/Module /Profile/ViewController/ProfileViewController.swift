@@ -136,7 +136,7 @@ class ProfileViewController: UIViewController {
                 if let imageData = currentUser.userImage {
                     imgProfile.image = UIImage(data: imageData)
                 } else {
-                    imgProfile.image = UIImage(named: "placeholder_profile")  // fallback image
+                    imgProfile.image = UIImage(systemName: "person.fill")
                 }
             }
         } catch {

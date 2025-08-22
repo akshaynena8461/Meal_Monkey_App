@@ -64,7 +64,7 @@
                                     </stackView>
                                 </subviews>
                             </stackView>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offers_Img_1" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-gx-bVS">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="redraw" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Offers_Img_1" translatesAutoresizingMaskIntoConstraints="NO" id="bOT-gx-bVS">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="193"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="193" id="42Z-Xc-ulW"/>

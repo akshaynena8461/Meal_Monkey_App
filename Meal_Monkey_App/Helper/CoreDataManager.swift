@@ -209,6 +209,8 @@ class CoreDataManager {
     func fetchWishlistIds(for user: User) -> [Int] {
         return (user.wishlist as? Set<WishListItem>)?.map { Int($0.id) } ?? []
     }
+    
+    // Add Card for Payment
     func addCard(for user: User, card: PaymentModel) {
         let newCard = CardItem(context: context)
         newCard.cardId = Int64(card.intCardId ?? 0)
