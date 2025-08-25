@@ -83,7 +83,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             scrollView: [viewScroll, thankYouScrollView],
             cornerRadious: 20
         )
-        pageStyle(page: [addCardPageView, ThankYouPage], cornerRadious: 20)
+        
         EditStyle.setborder(textfields: [btnSendOrder], cornerRadious: 28)
 
         setCornerRadius(uiView: [
@@ -114,24 +114,9 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             page.layer.maskedCorners = [
                 .layerMinXMinYCorner, .layerMaxXMinYCorner,
             ]
-            page.clipsToBounds = true
-            page.layer.shadowColor = UIColor.black.cgColor
-            page.layer.shadowOpacity = 0.3
-            page.layer.shadowOffset = CGSize(width: 0, height: -2)
-            page.layer.shadowRadius = 30
         }
     }
-
-    // MARK: - UI Helper Functions
-    func pageStyle(page: [UIView], cornerRadious: CGFloat) {
-        for item in page {
-            item.layer.cornerRadius = cornerRadious
-            item.layer.maskedCorners = [
-                .layerMinXMinYCorner, .layerMaxXMinYCorner,
-            ]
-        }
-    }
-
+    
     func scrollViewStyle(scrollView: [UIScrollView], cornerRadious: CGFloat) {
         for item in scrollView {
             item.layer.cornerRadius = cornerRadious
