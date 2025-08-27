@@ -287,7 +287,7 @@
                                                         <color key="textColor" name="secondarylabelcolor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVs-IH-YhQ">
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="vVs-IH-YhQ">
                                                         <rect key="frame" x="34" y="142" width="325" height="476"/>
                                                         <subviews>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="lkz-OM-elq">
@@ -315,7 +315,7 @@
                                                                     <constraint firstAttribute="height" constant="56" id="Ndm-xT-AIj"/>
                                                                 </constraints>
                                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
-                                                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                                <textInputTraits key="textInputTraits" spellCheckingType="yes" returnKeyType="next"/>
                                                             </textField>
                                                             <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="7FG-Ny-Zu0">
                                                                 <rect key="frame" x="0.0" y="252" width="325" height="56"/>
@@ -546,13 +546,12 @@ link to  create a new password via email</string>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8N-gv-2JU">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8N-gv-2JU">
                                         <rect key="frame" x="34" y="282" width="325" height="56"/>
                                         <color key="backgroundColor" name="loginbtnbg"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="56" id="aWc-XM-s2y"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                         <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                         <state key="normal" title="Send"/>
