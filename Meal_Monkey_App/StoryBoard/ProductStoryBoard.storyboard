@@ -20,16 +20,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ic_masaladosa" translatesAutoresizingMaskIntoConstraints="NO" id="xbB-cg-t5W">
-                                <rect key="frame" x="0.0" y="78" width="393" height="200"/>
+                                <rect key="frame" x="0.0" y="73" width="393" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="200" id="dH0-pt-Jmw"/>
                                 </constraints>
                             </imageView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3r-Eg-eyE">
-                                <rect key="frame" x="0.0" y="278" width="393" height="574"/>
+                                <rect key="frame" x="0.0" y="273" width="393" height="579"/>
                                 <subviews>
                                     <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHu-JF-eQy">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="574"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="579"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh1-6r-ijj">
                                                 <rect key="frame" x="0.0" y="40" width="393" height="650.66666666666663"/>
@@ -391,7 +391,7 @@
                             <constraint firstItem="K3r-Eg-eyE" firstAttribute="leading" secondItem="vDu-zF-Fre" secondAttribute="leading" id="UvC-sM-Y4b"/>
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="ny1-5d-hFw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="pnR-Wx-qXc"/>
-                            <constraint firstItem="xbB-cg-t5W" firstAttribute="top" secondItem="5EZ-qb-Rvc" secondAttribute="topMargin" constant="-40" id="vcT-5h-48Y"/>
+                            <constraint firstItem="xbB-cg-t5W" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="-45" id="vcT-5h-48Y"/>
                             <constraint firstItem="Bch-Y9-fts" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="x5Q-QJ-TOj"/>
                         </constraints>
                     </view>

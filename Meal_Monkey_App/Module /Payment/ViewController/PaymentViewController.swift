@@ -28,6 +28,13 @@ class PaymentViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
+
         // Hide the card entry page and background initially
         backView.isHidden = true
         addCardPageView.isHidden = true
@@ -75,6 +82,10 @@ class PaymentViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUserCards()
+    }
+
+    @objc func updateCartBadge() {
+        setCartButton(target: self, action: #selector(CartBtnTapped))
     }
 
     // MARK: - UI Styling Functions

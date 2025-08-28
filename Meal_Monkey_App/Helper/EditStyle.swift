@@ -137,35 +137,98 @@ extension UIViewController {
         action: Selector,
         tintColor: UIColor = UIColor(named: "NavigationColor") ?? .black
     ) {
+        // Create button
+        let count = CartManager.shared.count
+        print("count : \(count)")
+        let button = UIButton(type: .custom)
         let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(
             .alwaysTemplate
         )
-        let cartButton = UIBarButtonItem(
-            image: cartImage,
-            style: .plain,
-            target: target,
-            action: action
-        )
-        cartButton.tintColor = tintColor
-        self.navigationItem.rightBarButtonItem = cartButton
+        button.setImage(cartImage, for: .normal)
+        button.tintColor = tintColor
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(target, action: action, for: .touchUpInside)
+
+        // Remove old badge if already present
+        button.subviews.forEach {
+            if $0.tag == 999 { $0.removeFromSuperview() }
+        }
+
+        // Add badge only if count > 0
+        if count > 0 {
+            let badgeLabel = UILabel()
+            badgeLabel.tag = 999
+            badgeLabel.text = "\(count)"
+            badgeLabel.textColor = .white
+            badgeLabel.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+            badgeLabel.textAlignment = .center
+            badgeLabel.backgroundColor = .red
+            badgeLabel.layer.cornerRadius = 10
+            badgeLabel.clipsToBounds = true
+
+            // Set badge frame (positioned top-right)
+            let badgeSize: CGFloat = 20
+            badgeLabel.frame = CGRect(
+                x: button.frame.width - badgeSize / 2 - 4,
+                y: -5,
+                width: badgeSize,
+                height: badgeSize
+            )
+
+            button.addSubview(badgeLabel)
+        }
+
+        // Add to navigation item
+        let cartBarButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = cartBarButton
     }
 
     /// Adds a cart button on the right side of navigation bar (for Product Detail Page theme)
-    func setCartButtonInProuductDetail(
+    func setCartButtonInProductDetail(
         target: Any?,
         action: Selector,
-        tintColor: UIColor = UIColor(named: "Color") ?? .black
+        tintColor: UIColor = UIColor(named: "Color") ?? .white
     ) {
+        let count = CartManager.shared.count
+
+        let button = UIButton(type: .custom)
         let cartImage = UIImage(systemName: "cart.fill")?.withRenderingMode(
             .alwaysTemplate
         )
-        let cartButton = UIBarButtonItem(
-            image: cartImage,
-            style: .plain,
-            target: target,
-            action: action
-        )
-        cartButton.tintColor = tintColor
-        self.navigationItem.rightBarButtonItem = cartButton
+        button.setImage(cartImage, for: .normal)
+        button.tintColor = tintColor
+        button.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        button.addTarget(target, action: action, for: .touchUpInside)
+
+        // remove old badge
+        button.subviews.forEach {
+            if $0.tag == 999 { $0.removeFromSuperview() }
+        }
+
+        if count > 0 {
+            let badgeLabel = UILabel()
+            badgeLabel.tag = 999
+            badgeLabel.text = "\(count)"
+            badgeLabel.textColor = .white
+            badgeLabel.font = UIFont.systemFont(ofSize: 11, weight: .bold)
+            badgeLabel.textAlignment = .center
+            badgeLabel.backgroundColor = .red
+            badgeLabel.layer.cornerRadius = 10
+            badgeLabel.clipsToBounds = true
+
+            let badgeSize: CGFloat = 20
+            badgeLabel.frame = CGRect(
+                x: button.frame.width - badgeSize / 2 - 4,
+                y: -5,
+                width: badgeSize,
+                height: badgeSize
+            )
+
+            button.addSubview(badgeLabel)
+        }
+
+        let cartBarButton = UIBarButtonItem(customView: button)
+        self.navigationItem.rightBarButtonItem = cartBarButton
     }
+
 }

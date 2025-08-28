@@ -18,6 +18,13 @@ class MenuBarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
+        
         // Set table view background to clear
         tblMenuView.backgroundColor = .clear
         
@@ -63,6 +70,10 @@ class MenuBarViewController: UIViewController {
         }
     }
 
+    @objc func updateCartBadge(){
+        setCartButton(target: self, action: #selector(CartBtnTapped))
+    }
+    
     /// Placeholder action for a menu button tap
     @objc func menuBtnTapped() {
         print("Menu Btn")

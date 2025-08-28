@@ -1,10 +1,3 @@
-//
-//  UI Recent Items.swift
-//  MealMonkey
-//
-//  Created by Hariom Sharma on 11/08/25.
-//
-
 import Foundation
 
 /// A singleton helper class to manage a list of recently viewed or accessed products.

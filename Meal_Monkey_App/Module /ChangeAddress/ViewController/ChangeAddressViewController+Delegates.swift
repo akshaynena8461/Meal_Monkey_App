@@ -2,7 +2,7 @@ import MapKit
 import UIKit
 
 // MARK: - CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate
-extension ChangeAddressViewController: CLLocationManagerDelegate, UISearchBarDelegate, MKMapViewDelegate {
+extension ChangeAddressViewController: CLLocationManagerDelegate, MKMapViewDelegate {
 
     // MARK: - Location Manager Error Handling
     func locationManager(_ manager: CLLocationManager, didFailWithError error: Error) {
@@ -40,7 +40,6 @@ extension ChangeAddressViewController: CLLocationManagerDelegate, UISearchBarDel
             // Reuse existing annotation view
             annotationView?.annotation = annotation
         }
-
         return annotationView
     }
 }

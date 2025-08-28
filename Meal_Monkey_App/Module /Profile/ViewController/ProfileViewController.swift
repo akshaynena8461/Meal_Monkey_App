@@ -23,9 +23,22 @@ class ProfileViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
 
         // Fetch and display user data
         fetUserData()
+
+        btnSave.isHidden = true
+
+        disableUserInteraction(textFields: [
+            txtName, txtEmail, txtMobile, txtAddress,
+        ])
 
         // Set up profile image appearance
         profileScrollView.showsVerticalScrollIndicator = false
@@ -57,6 +70,22 @@ class ProfileViewController: UIViewController {
             paddingWidth: 34
         )
     }
+    
+    @objc func updateCartBadge(){
+        setCartButton(target: self, action: #selector(cartBtnTapped))
+    }
+
+    func disableUserInteraction(textFields: [UITextField]) {
+        for textField in textFields {
+            textField.isUserInteractionEnabled = false
+        }
+    }
+
+    func enableUserInteraction(textFields: [UITextField]) {
+        for textField in textFields {
+            textField.isUserInteractionEnabled = true
+        }
+    }
 
     // MARK: - Image Picker
     @objc func addImage() {
@@ -83,6 +112,12 @@ class ProfileViewController: UIViewController {
     // MARK: - Edit Profile Action
     @IBAction func btnEditProfileClick(_ sender: Any) {
         // TODO: Implement edit profile logic if needed
+
+        btnSave.isHidden = false
+        enableUserInteraction(textFields: [
+            txtName, txtMobile, txtEmail, txtAddress,
+        ])
+
     }
 
     // MARK: - Sign Out Action
@@ -226,6 +261,8 @@ class ProfileViewController: UIViewController {
                 // 6️⃣ Save to Core Data
                 try context.save()
                 print("💾 User saved successfully")
+                btnSave.isHidden = true
+                disableUserInteraction(textFields: [txtName,txtEmail,txtMobile,txtAddress])
 
                 // 7️⃣ Update UserDefaults if email changed
                 if let updatedEmail = txtEmail.text, !updatedEmail.isEmpty {

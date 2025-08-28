@@ -37,12 +37,13 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
                 // ⚠️ Potential issue:
                 // Using `self.products?.intId ?? 1` may not delete the correct product
                 // It should reference the product at this indexPath:
+                let product = app.arrCart[indexPath.row]
                 let productIdToRemove = app.arrCart[indexPath.row].intId
                 CoreDataManager.shared.removeFromCart(
                     for: user,
                     productId: productIdToRemove
                 )
-
+                CartManager.shared.remove(quantity: product.intProductQty ?? 0)
                 // Optional: clear cart? Usually, removeFromCart should be enough
                 // CoreDataManager.shared.clearCart(for: user)  <-- May remove all items accidentally
             }

@@ -37,6 +37,13 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(self.updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
+
         // Show and start animating loader
         animate.isHidden = false
         animate.startAnimating()
@@ -48,16 +55,31 @@ class ProductDetailViewController: UIViewController {
         ProductDetailView.isHidden = true
         imgProduct.isHidden = true
 
+        self.navigationController?.isNavigationBarHidden = true
         // Simulate a loading delay of 3 seconds
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
             // Show the main content after loading
             self.mainView.isHidden = false
             self.ProductDetailView.isHidden = false
             self.imgProduct.isHidden = false
+            self.navigationController?.isNavigationBarHidden = false
 
+            // Setup navigation buttons
+            self.setLeftAlignedTitleWithBackInProductDetailPage(
+                "",
+                target: self,
+                action: #selector(self.backBtnTapped)
+            )
+            self.setCartButtonInProductDetail(
+                target: self,
+                action: #selector(self.cartBtnTapped)
+            )
+
+            
             // Stop and hide the loader
             self.animate.stopAnimating()
             self.animate.isHidden = true
+
         }
 
         // Fill stars UI based on product rating
@@ -78,17 +100,6 @@ class ProductDetailViewController: UIViewController {
 
         // Configure UI with product data
         configureUI()
-
-        // Setup navigation buttons
-        setLeftAlignedTitleWithBackInProductDetailPage(
-            "",
-            target: self,
-            action: #selector(backBtnTapped)
-        )
-        setCartButtonInProuductDetail(
-            target: self,
-            action: #selector(cartBtnTapped)
-        )
 
         // Style quantity controls
         EditStyle.setborder(
@@ -122,6 +133,13 @@ class ProductDetailViewController: UIViewController {
             lblDescription.text = product.strProductDescription
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
+    }
+
+    @objc private func updateCartBadge() {
+        setCartButtonInProductDetail(
+            target: self,
+            action: #selector(cartBtnTapped),
+        )
     }
 
     // MARK: - Update wishlist heart icon
@@ -263,6 +281,8 @@ class ProductDetailViewController: UIViewController {
             quantity: quantity
         )
 
+        CartManager.shared.add(quantity: quantity)
+
         // Update app-level cart array
         if let index = app.arrCart.firstIndex(where: {
             $0.intId == product.intId
@@ -295,7 +315,7 @@ class ProductDetailViewController: UIViewController {
             navigationController?.pushViewController(cartVc, animated: true)
         }
     }
-    
+
     @IBAction func btnCartClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
@@ -312,4 +332,8 @@ class ProductDetailViewController: UIViewController {
     @IBAction func btnPortionClick(_ sender: Any) {}
 
     @IBAction func btnIngredientsClick(_ sender: Any) {}
+}
+
+extension Notification.Name {
+    static let cartUpdated = Notification.Name("cartUpdated")
 }

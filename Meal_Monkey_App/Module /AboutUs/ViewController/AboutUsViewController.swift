@@ -12,6 +12,14 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tblView.showsVerticalScrollIndicator = false
+        
+        NotificationCenter.default.addObserver(
+               self,
+               selector: #selector(updateCartBadge),
+               name: .cartUpdated,
+               object: nil
+           )
+        
 
         // Register custom cell
         tblView.register(
@@ -52,6 +60,10 @@ class AboutUsViewController: UIViewController {
         }
     }
 
+    @objc private func updateCartBadge() {
+        setCartButton(target: self, action: #selector(cartButtonTapped))
+    }
+    
     // MARK: - Button Actions
     @objc func cartButtonTapped() {
         print("Cart button tapped")

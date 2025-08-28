@@ -23,6 +23,13 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+               self,
+               selector: #selector(updateCartBadge),
+               name: .cartUpdated,
+               object: nil
+           )
+        
         fetchUserData()  // Fetch logged-in user data
         tblHomeView.showsVerticalScrollIndicator = false
         tabBarController?.tabBar.isHidden = false
@@ -64,6 +71,10 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         tblHomeView.reloadData()
     }
 
+    @objc private func updateCartBadge() {
+        setCartButton(target: self, action: #selector(CartButtonTapped))
+    }
+    
     // MARK: - Fetch User Data
     func fetchUserData() {
         let context = app.persistentContainer.viewContext
