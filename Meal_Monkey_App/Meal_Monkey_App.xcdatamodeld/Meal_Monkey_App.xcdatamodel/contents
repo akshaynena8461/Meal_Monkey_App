@@ -31,6 +31,7 @@
         <attribute name="mobileNumber" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="password" optional="YES" attributeType="String"/>
+        <attribute name="recentItems" optional="YES" attributeType="Binary"/>
         <attribute name="userId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="userImage" optional="YES" attributeType="Binary"/>
         <relationship name="cardItem" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="CardItem" inverseName="user" inverseEntity="CardItem"/>

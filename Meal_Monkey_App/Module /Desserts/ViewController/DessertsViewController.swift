@@ -28,6 +28,13 @@ class DessertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        NotificationCenter.default.addObserver(
+               self,
+               selector: #selector(updateCartBadge),
+               name: .cartUpdated,
+               object: nil
+           )
+        
         // Hide "No Product" label initially
         lblNoProduct.isHidden = true
 
@@ -65,6 +72,10 @@ class DessertsViewController: UIViewController {
             UINib(nibName: "DessertsTableViewCell", bundle: nil),
             forCellReuseIdentifier: "DessertsTableViewCell"
         )
+    }
+    
+    @objc func updateCartBadge(){
+        setCartButton(target: self, action: #selector(CartBtnTapped))
     }
 
     // MARK: - Search Functionality

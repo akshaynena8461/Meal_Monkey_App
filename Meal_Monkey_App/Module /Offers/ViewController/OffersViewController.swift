@@ -5,14 +5,21 @@ class OffersViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var btnCheckOffers: UIButton!  // Button to check more offers
-    @IBOutlet weak var tblOffersView: UITableView! // TableView to display offers
+    @IBOutlet weak var tblOffersView: UITableView!  // TableView to display offers
 
     // MARK: - Properties
-    var arrOffers: [OfferModel] = OfferModel.addOffersData() // Data source for offers
+    var arrOffers: [OfferModel] = OfferModel.addOffersData()  // Data source for offers
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
 
         // Hide vertical scroll indicator
         tblOffersView.showsVerticalScrollIndicator = false
@@ -31,6 +38,10 @@ class OffersViewController: UIViewController {
             UINib(nibName: "OffersTableViewCell", bundle: nil),
             forCellReuseIdentifier: "OffersTableViewCell"
         )
+    }
+
+    @objc func updateCartBadge() {
+        setCartButton(target: self, action: #selector(CartBtnTapped))
     }
 
     // MARK: - Actions
