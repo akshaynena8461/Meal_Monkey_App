@@ -19,10 +19,4 @@ extension ProfileViewController: UIImagePickerControllerDelegate, UINavigationCo
         // Dismiss the image picker
         dismiss(animated: true)
     }
-    
-    // Optional: Handle cancel action if user cancels picking an image
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        // Simply dismiss the picker
-        dismiss(animated: true)
-    }
 }

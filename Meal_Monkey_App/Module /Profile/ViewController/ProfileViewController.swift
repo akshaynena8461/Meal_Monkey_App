@@ -37,13 +37,12 @@ class ProfileViewController: UIViewController {
         btnSave.isHidden = true
 
         disableUserInteraction(textFields: [
-            txtName, txtEmail, txtMobile, txtAddress,
+            txtName, txtEmail, txtMobile, txtAddress,imgProfile
         ])
 
         // Set up profile image appearance
         profileScrollView.showsVerticalScrollIndicator = false
         imgProfile.layer.cornerRadius = imgProfile.frame.size.width / 2
-        imgProfile.layer.masksToBounds = true
         imgProfile.layer.borderWidth = 2
         imgProfile.layer.borderColor = UIColor.systemGray.cgColor
 
@@ -75,13 +74,13 @@ class ProfileViewController: UIViewController {
         setCartButton(target: self, action: #selector(cartBtnTapped))
     }
 
-    func disableUserInteraction(textFields: [UITextField]) {
+    func disableUserInteraction(textFields: [UIView]) {
         for textField in textFields {
             textField.isUserInteractionEnabled = false
         }
     }
 
-    func enableUserInteraction(textFields: [UITextField]) {
+    func enableUserInteraction(textFields: [UIView]) {
         for textField in textFields {
             textField.isUserInteractionEnabled = true
         }
@@ -91,6 +90,7 @@ class ProfileViewController: UIViewController {
     @objc func addImage() {
         let pickerController = UIImagePickerController()
         pickerController.delegate = self
+        pickerController.sourceType = .photoLibrary
         pickerController.allowsEditing = true
         present(pickerController, animated: true)
     }
@@ -115,7 +115,7 @@ class ProfileViewController: UIViewController {
 
         btnSave.isHidden = false
         enableUserInteraction(textFields: [
-            txtName, txtMobile, txtEmail, txtAddress,
+            txtName, txtMobile, txtEmail, txtAddress,imgProfile
         ])
 
     }
@@ -262,7 +262,7 @@ class ProfileViewController: UIViewController {
                 try context.save()
                 print("💾 User saved successfully")
                 btnSave.isHidden = true
-                disableUserInteraction(textFields: [txtName,txtEmail,txtMobile,txtAddress])
+                disableUserInteraction(textFields: [txtName,txtEmail,txtMobile,txtAddress,imgProfile])
 
                 // 7️⃣ Update UserDefaults if email changed
                 if let updatedEmail = txtEmail.text, !updatedEmail.isEmpty {
