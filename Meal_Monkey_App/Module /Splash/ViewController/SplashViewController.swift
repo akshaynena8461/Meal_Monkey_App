@@ -24,7 +24,7 @@ class SplashViewController: UIViewController {
         }
         else {
             // User is not logged in, navigate to the Login screen
-            let storyboard = UIStoryboard(name: "User", bundle: nil)
+            let storyboard = UIStoryboard(name:Main.StoryBoard.User, bundle: nil)
             if let vc = storyboard.instantiateViewController(
                 withIdentifier: "LoginViewController"
             ) as? LoginViewController {

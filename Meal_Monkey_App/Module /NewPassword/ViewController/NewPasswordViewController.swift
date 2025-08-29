@@ -28,7 +28,7 @@ class NewPasswordViewController: UIViewController {
     /// Action for Next button click
     /// Navigates to the ServiceViewController
     @IBAction func btnNextClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "Services", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.Services, bundle: nil)
         if let servicesVc = storyboard.instantiateViewController(
             withIdentifier: "ServiceViewController"
         ) as? ServiceViewController {

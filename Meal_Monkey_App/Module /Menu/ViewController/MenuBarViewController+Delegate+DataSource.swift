@@ -18,7 +18,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         // Dequeue a reusable MenuTableViewCell
         let cell =
             tableView.dequeueReusableCell(
-                withIdentifier: "MenuTableViewCell",
+                withIdentifier: Main.CellIdentifiers.MenuTableViewCell,
                 for: indexPath
             ) as! MenuTableViewCell
 
@@ -39,7 +39,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         didSelectRowAt indexPath: IndexPath
     ) {
 
-        let storyboard = UIStoryboard(name: "MenuStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MenuStoryBoard, bundle: nil)
 
         // Get the selected menu item
         let selectedItemTag = filteredMenuData[indexPath.row].intTag
@@ -91,7 +91,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
 
     /// Placeholder for cart button tap
     @objc func CartBtnTapped() {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
 
         // Instantiate CartViewController and push it onto the navigation stack
         if let cartVc = storyboard.instantiateViewController(

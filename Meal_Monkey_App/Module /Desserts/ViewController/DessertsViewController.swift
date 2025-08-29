@@ -69,8 +69,8 @@ class DessertsViewController: UIViewController {
 
         // Register table view cell
         tblDessertsView.register(
-            UINib(nibName: "DessertsTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "DessertsTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.DessertsTableViewCell
         )
     }
     
@@ -104,7 +104,7 @@ class DessertsViewController: UIViewController {
     // MARK: - Navigation Actions
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {

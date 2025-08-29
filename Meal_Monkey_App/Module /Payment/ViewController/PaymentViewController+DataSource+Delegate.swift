@@ -18,7 +18,7 @@ extension PaymentViewController: UITableViewDelegate, UITableViewDataSource {
         // Dequeue a reusable PaymentTableViewCell
         let cell =
             tableView.dequeueReusableCell(
-                withIdentifier: "PaymentTableViewCell",
+                withIdentifier: Main.CellIdentifiers.PaymentTableViewCell,
                 for: indexPath
             ) as! PaymentTableViewCell
 

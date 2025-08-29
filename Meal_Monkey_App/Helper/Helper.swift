@@ -42,7 +42,7 @@ extension UIViewController {
     /// - Makes sure the tab bar is visible and sets default tab to index `2`.
     func showMainTabBar() {
         // Load storyboard named "HomeStoryBoard"
-        let storyboard = UIStoryboard(name: "HomeStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.HomeStoryBoard, bundle: nil)
         
         // Instantiate TabBarViewController by identifier
         if let tabBarController = storyboard.instantiateViewController(
@@ -63,3 +63,4 @@ extension UIViewController {
         }
     }
 }
+

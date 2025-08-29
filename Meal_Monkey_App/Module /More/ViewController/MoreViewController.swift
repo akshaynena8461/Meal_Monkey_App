@@ -31,8 +31,8 @@ class MoreViewController: UIViewController {
 
         // Register the custom cell for the table view
         tblMoreView.register(
-            UINib(nibName: "MoreTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "MoreTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.MoreTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.MoreTableViewCell
         )
     }
     
@@ -44,7 +44,7 @@ class MoreViewController: UIViewController {
     /// Handles the cart button tap action
     @objc func cartButtonTapped() {
         print("Cart button tapped")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
 
         // Instantiate CartViewController and push it onto the navigation stack
         if let cartVc = storyboard.instantiateViewController(

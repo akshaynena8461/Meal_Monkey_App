@@ -46,8 +46,8 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
 
         // Register custom table view cell
         tblHomeView.register(
-            UINib(nibName: "HomeTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "HomeTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.HomeTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.HomeTableViewCell
         )
 
         // Listen for changes in search text
@@ -106,7 +106,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
 
     // MARK: - Address Selection
     @IBAction func btnCurrentLocationClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         if let changeAddressVc = storyboard.instantiateViewController(
             withIdentifier: "ChangeAddressViewController"
         ) as? ChangeAddressViewController {
@@ -159,7 +159,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
 
     // MARK: - Cart Navigation
     @objc func CartButtonTapped() {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
@@ -190,7 +190,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         RecentItemsHelper.shared.addProduct(product)
 
         // Navigate to Product Detail page
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let detailVC = storyboard.instantiateViewController(
             withIdentifier: "ProductDetailViewController"
         ) as? ProductDetailViewController {

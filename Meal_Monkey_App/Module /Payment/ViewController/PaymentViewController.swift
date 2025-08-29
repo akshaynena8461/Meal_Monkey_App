@@ -74,8 +74,8 @@ class PaymentViewController: UIViewController {
 
         // Register the payment table view cell
         tblPaymentView.register(
-            UINib(nibName: "PaymentTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "PaymentTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.PaymentTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.PaymentTableViewCell
         )
     }
 
@@ -117,7 +117,7 @@ class PaymentViewController: UIViewController {
 
     // MARK: - Navigation Actions
     @objc func CartBtnTapped() {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {

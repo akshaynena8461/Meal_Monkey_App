@@ -98,7 +98,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Cart Button Action
     @objc func cartBtnTapped() {
         print("Cart Btn Tapped")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
@@ -126,7 +126,7 @@ class ProfileViewController: UIViewController {
         UserDefaults.standard.removeObject(forKey: "isLoggedIn")
 
         // Navigate to Login screen
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signOutVc = storyboard.instantiateViewController(
             withIdentifier: "LoginViewController"
         ) as? LoginViewController {

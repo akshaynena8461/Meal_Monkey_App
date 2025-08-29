@@ -23,8 +23,8 @@ class AboutUsViewController: UIViewController {
 
         // Register custom cell
         tblView.register(
-            UINib(nibName: "AboutUsTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "AboutUsTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.AboutUsTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.AboutUsTableViewCell
         )
 
         // Setup navigation bar + page data

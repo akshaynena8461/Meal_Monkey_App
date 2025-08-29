@@ -30,8 +30,8 @@ class ServiceViewController: UIViewController {
 
         // Register collection view cell
         collectionIntro.register(
-            UINib(nibName: "ServiceCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "ServiceCollectionViewCell"
+            UINib(nibName: Main.CellIdentifiers.ServiceCollectionViewCell, bundle: nil),
+            forCellWithReuseIdentifier: Main.CellIdentifiers.ServiceCollectionViewCell
         )
     }
 

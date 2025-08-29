@@ -97,8 +97,8 @@ class SignUpViewController: UIViewController {
             && password.isEmpty && confirmPassword.isEmpty
         {
             UIAlertController.showAlert(
-                title: "Missing Info",
-                message: "Please fill all required fields!",
+                title: Main.Alert.emptyFieldsTitle,
+                message: Main.Alert.fieldsToFillMsg,
                 viewController: self
             )
             return
@@ -107,8 +107,8 @@ class SignUpViewController: UIViewController {
         // Validation: Individual fields
         if name.isEmpty {
             UIAlertController.showAlert(
-                title: "Name Missing",
-                message: "Please Enter Your Name",
+                title: Main.Alert.nameMissingTitle,
+                message: Main.Alert.nameMissingMsg,
                 viewController: self
             )
             return
@@ -116,8 +116,8 @@ class SignUpViewController: UIViewController {
 
         if email.isEmpty {
             UIAlertController.showAlert(
-                title: "Email Missing",
-                message: "Please Enter Your Email",
+                title: Main.Alert.emailexistingTitle,
+                message: Main.Alert.emailMissingMsg,
                 viewController: self
             )
             return
@@ -125,8 +125,8 @@ class SignUpViewController: UIViewController {
 
         if !isValidEmail(email) {
             UIAlertController.showAlert(
-                title: "Invalid Email",
-                message: "Please enter a valid email address.",
+                title: Main.Alert.invalidEmailTitle,
+                message: Main.Alert.invalidEmailMsg,
                 viewController: self
             )
             return
@@ -134,8 +134,8 @@ class SignUpViewController: UIViewController {
 
         if mobile.isEmpty {
             UIAlertController.showAlert(
-                title: "Mobile Number Missing",
-                message: "Please enter Your Mobile Number",
+                title: Main.Alert.mobileMissingTitle,
+                message: Main.Alert.mobileMissingMsg,
                 viewController: self
             )
             return
@@ -143,8 +143,8 @@ class SignUpViewController: UIViewController {
 
         if address.isEmpty {
             UIAlertController.showAlert(
-                title: "Address Missing",
-                message: "Please enter Your Address",
+                title: Main.Alert.adddressMissingTitle,
+                message: Main.Alert.addressMissingMsg,
                 viewController: self
             )
             return
@@ -152,8 +152,8 @@ class SignUpViewController: UIViewController {
 
         if password.isEmpty {
             UIAlertController.showAlert(
-                title: "Password Missing",
-                message: "Please Set Your Password",
+                title:Main.Alert.passwordMissingTitle,
+                message: Main.Alert.passwordMissinMsg,
                 viewController: self
             )
             return
@@ -161,9 +161,8 @@ class SignUpViewController: UIViewController {
 
         if !isValidPassword(password) {
             UIAlertController.showAlert(
-                title: "Invalid Password",
-                message:
-                    "Password must be at least 8 characters, contain uppercase, lowercase, number, and symbol.",
+                title:Main.Alert.invalidPasswordTitle,
+                message:Main.Alert.invalidPasswordMsg,
                 viewController: self
             )
             return
@@ -171,8 +170,8 @@ class SignUpViewController: UIViewController {
 
         if password != confirmPassword {
             UIAlertController.showAlert(
-                title: "Passwords Don't Match",
-                message: "Password and Confirm Password must be the same.",
+                title: Main.Alert.notMatchPasswordTitle,
+                message: Main.Alert.notMatchPasswordMsg,
                 viewController: self
             )
             return
@@ -191,8 +190,8 @@ class SignUpViewController: UIViewController {
             let existingUsers = try context.fetch(fetchRequest)
             if !existingUsers.isEmpty {
                 UIAlertController.showAlert(
-                    title: "Email Exists",
-                    message: "This email is already registered.",
+                    title: Main.Alert.emailexistingTitle,
+                    message: Main.Alert.emailexistinMsg,
                     viewController: self
                 )
                 return
@@ -217,8 +216,8 @@ class SignUpViewController: UIViewController {
             print("User registered successfully.")
 
             let alert = UIAlertController(
-                title: "Success",
-                message: "User Saved Successfully",
+                title: Main.Alert.successTitle,
+                message: Main.Alert.userRegisterSuccessMsg,
                 preferredStyle: .alert
             )
             alert.addAction(
@@ -231,8 +230,8 @@ class SignUpViewController: UIViewController {
         } catch {
             print("Failed to save user: \(error.localizedDescription)")
             let alert = UIAlertController(
-                title: "Error",
-                message: "Something went wrong while saving.",
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.fetchFailedMsg,
                 preferredStyle: .alert
             )
             alert.addAction(UIAlertAction(title: "OK", style: .default))

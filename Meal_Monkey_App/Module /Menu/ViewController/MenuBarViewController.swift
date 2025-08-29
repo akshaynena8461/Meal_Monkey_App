@@ -50,8 +50,8 @@ class MenuBarViewController: UIViewController {
         )
         // Register the custom table view cell
         tblMenuView.register(
-            UINib(nibName: "MenuTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "MenuTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.MenuTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.MenuTableViewCell
         )
     }
 
@@ -59,7 +59,7 @@ class MenuBarViewController: UIViewController {
     /// Opens the cart view controller when cart button is tapped
     @objc func openCart() {
         print("Cart Page")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {

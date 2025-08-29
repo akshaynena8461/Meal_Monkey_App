@@ -19,7 +19,7 @@ extension ServiceViewController: UICollectionViewDataSource,
     ) -> UICollectionViewCell {
         let cell: ServiceCollectionViewCell =
             collectionView.dequeueReusableCell(
-                withReuseIdentifier: "ServiceCollectionViewCell",
+                withReuseIdentifier: Main.CellIdentifiers.ServiceCollectionViewCell,
                 for: indexPath
             ) as! ServiceCollectionViewCell
 

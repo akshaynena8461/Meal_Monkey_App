@@ -75,7 +75,6 @@ class ProductDetailViewController: UIViewController {
                 action: #selector(self.cartBtnTapped)
             )
 
-            
             // Stop and hide the loader
             self.animate.stopAnimating()
             self.animate.isHidden = true
@@ -140,6 +139,10 @@ class ProductDetailViewController: UIViewController {
             target: self,
             action: #selector(cartBtnTapped),
         )
+        
+        let cartCount = CartManager.shared.count
+        tabBarController?.tabBar.items?[2].badgeValue =
+            cartCount > 0 ? "\(cartCount)" : nil
     }
 
     // MARK: - Update wishlist heart icon
@@ -308,23 +311,14 @@ class ProductDetailViewController: UIViewController {
     }
 
     @objc func cartBtnTapped() {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
             navigationController?.pushViewController(cartVc, animated: true)
-        }
-    }
-
-    @IBAction func btnCartClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
         }
     }
 

@@ -27,7 +27,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
             // First row is always Cash on Delivery
             let cell =
                 tableView.dequeueReusableCell(
-                    withIdentifier: "CaseOnDeliveryCell",
+                    withIdentifier: Main.CellIdentifiers.CaseOnDeliveryCell,
                     for: indexPath
                 ) as! CaseOnDeliveryCell
             cell.selectionStyle = .none
@@ -43,7 +43,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
             // Last row is always UPI payment
             let cell =
                 tableView.dequeueReusableCell(
-                    withIdentifier: "UPIViewCell",
+                    withIdentifier: Main.CellIdentifiers.UPIViewCell,
                     for: indexPath
                 ) as! UPIViewCell
             cell.selectionStyle = .none
@@ -60,7 +60,7 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
             let cardIndex = indexPath.row - 1
             let cell =
                 tableView.dequeueReusableCell(
-                    withIdentifier: "CardViewCell",
+                    withIdentifier: Main.CellIdentifiers.CardViewCell,
                     for: indexPath
                 ) as! CardViewCell
             cell.selectionStyle = .none
@@ -71,7 +71,6 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 for: .normal
             )
             cell.configPaymentCell(payment: app.arrCard[cardIndex])
-
             return cell
         }
     }

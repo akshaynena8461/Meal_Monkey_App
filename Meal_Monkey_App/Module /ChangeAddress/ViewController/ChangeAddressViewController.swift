@@ -13,7 +13,7 @@ class ChangeAddressViewController: UIViewController {
     @IBOutlet weak var txtSearchAddress: UITextField!  // Text field to search address
     @IBOutlet weak var btnChooseSavedPlace: UIButton!  // Button to choose saved places (optional)
     @IBOutlet weak var btnCurrentLocation: UIButton!  // Button to move map to current location
-    var fullAddress: String?   // Store last selected address
+    var fullAddress: String?  // Store last selected address
 
     // MARK: - Properties
     weak var delegate: ChangeAddressDelegate?  // Delegate to send selected address back
@@ -70,8 +70,8 @@ class ChangeAddressViewController: UIViewController {
 
         // Set default location (example: Ahmedabad, India)
         let defaultLocation = CLLocationCoordinate2D(
-            latitude: 23.0225,
-            longitude: 72.5714
+            latitude: 23.040517,
+            longitude: 72.503878
         )
         centerMap(on: defaultLocation)
         addPinAtCenterAndReverseGeocode()
@@ -208,15 +208,18 @@ class ChangeAddressViewController: UIViewController {
 
     func showPermissionAlert() {
         let alert = UIAlertController(
-            title: "Location Permission Needed",
-            message:
-                "Please enable location access in Settings to use this feature.",
+            title: Main.Location.title,
+            message: Main.Location.message,
             preferredStyle: .alert
+
         )
-        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+
+        alert.addAction(
+            UIAlertAction(title: Main.Location.cancel, style: .cancel)
+        )
         alert.addAction(
             UIAlertAction(
-                title: "Open Settings",
+                title: Main.Location.settings,
                 style: .default,
                 handler: { _ in
                     if let settingsURL = URL(

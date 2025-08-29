@@ -83,7 +83,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             scrollView: [viewScroll, thankYouScrollView],
             cornerRadious: 20
         )
-        
+
         EditStyle.setborder(textfields: [btnSendOrder], cornerRadious: 28)
 
         setCornerRadius(uiView: [
@@ -91,21 +91,19 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         ])
 
         // Register custom table view cells
-        tblCheckOutView.register(
-            UINib(nibName: "CaseOnDeliveryCell", bundle: nil),
-            forCellReuseIdentifier: "CaseOnDeliveryCell"
-        )
-        tblCheckOutView.register(
-            UINib(nibName: "CardViewCell", bundle: nil),
-            forCellReuseIdentifier: "CardViewCell"
-        )
-        tblCheckOutView.register(
-            UINib(nibName: "UPIViewCell", bundle: nil),
-            forCellReuseIdentifier: "UPIViewCell"
-        )
-
+        registerCells([Main.CellIdentifiers.CaseOnDeliveryCell,Main.CellIdentifiers.CardViewCell,Main.CellIdentifiers.UPIViewCell])
+       
         // Calculate totals initially
         calculateTotals()
+    }
+
+    func registerCells(_ cellNames: [String]) {
+        for name in cellNames {
+            tblCheckOutView.register(
+                UINib(nibName: name, bundle: nil),
+                forCellReuseIdentifier: name
+            )
+        }
     }
 
     func setCornerRadius(uiView: [UIView]) {
@@ -116,7 +114,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             ]
         }
     }
-    
+
     func scrollViewStyle(scrollView: [UIScrollView], cornerRadious: CGFloat) {
         for item in scrollView {
             item.layer.cornerRadius = cornerRadious
@@ -163,7 +161,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     // MARK: - Actions
     @IBAction func btnChangeAddressClick(_ sender: Any) {
         // Open Change Address screen
-        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         if let changeAddressVc = storyboard.instantiateViewController(
             withIdentifier: "ChangeAddressViewController"
         ) as? ChangeAddressViewController {

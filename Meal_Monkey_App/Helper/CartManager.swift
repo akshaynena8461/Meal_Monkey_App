@@ -20,4 +20,7 @@ class CartManager {
     func remove(quantity: Int = 1) {
         count = max(count - quantity, 0)
     }
+    func clear(){
+        count = 0
+    }
 }

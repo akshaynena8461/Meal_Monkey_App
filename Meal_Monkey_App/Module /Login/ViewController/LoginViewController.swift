@@ -54,8 +54,8 @@ class LoginViewController: UIViewController {
         // Check if email and password are provided
         if email.isEmpty && password.isEmpty {
             UIAlertController.showAlert(
-                title: "Missing Info",
-                message: "Please enter your email and password.",
+                title: Main.Alert.emptyFieldsTitle,
+                message: Main.Alert.fieldsToFillMsg,
                 viewController: self
             )
             return
@@ -86,7 +86,7 @@ class LoginViewController: UIViewController {
                 // Invalid credentials
                 UIAlertController.showAlert(
                     title: "Error",
-                    message: "Invalid Email or Password",
+                    message: Main.Alert.invalidCredentialmsg,
                     viewController: self
                 )
             }
@@ -94,8 +94,8 @@ class LoginViewController: UIViewController {
             // Fetch error
             print("Fetch failed: \(error.localizedDescription)")
             UIAlertController.showAlert(
-                title: "Error",
-                message: "Something went wrong.",
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.fetchFailedMsg,
                 viewController: self
             )
         }
@@ -103,7 +103,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - Forgot Password Button
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let forgotPasswordVC = storyboard.instantiateViewController(
             withIdentifier: "ForgotPasswordViewController"
         ) as? ForgotPasswordViewController {
@@ -123,7 +123,7 @@ class LoginViewController: UIViewController {
 
     // MARK: - SignUp Button
     @IBAction func btnSignUpclick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(
             withIdentifier: "SignUpViewController"
         ) as? SignUpViewController {

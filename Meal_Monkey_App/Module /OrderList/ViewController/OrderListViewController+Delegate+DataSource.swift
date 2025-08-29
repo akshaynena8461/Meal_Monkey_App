@@ -11,7 +11,7 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue a reusable cell of type OrderListTableViewCell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "OrderListTableViewCell",
+            withIdentifier: Main.CellIdentifiers.OrderListTableViewCell,
             for: indexPath
         ) as! OrderListTableViewCell
         
@@ -28,7 +28,7 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
     
     /// Handles cell selection to navigate to the detailed MyOrderViewController
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         
         // Instantiate the MyOrderViewController
         if let myOrderVc = storyboard.instantiateViewController(

@@ -35,8 +35,8 @@ class OffersViewController: UIViewController {
 
         // Register the custom OffersTableViewCell for the table view
         tblOffersView.register(
-            UINib(nibName: "OffersTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "OffersTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.OffersTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.OffersTableViewCell
         )
     }
 
@@ -48,7 +48,7 @@ class OffersViewController: UIViewController {
     /// Handles cart button tap
     @objc func CartBtnTapped() {
         print("Cart Tapped")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {

@@ -22,8 +22,8 @@ class WishListViewController: UIViewController {
 
         // Register custom cell for the wishlist table view
         tblWishlist.register(
-            UINib(nibName: "CartTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "CartTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.CartTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell
         )
     }
 

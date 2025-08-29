@@ -26,8 +26,8 @@ class OrderListViewController: UIViewController {
 
         // Register custom cell for order list
         tblOrderList.register(
-            UINib(nibName: "OrderListTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "OrderListTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.OrderListTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.OrderListTableViewCell
         )
     }
     

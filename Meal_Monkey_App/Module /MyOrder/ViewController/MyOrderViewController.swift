@@ -23,8 +23,8 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
 
         // Register custom table view cell for order items
         tblMyOrderView.register(
-            UINib(nibName: "MyOrderTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "MyOrderTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.MyOrderTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.MyOrderTableViewCell
         )
 
         // Set navigation title with a back button
@@ -71,7 +71,7 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
 
     @IBAction func btnCheckOutClick(_ sender: Any) {
         // Navigate to checkout screen
-        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         if let checkoutVc = storyboard.instantiateViewController(
             withIdentifier: "CheckOutViewController"
         ) as? CheckOutViewController {

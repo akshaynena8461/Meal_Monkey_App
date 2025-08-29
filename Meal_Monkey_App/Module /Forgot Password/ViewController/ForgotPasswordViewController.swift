@@ -19,7 +19,7 @@ class ForgotPasswordViewController: UIViewController {
     // MARK: - Actions
     @IBAction func btnsendclick(_ sender: Any) {
         // Navigate to OTP verification screen after clicking "Send"
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(
             withIdentifier: "OTPViewController"
         ) as? OTPViewController {

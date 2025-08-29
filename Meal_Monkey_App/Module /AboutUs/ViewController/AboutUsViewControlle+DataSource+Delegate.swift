@@ -13,7 +13,7 @@ extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Reuse cell from storyboard/XIB
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "AboutUsTableViewCell",
+            withIdentifier: Main.CellIdentifiers.AboutUsTableViewCell,
             for: indexPath
         ) as! AboutUsTableViewCell
 

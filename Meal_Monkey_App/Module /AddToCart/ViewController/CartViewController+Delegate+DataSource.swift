@@ -16,7 +16,7 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
         // Dequeue reusable CartTableViewCell
         let cell =
             tableView.dequeueReusableCell(
-                withIdentifier: "CartTableViewCell",
+                withIdentifier: Main.CellIdentifiers.CartTableViewCell,
                 for: indexPath
             ) as! CartTableViewCell
 

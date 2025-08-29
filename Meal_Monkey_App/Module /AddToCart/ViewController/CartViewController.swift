@@ -36,8 +36,8 @@ class CartViewController: UIViewController {
 
         // Register CartTableViewCell for table view
         tblCartView.register(
-            UINib(nibName: "CartTableViewCell", bundle: nil),
-            forCellReuseIdentifier: "CartTableViewCell"
+            UINib(nibName: Main.CellIdentifiers.CartTableViewCell, bundle: nil),
+            forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell
         )
 
         tblCartView.reloadData()
@@ -70,7 +70,7 @@ class CartViewController: UIViewController {
 
     @objc func cartBtnTapped() {
         // Navigate to CartViewController
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
@@ -108,11 +108,12 @@ class CartViewController: UIViewController {
 
             // Clear the cart
             CoreDataManager.shared.clearCart(for: user)
+            CartManager.shared.clear()
             app.arrCart.removeAll()
         }
 
         // Navigate to Order List screen
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let orderlistVc = storyboard.instantiateViewController(
             withIdentifier: "OrderListViewController"
         ) as? OrderListViewController {

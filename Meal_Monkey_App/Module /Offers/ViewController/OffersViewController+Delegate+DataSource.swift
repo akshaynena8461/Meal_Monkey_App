@@ -18,7 +18,7 @@ extension OffersViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue reusable cell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "OffersTableViewCell",
+            withIdentifier: Main.CellIdentifiers.OffersTableViewCell,
             for: indexPath
         ) as! OffersTableViewCell
 

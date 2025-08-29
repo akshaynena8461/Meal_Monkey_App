@@ -14,7 +14,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue reusable cell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MoreTableViewCell",
+            withIdentifier: Main.CellIdentifiers.MoreTableViewCell,
             for: indexPath
         ) as! MoreTableViewCell
 
@@ -35,7 +35,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Get selected row
         let row = indexPath.row
-        let storyboard = UIStoryboard(name: "MoreStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
 
         // Get the menu item's tag to determine action
         let selectedItem = arrMore[row].intTag
@@ -54,7 +54,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:
             // My Orders
             print("My Orders selected")
-            let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+            let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
             if let orderlistVc = storyboard.instantiateViewController(
                 withIdentifier: "OrderListViewController"
             ) as? OrderListViewController {

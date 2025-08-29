@@ -17,7 +17,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Dequeue reusable HomeTableViewCell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "HomeTableViewCell",
+            withIdentifier: Main.CellIdentifiers.HomeTableViewCell,
             for: indexPath
         ) as! HomeTableViewCell
 

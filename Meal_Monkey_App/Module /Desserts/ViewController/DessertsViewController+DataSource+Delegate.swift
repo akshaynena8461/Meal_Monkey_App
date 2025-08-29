@@ -12,7 +12,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         // Dequeue a reusable cell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "DessertsTableViewCell",
+            withIdentifier: Main.CellIdentifiers.DessertsTableViewCell,
             for: indexPath
         ) as! DessertsTableViewCell
 
@@ -35,7 +35,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         RecentItemsHelper.shared.addProduct(selectedProduct)
 
         // Instantiate ProductDetailViewController and pass the selected product
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let detailVC = storyboard.instantiateViewController(
             withIdentifier: "ProductDetailViewController"
         ) as? ProductDetailViewController {

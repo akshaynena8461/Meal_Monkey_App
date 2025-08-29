@@ -16,7 +16,7 @@ extension MyOrderViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Dequeue reusable cell as MyOrderTableViewCell
         let cell = tableView.dequeueReusableCell(
-            withIdentifier: "MyOrderTableViewCell",
+            withIdentifier: Main.CellIdentifiers.MyOrderTableViewCell,
             for: indexPath
         ) as! MyOrderTableViewCell
 

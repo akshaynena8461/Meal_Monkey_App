@@ -36,7 +36,7 @@ class OTPViewController: UIViewController {
 
     /// Action for the Next button - navigates to NewPasswordViewController
     @IBAction func btnNextClick(_ sender: Any) {
-        let storyboard = UIStoryboard(name: "User", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let newPasswordVc = storyboard.instantiateViewController(
             withIdentifier: "NewPasswordViewController"
         ) as? NewPasswordViewController {

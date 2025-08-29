@@ -24,17 +24,17 @@ class ProductCategoryCollectionViewCell: UICollectionViewCell {
         // Set the category image based on the selected category
         switch category {
         case .All:
-            imgCategory.image = UIImage(named: "ic_butternaan")
+            imgCategory.image = UIImage(named: Main.Image.ic_butternaan)
         case .Punjabi:
-            imgCategory.image = UIImage(named: "ic_paneertikka")
+            imgCategory.image = UIImage(named: Main.Image.ic_paneertikka)
         case .Chinese:
-            imgCategory.image = UIImage(named: "ic_hakkanoodles")
+            imgCategory.image = UIImage(named: Main.Image.ic_hakkanoodles)
         case .Gujarati:
-            imgCategory.image = UIImage(named: "Ic_Khaman_Dhokla")
+            imgCategory.image = UIImage(named: Main.Image.Ic_Khaman_Dhokla)
         case .SouthIndian:
-            imgCategory.image = UIImage(named: "ic_masaladosa")
+            imgCategory.image = UIImage(named: Main.Image.ic_masaladosa)
         case .WesternFood:
-            imgCategory.image = UIImage(named: "ic_margherita_pizza")
+            imgCategory.image = UIImage(named: Main.Image.ic_margherita_pizza)
         }
 
     }
