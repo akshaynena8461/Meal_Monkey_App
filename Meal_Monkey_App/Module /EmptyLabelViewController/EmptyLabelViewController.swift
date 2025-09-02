@@ -63,5 +63,4 @@ extension EmptyLabelViewController: DZNEmptyDataSetSource,
     {
         print("Reload tapped")
     }
-
 }

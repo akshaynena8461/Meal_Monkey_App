@@ -33,6 +33,4 @@ class LoderViewController: UIViewController {
     func hideLoader() {
         activityIndicator.stopAnimating()
     }
-   
-
 }
