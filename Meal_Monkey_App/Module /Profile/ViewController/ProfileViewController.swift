@@ -136,6 +136,10 @@ class ProfileViewController: UIViewController {
             )
         }
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        fetUserData()
+    }
 
     // MARK: - Fetch User Data
     func fetUserData() {

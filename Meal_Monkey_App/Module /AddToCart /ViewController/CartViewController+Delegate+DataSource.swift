@@ -53,7 +53,8 @@ extension CartViewController: UITableViewDelegate, UITableViewDataSource {
 
             // Update UI: hide/show empty label and place order button
             self.btnPlaceOrder.isHidden = app.arrCart.isEmpty
-            self.lblEmpty.isHidden = !app.arrCart.isEmpty
+//            self.lblEmpty.isHidden = !app.arrCart.isEmpty
+            self.setEmptyBackgroundViewWithLottie()
 
             // Reload table view
             self.tblCartView.reloadData()

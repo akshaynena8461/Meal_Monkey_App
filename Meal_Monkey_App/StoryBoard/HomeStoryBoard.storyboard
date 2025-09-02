@@ -81,6 +81,7 @@
                     <navigationItem key="navigationItem" id="ifT-gr-0bL"/>
                     <connections>
                         <outlet property="lblEmpty" destination="wLf-GY-OgI" id="yKx-dU-6ut"/>
+                        <outlet property="sideImage" destination="MLs-FG-6iT" id="hTq-rx-gk9"/>
                         <outlet property="tblMenuView" destination="ToI-2N-2j6" id="QHn-bx-Vam"/>
                         <outlet property="txtSearch" destination="0ls-fl-UEJ" id="crC-u9-CQk"/>
                     </connections>

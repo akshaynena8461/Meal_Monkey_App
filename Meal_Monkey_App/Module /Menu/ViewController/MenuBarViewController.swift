@@ -12,6 +12,7 @@ class MenuBarViewController: UIViewController {
     var filteredMenuData: [MenuModel] = []
 
     // MARK: - Outlets
+    @IBOutlet weak var sideImage: UIImageView!
     @IBOutlet weak var lblEmpty: UILabel!
     // Show Empty Label if menu items is not found
     @IBOutlet weak var txtSearch: UITextField!  // Search text field at top
@@ -67,35 +68,13 @@ class MenuBarViewController: UIViewController {
         animationView.loopMode = .loop
         animationView.play()
         animationView.translatesAutoresizingMaskIntoConstraints = false
-
-        // Label
-        let messageLabel = UILabel()
-        messageLabel.textColor = .gray
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-
         backgroundView.addSubview(animationView)
-        backgroundView.addSubview(messageLabel)
 
         NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
-            animationView.centerYAnchor.constraint(
-                equalTo: backgroundView.centerYAnchor,
-                constant: -40
-            ),
+            animationView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
+            animationView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200),
-
-            messageLabel.topAnchor.constraint(
-                equalTo: animationView.bottomAnchor,
-                constant: 16
-            ),
-            messageLabel.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
+            animationView.heightAnchor.constraint(equalToConstant: 200)
         ])
 
         tblMenuView.backgroundView = backgroundView
@@ -145,9 +124,11 @@ class MenuBarViewController: UIViewController {
 
         if filteredMenuData.isEmpty {
             // Nothing matched search → show empty state
+            sideImage.isHidden = true
             setEmptyBackgroundViewWithLottie(animationName: "empty")
         } else {
             // Data found → hide empty state
+            sideImage.isHidden = false
             tblMenuView.backgroundView = nil
         }
         tblMenuView.reloadData()

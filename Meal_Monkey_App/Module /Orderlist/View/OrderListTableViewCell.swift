@@ -42,5 +42,8 @@ class OrderListTableViewCell: UITableViewCell {
             $0 + $1.doubleProductPrice * Double($1.intProductQty ?? 1)
         }
         lblTotalPrice.text = String(format: "Total: $ %.2f", total)
+        print("Names: \(names)")
+        print("Total: \(total)")
+
     }
 }

@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 class PaymentViewController: UIViewController {
 
@@ -40,7 +41,10 @@ class PaymentViewController: UIViewController {
         addCardPageView.isHidden = true
 
         // Show "No cards" label if the card list is empty
-        lblEmpty.isHidden = !app.arrCard.isEmpty
+//        lblEmpty.isHidden = !app.arrCard.isEmpty
+        if app.arrCard.isEmpty {
+            setEmptyBackgroundViewWithLottie()
+        }
 
         // Apply styles to scroll and page views
         scrollViewStyle(scroll: [viewScroll], cornerRadious: 20)
@@ -77,15 +81,50 @@ class PaymentViewController: UIViewController {
             UINib(nibName: Main.CellIdentifiers.PaymentTableViewCell, bundle: nil),
             forCellReuseIdentifier: Main.CellIdentifiers.PaymentTableViewCell
         )
+        tblPaymentView.reloadData()
     }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         fetchUserCards()
+        if app.arrCard.isEmpty {
+            setEmptyBackgroundViewWithLottie()
+        }
+        else {
+            tblPaymentView.backgroundView = nil
+        }
+        tblPaymentView.reloadData()
+
     }
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
+    }
+    
+    func setEmptyBackgroundViewWithLottie() {
+        let backgroundView = UIView(frame: self.view.bounds)
+
+        // Lottie Animation View
+        let animationView = LottieAnimationView(name: "Credit card")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundView.addSubview(animationView)
+
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+            animationView.centerYAnchor.constraint(
+                equalTo: backgroundView.centerYAnchor),
+            animationView.widthAnchor.constraint(equalToConstant: 100),
+            animationView.heightAnchor.constraint(equalToConstant: 100),
+
+        ])
+
+        tblPaymentView.backgroundView = backgroundView
     }
 
     // MARK: - UI Styling Functions
@@ -137,12 +176,15 @@ class PaymentViewController: UIViewController {
                 byEmail: currentUserEmail
             )
         else {
-            lblEmpty.isHidden = false
             return
         }
 
         app.arrCard = CoreDataManager.shared.fetchCards(for: user)
-        lblEmpty.isHidden = !app.arrCard.isEmpty
+
+        if app.arrCard.isEmpty {
+            setEmptyBackgroundViewWithLottie()
+        }
+        
         tblPaymentView.reloadData()
     }
 
@@ -209,7 +251,7 @@ class PaymentViewController: UIViewController {
         fetchUserCards()
 
         // Step 5: Update UI
-        lblEmpty.isHidden = true
+//        lblEmpty.isHidden = true
         UIAlertController.showAlert(
             title: "Success",
             message: "Card Added Successfully",

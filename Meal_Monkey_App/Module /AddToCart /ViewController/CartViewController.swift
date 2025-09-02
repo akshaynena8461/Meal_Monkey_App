@@ -1,15 +1,16 @@
 import CoreData
+import Lottie
 import UIKit
 
 class CartViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var lblEmpty: UILabel!         // Label shown when cart is empty
-    @IBOutlet weak var btnPlaceOrder: UIButton!   // Place Order button
+    @IBOutlet weak var lblEmpty: UILabel!  // Label shown when cart is empty
+    @IBOutlet weak var btnPlaceOrder: UIButton!  // Place Order button
     @IBOutlet weak var tblCartView: UITableView!  // Table view showing cart items
 
     // MARK: - Variables
-    var products: ProductModel?                   // Optional product reference (not used here currently)
+    var products: ProductModel?  // Optional product reference (not used here currently)
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -17,7 +18,8 @@ class CartViewController: UIViewController {
 
         // Show/hide empty label and place order button depending on cart
         if app.arrCart.isEmpty {
-            lblEmpty.isHidden = false
+            //            lblEmpty.isHidden = false
+            setEmptyBackgroundViewWithLottie()
             btnPlaceOrder.isHidden = true
         } else {
             lblEmpty.isHidden = true
@@ -47,20 +49,51 @@ class CartViewController: UIViewController {
         super.viewWillAppear(animated)
 
         // Update empty label visibility
-        lblEmpty.isHidden = !app.arrCart.isEmpty
+        //        lblEmpty.isHidden = !app.arrCart.isEmpty
 
         // Update wishlist flags for products
         updateWishlistData()
 
         // Fetch logged-in user from UserDefaults and Core Data
         if let loggedInUser = CoreDataManager.shared.fetchUserbyEmail(
-            byEmail: UserDefaults.standard.string(forKey: "loggedInUserEmail") ?? ""
+            byEmail: UserDefaults.standard.string(forKey: "loggedInUserEmail")
+                ?? ""
         ) {
             // Fetch cart for the current user
             app.arrCart = CoreDataManager.shared.fetchCart(for: loggedInUser)
+            if app.arrCart.isEmpty {
+                setEmptyBackgroundViewWithLottie()
+            } else {
+                tblCartView.backgroundView = nil  
+            }
             tblCartView.reloadData()
-            lblEmpty.isHidden = !app.arrCart.isEmpty
         }
+    }
+
+    func setEmptyBackgroundViewWithLottie() {
+        let backgroundView = UIView(frame: self.view.bounds)
+
+        // Lottie Animation View
+        let animationView = LottieAnimationView(name: "Empty Cart")
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundView.addSubview(animationView)
+
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+            animationView.centerYAnchor.constraint(
+                equalTo: backgroundView.centerYAnchor),
+            animationView.widthAnchor.constraint(equalToConstant: 100),
+            animationView.heightAnchor.constraint(equalToConstant: 100),
+
+        ])
+
+        tblCartView.backgroundView = backgroundView
     }
 
     // MARK: - Navigation
@@ -70,11 +103,17 @@ class CartViewController: UIViewController {
 
     @objc func cartBtnTapped() {
         // Navigate to CartViewController
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
-            self.navigationController?.pushViewController(cartVc, animated: true)
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
         }
     }
 
@@ -82,7 +121,9 @@ class CartViewController: UIViewController {
     /// Updates product objects to reflect whether they are in wishlist
     func updateWishlistData() {
         for item in HomeViewController.arrProductData {
-            if app.arrWishList.firstIndex(where: { $0.intId == item.intId }) != nil {
+            if app.arrWishList.firstIndex(where: { $0.intId == item.intId })
+                != nil
+            {
                 item.objAddFavorite = true
             } else {
                 item.objAddFavorite = false
@@ -93,10 +134,13 @@ class CartViewController: UIViewController {
     // MARK: - Actions
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
         // Fetch the current logged-in user
-        print("app.arrOrder \(app.arrOrder)")
         guard
-            let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail"),
-            let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail)
+            let currentUserEmail = UserDefaults.standard.string(
+                forKey: "loggedInUserEmail"
+            ),
+            let user = CoreDataManager.shared.fetchUserbyEmail(
+                byEmail: currentUserEmail
+            )
         else {
             print("No logged in user found")
             return
@@ -113,19 +157,23 @@ class CartViewController: UIViewController {
             app.arrCart.removeAll()
         }
 
-        app.arrOrder = CoreDataManager.shared.fetchOrders(for: user)
-        print("\(app.arrOrder.count)")
-
         // Navigate to Order List screen
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let orderlistVc = storyboard.instantiateViewController(
             withIdentifier: "OrderListViewController"
         ) as? OrderListViewController {
-            self.navigationController?.pushViewController(orderlistVc, animated: true)
+            self.navigationController?.pushViewController(
+                orderlistVc,
+                animated: true
+            )
         }
 
         // Update UI for empty cart
-        lblEmpty.isHidden = false
+        //        lblEmpty.isHidden = false
+        setEmptyBackgroundViewWithLottie()
         btnPlaceOrder.isHidden = true
         tblCartView.reloadData()
     }

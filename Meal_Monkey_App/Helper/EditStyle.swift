@@ -123,9 +123,10 @@ extension UIViewController {
     ) {
         let titleLabel = UILabel()
         titleLabel.text = title
+        titleLabel.numberOfLines = 0
         titleLabel.font = font
         titleLabel.textColor = textColor
-        titleLabel.sizeToFit()
+//        titleLabel.sizeToFit()
 
         let leftItem = UIBarButtonItem(customView: titleLabel)
         self.navigationItem.leftBarButtonItem = leftItem

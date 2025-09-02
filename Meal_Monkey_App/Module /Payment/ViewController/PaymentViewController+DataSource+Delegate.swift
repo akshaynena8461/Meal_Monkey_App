@@ -45,7 +45,10 @@ extension PaymentViewController: UITableViewDelegate, UITableViewDataSource {
                 )
             }
             app.arrCard.remove(at: indexPath.row)
-            self.lblEmpty.isHidden = !app.arrCard.isEmpty
+            if app.arrCard.isEmpty {
+                self.setEmptyBackgroundViewWithLottie()
+            }
+            
             self.tblPaymentView.reloadData()
         }
 
