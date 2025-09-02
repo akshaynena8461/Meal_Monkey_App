@@ -1,7 +1,10 @@
+import Lottie
 import UIKit
 
 // MARK: - MenuBarViewController
 class MenuBarViewController: UIViewController {
+
+    private var animationView: LottieAnimationView?
 
     // MARK: - Properties
     /// Array of menu data used to populate the table view
@@ -10,7 +13,7 @@ class MenuBarViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var lblEmpty: UILabel!
-         // Show Empty Label if menu items is not found
+    // Show Empty Label if menu items is not found
     @IBOutlet weak var txtSearch: UITextField!  // Search text field at top
     @IBOutlet weak var tblMenuView: UITableView!  // Table view to show menu categories
 
@@ -24,10 +27,10 @@ class MenuBarViewController: UIViewController {
             name: .cartUpdated,
             object: nil
         )
-        
+
         // Set table view background to clear
         tblMenuView.backgroundColor = .clear
-        
+
         lblEmpty.isHidden = true
         filteredMenuData = arrMenuData
 
@@ -55,11 +58,57 @@ class MenuBarViewController: UIViewController {
         )
     }
 
+    func setEmptyBackgroundViewWithLottie(animationName: String) {
+        let backgroundView = UIView(frame: self.view.bounds)
+
+        // Lottie Animation View
+        let animationView = LottieAnimationView(name: animationName)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Label
+        let messageLabel = UILabel()
+        messageLabel.textColor = .gray
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundView.addSubview(animationView)
+        backgroundView.addSubview(messageLabel)
+
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+            animationView.centerYAnchor.constraint(
+                equalTo: backgroundView.centerYAnchor,
+                constant: -40
+            ),
+            animationView.widthAnchor.constraint(equalToConstant: 200),
+            animationView.heightAnchor.constraint(equalToConstant: 200),
+
+            messageLabel.topAnchor.constraint(
+                equalTo: animationView.bottomAnchor,
+                constant: 16
+            ),
+            messageLabel.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+        ])
+
+        tblMenuView.backgroundView = backgroundView
+    }
+
     // MARK: - Actions
     /// Opens the cart view controller when cart button is tapped
     @objc func openCart() {
         print("Cart Page")
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: "CartViewController"
         ) as? CartViewController {
@@ -70,10 +119,10 @@ class MenuBarViewController: UIViewController {
         }
     }
 
-    @objc func updateCartBadge(){
+    @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
     }
-    
+
     /// Placeholder action for a menu button tap
     @objc func menuBtnTapped() {
         print("Menu Btn")
@@ -83,16 +132,24 @@ class MenuBarViewController: UIViewController {
     @objc func searchTextChanged() {
         guard let searchText = txtSearch.text?.lowercased(), !searchText.isEmpty
         else {
-            filteredMenuData = arrMenuData  // show all if empty
-            lblEmpty.isHidden = !filteredMenuData.isEmpty
+            // Search text empty → show all items
+            filteredMenuData = arrMenuData
             tblMenuView.reloadData()
             return
         }
 
+        // Filter menu
         filteredMenuData = arrMenuData.filter { menu in
             menu.strTitle?.lowercased().contains(searchText) ?? false
         }
-        lblEmpty.isHidden = !filteredMenuData.isEmpty
+
+        if filteredMenuData.isEmpty {
+            // Nothing matched search → show empty state
+            setEmptyBackgroundViewWithLottie(animationName: "empty")
+        } else {
+            // Data found → hide empty state
+            tblMenuView.backgroundView = nil
+        }
         tblMenuView.reloadData()
     }
 }

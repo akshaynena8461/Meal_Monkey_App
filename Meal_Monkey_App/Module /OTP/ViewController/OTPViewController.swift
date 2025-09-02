@@ -1,35 +1,46 @@
+import OTPFieldView
 import UIKit
 
 class OTPViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var btnDoNotReceive: UIButton!   // Button to resend OTP
-    @IBOutlet weak var btnNext: UIButton!           // Button to proceed after entering OTP
-    @IBOutlet weak var txtDigit1: UITextField!      // First digit input
-    @IBOutlet weak var txtDigit2: UITextField!      // Second digit input
-    @IBOutlet weak var txtDigit3: UITextField!      // Third digit input
-    @IBOutlet weak var txtDigit4: UITextField!      // Fourth digit input
+    @IBOutlet weak var btnDoNotReceive: UIButton!  // Button to resend OTP
+    @IBOutlet weak var btnNext: UIButton!  // Button to proceed after entering OTP
+    @IBOutlet weak var txtDigit1: UITextField!  // First digit input
+    @IBOutlet weak var txtDigit2: UITextField!  // Second digit input
+    @IBOutlet weak var txtDigit3: UITextField!  // Third digit input
+    @IBOutlet weak var txtDigit4: UITextField!  // Fourth digit input
+    @IBOutlet weak var otpView: UIView!
+
+    let otpFieldView = OTPFieldView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // Array of all OTP text fields for easier manipulation
-        let allTextFields = [txtDigit1!, txtDigit2!, txtDigit3!, txtDigit4!]
-
-        // Set custom border style for OTP text fields
-        EditStyle.setOTPtextFieldborder(textfields: allTextFields)
 
         // Set rounded corner style for the Next button
         EditStyle.setborder(textfields: [btnNext], cornerRadious: 28)
-        
 
+        otpView.backgroundColor = .white
 
-        // Configure each OTP text field
-        for tf in allTextFields {
-            tf.delegate = self            // Set delegate to handle input events
-            tf.keyboardType = .numberPad  // Numeric keypad for OTP entry
-            tf.textAlignment = .center    // Center the text for each digit
-        }
+        otpFieldView.frame = CGRect(
+            x: 0,
+            y: 0,
+            width: view.frame.size.width - 50,
+            height: 60
+        )
+        otpFieldView.fieldsCount = 4
+        otpFieldView.fieldBorderWidth = 2
+        otpFieldView.defaultBorderColor = .lightGray
+        otpFieldView.filledBorderColor = .systemBlue
+        otpFieldView.cursorColor = .systemBlue
+        otpFieldView.displayType = .roundedCorner
+        otpFieldView.fieldSize = 40
+        otpFieldView.separatorSpace = 20
+        otpFieldView.delegate = self
+
+        otpView.addSubview(otpFieldView)
+        otpFieldView.initializeUI()
+
     }
 
     // MARK: - Button Actions

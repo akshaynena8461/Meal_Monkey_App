@@ -1,5 +1,5 @@
-import UIKit
 
+import OTPFieldView
 extension OTPViewController: UITextFieldDelegate {
     
     func textField(
@@ -39,7 +39,7 @@ extension OTPViewController: UITextFieldDelegate {
             }
             return false // Return false because we've manually updated the text field
         }
-        // 4️⃣ Handle backspace / deleting a digit
+//         4️⃣ Handle backspace / deleting a digit
         else if string.isEmpty {
             // Move focus to the previous text field
             switch textField {
@@ -57,5 +57,22 @@ extension OTPViewController: UITextFieldDelegate {
         }
         
         return true // Default case (shouldn't occur)
+    }
+}
+
+
+
+
+extension OTPViewController: OTPFieldViewDelegate {
+    func shouldBecomeFirstResponderForOTP(otpTextFieldIndex index: Int) -> Bool {
+        return true
+    }
+
+    func enteredOTP(otp: String) {
+        print("Entered OTP is \(otp)")
+    }
+
+    func hasEnteredAllOTP(hasEnteredAll: Bool) -> Bool {
+        return hasEnteredAll
     }
 }

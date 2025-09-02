@@ -28,7 +28,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3r-Eg-eyE">
                                 <rect key="frame" x="0.0" y="273" width="393" height="579"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EHu-JF-eQy">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EHu-JF-eQy">
                                         <rect key="frame" x="0.0" y="0.0" width="393" height="579"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xh1-6r-ijj">
@@ -374,17 +374,10 @@
                                     <constraint firstItem="EHu-JF-eQy" firstAttribute="top" secondItem="K3r-Eg-eyE" secondAttribute="top" id="rqE-AR-WHb"/>
                                 </constraints>
                             </view>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="Bch-Y9-fts">
-                                <rect key="frame" x="186.66666666666666" y="416" width="20" height="20"/>
-                                <color key="tintColor" name="loginbtnbg"/>
-                                <color key="color" name="loginbtnbg"/>
-                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="vDu-zF-Fre"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="Bch-Y9-fts" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="27C-f1-wjI"/>
-                            <constraint firstItem="K3r-Eg-eyE" firstAttribute="centerX" secondItem="5EZ-qb-Rvc" secondAttribute="centerX" id="7No-gp-w4G"/>
                             <constraint firstItem="K3r-Eg-eyE" firstAttribute="top" secondItem="xbB-cg-t5W" secondAttribute="bottom" id="Bj9-An-Lsf"/>
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="leading" secondItem="K3r-Eg-eyE" secondAttribute="leading" id="CQh-NR-lsY"/>
                             <constraint firstAttribute="bottom" secondItem="K3r-Eg-eyE" secondAttribute="bottom" id="SYQ-mB-dID"/>
@@ -392,12 +385,10 @@
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="ny1-5d-hFw"/>
                             <constraint firstItem="vDu-zF-Fre" firstAttribute="trailing" secondItem="K3r-Eg-eyE" secondAttribute="trailing" id="pnR-Wx-qXc"/>
                             <constraint firstItem="xbB-cg-t5W" firstAttribute="top" secondItem="vDu-zF-Fre" secondAttribute="top" constant="-45" id="vcT-5h-48Y"/>
-                            <constraint firstItem="Bch-Y9-fts" firstAttribute="centerY" secondItem="5EZ-qb-Rvc" secondAttribute="centerY" id="x5Q-QJ-TOj"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="ProductDetailView" destination="K3r-Eg-eyE" id="mCh-CI-vIN"/>
-                        <outlet property="animate" destination="Bch-Y9-fts" id="JRE-hf-g62"/>
                         <outlet property="btnAddCart" destination="PWa-Yh-C97" id="tCU-e6-X8P"/>
                         <outlet property="btnCart" destination="Zjp-CQ-S3w" id="Lqu-gg-GQe"/>
                         <outlet property="btnHeart" destination="y1f-Px-Drt" id="bMr-8f-YUx"/>
@@ -438,7 +429,7 @@
                                     <outlet property="delegate" destination="0ow-W1-g72" id="Gfv-nY-TSi"/>
                                 </connections>
                             </tableView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart Is Empty" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-Tm-B8D">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart Is Empty" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gJz-Tm-B8D">
                                 <rect key="frame" x="139" y="394.66666666666669" width="115.33333333333331" height="22"/>
                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
                                 <color key="textColor" name="placeholdercolor"/>
@@ -492,7 +483,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hvC-kk-CTs">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="hvC-kk-CTs">
                                 <rect key="frame" x="0.0" y="118" width="393" height="666"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>

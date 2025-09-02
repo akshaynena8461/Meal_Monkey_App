@@ -72,7 +72,7 @@ class CoreDataManager {
         do {
             let orders = try context.fetch(fetchRequest)
             // Convert stored Data back to ProductModel array
-            return orders.compactMap { $0.products?.toProducts() }
+            return orders.compactMap { $0.products?.toProducts() ?? [] }
         } catch {
             print("Failed to fetch orders: \(error.localizedDescription)")
             return []

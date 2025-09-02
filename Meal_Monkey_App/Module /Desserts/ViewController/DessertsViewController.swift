@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 class DessertsViewController: UIViewController {
 
@@ -74,6 +75,21 @@ class DessertsViewController: UIViewController {
         )
     }
     
+    func setEmptyBackgroundViewWithLottie(animationName: String) {
+        let emptyView = UIView(frame: tblDessertsView.bounds)
+
+           let animationView = LottieAnimationView(name: animationName)
+           animationView.frame = CGRect(x: 0, y: 0, width: 200, height: 200)
+           animationView.center = emptyView.center
+           animationView.contentMode = .scaleAspectFit
+           animationView.loopMode = .loop
+           animationView.play()
+
+           emptyView.addSubview(animationView)
+           tblDessertsView.backgroundView = emptyView
+
+    }
+    
     @objc func updateCartBadge(){
         setCartButton(target: self, action: #selector(CartBtnTapped))
     }
@@ -94,8 +110,12 @@ class DessertsViewController: UIViewController {
             }
         }
 
-        // Show "No Product" label if filtered list is empty
-        lblNoProduct.isHidden = !filteredProducts.isEmpty
+        // Show empty state only if no products
+        if filteredProducts.isEmpty {
+            setEmptyBackgroundViewWithLottie(animationName: "empty")
+        } else {
+            tblDessertsView.backgroundView = nil
+        }
 
         // Reload table view
         tblDessertsView.reloadData()

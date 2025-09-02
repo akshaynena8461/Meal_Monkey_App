@@ -1,0 +1,4 @@
+${PODS_ROOT}/Target Support Files/Pods-Meal_Monkey_App/Pods-Meal_Monkey_App-resources.sh
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/SVProgressHUD.bundle
+${PODS_ROOT}/SVProgressHUD/SVProgressHUD/PrivacyInfo.xcprivacy
+${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios/LottiePrivacyInfo.bundle

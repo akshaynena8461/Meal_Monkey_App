@@ -93,6 +93,7 @@ class CartViewController: UIViewController {
     // MARK: - Actions
     @IBAction func btnPlaceOrderClick(_ sender: Any) {
         // Fetch the current logged-in user
+        print("app.arrOrder \(app.arrOrder)")
         guard
             let currentUserEmail = UserDefaults.standard.string(forKey: "loggedInUserEmail"),
             let user = CoreDataManager.shared.fetchUserbyEmail(byEmail: currentUserEmail)
@@ -111,6 +112,9 @@ class CartViewController: UIViewController {
             CartManager.shared.clear()
             app.arrCart.removeAll()
         }
+
+        app.arrOrder = CoreDataManager.shared.fetchOrders(for: user)
+        print("\(app.arrOrder.count)")
 
         // Navigate to Order List screen
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)

@@ -1,11 +1,13 @@
 import CoreData
 import UIKit
+import NVActivityIndicatorView
 
 class ProductDetailViewController: UIViewController {
 
+    var activityIndicator: NVActivityIndicatorView!
+
     // MARK: - IBOutlets
     @IBOutlet weak var btnCart: UIButton!
-    @IBOutlet weak var animate: UIActivityIndicatorView!
     @IBOutlet var mainView: UIView!
     @IBOutlet weak var detailPageViewinScollView: UIView!
     @IBOutlet weak var stackStars: UIStackView!
@@ -44,16 +46,11 @@ class ProductDetailViewController: UIViewController {
             object: nil
         )
 
-        // Show and start animating loader
-        animate.isHidden = false
-        animate.startAnimating()
-
-        // Scale up the activity indicator (make it bigger)
-        animate.transform = CGAffineTransform(scaleX: 2.0, y: 2.0)
-
         // Hide product detail UI initially while loading
         ProductDetailView.isHidden = true
         imgProduct.isHidden = true
+        
+        MyActivityIndicator()
 
         self.navigationController?.isNavigationBarHidden = true
         // Simulate a loading delay of 3 seconds
@@ -74,10 +71,7 @@ class ProductDetailViewController: UIViewController {
                 target: self,
                 action: #selector(self.cartBtnTapped)
             )
-
-            // Stop and hide the loader
-            self.animate.stopAnimating()
-            self.animate.isHidden = true
+            self.hideLoader()
 
         }
 
@@ -133,6 +127,33 @@ class ProductDetailViewController: UIViewController {
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
     }
+    
+    func MyActivityIndicator() {
+        let frame = CGRect(
+            x: (view.frame.width - 50) / 2,
+            y: (view.frame.height - 50) / 2,
+            width: 50,
+            height: 50
+        )
+
+        activityIndicator = NVActivityIndicatorView(
+            frame: frame,
+            type: .ballClipRotateMultiple,
+            color: UIColor(named: "loginbtnbg"),
+            padding: 0
+        )
+        view.addSubview(activityIndicator)
+        showLoader()
+    }
+    
+    func showLoader() {
+        activityIndicator.startAnimating()
+    }
+
+    func hideLoader() {
+        activityIndicator.stopAnimating()
+    }
+   
 
     @objc private func updateCartBadge() {
         setCartButtonInProductDetail(
