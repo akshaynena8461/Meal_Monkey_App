@@ -91,8 +91,11 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         ])
 
         // Register custom table view cells
-        registerCells([Main.CellIdentifiers.CaseOnDeliveryCell,Main.CellIdentifiers.CardViewCell,Main.CellIdentifiers.UPIViewCell])
-       
+        registerCells([
+            Main.CellIdentifiers.CaseOnDeliveryCell,
+            Main.CellIdentifiers.CardViewCell, Main.CellIdentifiers.UPIViewCell,
+        ])
+
         // Calculate totals initially
         calculateTotals()
     }
@@ -161,9 +164,12 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     // MARK: - Actions
     @IBAction func btnChangeAddressClick(_ sender: Any) {
         // Open Change Address screen
-        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.MoreStoryBoard,
+            bundle: nil
+        )
         if let changeAddressVc = storyboard.instantiateViewController(
-            withIdentifier: "ChangeAddressViewController"
+            withIdentifier: Main.ViewControllers.Address
         ) as? ChangeAddressViewController {
             changeAddressVc.delegate = self
             self.navigationController?.pushViewController(
@@ -282,8 +288,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             !number.isEmpty
         else {
             UIAlertController.showAlert(
-                title: "Error",
-                message: "Please enter a card number.",
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.enterCardNumber,
                 viewController: self
             )
             return
@@ -295,8 +301,87 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         )
         guard isDigits, number.count == 16 else {
             UIAlertController.showAlert(
-                title: "Invalid Card",
-                message: "Card number must be exactly 16 digits.",
+                title: Main.Alert.invalidCard,
+                message: Main.Alert.invalidCardMsg,
+                viewController: self
+            )
+            return
+        }
+
+        // 2. Validate Expiry Month
+        guard let monthText = txtMonth.text,
+            let month = Int(monthText),
+            (1...12).contains(month)
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errMonth,
+                viewController: self
+            )
+            return
+        }
+
+        // 3. Validate Expiry Year
+        guard let yearText = txtYear.text,
+            let year = Int(yearText)
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errYear,
+                viewController: self
+            )
+            return
+        }
+        let currentYear = Calendar.current.component(.year, from: Date())
+        guard year >= currentYear else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.cardExpiry,
+                viewController: self
+            )
+            return
+        }
+
+        // 4. Validate Security Code
+        guard let cvv = txtSecurityCode.text,
+            cvv.count == 3,
+            CharacterSet.decimalDigits.isSuperset(
+                of: CharacterSet(charactersIn: cvv)
+            )
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errSecurityCode,
+                viewController: self
+            )
+            return
+        }
+
+        // 5. Validate First Name
+        guard
+            let personFirstName = txtFirstName.text?.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ),
+            !personFirstName.isEmpty
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.firstName,
+                viewController: self
+            )
+            return
+        }
+
+        // 6. Validate Last Name
+        guard
+            let personLastName = txtLastName.text?.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ),
+            !personLastName.isEmpty
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.lastName,
                 viewController: self
             )
             return
@@ -328,8 +413,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             )
         else {
             UIAlertController.showAlert(
-                title: "Error",
-                message: "No logged-in user found.",
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.noLoggedInUser,
                 viewController: self
             )
             return
@@ -341,8 +426,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
         // Step 5: Update UI
         UIAlertController.showAlert(
-            title: "Success",
-            message: "Card Added Successfully",
+            title: Main.Alert.successTitle,
+            message: Main.Alert.cardSuccessMsg,
             viewController: self
         )
 
@@ -365,6 +450,11 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
         self.tabBarController?.tabBar.isHidden = false
         txtCardNumber.text = ""
+        txtFirstName.text = ""
+        txtLastName.text = ""
+        txtMonth.text = ""
+        txtYear.text = ""
+        txtSecurityCode.text = ""
     }
 
     @IBAction func btnTrackMyOrderClick(_ sender: Any) {

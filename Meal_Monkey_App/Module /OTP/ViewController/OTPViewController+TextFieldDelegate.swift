@@ -60,9 +60,6 @@ extension OTPViewController: UITextFieldDelegate {
     }
 }
 
-
-
-
 extension OTPViewController: OTPFieldViewDelegate {
     func shouldBecomeFirstResponderForOTP(otpTextFieldIndex index: Int) -> Bool {
         return true

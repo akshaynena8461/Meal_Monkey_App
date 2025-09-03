@@ -5,24 +5,24 @@ class LoginViewController: UIViewController {
 
     // MARK: - IBOutlets
     @IBOutlet weak var viewScroll: UIScrollView!
-    @IBOutlet weak var stackPassword: UIStackView! // Stack containing password field and eye button
-    @IBOutlet weak var btnEye: UIButton! // Button to toggle password visibility
-    @IBOutlet weak var btnSignUp: UIButton! // Navigate to SignUp screen
-    @IBOutlet weak var btngooglelogin: UIButton! // Google login button
-    @IBOutlet weak var btnfacebooklogin: UIButton! // Facebook login button
-    @IBOutlet weak var btnforgotpassword: UIButton! // Navigate to Forgot Password screen
-    @IBOutlet weak var txtPassword: UITextField! // Password input
-    @IBOutlet weak var btnlogin: UIButton! // Login button
-    @IBOutlet weak var txtEmail: UITextField! // Email input
+    @IBOutlet weak var stackPassword: UIStackView!  // Stack containing password field and eye button
+    @IBOutlet weak var btnEye: UIButton!  // Button to toggle password visibility
+    @IBOutlet weak var btnSignUp: UIButton!  // Navigate to SignUp screen
+    @IBOutlet weak var btngooglelogin: UIButton!  // Google login button
+    @IBOutlet weak var btnfacebooklogin: UIButton!  // Facebook login button
+    @IBOutlet weak var btnforgotpassword: UIButton!  // Navigate to Forgot Password screen
+    @IBOutlet weak var txtPassword: UITextField!  // Password input
+    @IBOutlet weak var btnlogin: UIButton!  // Login button
+    @IBOutlet weak var txtEmail: UITextField!  // Email input
 
     // MARK: - Variables
-    var isPasswordVisible = false // Tracks password visibility
+    var isPasswordVisible = false  // Tracks password visibility
 
     // MARK: - Lifecycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
         self.navigationController?.navigationBar.isHidden = true
-        
+
         viewScroll.showsVerticalScrollIndicator = false
 
         // Fetch all existing users from Core Data (for debug/log purposes)
@@ -105,9 +105,12 @@ class LoginViewController: UIViewController {
     @IBAction func btnforgotpasswordclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let forgotPasswordVC = storyboard.instantiateViewController(
-            withIdentifier: "ForgotPasswordViewController"
+            withIdentifier: Main.ViewControllers.forgotPassword
         ) as? ForgotPasswordViewController {
-            self.navigationController?.pushViewController(forgotPasswordVC, animated: true)
+            self.navigationController?.pushViewController(
+                forgotPasswordVC,
+                animated: true
+            )
         }
     }
 
@@ -125,9 +128,12 @@ class LoginViewController: UIViewController {
     @IBAction func btnSignUpclick(_ sender: Any) {
         let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(
-            withIdentifier: "SignUpViewController"
+            withIdentifier: Main.ViewControllers.SignUp
         ) as? SignUpViewController {
-            self.navigationController?.pushViewController(signUpVC, animated: true)
+            self.navigationController?.pushViewController(
+                signUpVC,
+                animated: true
+            )
         }
     }
 
@@ -146,7 +152,8 @@ class LoginViewController: UIViewController {
 
     // MARK: - Fetch All Users (Debugging/Logging)
     func fetchAllUsers() {
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate
+        else { return }
         let context = appDelegate.persistentContainer.viewContext
 
         let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
@@ -159,11 +166,18 @@ class LoginViewController: UIViewController {
             } else {
                 print("Users found: \(users.count)")
                 for (index, user) in users.enumerated() {
-                    let username = user.value(forKey: "name") as? String ?? "No Name"
-                    let email = user.value(forKey: "email") as? String ?? "No Email"
-                    let address = user.value(forKey: "address") as? String ?? "No Address"
-                    let password = user.value(forKey: "password") as? String ?? "No Password"
-                    let mobile = user.value(forKey: "mobileNumber") as? String ?? "No MobileNumber"
+                    let username =
+                        user.value(forKey: "name") as? String ?? "No Name"
+                    let email =
+                        user.value(forKey: "email") as? String ?? "No Email"
+                    let address =
+                        user.value(forKey: "address") as? String ?? "No Address"
+                    let password =
+                        user.value(forKey: "password") as? String
+                        ?? "No Password"
+                    let mobile =
+                        user.value(forKey: "mobileNumber") as? String
+                        ?? "No MobileNumber"
 
                     print(
                         "User \(index + 1): \(username), \(email), \(password), \(address), \(mobile)"

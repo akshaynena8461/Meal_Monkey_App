@@ -49,7 +49,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         case 0:  // Food category
             print("Food")
             if let foodVC = storyboard.instantiateViewController(
-                withIdentifier: "DessertsViewController"
+                withIdentifier: Main.ViewControllers.Dessert
             ) as? DessertsViewController {
                 foodVC.selectedProductType = .food
                 self.navigationController?.pushViewController(
@@ -61,7 +61,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         case 1:  // Beverages category
             print("Beverages")
             if let beveragesVC = storyboard.instantiateViewController(
-                withIdentifier: "DessertsViewController"
+                withIdentifier: Main.ViewControllers.Dessert
             ) as? DessertsViewController {
                 beveragesVC.selectedProductType = .Beverages
                 self.navigationController?.pushViewController(
@@ -73,7 +73,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
         case 2:  // Desserts category
             print("Desserts")
             if let dessertVC = storyboard.instantiateViewController(
-                withIdentifier: "DessertsViewController"
+                withIdentifier: Main.ViewControllers.Dessert
             ) as? DessertsViewController {
                 dessertVC.selectedProductType = .Desserts
                 self.navigationController?.pushViewController(
@@ -95,7 +95,7 @@ extension MenuBarViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Instantiate CartViewController and push it onto the navigation stack
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,

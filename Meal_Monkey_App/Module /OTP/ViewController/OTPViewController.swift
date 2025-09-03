@@ -49,7 +49,7 @@ class OTPViewController: UIViewController {
     @IBAction func btnNextClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let newPasswordVc = storyboard.instantiateViewController(
-            withIdentifier: "NewPasswordViewController"
+            withIdentifier: Main.ViewControllers.NewPassword
         ) as? NewPasswordViewController {
             self.navigationController?.pushViewController(
                 newPasswordVc,
@@ -61,8 +61,8 @@ class OTPViewController: UIViewController {
     /// Action for "Did not receive OTP" button - shows a confirmation alert
     @IBAction func btnDoNotReceiveClick(_ sender: Any) {
         UIAlertController.showAlert(
-            title: "Success",
-            message: "OTP Sent Successfully",
+            title: Main.Alert.successTitle,
+            message: Main.Alert.OtpSuccessMsg,
             viewController: self
         )
     }

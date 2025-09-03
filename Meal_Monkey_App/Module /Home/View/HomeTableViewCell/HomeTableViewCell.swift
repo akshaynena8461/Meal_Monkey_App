@@ -52,18 +52,13 @@ class HomeTableViewCell: UITableViewCell {
         homeCollectionView.delegate = self
 
         // Register different collection view cells
-        homeCollectionView.register(
-            UINib(nibName: "RecentItemCollectionViewCell", bundle: nil),
-            forCellWithReuseIdentifier: "RecentItemCollectionViewCell"
-        )
-
         registerCells(
             for: homeCollectionView,
             cells: [
-                ("ProductCategoryCollectionViewCell", "ProductCategoryCollectionViewCell"),
-                ("PopularItemCollectionViewCell", "PopularItemCollectionViewCell"),
-                ("MostPopularCollectionViewCell", "MostPopularCollectionViewCell"),
-                ("RecentItemCollectionViewCell", "RecentItemCollectionViewCell")
+                (Main.CellIdentifiers.ProductCategoryCollectionViewCell,Main.CellIdentifiers.ProductCategoryCollectionViewCell),
+                (Main.CellIdentifiers.PopularItemCollectionViewCell,Main.CellIdentifiers.PopularItemCollectionViewCell),
+                (Main.CellIdentifiers.MostPopularCollectionViewCell,Main.CellIdentifiers.MostPopularCollectionViewCell),
+                (Main.CellIdentifiers.RecentItemCollectionViewCell,Main.CellIdentifiers.RecentItemCollectionViewCell)
             ]
         )
     }
@@ -117,7 +112,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
         case .category:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "ProductCategoryCollectionViewCell",
+                withReuseIdentifier: Main.CellIdentifiers.ProductCategoryCollectionViewCell,
                 for: indexPath
             ) as! ProductCategoryCollectionViewCell
             cell.confingProductCategory(category: categories[indexPath.row])
@@ -131,7 +126,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
         case .popular:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "PopularItemCollectionViewCell",
+                withReuseIdentifier: Main.CellIdentifiers.PopularItemCollectionViewCell,
                 for: indexPath
             ) as! PopularItemCollectionViewCell
             cell.configPopularProduct(product: arrProducts[indexPath.row])
@@ -139,7 +134,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
         case .mostPopular:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "MostPopularCollectionViewCell",
+                withReuseIdentifier: Main.CellIdentifiers.MostPopularCollectionViewCell,
                 for: indexPath
             ) as! MostPopularCollectionViewCell
             cell.congigMostPopularCell(product: arrProducts[indexPath.row])
@@ -147,7 +142,7 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
 
         case .RecentItems:
             let cell = collectionView.dequeueReusableCell(
-                withReuseIdentifier: "RecentItemCollectionViewCell",
+                withReuseIdentifier: Main.CellIdentifiers.RecentItemCollectionViewCell,
                 for: indexPath
             ) as! RecentItemCollectionViewCell
             cell.configureRecentItemCell(recentItem: arrProducts[indexPath.row])

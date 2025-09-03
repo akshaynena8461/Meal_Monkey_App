@@ -67,8 +67,8 @@ class AboutUsViewController: UIViewController {
     // MARK: - Button Actions
     @objc func cartButtonTapped() {
         print("Cart button tapped")
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
-        if let cartVc = storyboard.instantiateViewController(withIdentifier: "CartViewController") as? CartViewController {
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        if let cartVc = storyboard.instantiateViewController(withIdentifier: Main.ViewControllers.Cart) as? CartViewController {
             self.navigationController?.pushViewController(cartVc, animated: true)
         }
     }

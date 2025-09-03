@@ -23,7 +23,7 @@ class ProfileViewController: UIViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         NotificationCenter.default.addObserver(
             self,
             selector: #selector(updateCartBadge),
@@ -37,7 +37,7 @@ class ProfileViewController: UIViewController {
         btnSave.isHidden = true
 
         disableUserInteraction(textFields: [
-            txtName, txtEmail, txtMobile, txtAddress,imgProfile
+            txtName, txtEmail, txtMobile, txtAddress, imgProfile,
         ])
 
         // Set up profile image appearance
@@ -69,8 +69,8 @@ class ProfileViewController: UIViewController {
             paddingWidth: 34
         )
     }
-    
-    @objc func updateCartBadge(){
+
+    @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartBtnTapped))
     }
 
@@ -98,9 +98,12 @@ class ProfileViewController: UIViewController {
     // MARK: - Cart Button Action
     @objc func cartBtnTapped() {
         print("Cart Btn Tapped")
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,
@@ -115,7 +118,7 @@ class ProfileViewController: UIViewController {
 
         btnSave.isHidden = false
         enableUserInteraction(textFields: [
-            txtName, txtMobile, txtEmail, txtAddress,imgProfile
+            txtName, txtMobile, txtEmail, txtAddress, imgProfile,
         ])
 
     }
@@ -128,7 +131,7 @@ class ProfileViewController: UIViewController {
         // Navigate to Login screen
         let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signOutVc = storyboard.instantiateViewController(
-            withIdentifier: "LoginViewController"
+            withIdentifier: Main.ViewControllers.Login
         ) as? LoginViewController {
             self.navigationController?.pushViewController(
                 signOutVc,
@@ -136,7 +139,7 @@ class ProfileViewController: UIViewController {
             )
         }
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         fetUserData()
     }
@@ -215,8 +218,8 @@ class ProfileViewController: UIViewController {
                 if !existingUsers.isEmpty {
                     print("❌ Duplicate email found: \(newEmail)")
                     UIAlertController.showAlert(
-                        title: "Email Exists",
-                        message: "This email is already registered.",
+                        title: Main.Alert.emailexistingTitle,
+                        message: Main.Alert.emailexistinMsg,
                         viewController: self
                     )
                     return
@@ -224,6 +227,23 @@ class ProfileViewController: UIViewController {
             } catch {
                 print("❌ Error checking existing email: \(error)")
             }
+        }
+        if !isValidEmail(txtEmail.text ?? "") {
+            UIAlertController.showAlert(
+                title: Main.Alert.invalidEmailTitle,
+                message: Main.Alert.invalidEmailMsg,
+                viewController: self
+            )
+            return
+        }
+
+        if !isValidateMobileNumber(txtMobile.text ?? "") {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.invalidMobile,
+                viewController: self
+            )
+            return
         }
 
         // 3️⃣ Fetch the logged-in user
@@ -250,6 +270,13 @@ class ProfileViewController: UIViewController {
                 if let mobile = txtMobile.text, !mobile.isEmpty {
                     user.setValue(mobile, forKey: "mobileNumber")
                 }
+                if !isValidateMobileNumber(txtMobile.text ?? "") {
+                    UIAlertController.showAlert(
+                        title: Main.Alert.errorTitle,
+                        message: Main.Alert.invalidMobile,
+                        viewController: self
+                    )
+                }
                 if let address = txtAddress.text, !address.isEmpty {
                     user.setValue(address, forKey: "address")
                 }
@@ -266,7 +293,9 @@ class ProfileViewController: UIViewController {
                 try context.save()
                 print("💾 User saved successfully")
                 btnSave.isHidden = true
-                disableUserInteraction(textFields: [txtName,txtEmail,txtMobile,txtAddress,imgProfile])
+                disableUserInteraction(textFields: [
+                    txtName, txtEmail, txtMobile, txtAddress, imgProfile,
+                ])
 
                 // 7️⃣ Update UserDefaults if email changed
                 if let updatedEmail = txtEmail.text, !updatedEmail.isEmpty {
@@ -281,8 +310,8 @@ class ProfileViewController: UIViewController {
 
                 // 8️⃣ Show success alert
                 UIAlertController.showAlert(
-                    title: "Success",
-                    message: "Profile Updated Successfully ✅",
+                    title: Main.Alert.successTitle,
+                    message: Main.Alert.ProfileUpdate,
                     viewController: self
                 )
             } else {

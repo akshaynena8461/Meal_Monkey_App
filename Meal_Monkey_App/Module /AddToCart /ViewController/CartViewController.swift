@@ -101,22 +101,6 @@ class CartViewController: UIViewController {
         self.navigationController?.popViewController(animated: true)
     }
 
-    @objc func cartBtnTapped() {
-        // Navigate to CartViewController
-        let storyboard = UIStoryboard(
-            name: Main.StoryBoard.ProductStoryBoard,
-            bundle: nil
-        )
-        if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
-        ) as? CartViewController {
-            self.navigationController?.pushViewController(
-                cartVc,
-                animated: true
-            )
-        }
-    }
-
     // MARK: - Helper Methods
     /// Updates product objects to reflect whether they are in wishlist
     func updateWishlistData() {
@@ -163,7 +147,7 @@ class CartViewController: UIViewController {
             bundle: nil
         )
         if let orderlistVc = storyboard.instantiateViewController(
-            withIdentifier: "OrderListViewController"
+            withIdentifier: Main.ViewControllers.Orderlist
         ) as? OrderListViewController {
             self.navigationController?.pushViewController(
                 orderlistVc,

@@ -16,6 +16,10 @@ struct Main {
         static let OrderListTableViewCell = "OrderListTableViewCell"
         static let PaymentTableViewCell = "PaymentTableViewCell"
         static let ServiceCollectionViewCell = "ServiceCollectionViewCell"
+        static let ProductCategoryCollectionViewCell = "ProductCategoryCollectionViewCell"
+        static let PopularItemCollectionViewCell = "PopularItemCollectionViewCell"
+        static let MostPopularCollectionViewCell = "MostPopularCollectionViewCell"
+        static let RecentItemCollectionViewCell = "RecentItemCollectionViewCell"
     }
 
     struct Image {
@@ -59,10 +63,23 @@ struct Main {
         static let notMatchPasswordTitle = "Password do not Match"
         static let notMatchPasswordMsg = "Password and Confirm Password must be the same."
         static let userRegisterSuccessMsg = "User Saved Successfully"
-        static let successTitle = "Success"
         static let errorTitle = "Error"
-        
-        
+        static let noLoggedInUser = "No logged-in user found."
+        static let successTitle = "Success"
+        static let OtpSuccessMsg = "OTP Sent Successfully"
+        static let cardSuccessMsg = "Card Added Successfully"
+        static let invalidCard = "Invalid Card"
+        static let invalidCardMsg =  "Card number must be exactly 16 digits."
+        static let enterCardNumber = "Please enter a card number."
+        static let firstName = "Please enter your first name"
+        static let lastName = "Please enter your last name"
+        static let errMonth = "Please enter a valid expiry month (01 - 12)"
+        static let errYear = "Please enter a valid expiry year"
+        static let cardExpiry = "Card has already expired"
+        static let errSecurityCode = "Please enter a valid 3-digit security code"
+        static let invalidMobile = "Please enter a valid 10-digit mobile number"
+        static let ProfileUpdate = "Profile Updated Successfully ✅"
+    
     }
 
     struct StoryBoard {
@@ -75,4 +92,91 @@ struct Main {
         static let User = "User"
     }
     
+    struct AboutUs {
+        static let strTxt1 = "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."
+        static let strTxt2 =  "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."
+        static let strTxt3 = "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone."
+        static let strTxt4 = "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable."
+        static let strTxt5 = "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times."
+        static let strTxt6 = "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services."
+        static let strTxt7 = "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact."
+    }
+    
+    struct Notification {
+        static let notification1 = "Order placed successfully"
+        static let notificationTime = "6d ago"
+        static let notification2 = "Your payment has been confirmed"
+        static let notification3 = "Your food is being prepared"
+        static let notification4 = "Delivery agent assigned"
+        static let notification5 = "Your order is on the way"
+        static let notification6 = "Special discount available!"
+        static let notification7 = "Download our new app update"
+        static let notification8 =  "Refer a friend and earn"
+        static let notification9 = "Limited-time deal ending soon"
+        static let notification10 = "Delivery completed"
+        static let notification11 = "Rate your last meal"
+        static let notification12 = "Weekend offer just for you"
+        static let notification13 = "Free delivery on orders above ₹299"
+        static let notification14 = "Thanks for being with us!"
+        static let notification15 = "New restaurants added near you"
+    }
+    
+    struct Inbox {
+        static let inboxTitle1 =  "MealMonkey Promotions"
+        static let inboxMsg1 =  "Get 20% off on your next meal!"
+        static let inboxTime1 = "6th July"
+        static let inboxTitle2 = "Order Update"
+        static let inboxMsg2 =  "Your order is being prepared by the restaurant."
+        static let inboxTime = "6th July"
+        static let inboxTitle3 =  "Delivery Reminder"
+        static let inboxMsg3 =  "Your delivery agent is on the way."
+        static let inboxTitle4 =  "Welcome to MealMonkey"
+        static let inboxMsg4 = "Thanks for joining us! Start exploring meals."
+        static let inboxTitle5 =  "Rate Your Experience"
+        static let inboxMsg5 =  "How was your recent meal order?"
+        static let inboxTitle6 =  "Flash Sale"
+        static let inboxMsg6 =  "Enjoy 30% off on all pasta orders today only."
+        static let inboxTitle7 =  "New Restaurants"
+        static let inboxMsg7 =  "Discover trending restaurants in your area."
+        static let inboxTitle8 =  "Weekend Special"
+        static let inboxMsg8 =  "Free dessert on orders above ₹499."
+        static let inboxTitle9 =  "MealMonkey Tips"
+        static let inboxMsg9 =  "Customize your orders with special instructions."
+        static let inboxTitle10 =  "Order Cancelled"
+        static let inboxMsg10 =  "Your order has been cancelled as requested."
+    }
+    
+    struct ViewControllers {
+        static let About = "AboutUsViewController"
+        static let Cart = "CartViewController"
+        static let Address = "ChangeAddressViewController"
+        static let Checkout = "CheckOutViewController"
+        static let Dessert = "DessertsViewController"
+        static let forgotPassword = "ForgotPasswordViewController"
+        static let Home = "HomeViewController"
+        static let Login = "LoginViewController"
+        static let Menu = "MenuBarViewController"
+        static let SignUp = "SignUpViewController"
+        static let More = "MoreViewController"
+        static let MyOrder = "MyOrderViewController"
+        static let NewPassword = "NewPasswordViewController"
+        static let Offers = "OffersViewController"
+        static let Orderlist = "OrderListViewController"
+        static let OTP = "OTPViewController"
+        static let payment = "PaymentViewController"
+        static let ProductDetail = "ProductDetailViewController"
+        static let Profile = "ProfileViewController"
+        static let Service = "ServiceViewController"
+        static let Splash = "SplashViewController"
+        static let Wishlist = "WishListViewController"
+    }
+    
+    struct Services {
+        static let serviceTitle1 = "Find Food You Love"
+        static let serviceMsg1 =  "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+        static let serviceTitle2 = "Fast Delivery"
+        static let serviceMsg2 =  "Fast food delivery to your home, office wherever you are"
+        static let serviceTitle3 =  "Live Tracking"
+        static let serviceMsg3 =   "Real time tracking of your food on the app once you placed the order"
+    }
 }

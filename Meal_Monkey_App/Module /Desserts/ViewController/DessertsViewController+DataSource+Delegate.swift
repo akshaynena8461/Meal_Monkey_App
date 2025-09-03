@@ -37,7 +37,7 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         // Instantiate ProductDetailViewController and pass the selected product
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let detailVC = storyboard.instantiateViewController(
-            withIdentifier: "ProductDetailViewController"
+            withIdentifier: Main.ViewControllers.ProductDetail
         ) as? ProductDetailViewController {
             detailVC.products = selectedProduct
 

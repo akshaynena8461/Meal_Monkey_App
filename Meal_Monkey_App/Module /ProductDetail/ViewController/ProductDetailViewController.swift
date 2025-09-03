@@ -337,7 +337,7 @@ class ProductDetailViewController: UIViewController {
             bundle: nil
         )
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             navigationController?.pushViewController(cartVc, animated: true)
         }

@@ -30,7 +30,7 @@ class NewPasswordViewController: UIViewController {
     @IBAction func btnNextClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: Main.StoryBoard.Services, bundle: nil)
         if let servicesVc = storyboard.instantiateViewController(
-            withIdentifier: "ServiceViewController"
+            withIdentifier: Main.ViewControllers.Service
         ) as? ServiceViewController {
             self.navigationController?.pushViewController(servicesVc, animated: true)
         }

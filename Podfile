@@ -6,10 +6,6 @@ target 'Meal_Monkey_App' do
 
   # Pods for Meal_Monkey_App
   pod 'OTPFieldView'
-  pod 'SVProgressHUD'
   pod 'NVActivityIndicatorView'
-  pod 'EmptyDataSet-Swift'
-  pod 'DZNEmptyDataSet'
   pod 'lottie-ios' # for empty label
-
 end

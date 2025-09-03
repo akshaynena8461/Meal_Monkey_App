@@ -11,9 +11,9 @@ class ServiceViewController: UIViewController {
 
     // MARK: - Properties
     var arrService: [String] = [
-        "Find food you love vector",
-        "Delivery vector",
-        "Live tracking vector",
+        Main.Services.serviceTitle1,
+        Main.Services.serviceTitle2,
+        Main.Services.serviceTitle3
     ]  // Array of service images (or descriptions) to display in collection view
 
     // MARK: - Lifecycle
@@ -61,7 +61,7 @@ class ServiceViewController: UIViewController {
                 // User is not logged in, navigate to the Login screen
                 let storyboard = UIStoryboard(name: "User", bundle: nil)
                 if let vc = storyboard.instantiateViewController(
-                    withIdentifier: "LoginViewController"
+                    withIdentifier: Main.ViewControllers.Login
                 ) as? LoginViewController {
                     // Push LoginViewController onto the navigation stack
                     self.navigationController?.pushViewController(
@@ -80,19 +80,19 @@ class ServiceViewController: UIViewController {
     func updateLabels(for page: Int) {
         switch page {
         case 0:
-            lblTItle1.text = "Find Food You Love"
+            lblTItle1.text = Main.Services.serviceTitle1
             lblTitle2.text =
-                "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+            Main.Services.serviceMsg1
             btnNext.setTitle("Next", for: .normal)
         case 1:
-            lblTItle1.text = "Fast Delivery"
+            lblTItle1.text = Main.Services.serviceTitle2
             lblTitle2.text =
-                "Fast food delivery to your home, office wherever you are"
+            Main.Services.serviceMsg2
             btnNext.setTitle("Next", for: .normal)
         case 2:
-            lblTItle1.text = "Live Tracking"
+            lblTItle1.text = Main.Services.serviceTitle3
             lblTitle2.text =
-                "Real time tracking of your food on the app once you placed the order"
+            Main.Services.serviceMsg3
             btnNext.setTitle("Done", for: .normal)
         default:
             break

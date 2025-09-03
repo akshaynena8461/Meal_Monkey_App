@@ -48,7 +48,7 @@ class MoreViewController: UIViewController {
 
         // Instantiate CartViewController and push it onto the navigation stack
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,

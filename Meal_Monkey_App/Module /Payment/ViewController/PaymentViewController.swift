@@ -158,7 +158,7 @@ class PaymentViewController: UIViewController {
     @objc func CartBtnTapped() {
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,
@@ -198,8 +198,8 @@ class PaymentViewController: UIViewController {
             !number.isEmpty
         else {
             UIAlertController.showAlert(
-                title: "Error",
-                message: "Please enter a card number.",
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.enterCardNumber,
                 viewController: self
             )
             return
@@ -211,12 +211,92 @@ class PaymentViewController: UIViewController {
         )
         guard isDigits, number.count == 16 else {
             UIAlertController.showAlert(
-                title: "Invalid Card",
-                message: "Card number must be exactly 16 digits.",
+                title: Main.Alert.invalidCard,
+                message: Main.Alert.invalidCardMsg,
                 viewController: self
             )
             return
         }
+        
+        // 2. Validate Expiry Month
+        guard let monthText = txtMonth.text,
+            let month = Int(monthText),
+            (1...12).contains(month)
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errMonth,
+                viewController: self
+            )
+            return
+        }
+        
+        // 3. Validate Expiry Year
+        guard let yearText = txtYear.text,
+            let year = Int(yearText)
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errYear,
+                viewController: self
+            )
+            return
+        }
+        let currentYear = Calendar.current.component(.year, from: Date())
+        guard year >= currentYear else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.cardExpiry,
+                viewController: self
+            )
+            return
+        }
+        
+        // 4. Validate Security Code
+        guard let cvv = txtSecurityCode.text,
+            cvv.count == 3,
+            CharacterSet.decimalDigits.isSuperset(
+                of: CharacterSet(charactersIn: cvv)
+            )
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.errSecurityCode,
+                viewController: self
+            )
+            return
+        }
+
+        // 5. Validate First Name
+        guard
+            let personFirstName = txtFirstName.text?.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ),
+            !personFirstName.isEmpty
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.firstName,
+                viewController: self
+            )
+            return
+        }
+
+        // 6. Validate Last Name
+        guard
+            let personLastName = txtLastName.text?.trimmingCharacters(
+                in: .whitespacesAndNewlines
+            ),
+            !personLastName.isEmpty
+        else {
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.lastName,
+                viewController: self
+            )
+            return
+        }
+        
 
         // Step 2: Build PaymentModel from inputs
         let cardId = Int.random(in: 1000...9999)
@@ -253,8 +333,8 @@ class PaymentViewController: UIViewController {
         // Step 5: Update UI
 //        lblEmpty.isHidden = true
         UIAlertController.showAlert(
-            title: "Success",
-            message: "Card Added Successfully",
+            title: Main.Alert.successTitle,
+            message: Main.Alert.cardSuccessMsg,
             viewController: self
         )
 

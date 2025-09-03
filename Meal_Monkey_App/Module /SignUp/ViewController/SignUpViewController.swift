@@ -27,8 +27,7 @@ class SignUpViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+
         viewScroll.showsVerticalScrollIndicator = false
         // Apply rounded borders to text fields and buttons
         EditStyle.setborder(
@@ -140,6 +139,16 @@ class SignUpViewController: UIViewController {
             )
             return
         }
+        
+        if !isValidateMobileNumber(mobile){
+            UIAlertController.showAlert(
+                title: Main.Alert.errorTitle,
+                message: Main.Alert.invalidMobile,
+                viewController: self
+            )
+            return
+        }
+        
 
         if address.isEmpty {
             UIAlertController.showAlert(
@@ -152,7 +161,7 @@ class SignUpViewController: UIViewController {
 
         if password.isEmpty {
             UIAlertController.showAlert(
-                title:Main.Alert.passwordMissingTitle,
+                title: Main.Alert.passwordMissingTitle,
                 message: Main.Alert.passwordMissinMsg,
                 viewController: self
             )
@@ -161,8 +170,8 @@ class SignUpViewController: UIViewController {
 
         if !isValidPassword(password) {
             UIAlertController.showAlert(
-                title:Main.Alert.invalidPasswordTitle,
-                message:Main.Alert.invalidPasswordMsg,
+                title: Main.Alert.invalidPasswordTitle,
+                message: Main.Alert.invalidPasswordMsg,
                 viewController: self
             )
             return
@@ -213,8 +222,6 @@ class SignUpViewController: UIViewController {
 
         do {
             try context.save()
-            print("User registered successfully.")
-
             let alert = UIAlertController(
                 title: Main.Alert.successTitle,
                 message: Main.Alert.userRegisterSuccessMsg,

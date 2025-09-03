@@ -21,7 +21,7 @@ class ForgotPasswordViewController: UIViewController {
         // Navigate to OTP verification screen after clicking "Send"
         let storyboard = UIStoryboard(name: Main.StoryBoard.User, bundle: nil)
         if let signUpVC = storyboard.instantiateViewController(
-            withIdentifier: "OTPViewController"
+            withIdentifier: Main.ViewControllers.OTP
         ) as? OTPViewController {
             self.navigationController?.pushViewController(
                 signUpVC,

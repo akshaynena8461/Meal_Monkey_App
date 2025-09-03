@@ -37,7 +37,7 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
         
         // Instantiate the MyOrderViewController
         if let myOrderVc = storyboard.instantiateViewController(
-            withIdentifier: "MyOrderViewController"
+            withIdentifier: Main.ViewControllers.MyOrder
         ) as? MyOrderViewController {
             
             // Pass the selected order's products to MyOrderViewController

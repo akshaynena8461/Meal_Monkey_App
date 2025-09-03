@@ -74,6 +74,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @objc private func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartButtonTapped))
     }
+
     
     // MARK: - Fetch User Data
     func fetchUserData() {
@@ -108,7 +109,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @IBAction func btnCurrentLocationClick(_ sender: Any) {
         let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         if let changeAddressVc = storyboard.instantiateViewController(
-            withIdentifier: "ChangeAddressViewController"
+            withIdentifier: Main.ViewControllers.Address
         ) as? ChangeAddressViewController {
             self.navigationController?.pushViewController(
                 changeAddressVc,
@@ -151,7 +152,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         ) {
             lblAddress.text = savedAddress
         }
-
+        fetchUserData()
         // Load recent items
         arrRecentItem = RecentItemsHelper.shared.getRecentItems()
         tblHomeView.reloadData()
@@ -161,7 +162,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @objc func CartButtonTapped() {
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,
@@ -192,7 +193,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         // Navigate to Product Detail page
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let detailVC = storyboard.instantiateViewController(
-            withIdentifier: "ProductDetailViewController"
+            withIdentifier: Main.ViewControllers.ProductDetail
         ) as? ProductDetailViewController {
             detailVC.products = product
             self.navigationController?.pushViewController(

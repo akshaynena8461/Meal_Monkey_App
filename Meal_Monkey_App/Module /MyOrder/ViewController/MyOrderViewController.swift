@@ -73,7 +73,7 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
         // Navigate to checkout screen
         let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
         if let checkoutVc = storyboard.instantiateViewController(
-            withIdentifier: "CheckOutViewController"
+            withIdentifier: Main.ViewControllers.Checkout
         ) as? CheckOutViewController {
             // Pass the selected order items
             checkoutVc.arrCheckOutData = app.arrOrderDetail

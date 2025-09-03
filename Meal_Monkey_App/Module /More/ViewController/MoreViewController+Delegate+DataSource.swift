@@ -46,7 +46,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             // Payment Details
             print("Payment Details selected")
             if let paymentvc = storyboard.instantiateViewController(
-                withIdentifier: "PaymentViewController"
+                withIdentifier: Main.ViewControllers.payment
             ) as? PaymentViewController {
                 self.navigationController?.pushViewController(paymentvc, animated: true)
             }
@@ -56,7 +56,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             print("My Orders selected")
             let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
             if let orderlistVc = storyboard.instantiateViewController(
-                withIdentifier: "OrderListViewController"
+                withIdentifier: Main.ViewControllers.Orderlist
             ) as? OrderListViewController {
                 self.navigationController?.pushViewController(orderlistVc, animated: true)
             }
@@ -65,7 +65,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             // Notifications
             print("Notification selected")
             if let aboutvc = storyboard.instantiateViewController(
-                withIdentifier: "AboutUsViewController"
+                withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Notification
                 self.navigationController?.pushViewController(aboutvc, animated: true)
@@ -75,7 +75,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             // Inbox
             print("Inbox selected")
             if let aboutvc = storyboard.instantiateViewController(
-                withIdentifier: "AboutUsViewController"
+                withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Inbox
                 self.navigationController?.pushViewController(aboutvc, animated: true)
@@ -85,7 +85,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             // About Us
             print("About Us selected")
             if let aboutvc = storyboard.instantiateViewController(
-                withIdentifier: "AboutUsViewController"
+                withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
                 self.navigationController?.pushViewController(aboutvc, animated: true)
             }
@@ -94,7 +94,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             // WishList
             print("WishList Page")
             if let wishlistVc = storyboard.instantiateViewController(
-                withIdentifier: "WishListViewController"
+                withIdentifier: Main.ViewControllers.Wishlist
             ) as? WishListViewController {
                 // Uncomment and set wishlist items if needed
                 // wishlistVc.arrWishlistItems = app.arrWishList
