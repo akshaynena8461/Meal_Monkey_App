@@ -46,9 +46,14 @@ extension PaymentViewController: UITableViewDelegate, UITableViewDataSource {
             }
             app.arrCard.remove(at: indexPath.row)
             if app.arrCard.isEmpty {
-                self.setEmptyBackgroundViewWithLottie()
+                self.setEmptyBackgroundViewWithLottie(
+                    tableView: self.tblPaymentView,
+                    animationName: "Credit card",
+                    message: "No Cards"
+                )
+
             }
-            
+
             self.tblPaymentView.reloadData()
         }
 

@@ -19,7 +19,7 @@ class CartViewController: UIViewController {
         // Show/hide empty label and place order button depending on cart
         if app.arrCart.isEmpty {
             //            lblEmpty.isHidden = false
-            setEmptyBackgroundViewWithLottie()
+            setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
             btnPlaceOrder.isHidden = true
         } else {
             lblEmpty.isHidden = true
@@ -62,7 +62,7 @@ class CartViewController: UIViewController {
             // Fetch cart for the current user
             app.arrCart = CoreDataManager.shared.fetchCart(for: loggedInUser)
             if app.arrCart.isEmpty {
-                setEmptyBackgroundViewWithLottie()
+                setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
             } else {
                 tblCartView.backgroundView = nil  
             }
@@ -70,32 +70,7 @@ class CartViewController: UIViewController {
         }
     }
 
-    func setEmptyBackgroundViewWithLottie() {
-        let backgroundView = UIView(frame: self.view.bounds)
-
-        // Lottie Animation View
-        let animationView = LottieAnimationView(name: "Empty Cart")
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-
-        backgroundView.addSubview(animationView)
-
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
-            animationView.centerYAnchor.constraint(
-                equalTo: backgroundView.centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 100),
-            animationView.heightAnchor.constraint(equalToConstant: 100),
-
-        ])
-
-        tblCartView.backgroundView = backgroundView
-    }
-
+   
     // MARK: - Navigation
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -157,7 +132,7 @@ class CartViewController: UIViewController {
 
         // Update UI for empty cart
         //        lblEmpty.isHidden = false
-        setEmptyBackgroundViewWithLottie()
+        setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
         btnPlaceOrder.isHidden = true
         tblCartView.reloadData()
     }

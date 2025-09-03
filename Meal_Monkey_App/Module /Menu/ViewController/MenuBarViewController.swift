@@ -59,27 +59,6 @@ class MenuBarViewController: UIViewController {
         )
     }
 
-    func setEmptyBackgroundViewWithLottie(animationName: String) {
-        let backgroundView = UIView(frame: self.view.bounds)
-
-        // Lottie Animation View
-        let animationView = LottieAnimationView(name: animationName)
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-        backgroundView.addSubview(animationView)
-
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(equalTo: backgroundView.centerXAnchor),
-            animationView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200)
-        ])
-
-        tblMenuView.backgroundView = backgroundView
-    }
-
     // MARK: - Actions
     /// Opens the cart view controller when cart button is tapped
     @objc func openCart() {
@@ -125,7 +104,7 @@ class MenuBarViewController: UIViewController {
         if filteredMenuData.isEmpty {
             // Nothing matched search → show empty state
             sideImage.isHidden = true
-            setEmptyBackgroundViewWithLottie(animationName: "empty")
+            setEmptyBackgroundViewWithLottie(tableView:tblMenuView,animationName: "empty", message: "No Products Found")
         } else {
             // Data found → hide empty state
             sideImage.isHidden = false

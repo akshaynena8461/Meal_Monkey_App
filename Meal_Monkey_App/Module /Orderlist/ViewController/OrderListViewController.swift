@@ -13,7 +13,7 @@ class OrderListViewController: UIViewController {
         lblEmpty.isHidden = true
 
         if app.arrOrder.isEmpty {
-            setEmptyBackgroundViewWithLottie()
+            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: "Orderlist is Empty")
         }
 
         setLeftAlignedTitleWithBack(
@@ -50,54 +50,11 @@ class OrderListViewController: UIViewController {
 
         // Show/hide empty label depending on whether there are orders
         if app.arrOrder.isEmpty {
-            setEmptyBackgroundViewWithLottie()
+            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: "Orderlist is Empty")
         } else {
             tblOrderList.backgroundView = nil  // 👈 remove empty view
         }
         tblOrderList.reloadData()
-    }
-
-    func setEmptyBackgroundViewWithLottie() {
-        let backgroundView = UIView(frame: self.view.bounds)
-
-        // Lottie Animation View
-        let animationView = LottieAnimationView(name: "Empty Order")
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-
-        // Label
-        let messageLabel = UILabel()
-        messageLabel.textColor = .gray
-        messageLabel.textAlignment = .center
-        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
-        messageLabel.translatesAutoresizingMaskIntoConstraints = false
-
-        backgroundView.addSubview(animationView)
-        backgroundView.addSubview(messageLabel)
-
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
-            animationView.centerYAnchor.constraint(
-                equalTo: backgroundView.centerYAnchor,
-                constant: -40
-            ),
-            animationView.widthAnchor.constraint(equalToConstant: 200),
-            animationView.heightAnchor.constraint(equalToConstant: 200),
-
-            messageLabel.topAnchor.constraint(
-                equalTo: animationView.bottomAnchor,
-                constant: 16
-            ),
-            messageLabel.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
-        ])
-
-        tblOrderList.backgroundView = backgroundView
     }
 
     /// Back button action

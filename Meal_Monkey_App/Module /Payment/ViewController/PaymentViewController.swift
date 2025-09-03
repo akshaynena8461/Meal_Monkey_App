@@ -1,5 +1,5 @@
-import UIKit
 import Lottie
+import UIKit
 
 class PaymentViewController: UIViewController {
 
@@ -41,9 +41,9 @@ class PaymentViewController: UIViewController {
         addCardPageView.isHidden = true
 
         // Show "No cards" label if the card list is empty
-//        lblEmpty.isHidden = !app.arrCard.isEmpty
+        //        lblEmpty.isHidden = !app.arrCard.isEmpty
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie()
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
         }
 
         // Apply styles to scroll and page views
@@ -78,7 +78,10 @@ class PaymentViewController: UIViewController {
 
         // Register the payment table view cell
         tblPaymentView.register(
-            UINib(nibName: Main.CellIdentifiers.PaymentTableViewCell, bundle: nil),
+            UINib(
+                nibName: Main.CellIdentifiers.PaymentTableViewCell,
+                bundle: nil
+            ),
             forCellReuseIdentifier: Main.CellIdentifiers.PaymentTableViewCell
         )
         tblPaymentView.reloadData()
@@ -88,9 +91,8 @@ class PaymentViewController: UIViewController {
         super.viewWillAppear(animated)
         fetchUserCards()
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie()
-        }
-        else {
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
+        } else {
             tblPaymentView.backgroundView = nil
         }
         tblPaymentView.reloadData()
@@ -99,32 +101,6 @@ class PaymentViewController: UIViewController {
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
-    }
-    
-    func setEmptyBackgroundViewWithLottie() {
-        let backgroundView = UIView(frame: self.view.bounds)
-
-        // Lottie Animation View
-        let animationView = LottieAnimationView(name: "Credit card")
-        animationView.contentMode = .scaleAspectFit
-        animationView.loopMode = .loop
-        animationView.play()
-        animationView.translatesAutoresizingMaskIntoConstraints = false
-
-        backgroundView.addSubview(animationView)
-
-        NSLayoutConstraint.activate([
-            animationView.centerXAnchor.constraint(
-                equalTo: backgroundView.centerXAnchor
-            ),
-            animationView.centerYAnchor.constraint(
-                equalTo: backgroundView.centerYAnchor),
-            animationView.widthAnchor.constraint(equalToConstant: 100),
-            animationView.heightAnchor.constraint(equalToConstant: 100),
-
-        ])
-
-        tblPaymentView.backgroundView = backgroundView
     }
 
     // MARK: - UI Styling Functions
@@ -156,7 +132,10 @@ class PaymentViewController: UIViewController {
 
     // MARK: - Navigation Actions
     @objc func CartBtnTapped() {
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
@@ -182,9 +161,9 @@ class PaymentViewController: UIViewController {
         app.arrCard = CoreDataManager.shared.fetchCards(for: user)
 
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie()
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
         }
-        
+
         tblPaymentView.reloadData()
     }
 
@@ -217,7 +196,7 @@ class PaymentViewController: UIViewController {
             )
             return
         }
-        
+
         // 2. Validate Expiry Month
         guard let monthText = txtMonth.text,
             let month = Int(monthText),
@@ -230,7 +209,7 @@ class PaymentViewController: UIViewController {
             )
             return
         }
-        
+
         // 3. Validate Expiry Year
         guard let yearText = txtYear.text,
             let year = Int(yearText)
@@ -251,7 +230,7 @@ class PaymentViewController: UIViewController {
             )
             return
         }
-        
+
         // 4. Validate Security Code
         guard let cvv = txtSecurityCode.text,
             cvv.count == 3,
@@ -296,7 +275,6 @@ class PaymentViewController: UIViewController {
             )
             return
         }
-        
 
         // Step 2: Build PaymentModel from inputs
         let cardId = Int.random(in: 1000...9999)
@@ -331,7 +309,7 @@ class PaymentViewController: UIViewController {
         fetchUserCards()
 
         // Step 5: Update UI
-//        lblEmpty.isHidden = true
+        //        lblEmpty.isHidden = true
         UIAlertController.showAlert(
             title: Main.Alert.successTitle,
             message: Main.Alert.cardSuccessMsg,

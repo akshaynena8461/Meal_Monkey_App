@@ -17,7 +17,7 @@ extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
         // Dequeue a reusable cell
         let cell =
             tblWishlist.dequeueReusableCell(
-                withIdentifier: "CartTableViewCell",
+                withIdentifier: Main.CellIdentifiers.CartTableViewCell,
                 for: indexPath
             ) as! CartTableViewCell
 
@@ -52,9 +52,13 @@ extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
             // Remove product from wishlist array
             app.arrWishList.remove(at: indexPath.row)
 
-            // Show or hide "empty" label based on array count
-            self.lblEmpty.isHidden = !app.arrWishList.isEmpty
-
+            if app.arrWishList.isEmpty {
+                self.setEmptyBackgroundViewWithLottie(
+                    tableView: self.tblWishlist,
+                    animationName: "like button",
+                    message: "Wishlist is Empty"
+                )
+            }
             // Reload the table view to reflect changes
             self.tblWishlist.reloadData()
 

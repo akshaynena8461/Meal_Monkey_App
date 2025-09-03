@@ -1,4 +1,5 @@
 import Foundation
+import Lottie
 import UIKit
 
 extension UIViewController {
@@ -81,4 +82,52 @@ extension UIViewController {
             }
         }
     }
+
+    func setEmptyBackgroundViewWithLottie(
+        tableView: UITableView,
+        animationName: String,
+        message: String
+    ) {
+        let backgroundView = UIView(frame: self.view.bounds)
+
+        // Lottie Animation View
+        let animationView = LottieAnimationView(name: animationName)
+        animationView.contentMode = .scaleAspectFit
+        animationView.loopMode = .loop
+        animationView.play()
+        animationView.translatesAutoresizingMaskIntoConstraints = false
+
+        // Label
+        let messageLabel = UILabel()
+        messageLabel.text = message
+        messageLabel.textColor = .gray
+        messageLabel.textAlignment = .center
+        messageLabel.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        messageLabel.translatesAutoresizingMaskIntoConstraints = false
+
+        backgroundView.addSubview(animationView)
+        backgroundView.addSubview(messageLabel)
+
+        NSLayoutConstraint.activate([
+            animationView.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+            animationView.centerYAnchor.constraint(
+                equalTo: backgroundView.centerYAnchor,
+                constant: -40
+            ),
+            animationView.widthAnchor.constraint(equalToConstant: 200),
+            animationView.heightAnchor.constraint(equalToConstant: 200),
+
+            messageLabel.topAnchor.constraint(
+                equalTo: animationView.bottomAnchor,
+                constant: 16
+            ),
+            messageLabel.centerXAnchor.constraint(
+                equalTo: backgroundView.centerXAnchor
+            ),
+        ])
+        tableView.backgroundView = backgroundView
+    }
+
 }

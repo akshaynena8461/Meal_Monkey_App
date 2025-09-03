@@ -50,7 +50,7 @@ class OffersViewController: UIViewController {
         print("Cart Tapped")
         let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,

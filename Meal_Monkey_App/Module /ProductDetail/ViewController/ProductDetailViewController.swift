@@ -1,6 +1,6 @@
 import CoreData
-import UIKit
 import NVActivityIndicatorView
+import UIKit
 
 class ProductDetailViewController: UIViewController {
 
@@ -49,7 +49,7 @@ class ProductDetailViewController: UIViewController {
         // Hide product detail UI initially while loading
         ProductDetailView.isHidden = true
         imgProduct.isHidden = true
-        
+
         MyActivityIndicator()
 
         self.navigationController?.isNavigationBarHidden = true
@@ -127,7 +127,7 @@ class ProductDetailViewController: UIViewController {
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
     }
-    
+
     func MyActivityIndicator() {
         let frame = CGRect(
             x: (view.frame.width - 50) / 2,
@@ -145,7 +145,7 @@ class ProductDetailViewController: UIViewController {
         view.addSubview(activityIndicator)
         showLoader()
     }
-    
+
     func showLoader() {
         activityIndicator.startAnimating()
     }
@@ -153,14 +153,13 @@ class ProductDetailViewController: UIViewController {
     func hideLoader() {
         activityIndicator.stopAnimating()
     }
-   
 
     @objc private func updateCartBadge() {
         setCartButtonInProductDetail(
             target: self,
             action: #selector(cartBtnTapped),
         )
-        
+
         let cartCount = CartManager.shared.count
         tabBarController?.tabBar.items?[2].badgeValue =
             cartCount > 0 ? "\(cartCount)" : nil
@@ -286,6 +285,18 @@ class ProductDetailViewController: UIViewController {
         if quantity > 1 {
             quantity -= 1
             updatePriceAndQuantityUI()
+        }
+    }
+
+    @IBAction func btnCartClick(_ sender: Any) {
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
+        if let cartVc = storyboard.instantiateViewController(
+            withIdentifier: Main.ViewControllers.Cart
+        ) as? CartViewController {
+            navigationController?.pushViewController(cartVc, animated: true)
         }
     }
 

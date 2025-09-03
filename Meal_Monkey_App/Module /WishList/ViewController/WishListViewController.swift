@@ -1,4 +1,5 @@
 import UIKit
+import Lottie
 
 class WishListViewController: UIViewController {
 
@@ -9,7 +10,8 @@ class WishListViewController: UIViewController {
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
+        lblEmpty.isHidden = true
         // Set the navigation title with back button
         setLeftAlignedTitleWithBack(
             "Wishlist",
@@ -26,6 +28,7 @@ class WishListViewController: UIViewController {
             forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell
         )
     }
+    
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -49,10 +52,10 @@ class WishListViewController: UIViewController {
         app.arrWishList = HomeViewController.arrProductData.filter {
             wishlistIds.contains($0.intId)
         }
-
-        // Show or hide the "empty" label based on wishlist count
-        lblEmpty.isHidden = !app.arrWishList.isEmpty
         
+        if app.arrWishList.isEmpty {
+            setEmptyBackgroundViewWithLottie(tableView:tblWishlist,animationName: "like button", message: "Wishlist is Empty")
+        }
         // Reload table view to reflect the latest wishlist
         tblWishlist.reloadData()
     }
@@ -66,9 +69,9 @@ class WishListViewController: UIViewController {
 
     @objc func cartBtnTapped() {
         // Navigate to the CartViewController
-        let storyboard = UIStoryboard(name: "ProductStoryBoard", bundle: nil)
+        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
         if let cartVc = storyboard.instantiateViewController(
-            withIdentifier: "CartViewController"
+            withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
             self.navigationController?.pushViewController(
                 cartVc,
