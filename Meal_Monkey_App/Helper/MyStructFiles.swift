@@ -1,6 +1,6 @@
 import Foundation
 
-struct Main {
+class Main {
     struct CellIdentifiers {
         static let AboutUsTableViewCell = "AboutUsTableViewCell"
         static let CartTableViewCell = "CartTableViewCell"
