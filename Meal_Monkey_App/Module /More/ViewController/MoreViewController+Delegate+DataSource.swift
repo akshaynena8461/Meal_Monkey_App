@@ -1,22 +1,33 @@
 import UIKit
 
 // MARK: - UITableView Delegate & DataSource for MoreViewController
-extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
+extension MoreViewController: UITableViewDelegate, UITableViewDataSource,
+    UIPickerViewDelegate, UIPickerViewDataSource
+{
 
     // MARK: - Number of Rows
     /// Returns the number of rows in the table view
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrMore.count   // Number of menu items
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int)
+        -> Int
+    {
+        return arrMore.count  // Number of menu items
     }
 
     // MARK: - Cell Configuration
     /// Configures each cell for the More menu
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath)
+        -> UITableViewCell
+    {
         // Dequeue reusable cell
-        let cell = tableView.dequeueReusableCell(
-            withIdentifier: Main.CellIdentifiers.MoreTableViewCell,
-            for: indexPath
-        ) as! MoreTableViewCell
+        let cell =
+            tableView.dequeueReusableCell(
+                withIdentifier: Main.CellIdentifiers.MoreTableViewCell,
+                for: indexPath
+            ) as! MoreTableViewCell
+
+        if arrMore[indexPath.row].intTag == 6 {
+            cell.lblTitle?.text = LanguageManager.shared.currentLanguage.displayName
+        }
 
         // Configure cell with MoreModel data
         cell.configMoreCell(more: arrMore[indexPath.row])
@@ -29,13 +40,19 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
 
     // MARK: - Row Selection
     /// Handles what happens when a user taps a row
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
         // Deselect the row after tapping
         tableView.deselectRow(at: indexPath, animated: true)
 
         // Get selected row
         let row = indexPath.row
-        let storyboard = UIStoryboard(name: Main.StoryBoard.MoreStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.MoreStoryBoard,
+            bundle: nil
+        )
 
         // Get the menu item's tag to determine action
         let selectedItem = arrMore[row].intTag
@@ -48,17 +65,26 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             if let paymentvc = storyboard.instantiateViewController(
                 withIdentifier: Main.ViewControllers.payment
             ) as? PaymentViewController {
-                self.navigationController?.pushViewController(paymentvc, animated: true)
+                self.navigationController?.pushViewController(
+                    paymentvc,
+                    animated: true
+                )
             }
 
         case 1:
             // My Orders
             print("My Orders selected")
-            let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+            let storyboard = UIStoryboard(
+                name: Main.StoryBoard.ProductStoryBoard,
+                bundle: nil
+            )
             if let orderlistVc = storyboard.instantiateViewController(
                 withIdentifier: Main.ViewControllers.Orderlist
             ) as? OrderListViewController {
-                self.navigationController?.pushViewController(orderlistVc, animated: true)
+                self.navigationController?.pushViewController(
+                    orderlistVc,
+                    animated: true
+                )
             }
 
         case 2:
@@ -68,7 +94,10 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Notification
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
 
         case 3:
@@ -78,7 +107,10 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
                 withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
                 aboutvc.objPagetype = .Inbox
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
 
         case 4:
@@ -87,7 +119,10 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             if let aboutvc = storyboard.instantiateViewController(
                 withIdentifier: Main.ViewControllers.About
             ) as? AboutUsViewController {
-                self.navigationController?.pushViewController(aboutvc, animated: true)
+                self.navigationController?.pushViewController(
+                    aboutvc,
+                    animated: true
+                )
             }
 
         case 5:
@@ -98,12 +133,34 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource {
             ) as? WishListViewController {
                 // Uncomment and set wishlist items if needed
                 // wishlistVc.arrWishlistItems = app.arrWishList
-                self.navigationController?.pushViewController(wishlistVc, animated: true)
+                self.navigationController?.pushViewController(
+                    wishlistVc,
+                    animated: true
+                )
             }
+
+        case 6:
+            print("select Language")
+            showLanguagePicker()
+            
 
         default:
             break
         }
+    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        numberOfRowsInComponent component: Int
+    ) -> Int {
+        AppLanguage.allCases.count
+    }
+    func pickerView(
+        _ pickerView: UIPickerView,
+        titleForRow row: Int,
+        forComponent component: Int
+    ) -> String? {
+        AppLanguage.allCases[row].displayName
     }
 }
 

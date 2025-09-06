@@ -53,6 +53,16 @@ class MoreModel {
                 strImage: "Ic_heart_fill",
                 intTag: 5
             ),
+            MoreModel(
+                strTitle: "Change Language",
+                strImage: "Ic_heart_fill",
+                intTag: 6
+            ),
+            MoreModel(
+                strTitle: "Change Theme",
+                strImage: "Ic_heart_fill",
+                intTag: 7
+            ),
         ]
     }
 }

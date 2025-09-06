@@ -4,13 +4,15 @@ import UIKit
 class OTPViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var lblOtpSubTitle: UILabel!
+    @IBOutlet weak var lblOtpTitle: UILabel!
     @IBOutlet weak var btnDoNotReceive: UIButton!  // Button to resend OTP
     @IBOutlet weak var btnNext: UIButton!  // Button to proceed after entering OTP
+    @IBOutlet weak var otpView: UIView!
     @IBOutlet weak var txtDigit1: UITextField!  // First digit input
     @IBOutlet weak var txtDigit2: UITextField!  // Second digit input
     @IBOutlet weak var txtDigit3: UITextField!  // Third digit input
     @IBOutlet weak var txtDigit4: UITextField!  // Fourth digit input
-    @IBOutlet weak var otpView: UIView!
 
     let otpFieldView = OTPFieldView()
 
@@ -41,6 +43,30 @@ class OTPViewController: UIViewController {
         otpView.addSubview(otpFieldView)
         otpFieldView.initializeUI()
 
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyLocalization()
+    }
+
+    func applyLocalization() {
+        lblOtpTitle.text = LanguageManager.shared.localizedString(
+            for: "8461_otp_title"
+        )
+        lblOtpSubTitle.text = LanguageManager.shared.localizedString(
+            for: "8461_otp_subtitle"
+        )
+
+        btnDoNotReceive.setLocalizedPartialHighlight(
+            fullKey: "8461_otp_resend_button_full",
+            highlightKey: "8461_otp_resend_button_highlight",
+            highlightColor: UIColor(named: "loginbtnbg")!
+        )
+        btnNext.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_otp_next_button"),
+            for: .normal
+        )
     }
 
     // MARK: - Button Actions

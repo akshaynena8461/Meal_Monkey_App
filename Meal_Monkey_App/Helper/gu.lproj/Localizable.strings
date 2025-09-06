@@ -1,0 +1,62 @@
+"8461_login_title" = "લૉગિન";
+"8461_login_subtitle" = "લોગિનમાં તમારી વિગતો ઉમેરો";
+"8461_or_login_with" = "અથવા સાથે લૉગિન કરો";
+
+"8461_email_placeholder" = "તમારું ઈમેઈલ";
+"8461_password_placeholder" = "પાસવર્ડ";
+
+"8461_login_btn" = "લૉગિન";
+"8461_signup_button_full" = "ખાતું નથી? સાઇન અપ કરો";
+"8461_signup_button_highlight" = "સાઇન અપ કરો";
+"8461_forgot_password_button" = "પાસવર્ડ ભૂલાઈ ગયો?";
+"8461_google_login_button" = "ગૂગલ દ્વારા ચાલુ રાખો";
+"8461_facebook_login_button" = "ફેસબુક દ્વારા ચાલુ રાખો";
+
+
+// Sign UP
+"8461_signup_title" = "સાઇન અપ";
+"8461_signup_subtitle" = "સાઇન અપ કરવા માટે તમારી વિગતો ઉમેરો";
+
+"8461_name_placeholder" = "નામ";
+"8461_email_placeholder" = "ઈમેઈલ";
+"8461_mobile_placeholder" = "મોબાઈલ નંબર";
+"8461_address_placeholder" = "સરનામું";
+"8461_password_placeholder" = "પાસવર્ડ";
+"8461_confirm_password_placeholder" = "પાસવર્ડ પુષ્ટિ કરો";
+
+"8461_signup_button" = "સાઇન અપ";
+"8461_login_button_full" = "પહેલેથી એકાઉન્ટ છે? લૉગિન કરો";
+"8461_login_button_highlight" = "લૉગિન";
+
+//Forgot Password
+
+"8461_forgot_title" = "પાસવર્ડ રીસેટ કરશો";
+"8461_forgot_subtitle" = "ઇમેઇલ દ્વારા નવો પાસવર્ડ બનાવવાની લિંક
+ મેળવવા માટે કૃપા કરીને તમારું ઇમેઇલ દાખલ કરો";
+
+"8461_forgot_email_placeholder" = "ઇમેઇલ";
+
+"8461_forgot_send_button" = "મોકલો";
+
+//Otp Page
+"8461_otp_title" = "અમે તમારા મોબાઇલ પર OTP મોકલ્યો છે;";
+"8461_otp_subtitle" = "કૃપા કરીને તમારો મોબાઇલ નંબર 071*****12 તપાસો 
+તમારો પાસવર્ડ રીસેટ કરવાનું ચાલુ રાખો.";
+
+"8461_otp_resend_button_full" = "ઓટિપિ મળ્યો નથી? અહીં ક્લિક કરો";
+"8461_otp_resend_button_highlight" = "અહીં ક્લિક કરો";
+"8461_otp_next_button" = "આગળ";
+
+//New Password
+"8461_new_password_title" = "નવો પાસવર્ડ";
+"8461_new_password_subtitle" = "ઇમેઇલ દ્વારા નવો પાસવર્ડ બનાવવા માટેની 
+લિંક મેળવવા માટે કૃપા કરીને તમારું ઇમેઇલ દાખલ કરો.";
+
+"8461_new_password_placeholder" = "નવો પાસવર્ડ";
+"8461_confirm_password_placeholder" = "પાસવર્ડ પુષ્ટિ કરો";
+
+"8461_new_password_next_button" = "આગળ";
+
+
+
+

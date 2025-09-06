@@ -129,5 +129,37 @@ extension UIViewController {
         ])
         tableView.backgroundView = backgroundView
     }
+}
 
+extension UIButton {
+    func setLocalizedPartialHighlight(fullKey: String,
+                                      highlightKey: String,
+                                      highlightColor: UIColor = .systemOrange,
+                                      fontSize: CGFloat = 14) {
+        // Get localized full text
+        let fullText = LanguageManager.shared.localizedString(for: fullKey) as NSString
+        // Get localized highlight part
+        let highlightText = LanguageManager.shared.localizedString(for: highlightKey)
+        
+        // Base attributed string
+        let attributedString = NSMutableAttributedString(
+            string: fullText as String,
+            attributes: [
+                .font: UIFont.systemFont(ofSize: fontSize),
+                .foregroundColor: UIColor.darkGray
+            ]
+        )
+        
+        // Find range of highlight
+        let range = fullText.range(of: highlightText)
+        if range.location != NSNotFound {
+            attributedString.addAttributes([
+                .font: UIFont.boldSystemFont(ofSize: fontSize),
+                .foregroundColor: highlightColor
+            ], range: range)
+        }
+        
+        // Set button title
+        self.setAttributedTitle(attributedString, for: .normal)
+    }
 }

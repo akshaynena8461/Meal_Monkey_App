@@ -3,6 +3,8 @@ import UIKit
 class NewPasswordViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var lblNewPasswordTitle: UILabel!
+    @IBOutlet weak var lblNewPasswordSubtitle: UILabel!
     @IBOutlet weak var stackConfirmPassword: UIStackView! // Stack for Confirm Password field
     @IBOutlet weak var btnNext: UIButton!                 // Next button to proceed
     @IBOutlet weak var stackPassword: UIStackView!       // Stack for Password field
@@ -22,7 +24,24 @@ class NewPasswordViewController: UIViewController {
         // Add left padding to text fields
         EditStyle.setPadding(textFields: [txtPassword, txtConfirmPassword], paddingWidth: 34)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyLocalization()
+    }
+   
+    func applyLocalization() {
+        lblNewPasswordTitle.text = LanguageManager.shared.localizedString(for: "8461_new_password_title")
+        lblNewPasswordSubtitle.text = LanguageManager.shared.localizedString(for: "8461_new_password_subtitle")
+        
+        txtPassword.placeholder = LanguageManager.shared.localizedString(for: "8461_new_password_placeholder")
+        txtConfirmPassword.placeholder = LanguageManager.shared.localizedString(for: "8461_confirm_password_placeholder")
+        
+        btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_new_password_next_button"), for: .normal)
+    }
 
+    
+    
     // MARK: - IBActions
 
     /// Action for Next button click
@@ -35,6 +54,7 @@ class NewPasswordViewController: UIViewController {
             self.navigationController?.pushViewController(servicesVc, animated: true)
         }
     }
+    
     
     /// Toggle Password visibility for txtPassword field
     @IBAction func btnEyeClick(_ sender: UIButton) {

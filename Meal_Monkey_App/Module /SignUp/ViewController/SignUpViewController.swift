@@ -4,20 +4,20 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var lblSubtitle: UILabel!
+    @IBOutlet weak var lblSignUp: UILabel!
     @IBOutlet weak var txtName: UITextField!
     @IBOutlet weak var txtEmail: UITextField!
     @IBOutlet weak var txtMobile: UITextField!
     @IBOutlet weak var txtAddress: UITextField!
     @IBOutlet weak var txtPassword: UITextField!
     @IBOutlet weak var txtConfirmPassword: UITextField!
+    @IBOutlet weak var btnSignUp: UIButton!
+    @IBOutlet weak var btnlogin: UIButton!
 
     @IBOutlet weak var viewScroll: UIScrollView!
     @IBOutlet weak var btnEye1: UIButton!  // Toggle password visibility for txtPassword
     @IBOutlet weak var btnEye2: UIButton!  // Toggle password visibility for txtConfirmPassword
-
-    @IBOutlet weak var btnSignUp: UIButton!
-    @IBOutlet weak var btnlogin: UIButton!
-
     @IBOutlet weak var stackPassword: UIStackView!
     @IBOutlet weak var stackConfirmPassword: UIStackView!
 
@@ -50,6 +50,50 @@ class SignUpViewController: UIViewController {
         EditStyle.addStackBorder(stackViews: [
             stackPassword, stackConfirmPassword,
         ])
+    }
+
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyLocalization()
+    }
+
+    func applyLocalization() {
+        lblSignUp.text = LanguageManager.shared.localizedString(
+            for: "8461_signup_title"
+        )
+        lblSubtitle.text = LanguageManager.shared.localizedString(
+            for: "8461_signup_subtitle"
+        )
+
+        txtName.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_name_placeholder"
+        )
+        txtEmail.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_email_placeholder"
+        )
+        txtMobile.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_mobile_placeholder"
+        )
+        txtAddress.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_address_placeholder"
+        )
+        txtPassword.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_password_placeholder"
+        )
+        txtConfirmPassword.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_confirm_password_placeholder"
+        )
+
+        btnSignUp.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_signup_button"),
+            for: .normal
+        )
+
+        btnlogin.setLocalizedPartialHighlight(
+            fullKey: "8461_login_button_full",
+            highlightKey: "8461_login_button_highlight",
+            highlightColor: UIColor(named: "loginbtnbg")!
+        )
     }
 
     // MARK: - Password Visibility Toggle
@@ -139,8 +183,8 @@ class SignUpViewController: UIViewController {
             )
             return
         }
-        
-        if !isValidateMobileNumber(mobile){
+
+        if !isValidateMobileNumber(mobile) {
             UIAlertController.showAlert(
                 title: Main.Alert.errorTitle,
                 message: Main.Alert.invalidMobile,
@@ -148,7 +192,6 @@ class SignUpViewController: UIViewController {
             )
             return
         }
-        
 
         if address.isEmpty {
             UIAlertController.showAlert(

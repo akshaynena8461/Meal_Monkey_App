@@ -50,6 +50,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                                        <connections>
+                                                            <outlet property="delegate" destination="cVc-3d-BsJ" id="Ty7-UK-3KF"/>
+                                                        </connections>
                                                     </textField>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oMD-7e-yvf">
                                                         <rect key="frame" x="34" y="513.66666666666663" width="325" height="56"/>
@@ -131,6 +134,9 @@
                                                                 <color key="backgroundColor" name="txtfieldbg"/>
                                                                 <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                                <connections>
+                                                                    <outlet property="delegate" destination="cVc-3d-BsJ" id="7n6-I9-FCo"/>
+                                                                </connections>
                                                             </textField>
                                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rgj-wq-v8b">
                                                                 <rect key="frame" x="275" y="0.0" width="50" height="56"/>
@@ -247,6 +253,9 @@
                         <outlet property="btnforgotpassword" destination="jAd-1l-NgL" id="cj5-OM-n4U"/>
                         <outlet property="btngooglelogin" destination="2OD-lz-rGD" id="SVt-1f-IPA"/>
                         <outlet property="btnlogin" destination="iGJ-W9-qcX" id="A14-5P-vTs"/>
+                        <outlet property="lblLoginTitle" destination="qEO-jV-XO7" id="rpj-6D-Owe"/>
+                        <outlet property="lblOrLoginWith" destination="jpb-mM-kYv" id="Ada-7X-4kV"/>
+                        <outlet property="lblSubTitle" destination="WIl-Up-ZJf" id="qSc-JJ-B5i"/>
                         <outlet property="stackPassword" destination="MuC-92-JcE" id="yvA-Lv-zHO"/>
                         <outlet property="txtEmail" destination="N9F-d8-rHc" id="kDm-cK-nUr"/>
                         <outlet property="txtPassword" destination="zUq-xb-slw" id="vJM-JP-Is0"/>
@@ -401,23 +410,16 @@
                                                             </stackView>
                                                         </subviews>
                                                     </stackView>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-XB-e2X">
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ivf-XB-e2X">
                                                         <rect key="frame" x="34" y="646" width="325" height="56"/>
                                                         <color key="backgroundColor" name="loginbtnbg"/>
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="56" id="SBi-C3-mqy"/>
                                                         </constraints>
+                                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="16"/>
                                                         <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                                        <state key="normal" title="Login">
-                                                            <attributedString key="attributedTitle">
-                                                                <fragment content="Sign Up">
-                                                                    <attributes>
-                                                                        <color key="NSColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                        <font key="NSFont" size="16" name="Helvetica"/>
-                                                                        <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                                    </attributes>
-                                                                </fragment>
-                                                            </attributedString>
+                                                        <state key="normal" title="Sign Up">
+                                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="btnSignUpclick:" destination="8p6-EF-Be5" eventType="touchUpInside" id="e4F-yU-vQf"/>
@@ -508,6 +510,8 @@
                         <outlet property="btnEye2" destination="JgC-0I-dBi" id="PW5-8E-vpJ"/>
                         <outlet property="btnSignUp" destination="ivf-XB-e2X" id="9WW-VZ-Ra3"/>
                         <outlet property="btnlogin" destination="Vna-1H-aZ1" id="9qY-Me-i5d"/>
+                        <outlet property="lblSignUp" destination="j0V-rZ-DTP" id="vyM-cB-rN3"/>
+                        <outlet property="lblSubtitle" destination="OYq-rc-mQR" id="4EE-DK-hiB"/>
                         <outlet property="stackConfirmPassword" destination="eTV-Tw-Zzg" id="1FB-AR-YrG"/>
                         <outlet property="stackPassword" destination="PoF-iT-KMC" id="l1p-C9-W80"/>
                         <outlet property="txtAddress" destination="7FG-Ny-Zu0" id="vCe-AG-PAE"/>
@@ -563,6 +567,9 @@ link to  create a new password via email</string>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="kcs-os-fUZ" id="8Sk-JS-oVS"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N8N-gv-2JU">
                                         <rect key="frame" x="34" y="282" width="325" height="56"/>
@@ -605,6 +612,8 @@ link to  create a new password via email</string>
                     </view>
                     <connections>
                         <outlet property="btnsend" destination="N8N-gv-2JU" id="khx-l6-nv7"/>
+                        <outlet property="lblSubTitle" destination="HD9-A3-wKN" id="LM6-9Z-AQz"/>
+                        <outlet property="lblTitle" destination="2iK-u7-cZM" id="hoH-Au-2Q2"/>
                         <outlet property="txtemail" destination="Mw5-tj-Wfh" id="FQm-Kn-KAy"/>
                     </connections>
                 </viewController>
@@ -654,6 +663,9 @@ link to  create a new password via email</string>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="next" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2ud-ge-nfA" id="QrD-Hz-omk"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2ob-8w-Xnw">
                                                 <rect key="frame" x="269" y="0.0" width="56" height="56"/>
@@ -678,6 +690,9 @@ link to  create a new password via email</string>
                                                 <color key="backgroundColor" name="txtfieldbg"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits" returnKeyType="done" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <outlet property="delegate" destination="2ud-ge-nfA" id="DS1-Aa-YS0"/>
+                                                </connections>
                                             </textField>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qin-28-23G">
                                                 <rect key="frame" x="269" y="0.0" width="56" height="56"/>
@@ -740,6 +755,8 @@ link to  create a new password via email</string>
                     </view>
                     <connections>
                         <outlet property="btnNext" destination="aIu-Hd-lts" id="Ych-C5-sTW"/>
+                        <outlet property="lblNewPasswordSubtitle" destination="50y-nZ-6mY" id="LWN-QF-5hu"/>
+                        <outlet property="lblNewPasswordTitle" destination="8o1-M9-f9j" id="MZ0-cF-B84"/>
                         <outlet property="stackConfirmPassword" destination="Uw5-hy-405" id="Ldk-Pb-WA6"/>
                         <outlet property="stackPassword" destination="dnw-Lj-FZs" id="e54-tF-KPk"/>
                         <outlet property="txtConfirmPassword" destination="0C6-Ac-tV8" id="OSG-rs-7ZX"/>
@@ -1026,6 +1043,8 @@ continue to reset your password</string>
                     <connections>
                         <outlet property="btnDoNotReceive" destination="m5r-Ta-e5M" id="50s-pZ-2i8"/>
                         <outlet property="btnNext" destination="Sjr-KZ-XXY" id="qIe-uA-M5k"/>
+                        <outlet property="lblOtpSubTitle" destination="Apg-fs-my8" id="ewG-Lg-P3q"/>
+                        <outlet property="lblOtpTitle" destination="1ai-3A-4dm" id="GrU-0c-E6P"/>
                         <outlet property="otpView" destination="ARY-YF-8tW" id="ekJ-4G-SkK"/>
                     </connections>
                 </viewController>

@@ -11,7 +11,8 @@ class CoreDataManager {
     private var context: NSManagedObjectContext {
         app.persistentContainer.viewContext
     }
-
+//    private var context = app.persistentContainer.viewContext // we can also write this way
+    
     // Save context if there are unsaved changes
     private func saveContext() {
         if context.hasChanges {

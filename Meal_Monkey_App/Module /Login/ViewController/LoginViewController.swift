@@ -3,6 +3,9 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var lblOrLoginWith: UILabel!
+    @IBOutlet weak var lblSubTitle: UILabel!
+    @IBOutlet weak var lblLoginTitle: UILabel!
     // MARK: - IBOutlets
     @IBOutlet weak var viewScroll: UIScrollView!
     @IBOutlet weak var stackPassword: UIStackView!  // Stack containing password field and eye button
@@ -42,6 +45,7 @@ class LoginViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        applyLocalization()
         // Hide tab bar on login screen
         self.tabBarController?.tabBar.isHidden = true
     }
@@ -99,6 +103,55 @@ class LoginViewController: UIViewController {
                 viewController: self
             )
         }
+    }
+
+    func applyLocalization() {
+        lblLoginTitle.text = LanguageManager.shared.localizedString(
+            for: "8461_login_title"
+        )
+        lblSubTitle.text = LanguageManager.shared.localizedString(
+            for: "8461_login_subtitle"
+        )
+        lblOrLoginWith.text = LanguageManager.shared.localizedString(
+            for: "8461_or_login_with"
+        )
+
+        txtEmail.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_email_placeholder"
+        )
+        txtPassword.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_password_placeholder"
+        )
+
+        btnlogin.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_login_btn"),
+            for: .normal
+        )
+
+        btnSignUp.setLocalizedPartialHighlight(
+            fullKey: "8461_signup_button_full",
+            highlightKey: "8461_signup_button_highlight",
+            highlightColor:  UIColor(named: "loginbtnbg")!
+        )
+
+        btnforgotpassword.setTitle(
+            LanguageManager.shared.localizedString(
+                for: "8461_forgot_password_button"
+            ),
+            for: .normal
+        )
+        btngooglelogin.setTitle(
+            LanguageManager.shared.localizedString(
+                for: "8461_google_login_button"
+            ),
+            for: .normal
+        )
+        btnfacebooklogin.setTitle(
+            LanguageManager.shared.localizedString(
+                for: "8461_facebook_login_button"
+            ),
+            for: .normal
+        )
     }
 
     // MARK: - Forgot Password Button

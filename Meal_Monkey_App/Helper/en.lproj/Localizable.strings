@@ -1,0 +1,62 @@
+"8461_login_title" = "Login";
+"8461_login_subtitle" = "Add your details to login";
+"8461_or_login_with" = "Or login with";
+
+"8461_email_placeholder" = "Your email";
+"8461_password_placeholder" = "Password";
+
+"8461_login_btn" = "Login";
+"8461_signup_button_full" = "Don't have an account? Sign up";
+"8461_signup_button_highlight" = "Sign up";
+"8461_forgot_password_button" = "Forgot Password?";
+"8461_google_login_button" = "Continue with Google";
+"8461_facebook_login_button" = "Continue with Facebook";
+
+
+// Sign UP
+"8461_signup_title" = "Sign Up";
+"8461_signup_subtitle" = "Add your details to sign up";
+
+"8461_name_placeholder" = "Enter your name";
+"8461_email_placeholder" = "Enter your email";
+"8461_mobile_placeholder" = "Enter your mobile number";
+"8461_address_placeholder" = "Enter your address";
+"8461_password_placeholder" = "Enter your password";
+"8461_confirm_password_placeholder" = "Confirm your password";
+
+"8461_signup_button" = "Sign Up";
+"8461_login_button_full" = "Already have an account? Login";
+"8461_login_button_highlight" = "Login";
+
+//Forgot Password
+"8461_forgot_title" = "Reset Password";
+"8461_forgot_subtitle" = "Please enter your email to receive
+ a link to  create a new password via email";
+
+"8461_forgot_email_placeholder" = "Email";
+
+"8461_forgot_send_button" = "Send";
+
+//Otp Page
+
+"8461_otp_title" = "We have sent an OTP to
+your Mobile";
+"8461_otp_subtitle" = "Please check your mobile number 071*****12 
+continue to reset your password";
+
+"8461_otp_resend_button_full" = "Didn’t receive OTP? Click Here";
+"8461_otp_resend_button_highlight" = "Click Here";
+"8461_otp_next_button" = "Next";
+
+//New Password Page
+"8461_new_password_title" = "New Password";
+"8461_new_password_subtitle" = "Please enter your email to receive a 
+link to  create a new password via email";
+
+"8461_new_password_placeholder" = "New Password";
+"8461_confirm_password_placeholder" = "Confirm Password";
+
+"8461_new_password_next_button" = "Next";
+
+
+
