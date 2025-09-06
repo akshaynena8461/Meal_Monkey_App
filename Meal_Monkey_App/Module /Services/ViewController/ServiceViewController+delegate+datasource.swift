@@ -56,17 +56,17 @@ extension ServiceViewController: UIScrollViewDelegate {
             lblTItle1.text = Main.Services.serviceTitle1
             lblTitle2.text =
             Main.Services.serviceMsg1
-            btnNext.setTitle("Next", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
         case 2:
             lblTItle1.text = Main.Services.serviceTitle2
             lblTitle2.text =
             Main.Services.serviceMsg2
-            btnNext.setTitle("Next", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
         case 3:
             lblTItle1.text = Main.Services.serviceTitle3
             lblTitle2.text =
             Main.Services.serviceMsg3
-            btnNext.setTitle("Done", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_done_button"), for: .normal)
         default:
             break
         }

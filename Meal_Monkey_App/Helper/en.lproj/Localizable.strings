@@ -58,5 +58,71 @@ link to  create a new password via email";
 
 "8461_new_password_next_button" = "Next";
 
+// Service
+"8461_service_title1" = "Find Food You Love";
+"8461_service_title2" = "Fast Delivery";
+"8461_service_title3" = "Live Tracking";
+
+"8461_service_msg1" = "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep";
+"8461_service_msg2" = "Fast food delivery to your home, office wherever you are";
+"8461_service_msg3" = "Real time tracking of your food on the app once you placed the order";
+
+"8461_next_button" = "Next";
+"8461_done_button" = "Done";
+
+
+
+//Alert
+"8461_empty_fields_title" = "Missing Info";
+"8461_invalid_credential_msg" = "Invalid Email or Password";
+"8461_fetch_failed_msg" = "Something went wrong.";
+"8461_fields_to_fill_msg" = "Please fill all the fields.";
+"8461_name_missing_title" = "Name Missing";
+"8461_name_missing_msg" = "Please enter your name.";
+"8461_email_missing_title" = "Email Missing";
+"8461_email_missing_msg" = "Please enter your email.";
+"8461_email_existing_title" = "Email Exists";
+"8461_email_existing_msg" = "Email Already Exists";
+"8461_invalid_email_title" = "Invalid Email";
+"8461_invalid_email_msg" = "Please enter a valid email.";
+"8461_address_missing_title" = "Address Missing";
+"8461_address_missing_msg" = "Please enter your address.";
+"8461_mobile_missing_title" = "Mobile Number Missing";
+"8461_mobile_missing_msg" = "Please enter your mobile number.";
+"8461_password_missing_title" = "Password Missing";
+"8461_password_missing_msg" = "Please enter your password.";
+"8461_invalid_password_title" = "Passwords Don't Match";
+"8461_invalid_password_msg" = "Password must be at least 8 characters, contain uppercase, lowercase, number, and symbol.";
+"8461_not_match_password_title" = "Password do not Match";
+"8461_not_match_password_msg" = "Password and Confirm Password must be the same.";
+"8461_Alert_success_title" = "Success";
+"8461_Alert_user_save" = "User Saved Successfully";
+"8461_Alert_ok" = "Ok";
+"8461_error_title" = "Error";
+"8461_no_logged_in_user" = "No logged-in user found.";
+"8461_otp_success_msg" = "OTP Sent Successfully";
+"8461_card_success_msg" = "Card Added Successfully";
+"8461_invalid_card" = "Invalid Card";
+"8461_invalid_card_msg" = "Card number must be exactly 16 digits.";
+"8461_enter_card_number" = "Please enter a card number.";
+"8461_first_name_missing" = "Please enter your first name";
+"8461_last_name_missing" = "Please enter your last name";
+"8461_err_month" = "Please enter a valid expiry month (01 - 12)";
+"8461_err_year" = "Please enter a valid expiry year";
+"8461_card_expiry" = "Card has already expired";
+"8461_err_security_code" = "Please enter a valid 3-digit security code";
+"8461_invalid_mobile" = "Please enter a valid 10-digit mobile number";
+"8461_profile_update" = "Profile Updated Successfully";
+
+//Menu
+"8461_search_food" = "Search Food";
+"8461_category_food" = "Food";
+"8461_category_beverages" = "Beverages";
+"8461_category_desserts" = "Desserts";
+
+
+
+
+
 
 

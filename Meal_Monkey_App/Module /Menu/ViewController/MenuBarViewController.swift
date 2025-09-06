@@ -28,6 +28,8 @@ class MenuBarViewController: UIViewController {
             name: .cartUpdated,
             object: nil
         )
+        
+        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
 
         // Set table view background to clear
         tblMenuView.backgroundColor = .clear
@@ -57,6 +59,11 @@ class MenuBarViewController: UIViewController {
             UINib(nibName: Main.CellIdentifiers.MenuTableViewCell, bundle: nil),
             forCellReuseIdentifier: Main.CellIdentifiers.MenuTableViewCell
         )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
     }
 
     // MARK: - Actions

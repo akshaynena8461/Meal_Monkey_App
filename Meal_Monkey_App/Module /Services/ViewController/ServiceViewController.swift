@@ -11,9 +11,9 @@ class ServiceViewController: UIViewController {
 
     // MARK: - Properties
     var arrService: [String] = [
-        Main.Services.serviceTitle1,
-        Main.Services.serviceTitle2,
-        Main.Services.serviceTitle3
+        "Find food you love vector",
+        "Delivery vector",
+        "Live tracking vector"
     ]  // Array of service images (or descriptions) to display in collection view
 
     // MARK: - Lifecycle
@@ -21,9 +21,9 @@ class ServiceViewController: UIViewController {
         super.viewDidLoad()
 
         // Initial setup of labels
-        lblTItle1.text = "Find Food You Love"
-        lblTitle2.text =
-            "Discover the best foods from over 1,000 restaurants and fast delivery to your doorstep"
+        lblTItle1.text = Main.Services.serviceTitle1
+        lblTitle2.text = Main.Services.serviceMsg1
+        btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
 
         // Styling the Next button
         EditStyle.setborder(textfields: [btnNext], cornerRadious: 28)
@@ -83,17 +83,17 @@ class ServiceViewController: UIViewController {
             lblTItle1.text = Main.Services.serviceTitle1
             lblTitle2.text =
             Main.Services.serviceMsg1
-            btnNext.setTitle("Next", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
         case 1:
             lblTItle1.text = Main.Services.serviceTitle2
             lblTitle2.text =
             Main.Services.serviceMsg2
-            btnNext.setTitle("Next", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
         case 2:
             lblTItle1.text = Main.Services.serviceTitle3
             lblTitle2.text =
             Main.Services.serviceMsg3
-            btnNext.setTitle("Done", for: .normal)
+            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_done_button"), for: .normal)
         default:
             break
         }

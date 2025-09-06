@@ -271,7 +271,7 @@ class SignUpViewController: UIViewController {
                 preferredStyle: .alert
             )
             alert.addAction(
-                UIAlertAction(title: "OK", style: .default) { _ in
+                UIAlertAction(title: LanguageManager.shared.localizedString(for: "8461_Alert_ok"), style: .default) { _ in
                     self.navigationController?.popViewController(animated: true)
                 }
             )
@@ -284,7 +284,7 @@ class SignUpViewController: UIViewController {
                 message: Main.Alert.fetchFailedMsg,
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: "OK", style: .default))
+            alert.addAction(UIAlertAction(title: LanguageManager.shared.localizedString(for: "8461_Alert_ok"), style: .default))
             present(alert, animated: true)
         }
     }

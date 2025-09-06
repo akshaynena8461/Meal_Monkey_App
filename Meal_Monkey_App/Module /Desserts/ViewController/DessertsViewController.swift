@@ -36,6 +36,8 @@ class DessertsViewController: UIViewController {
                object: nil
            )
         
+        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        
         // Hide "No Product" label initially
         lblNoProduct.isHidden = true
 
@@ -73,6 +75,11 @@ class DessertsViewController: UIViewController {
             UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),
             forCellReuseIdentifier: Main.CellIdentifiers.DessertsTableViewCell
         )
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
     }
 
     @objc func updateCartBadge(){

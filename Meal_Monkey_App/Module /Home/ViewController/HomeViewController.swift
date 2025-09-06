@@ -30,6 +30,8 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
                object: nil
            )
         
+        txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        
         fetchUserData()  // Fetch logged-in user data
         tblHomeView.showsVerticalScrollIndicator = false
         tabBarController?.tabBar.isHidden = false
@@ -69,6 +71,11 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
             }
         }
         tblHomeView.reloadData()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
     }
 
     @objc private func updateCartBadge() {
