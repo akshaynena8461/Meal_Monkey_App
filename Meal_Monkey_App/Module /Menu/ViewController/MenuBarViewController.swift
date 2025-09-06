@@ -38,7 +38,7 @@ class MenuBarViewController: UIViewController {
         filteredMenuData = arrMenuData
 
         // Set title aligned to the left
-        setLeftAlignedTitle("Menu")
+//        setLeftAlignedTitle(Main.NavTitle.menu)
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(openCart))
 
@@ -64,6 +64,9 @@ class MenuBarViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        arrMenuData = MenuModel.addMenuData()
+        setLeftAlignedTitle(Main.NavTitle.menu)
+        tblMenuView.reloadData()
     }
 
     // MARK: - Actions

@@ -28,7 +28,7 @@ class CartViewController: UIViewController {
 
         // Set navigation title with a back button
         setLeftAlignedTitleWithBack(
-            "Cart Page",
+            Main.NavTitle.cart,
             target: self,
             action: #selector(backBtnTapped)
         )
@@ -40,6 +40,12 @@ class CartViewController: UIViewController {
         tblCartView.register(
             UINib(nibName: Main.CellIdentifiers.CartTableViewCell, bundle: nil),
             forCellReuseIdentifier: Main.CellIdentifiers.CartTableViewCell
+        )
+        
+        setLeftAlignedTitleWithBack(
+            Main.NavTitle.cart,
+            target: self,
+            action: #selector(backBtnTapped)
         )
 
         tblCartView.reloadData()

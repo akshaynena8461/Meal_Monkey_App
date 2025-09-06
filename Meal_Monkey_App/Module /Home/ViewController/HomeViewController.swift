@@ -72,11 +72,6 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         }
         tblHomeView.reloadData()
     }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
-    }
 
     @objc private func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartButtonTapped))
@@ -162,6 +157,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         fetchUserData()
         // Load recent items
         arrRecentItem = RecentItemsHelper.shared.getRecentItems()
+        txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
         tblHomeView.reloadData()
     }
 

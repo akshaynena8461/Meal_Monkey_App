@@ -3,6 +3,9 @@ import UIKit
 // MARK: - CheckOutViewController
 class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
+    @IBOutlet weak var lblSubTitle: UILabel!
+    @IBOutlet weak var lblForYourOrder: UILabel!
+    @IBOutlet weak var lblTitleThankyou: UILabel!
     @IBOutlet weak var viewinThankYouScrollView: UIView!
     // MARK: - IBOutlets
     @IBOutlet weak var viewinAddtoCartScrollView: UIView!
@@ -54,7 +57,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
 
         // Set navigation title with back button
         setLeftAlignedTitleWithBack(
-            "Checkout",
+            Main.NavTitle.checkout,
             target: self,
             action: #selector(BackBtnTapped)
         )
@@ -145,6 +148,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             lblAddress.text = savedAddress
         }
         fetchUserCards()
+        applyLocalization()
     }
 
     // MARK: - Calculate totals
@@ -201,6 +205,23 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             self.tabBarController?.tabBar.isHidden = false
         }
     }
+    
+    
+    
+    func applyLocalization() {
+        lblSubTitle.text = LanguageManager.shared.localizedString(for: "8461_thankyou_subtitle")
+        lblForYourOrder.text = LanguageManager.shared.localizedString(for: "8461_thankyou_for_order")
+        lblTitleThankyou.text = LanguageManager.shared.localizedString(for: "8461_thankyou_title")
+        btnBackToHome.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_thankyou_back_home"),
+            for: .normal
+        )
+        btnTrackMyOrder.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_thankyou_track_order"),
+            for: .normal
+        )
+    }
+
 
     @IBAction func btnSendOrderClick(_ sender: Any) {
         // Show Thank You page after sending order

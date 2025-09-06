@@ -70,7 +70,7 @@ class PaymentViewController: UIViewController {
 
         // Set navigation title and buttons
         setLeftAlignedTitleWithBack(
-            "Payment Details",
+            Main.NavTitle.payment,
             target: self,
             action: #selector(BackBtnTapped)
         )

@@ -37,7 +37,7 @@ class ChangeAddressViewController: UIViewController {
         EditStyle.setPadding(textFields: [txtSearchAddress], paddingWidth: 34)
 
         setLeftAlignedTitleWithBack(
-            "Change Address",
+            Main.NavTitle.changeAddress,
             target: self,
             action: #selector(BackBtnTapped)
         )

@@ -14,7 +14,7 @@ class WishListViewController: UIViewController {
         lblEmpty.isHidden = true
         // Set the navigation title with back button
         setLeftAlignedTitleWithBack(
-            "Wishlist",
+            Main.NavTitle.wishlist,
             target: self,
             action: #selector(backBtnTapped)
         )
@@ -57,6 +57,11 @@ class WishListViewController: UIViewController {
             setEmptyBackgroundViewWithLottie(tableView:tblWishlist,animationName: "like button", message: "Wishlist is Empty")
         }
         // Reload table view to reflect the latest wishlist
+        setLeftAlignedTitleWithBack(
+            Main.NavTitle.wishlist,
+            target: self,
+            action: #selector(backBtnTapped)
+        )
         tblWishlist.reloadData()
     }
 

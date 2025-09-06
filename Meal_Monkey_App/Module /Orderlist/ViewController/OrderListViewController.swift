@@ -17,7 +17,7 @@ class OrderListViewController: UIViewController {
         }
 
         setLeftAlignedTitleWithBack(
-            "Order List",
+            Main.NavTitle.orderlist,
             target: self,
             action: #selector(backBtnTapped)
         )

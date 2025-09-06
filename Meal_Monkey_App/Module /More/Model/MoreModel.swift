@@ -24,43 +24,43 @@ class MoreModel {
     class func addMoreData() -> [MoreModel] {
         return [
             MoreModel(
-                strTitle: "Payment Details",  // Title displayed in the menu
+                strTitle:Main.More.payment,  // Title displayed in the menu
                 strImage: "Ic_Payment",       // Icon image for Payment Details
                 intTag: 0                      // Unique tag to identify the item
             ),
             MoreModel(
-                strTitle: "My Orders",
+                strTitle: Main.More.myOrders,
                 strImage: "Ic_MyOrders",
                 intTag: 1
             ),
             MoreModel(
-                strTitle: "Notifications",
+                strTitle: Main.More.notifications,
                 strImage: "Ic_Notification",
                 intTag: 2
             ),
             MoreModel(
-                strTitle: "Inbox",
+                strTitle: Main.More.inbox,
                 strImage: "Ic_inbox",
                 intTag: 3
             ),
             MoreModel(
-                strTitle: "About Us",
+                strTitle: Main.More.aboutUs,
                 strImage: "Ic_About",
                 intTag: 4
             ),
             MoreModel(
-                strTitle: "Wishlist",
+                strTitle: Main.More.wishlist,
                 strImage: "Ic_heart_fill",
                 intTag: 5
             ),
             MoreModel(
-                strTitle: "Change Language",
-                strImage: "Ic_heart_fill",
+                strTitle: Main.More.changeLanguage,
+                strImage: "Ic_Language",
                 intTag: 6
             ),
             MoreModel(
-                strTitle: "Change Theme",
-                strImage: "Ic_heart_fill",
+                strTitle: Main.More.changeTheme,
+                strImage: "Ic_Theme",
                 intTag: 7
             ),
         ]

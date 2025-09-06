@@ -54,7 +54,7 @@ class ProfileViewController: UIViewController {
         imgProfile.addGestureRecognizer(imageGesture)
 
         // Set navigation title and cart button
-        setLeftAlignedTitle("Profile")
+        setLeftAlignedTitle(Main.NavTitle.profile)
         setCartButton(target: self, action: #selector(cartBtnTapped))
 
         // Apply borders and corner radius to text fields and buttons
@@ -69,6 +69,20 @@ class ProfileViewController: UIViewController {
             paddingWidth: 34
         )
     }
+    
+    
+    func applyLocalization() {
+        lblTitle.text = LanguageManager.shared.localizedString(for: "8461_profile_title")
+        btnEditProfile.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_profile_edit_button"),
+            for: .normal
+        )
+        btnSignOut.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_profile_signout_button"),
+            for: .normal
+        )
+    }
+
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartBtnTapped))
@@ -142,6 +156,7 @@ class ProfileViewController: UIViewController {
 
     override func viewWillAppear(_ animated: Bool) {
         fetUserData()
+        applyLocalization()
     }
 
     // MARK: - Fetch User Data

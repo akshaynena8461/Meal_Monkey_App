@@ -120,6 +120,118 @@ link to  create a new password via email";
 "8461_category_beverages" = "Beverages";
 "8461_category_desserts" = "Desserts";
 
+//About
+"8461_about_txt1" = "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service.";
+
+"8461_about_txt2" = "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure.";
+
+"8461_about_txt3" = "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone.";
+
+"8461_about_txt4" = "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable.";
+
+"8461_about_txt5" = "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times.";
+
+"8461_about_txt6" = "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services.";
+
+"8461_about_txt7" = "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact.";
+
+
+//Notification
+"8461_notification1" = "Order placed successfully";
+"8461_notificationTime" = "6d ago";
+"8461_notification2" = "Your payment has been confirmed";
+"8461_notification3" = "Your food is being prepared";
+"8461_notification4" = "Delivery agent assigned";
+"8461_notification5" = "Your order is on the way";
+"8461_notification6" = "Special discount available!";
+"8461_notification7" = "Download our new app update";
+"8461_notification8" = "Refer a friend and earn";
+"8461_notification9" = "Limited-time deal ending soon";
+"8461_notification10" = "Delivery completed";
+"8461_notification11" = "Rate your last meal";
+"8461_notification12" = "Weekend offer just for you";
+"8461_notification13" = "Free delivery on orders above ₹299";
+"8461_notification14" = "Thanks for being with us!";
+"8461_notification15" = "New restaurants added near you";
+
+//Inbox
+"8461_inbox_title1" = "MealMonkey Promotions";
+"8461_inbox_msg1" = "Get 20% off on your next meal!";
+"8461_inbox_time1" = "6th July";
+
+"8461_inbox_title2" = "Order Update";
+"8461_inbox_msg2" = "Your order is being prepared by the restaurant.";
+"8461_inbox_time2" = "6th July";
+
+"8461_inbox_title3" = "Delivery Reminder";
+"8461_inbox_msg3" = "Your delivery agent is on the way.";
+
+"8461_inbox_title4" = "Welcome to MealMonkey";
+"8461_inbox_msg4" = "Thanks for joining us! Start exploring meals.";
+
+"8461_inbox_title5" = "Rate Your Experience";
+"8461_inbox_msg5" = "How was your recent meal order?";
+
+"8461_inbox_title6" = "Flash Sale";
+"8461_inbox_msg6" = "Enjoy 30% off on all pasta orders today only.";
+
+"8461_inbox_title7" = "New Restaurants";
+"8461_inbox_msg7" = "Discover trending restaurants in your area.";
+
+"8461_inbox_title8" = "Weekend Special";
+"8461_inbox_msg8" = "Free dessert on orders above ₹499.";
+
+"8461_inbox_title9" = "MealMonkey Tips";
+"8461_inbox_msg9" = "Customize your orders with special instructions.";
+
+"8461_inbox_title10" = "Order Cancelled";
+"8461_inbox_msg10" = "Your order has been cancelled as requested.";
+
+//Profile
+"8461_profile_title" = "Hi there";
+"8461_profile_edit_button" = "Edit Profile";
+"8461_profile_signout_button" = "Sign Out";
+
+//Thank You
+"8461_thankyou_subtitle" = "Your Order is now being processed. We will let you know once the order is picked from the outlet. Check the status of your Order";
+"8461_thankyou_for_order" = "For your order";
+"8461_thankyou_title" = "Thank You!";
+"8461_thankyou_back_home" = "Back to Home";
+"8461_thankyou_track_order" = "Track My Order";
+
+//More
+"8461_more_payment" = "Payment Details";
+"8461_more_myorders" = "My Orders";
+"8461_more_notifications" = "Notifications";
+"8461_more_inbox" = "Inbox";
+"8461_more_about" = "About Us";
+"8461_more_wishlist" = "Wishlist";
+"8461_more_change_language" = "Change Language";
+"8461_more_change_theme" = "Change Theme";
+
+//NavTitle
+"8461_nav_payment" = "Payment Details";
+"8461_nav_more" = "More";
+"8461_nav_about_us" = "About Us";
+"8461_nav_inbox" = "Inbox";
+"8461_nav_notification" = "Notification";
+"8461_nav_wishlist" = "WishList";
+"8461_nav_dessert" = "Dessert";
+"8461_nav_profile" = "Profile";
+"8461_nav_menu" = "Menu";
+"8461_nav_offers" = "Offers";
+"8461_nav_checkout" = "Checkout";
+"8461_nav_my_order" = "My Order";
+"8461_nav_orderlist" = "Orderlist";
+"8461_nav_change_address" = "Change Address";
+"8461_nav_cart" = "Cart";
+
+
+
+
+
+
+
 
 
 

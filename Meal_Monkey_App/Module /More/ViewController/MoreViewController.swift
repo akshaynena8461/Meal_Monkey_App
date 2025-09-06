@@ -23,7 +23,7 @@ class MoreViewController: UIViewController {
         )
 
         // Set the page title
-        setLeftAlignedTitle("More")
+        //        setLeftAlignedTitle(Main.NavTitle.more)
         tblMoreView.showsVerticalScrollIndicator = false
 
         // Add cart button to navigation bar
@@ -51,7 +51,7 @@ class MoreViewController: UIViewController {
         )
         picker.delegate = self
         picker.dataSource = self
-        picker.tag = 100  // identify later
+        picker.tag = 100
         picker.selectRow(
             languages.firstIndex(of: LanguageManager.shared.currentLanguage)
                 ?? 0,
@@ -59,16 +59,30 @@ class MoreViewController: UIViewController {
             animated: false
         )
 
-        // Toolbar with Done button
+        // Toolbar with Cancel and Done buttons
         let toolbar = UIToolbar(
             frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
         )
+
+        let cancel = UIBarButtonItem(
+            title: "Cancel",
+            style: .plain,
+            target: self,
+            action: #selector(cancelTapped)
+        )
+        let flexibleSpace = UIBarButtonItem(
+            barButtonSystemItem: .flexibleSpace,
+            target: nil,
+            action: nil
+        )
         let done = UIBarButtonItem(
-            barButtonSystemItem: .done,
+            title: "Done",
+            style: .done,
             target: self,
             action: #selector(doneTapped)
         )
-        toolbar.items = [UIBarButtonItem.flexibleSpace(), done]
+
+        toolbar.items = [cancel, flexibleSpace, done]
 
         pickerVC.view.addSubview(toolbar)
         pickerVC.view.addSubview(picker)
@@ -83,28 +97,33 @@ class MoreViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    @objc func doneTapped() {
-        if let alert = presentedViewController as? UIAlertController,
-            let pickerVC = alert.value(forKey: "contentViewController")
-                as? UIViewController,
-            let picker = pickerVC.view.viewWithTag(100) as? UIPickerView
-        {
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setLeftAlignedTitle(Main.NavTitle.more)
+        tblMoreView.reloadData()
+    }
 
-            let selected = AppLanguage.allCases[
-                picker.selectedRow(inComponent: 0)
-            ]
-            LanguageManager.shared.currentLanguage = selected
-            print("Selected language: \(selected.displayName)")
-
-            // reload the tableView cell at case 6
-            tblMoreView.reloadRows(
-                at: [IndexPath(row: 6, section: 0)],
-                with: .none
-            )
-        }
+    @objc func cancelTapped() {
         dismiss(animated: true)
     }
 
+    @objc func doneTapped() {
+        // Get selected row and update language
+        if let picker = (self.presentedViewController as? UIAlertController)?
+            .value(forKey: "contentViewController") as? UIViewController,
+            let languagePicker = picker.view.subviews.compactMap({
+                $0 as? UIPickerView
+            }).first
+        {
+            let selectedRow = languagePicker.selectedRow(inComponent: 0)
+            let selectedLanguage = AppLanguage.allCases[selectedRow]
+
+            // Set the selected language
+            LanguageManager.shared.currentLanguage = selectedLanguage
+        }
+        dismiss(animated: true)
+    }
+    
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartButtonTapped))
     }

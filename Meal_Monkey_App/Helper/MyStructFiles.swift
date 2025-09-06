@@ -83,76 +83,222 @@ class Main {
     //        static let invalidMobile = "Please enter a valid 10-digit mobile number"
     //        static let ProfileUpdate = "Profile Updated Successfully"
     //
-    
-//        }
+
+    //        }
 
     struct Alert {
         // MARK: - Generic Errors
-          static var errorTitle: String { LanguageManager.shared.localizedString(for: "8461_error_title") }
-          static var noLoggedInUser: String { LanguageManager.shared.localizedString(for: "8461_no_logged_in_user") }
+        static var errorTitle: String {
+            LanguageManager.shared.localizedString(for: "8461_error_title")
+        }
+        static var noLoggedInUser: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_no_logged_in_user"
+            )
+        }
 
-          // MARK: - Login / Signup Alerts
-          static var emptyFieldsTitle: String { LanguageManager.shared.localizedString(for: "8461_empty_fields_title") }
-          static var invalidCredentialmsg: String { LanguageManager.shared.localizedString(for: "8461_invalid_credential_msg") }
-          static var fetchFailedMsg: String { LanguageManager.shared.localizedString(for: "8461_fetch_failed_msg") }
-          static var fieldsToFillMsg: String { LanguageManager.shared.localizedString(for: "8461_fields_to_fill_msg") }
-          
-          static var nameMissingTitle: String { LanguageManager.shared.localizedString(for: "8461_name_missing_title") }
-          static var nameMissingMsg: String { LanguageManager.shared.localizedString(for: "8461_name_missing_msg") }
-          
-          static var emailMissingTitle: String { LanguageManager.shared.localizedString(for: "8461_email_missing_title") }
-          static var emailMissingMsg: String { LanguageManager.shared.localizedString(for: "8461_email_missing_msg") }
-          
-          static var emailexistingTitle: String { LanguageManager.shared.localizedString(for: "8461_email_existing_title") }
-          static var emailexistinMsg: String { LanguageManager.shared.localizedString(for: "8461_email_existing_msg") }
-          
-          static var invalidEmailTitle: String { LanguageManager.shared.localizedString(for: "8461_invalid_email_title") }
-          static var invalidEmailMsg: String { LanguageManager.shared.localizedString(for: "8461_invalid_email_msg") }
-          
-          static var adddressMissingTitle: String { LanguageManager.shared.localizedString(for: "8461_address_missing_title") }
-          static var addressMissingMsg: String { LanguageManager.shared.localizedString(for: "8461_address_missing_msg") }
-          
-          static var mobileMissingTitle: String { LanguageManager.shared.localizedString(for: "8461_mobile_missing_title") }
-          static var mobileMissingMsg: String { LanguageManager.shared.localizedString(for: "8461_mobile_missing_msg") }
-          
-          static var passwordMissingTitle: String { LanguageManager.shared.localizedString(for: "8461_password_missing_title") }
-          static var passwordMissinMsg: String { LanguageManager.shared.localizedString(for: "8461_password_missing_msg") }
-          
-          static var invalidPasswordTitle: String { LanguageManager.shared.localizedString(for: "8461_invalid_password_title") }
-          static var invalidPasswordMsg: String { LanguageManager.shared.localizedString(for: "8461_invalid_password_msg") }
-          
-          static var notMatchPasswordTitle: String { LanguageManager.shared.localizedString(for: "8461_not_match_password_title") }
-          static var notMatchPasswordMsg: String { LanguageManager.shared.localizedString(for: "8461_not_match_password_msg") }
-          static var userRegisterSuccessMsg: String { LanguageManager.shared.localizedString(for: "8461_Alert_user_save") }
-          static var successTitle: String { LanguageManager.shared.localizedString( for: "8461_Alert_success_title")}
+        // MARK: - Login / Signup Alerts
+        static var emptyFieldsTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_empty_fields_title"
+            )
+        }
+        static var invalidCredentialmsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_invalid_credential_msg"
+            )
+        }
+        static var fetchFailedMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_fetch_failed_msg")
+        }
+        static var fieldsToFillMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_fields_to_fill_msg"
+            )
+        }
 
-          // MARK: - OTP / Card / Profile Messages
-          static var OtpSuccessMsg: String { LanguageManager.shared.localizedString(for: "8461_otp_success_msg") }
-          static var cardSuccessMsg: String { LanguageManager.shared.localizedString(for: "8461_card_success_msg") }
-          static var invalidCard: String { LanguageManager.shared.localizedString(for: "8461_invalid_card") }
-          static var invalidCardMsg: String { LanguageManager.shared.localizedString(for: "8461_invalid_card_msg") }
-          static var enterCardNumber: String { LanguageManager.shared.localizedString(for: "8461_enter_card_number") }
-          static var firstName: String { LanguageManager.shared.localizedString(for: "8461_first_name_missing") }
-          static var lastName: String { LanguageManager.shared.localizedString(for: "8461_last_name_missing") }
-          static var errMonth: String { LanguageManager.shared.localizedString(for: "8461_err_month") }
-          static var errYear: String { LanguageManager.shared.localizedString(for: "8461_err_year") }
-          static var cardExpiry: String { LanguageManager.shared.localizedString(for: "8461_card_expiry") }
-          static var errSecurityCode: String { LanguageManager.shared.localizedString(for: "8461_err_security_code") }
-          static var invalidMobile: String { LanguageManager.shared.localizedString(for: "8461_invalid_mobile") }
-          static var ProfileUpdate: String { LanguageManager.shared.localizedString(for: "8461_profile_update") }
+        static var nameMissingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_name_missing_title"
+            )
+        }
+        static var nameMissingMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_name_missing_msg")
+        }
 
-          // MARK: - Onboarding / Services / Buttons
-          static var serviceTitle1: String { LanguageManager.shared.localizedString(for: "8461_service_title1") }
-          static var serviceMsg1: String { LanguageManager.shared.localizedString(for: "8461_service_msg1") }
-          
-          static var serviceTitle2: String { LanguageManager.shared.localizedString(for: "8461_service_title2") }
-          static var serviceMsg2: String { LanguageManager.shared.localizedString(for: "8461_service_msg2") }
-          
-          static var serviceTitle3: String { LanguageManager.shared.localizedString(for: "8461_service_title3") }
-          static var serviceMsg3: String { LanguageManager.shared.localizedString(for: "8461_service_msg3") }
+        static var emailMissingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_email_missing_title"
+            )
+        }
+        static var emailMissingMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_email_missing_msg"
+            )
+        }
 
-          static var nextButton: String { LanguageManager.shared.localizedString(for: "8461_next_button") }
-          static var doneButton: String { LanguageManager.shared.localizedString(for: "8461_done_button") }
+        static var emailexistingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_email_existing_title"
+            )
+        }
+        static var emailexistinMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_email_existing_msg"
+            )
+        }
+
+        static var invalidEmailTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_invalid_email_title"
+            )
+        }
+        static var invalidEmailMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_invalid_email_msg"
+            )
+        }
+
+        static var adddressMissingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_address_missing_title"
+            )
+        }
+        static var addressMissingMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_address_missing_msg"
+            )
+        }
+
+        static var mobileMissingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_mobile_missing_title"
+            )
+        }
+        static var mobileMissingMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_mobile_missing_msg"
+            )
+        }
+
+        static var passwordMissingTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_password_missing_title"
+            )
+        }
+        static var passwordMissinMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_password_missing_msg"
+            )
+        }
+
+        static var invalidPasswordTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_invalid_password_title"
+            )
+        }
+        static var invalidPasswordMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_invalid_password_msg"
+            )
+        }
+
+        static var notMatchPasswordTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_not_match_password_title"
+            )
+        }
+        static var notMatchPasswordMsg: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_not_match_password_msg"
+            )
+        }
+        static var userRegisterSuccessMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_Alert_user_save")
+        }
+        static var successTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_Alert_success_title"
+            )
+        }
+
+        // MARK: - OTP / Card / Profile Messages
+        static var OtpSuccessMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_otp_success_msg")
+        }
+        static var cardSuccessMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_card_success_msg")
+        }
+        static var invalidCard: String {
+            LanguageManager.shared.localizedString(for: "8461_invalid_card")
+        }
+        static var invalidCardMsg: String {
+            LanguageManager.shared.localizedString(for: "8461_invalid_card_msg")
+        }
+        static var enterCardNumber: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_enter_card_number"
+            )
+        }
+        static var firstName: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_first_name_missing"
+            )
+        }
+        static var lastName: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_last_name_missing"
+            )
+        }
+        static var errMonth: String {
+            LanguageManager.shared.localizedString(for: "8461_err_month")
+        }
+        static var errYear: String {
+            LanguageManager.shared.localizedString(for: "8461_err_year")
+        }
+        static var cardExpiry: String {
+            LanguageManager.shared.localizedString(for: "8461_card_expiry")
+        }
+        static var errSecurityCode: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_err_security_code"
+            )
+        }
+        static var invalidMobile: String {
+            LanguageManager.shared.localizedString(for: "8461_invalid_mobile")
+        }
+        static var ProfileUpdate: String {
+            LanguageManager.shared.localizedString(for: "8461_profile_update")
+        }
+
+        // MARK: - Onboarding / Services / Buttons
+        static var serviceTitle1: String {
+            LanguageManager.shared.localizedString(for: "8461_service_title1")
+        }
+        static var serviceMsg1: String {
+            LanguageManager.shared.localizedString(for: "8461_service_msg1")
+        }
+
+        static var serviceTitle2: String {
+            LanguageManager.shared.localizedString(for: "8461_service_title2")
+        }
+        static var serviceMsg2: String {
+            LanguageManager.shared.localizedString(for: "8461_service_msg2")
+        }
+
+        static var serviceTitle3: String {
+            LanguageManager.shared.localizedString(for: "8461_service_title3")
+        }
+        static var serviceMsg3: String {
+            LanguageManager.shared.localizedString(for: "8461_service_msg3")
+        }
+
+        static var nextButton: String {
+            LanguageManager.shared.localizedString(for: "8461_next_button")
+        }
+        static var doneButton: String {
+            LanguageManager.shared.localizedString(for: "8461_done_button")
+        }
     }
 
     struct StoryBoard {
@@ -166,65 +312,156 @@ class Main {
     }
 
     struct AboutUs {
-        static let strTxt1 =
-            "Our mission is to deliver a seamless and intuitive shopping experience that prioritizes user satisfaction. We aim to create a platform where browsing, purchasing, and managing products feels effortless, thanks to our simple user interface and reliable service."
-        static let strTxt2 =
-            "We are dedicated to maintaining high standards of performance, transparency, and trust. Our team continuously works to enhance app functionality, ensure data privacy, and provide responsive customer support, making your shopping journey smooth and secure."
-        static let strTxt3 =
-            "Your feedback matters. If you have any questions, suggestions, or encounter any issues, we’re here to help. Reach out through our support page or email us directly. Together, we strive to build a better and more inclusive experience for everyone."
-        static let strTxt4 =
-            "We believe that technology should serve people. That’s why we constantly refine our platform based on real user behavior and needs, aiming to make every interaction faster, simpler, and more enjoyable."
-        static let strTxt5 =
-            "Security is our priority. We use industry-standard protocols to safeguard your personal information and provide a safe and secure shopping environment at all times."
-        static let strTxt6 =
-            "We value accessibility and inclusiveness. Our platform is designed to be usable by people of all backgrounds, devices, and technical abilities, ensuring that everyone can benefit from our services."
-        static let strTxt7 =
-            "Sustainability matters to us. We support eco-friendly business practices and work with partners who share our values to reduce our environmental impact."
+        static var strTxt1: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt1")
+        }
+        static var strTxt2: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt2")
+        }
+        static var strTxt3: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt3")
+        }
+        static var strTxt4: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt4")
+        }
+        static var strTxt5: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt5")
+        }
+        static var strTxt6: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt6")
+        }
+        static var strTxt7: String {
+            LanguageManager.shared.localizedString(for: "8461_about_txt7")
+        }
     }
 
     struct Notification {
-        static let notification1 = "Order placed successfully"
-        static let notificationTime = "6d ago"
-        static let notification2 = "Your payment has been confirmed"
-        static let notification3 = "Your food is being prepared"
-        static let notification4 = "Delivery agent assigned"
-        static let notification5 = "Your order is on the way"
-        static let notification6 = "Special discount available!"
-        static let notification7 = "Download our new app update"
-        static let notification8 = "Refer a friend and earn"
-        static let notification9 = "Limited-time deal ending soon"
-        static let notification10 = "Delivery completed"
-        static let notification11 = "Rate your last meal"
-        static let notification12 = "Weekend offer just for you"
-        static let notification13 = "Free delivery on orders above ₹299"
-        static let notification14 = "Thanks for being with us!"
-        static let notification15 = "New restaurants added near you"
+        static var notification1: String {
+            LanguageManager.shared.localizedString(for: "8461_notification1")
+        }
+        static var notificationTime: String {
+            LanguageManager.shared.localizedString(for: "8461_notificationTime")
+        }
+        static var notification2: String {
+            LanguageManager.shared.localizedString(for: "8461_notification2")
+        }
+        static var notification3: String {
+            LanguageManager.shared.localizedString(for: "8461_notification3")
+        }
+        static var notification4: String {
+            LanguageManager.shared.localizedString(for: "8461_notification4")
+        }
+        static var notification5: String {
+            LanguageManager.shared.localizedString(for: "8461_notification5")
+        }
+        static var notification6: String {
+            LanguageManager.shared.localizedString(for: "8461_notification6")
+        }
+        static var notification7: String {
+            LanguageManager.shared.localizedString(for: "8461_notification7")
+        }
+        static var notification8: String {
+            LanguageManager.shared.localizedString(for: "8461_notification8")
+        }
+        static var notification9: String {
+            LanguageManager.shared.localizedString(for: "8461_notification9")
+        }
+        static var notification10: String {
+            LanguageManager.shared.localizedString(for: "8461_notification10")
+        }
+        static var notification11: String {
+            LanguageManager.shared.localizedString(for: "8461_notification11")
+        }
+        static var notification12: String {
+            LanguageManager.shared.localizedString(for: "8461_notification12")
+        }
+        static var notification13: String {
+            LanguageManager.shared.localizedString(for: "8461_notification13")
+        }
+        static var notification14: String {
+            LanguageManager.shared.localizedString(for: "8461_notification14")
+        }
+        static var notification15: String {
+            LanguageManager.shared.localizedString(for: "8461_notification15")
+        }
     }
 
     struct Inbox {
-        static let inboxTitle1 = "MealMonkey Promotions"
-        static let inboxMsg1 = "Get 20% off on your next meal!"
-        static let inboxTime1 = "6th July"
-        static let inboxTitle2 = "Order Update"
-        static let inboxMsg2 = "Your order is being prepared by the restaurant."
-        static let inboxTime = "6th July"
-        static let inboxTitle3 = "Delivery Reminder"
-        static let inboxMsg3 = "Your delivery agent is on the way."
-        static let inboxTitle4 = "Welcome to MealMonkey"
-        static let inboxMsg4 = "Thanks for joining us! Start exploring meals."
-        static let inboxTitle5 = "Rate Your Experience"
-        static let inboxMsg5 = "How was your recent meal order?"
-        static let inboxTitle6 = "Flash Sale"
-        static let inboxMsg6 = "Enjoy 30% off on all pasta orders today only."
-        static let inboxTitle7 = "New Restaurants"
-        static let inboxMsg7 = "Discover trending restaurants in your area."
-        static let inboxTitle8 = "Weekend Special"
-        static let inboxMsg8 = "Free dessert on orders above ₹499."
-        static let inboxTitle9 = "MealMonkey Tips"
-        static let inboxMsg9 =
-            "Customize your orders with special instructions."
-        static let inboxTitle10 = "Order Cancelled"
-        static let inboxMsg10 = "Your order has been cancelled as requested."
+        static var inboxTitle1: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title1")
+        }
+        static var inboxMsg1: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg1")
+        }
+        static var inboxTime: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_time1")
+        }
+
+        static var inboxTitle2: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title2")
+        }
+        static var inboxMsg2: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg2")
+        }
+        static var inboxTime2: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_time2")
+        }
+
+        static var inboxTitle3: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title3")
+        }
+        static var inboxMsg3: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg3")
+        }
+
+        static var inboxTitle4: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title4")
+        }
+        static var inboxMsg4: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg4")
+        }
+
+        static var inboxTitle5: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title5")
+        }
+        static var inboxMsg5: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg5")
+        }
+
+        static var inboxTitle6: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title6")
+        }
+        static var inboxMsg6: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg6")
+        }
+
+        static var inboxTitle7: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title7")
+        }
+        static var inboxMsg7: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg7")
+        }
+
+        static var inboxTitle8: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title8")
+        }
+        static var inboxMsg8: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg8")
+        }
+
+        static var inboxTitle9: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title9")
+        }
+        static var inboxMsg9: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg9")
+        }
+
+        static var inboxTitle10: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_title10")
+        }
+        static var inboxMsg10: String {
+            LanguageManager.shared.localizedString(for: "8461_inbox_msg10")
+        }
     }
 
     struct ViewControllers {
@@ -251,6 +488,74 @@ class Main {
         static let Splash = "SplashViewController"
         static let Wishlist = "WishListViewController"
     }
+
+    struct Menu {
+        static var food: String {
+            LanguageManager.shared.localizedString(for: "8461_category_food")
+        }
+        static var bevarages: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_category_beverages"
+            )
+        }
+        static var desserts: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_category_desserts"
+            )
+        }
+    }
+
+    struct More {
+        static var payment: String {
+            LanguageManager.shared.localizedString(for: "8461_more_payment")
+        }
+        static var myOrders: String {
+            LanguageManager.shared.localizedString(for: "8461_more_myorders")
+        }
+        static var notifications: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_more_notifications"
+            )
+        }
+        static var inbox: String {
+            LanguageManager.shared.localizedString(for: "8461_more_inbox")
+        }
+        static var aboutUs: String {
+            LanguageManager.shared.localizedString(for: "8461_more_about")
+        }
+        static var wishlist: String {
+            LanguageManager.shared.localizedString(for: "8461_more_wishlist")
+        }
+        static var changeLanguage: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_more_change_language"
+            )
+        }
+        static var changeTheme: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_more_change_theme"
+            )
+        }
+    }
+    
+    struct NavTitle {
+        static var payment: String { LanguageManager.shared.localizedString(for: "8461_nav_payment") }
+        static var more: String { LanguageManager.shared.localizedString(for: "8461_nav_more") }
+        static var aboutUs: String { LanguageManager.shared.localizedString(for: "8461_nav_about_us") }
+        static var inbox: String { LanguageManager.shared.localizedString(for: "8461_nav_inbox") }
+        static var notification: String { LanguageManager.shared.localizedString(for: "8461_nav_notification") }
+        static var wishlist: String { LanguageManager.shared.localizedString(for: "8461_nav_wishlist") }
+        static var dessert: String { LanguageManager.shared.localizedString(for: "8461_nav_dessert") }
+        static var profile: String { LanguageManager.shared.localizedString(for: "8461_nav_profile") }
+        static var menu: String { LanguageManager.shared.localizedString(for: "8461_nav_menu") }
+        static var offers: String { LanguageManager.shared.localizedString(for: "8461_nav_offers") }
+        static var checkout: String { LanguageManager.shared.localizedString(for: "8461_nav_checkout") }
+        static var myOrder: String { LanguageManager.shared.localizedString(for: "8461_nav_my_order") }
+        static var orderlist: String { LanguageManager.shared.localizedString(for: "8461_nav_orderlist") }
+        static var changeAddress: String { LanguageManager.shared.localizedString(for: "8461_nav_change_address") }
+        static var cart: String { LanguageManager.shared.localizedString(for: "8461_nav_cart") } // Added Cart
+    }
+
 
     struct Services {
         static var serviceTitle1: String {

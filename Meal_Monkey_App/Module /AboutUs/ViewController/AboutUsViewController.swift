@@ -41,23 +41,29 @@ class AboutUsViewController: UIViewController {
             print("My Orders")
 
         case .Notification:
-            setLeftAlignedTitleWithBack("Notification", target: self, action: #selector(backBtnTapped))
+            setLeftAlignedTitleWithBack(Main.NavTitle.notification, target: self, action: #selector(backBtnTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addNotificationData()
 
         case .Inbox:
-            setLeftAlignedTitleWithBack("Inbox", target: self, action: #selector(backBtnTapped))
+            setLeftAlignedTitleWithBack(Main.NavTitle.inbox, target: self, action: #selector(backBtnTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addInboxData()
 
         case .AboutUs:
-            setLeftAlignedTitleWithBack("About Us", target: self, action: #selector(backBtnTapped))
+            setLeftAlignedTitleWithBack(Main.NavTitle.aboutUs, target: self, action: #selector(backBtnTapped))
             setCartButton(target: self, action: #selector(cartButtonTapped))
             arrCurrent = AboutModel.addAboutData()
 
         case .WishList:
             print("Wishlist")
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        configurePage()
+        tblView.reloadData()
     }
 
     @objc private func updateCartBadge() {

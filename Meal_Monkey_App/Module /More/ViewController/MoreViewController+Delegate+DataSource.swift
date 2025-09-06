@@ -142,8 +142,7 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource,
         case 6:
             print("select Language")
             showLanguagePicker()
-            
-
+    
         default:
             break
         }

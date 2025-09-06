@@ -25,7 +25,7 @@ class OffersViewController: UIViewController {
         tblOffersView.showsVerticalScrollIndicator = false
 
         // Set the navigation title with left alignment
-        setLeftAlignedTitle("Latest Offers")
+        setLeftAlignedTitle(Main.NavTitle.offers)
 
         // Add cart button to the navigation bar
         setCartButton(target: self, action: #selector(CartBtnTapped))

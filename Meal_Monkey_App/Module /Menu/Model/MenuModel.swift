@@ -26,19 +26,19 @@ class MenuModel {
     class func addMenuData() -> [MenuModel] {
         return [
             MenuModel(
-                strTitle: LanguageManager.shared.localizedString(for: "8461_category_food"),
+                strTitle: Main.Menu.food,
                 intItem: 120,
                 strImage: "Food",
                 intTag: 0
             ),
             MenuModel(
-                strTitle: LanguageManager.shared.localizedString(for: "8461_category_beverages"),
+                strTitle: Main.Menu.bevarages,
                 intItem: 220,
                 strImage: "Beverages",
                 intTag: 1
             ),
             MenuModel(
-                strTitle:  LanguageManager.shared.localizedString(for: "8461_category_desserts"),
+                strTitle:  Main.Menu.desserts,
                 intItem: 155,
                 strImage: "Desserts",
                 intTag: 2

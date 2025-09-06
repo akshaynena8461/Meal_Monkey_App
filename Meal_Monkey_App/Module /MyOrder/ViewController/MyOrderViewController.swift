@@ -29,7 +29,7 @@ class MyOrderViewController: UIViewController, ChangeAddressDelegate {
 
         // Set navigation title with a back button
         setLeftAlignedTitleWithBack(
-            "My Order",
+            Main.NavTitle.myOrder,
             target: self,
             action: #selector(BackBtnTapped)
         )

@@ -60,11 +60,11 @@ class DessertsViewController: UIViewController {
         // Set navigation title based on selected product type
         switch selectedProductType {
         case .food:
-            setLeftAlignedTitleWithBack("Food", target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(Main.Menu.food, target: self, action: #selector(BackBtnTapped))
         case .Beverages:
-            setLeftAlignedTitleWithBack("Beverages", target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(Main.Menu.bevarages, target: self, action: #selector(BackBtnTapped))
         case .Desserts:
-            setLeftAlignedTitleWithBack("Desserts", target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(Main.Menu.desserts, target: self, action: #selector(BackBtnTapped))
         }
 
         // Add cart button to navigation bar
