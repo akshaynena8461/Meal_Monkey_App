@@ -257,6 +257,14 @@
 "8461_send_order" = "ઓર્ડર મોકલો";
 "8461_btn_change" = "બદલો";
 
+//Empty Labels
+"8461_cart_empty"  = "કાર્ટ ખાલી છે";
+"8461_whishilst_empty" = "વિશલિસ્ટ ખાલી છે";
+"8461_no_cards" = "કોઈ કાર્ડ્સ નથી";
+"8461_no_products_found" = "કોઈ પ્રોડક્ટ્સ મળ્યાં નથી";
+"8461_orderlist_empty" = "ઓર્ડર યાદી ખાલી છે";
+
+
 
 
 

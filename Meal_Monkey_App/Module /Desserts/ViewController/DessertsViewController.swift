@@ -139,7 +139,7 @@ class DessertsViewController: UIViewController {
             setEmptyBackgroundViewWithLottie(
                 tableView: tblDessertsView,
                 animationName: "empty",
-                message: "No Products found"
+                message: Main.EmptyStateKeys.noProductsFound
             )
         } else {
             tblDessertsView.backgroundView = nil

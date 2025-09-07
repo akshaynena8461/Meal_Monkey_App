@@ -127,6 +127,25 @@ class ProductDetailViewController: UIViewController {
             lblPrice.text = "$\(product.doubleProductPrice)"
         }
     }
+    
+    func applyTheme() {
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        detailPageViewinScollView.backgroundColor = theme.backgroundColor()
+        ProductDetailView.backgroundColor = theme.backgroundColor()
+        btnAddCart.backgroundColor = theme.primaryButtonBackground()
+        btnAddCart.setTitleColor(.white, for: .normal)
+        btnPlus.backgroundColor =  theme.primaryButtonBackground()
+        btnPlus.backgroundColor = theme.primaryButtonBackground()
+        lblRatings.textColor = theme.ratingPointsColor()
+        lblDescription.textColor = theme.subTextColor()
+        lblTitle.textColor = theme.textColor()
+        lblPrice.textColor = theme.textColor()
+        lblTotal.textColor = theme.textColor()
+        lblCount.backgroundColor = theme.backgroundColor()
+        lblCount.textColor = theme.textColor()
+        btnMinus.backgroundColor = theme.primaryButtonBackground()
+    }
 
     func MyActivityIndicator() {
         let frame = CGRect(
@@ -173,7 +192,7 @@ class ProductDetailViewController: UIViewController {
         product.objAddFavorite = isFav
         let imageName = isFav ? "heart.fill" : "heart"
         btnHeart.setImage(UIImage(systemName: imageName), for: .normal)
-        //        updateWishlistData()
+        applyTheme()
     }
 
     func syncWishlistFromCoreData() {

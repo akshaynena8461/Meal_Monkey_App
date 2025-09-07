@@ -47,7 +47,7 @@ class PaymentViewController: UIViewController {
         // Show "No cards" label if the card list is empty
         //        lblEmpty.isHidden = !app.arrCard.isEmpty
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: Main.EmptyStateKeys.noCards)
         }
 
         // Apply styles to scroll and page views

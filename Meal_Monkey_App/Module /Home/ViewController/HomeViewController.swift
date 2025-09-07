@@ -164,7 +164,6 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     
     func applyTheme(){
         let theme = ThemeManager.shared
-        
         view.backgroundColor = theme.backgroundColor()
         tblHomeView.backgroundColor = theme.backgroundColor()
     }

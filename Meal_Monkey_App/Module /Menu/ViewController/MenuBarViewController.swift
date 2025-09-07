@@ -115,6 +115,9 @@ class MenuBarViewController: UIViewController {
         else {
             // Search text empty → show all items
             filteredMenuData = arrMenuData
+            sideImage.isHidden = false
+            tblMenuView.backgroundView = nil  // 👈 clear empty state
+            lblEmpty.isHidden = true
             tblMenuView.reloadData()
             return
         }
@@ -130,7 +133,7 @@ class MenuBarViewController: UIViewController {
             setEmptyBackgroundViewWithLottie(
                 tableView: tblMenuView,
                 animationName: "empty",
-                message: "No Products Found"
+                message: Main.EmptyStateKeys.noProductsFound
             )
         } else {
             // Data found → hide empty state

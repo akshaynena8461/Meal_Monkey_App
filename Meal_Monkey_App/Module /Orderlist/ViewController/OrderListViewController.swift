@@ -13,7 +13,7 @@ class OrderListViewController: UIViewController {
         lblEmpty.isHidden = true
 
         if app.arrOrder.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: "Orderlist is Empty")
+            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: Main.EmptyStateKeys.orderlistEmpty)
         }
 
         setLeftAlignedTitleWithBack(
@@ -50,7 +50,7 @@ class OrderListViewController: UIViewController {
 
         // Show/hide empty label depending on whether there are orders
         if app.arrOrder.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: "Orderlist is Empty")
+            setEmptyBackgroundViewWithLottie(tableView:tblOrderList,animationName: "Empty Order", message: Main.EmptyStateKeys.orderlistEmpty)
         } else {
             tblOrderList.backgroundView = nil  // 👈 remove empty view
         }
@@ -60,7 +60,6 @@ class OrderListViewController: UIViewController {
     
     func applyTheme(){
         let theme = ThemeManager.shared
-         
         tblOrderList.backgroundColor = theme.backgroundColor()
         view.backgroundColor = theme.backgroundColor()
     }

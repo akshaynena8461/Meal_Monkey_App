@@ -54,7 +54,7 @@ class WishListViewController: UIViewController {
         }
         
         if app.arrWishList.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblWishlist,animationName: "like button", message: "Wishlist is Empty")
+            setEmptyBackgroundViewWithLottie(tableView:tblWishlist,animationName: "like button", message: Main.EmptyStateKeys.wishlistEmpty)
         }
         // Reload table view to reflect the latest wishlist
         setLeftAlignedTitleWithBack(
@@ -62,7 +62,14 @@ class WishListViewController: UIViewController {
             target: self,
             action: #selector(backBtnTapped)
         )
+        applyTheme()
         tblWishlist.reloadData()
+    }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        tblWishlist.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
     }
 
     // MARK: - Button Actions

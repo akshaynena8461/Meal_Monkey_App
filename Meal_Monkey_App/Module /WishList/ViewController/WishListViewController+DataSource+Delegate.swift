@@ -53,11 +53,8 @@ extension WishListViewController: UITableViewDelegate, UITableViewDataSource {
             app.arrWishList.remove(at: indexPath.row)
 
             if app.arrWishList.isEmpty {
-                self.setEmptyBackgroundViewWithLottie(
-                    tableView: self.tblWishlist,
-                    animationName: "like button",
-                    message: "Wishlist is Empty"
-                )
+                self.setEmptyBackgroundViewWithLottie(tableView:self.tblWishlist,animationName: "like button", message: Main.EmptyStateKeys.wishlistEmpty)
+
             }
             // Reload the table view to reflect changes
             self.tblWishlist.reloadData()

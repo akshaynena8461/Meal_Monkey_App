@@ -260,6 +260,12 @@ at anytime ";
 "8461_send_order" = "Send Order";
 "8461_btn_change" = "Change";
 
+//Empty Labels
+"8461_cart_empty" = "Cart is Empty";
+"8461_whishilst_empty" = "Wishlist is Empty";
+"8461_no_cards" = "No Cards";
+"8461_no_products_found" = "No Products Found";
+"8461_orderlist_empty" = "Orderlist is Empty";
 
 
 

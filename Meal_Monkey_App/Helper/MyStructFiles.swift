@@ -666,6 +666,26 @@ class Main {
         }
     }
 
+    struct EmptyStateKeys {
+        static var cartEmpty: String {
+            LanguageManager.shared.localizedString(for: "8461_cart_empty")
+        }
+        static var wishlistEmpty: String {
+            LanguageManager.shared.localizedString(for: "8461_whishilst_empty")
+        }
+        static var noCards: String {
+            LanguageManager.shared.localizedString(for: "8461_no_cards")
+        }
+        static var noProductsFound: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_no_products_found"
+            )
+        }
+        static var orderlistEmpty: String {
+            LanguageManager.shared.localizedString(for: "8461_orderlist_empty")
+        }
+    }
+
     struct OrderDetailAndCheckout {
         static var ratings: String {
             LanguageManager.shared.localizedString(for: "8461_ratings")

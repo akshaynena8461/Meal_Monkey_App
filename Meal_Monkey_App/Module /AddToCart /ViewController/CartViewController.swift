@@ -19,7 +19,7 @@ class CartViewController: UIViewController {
         // Show/hide empty label and place order button depending on cart
         if app.arrCart.isEmpty {
             //            lblEmpty.isHidden = false
-            setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
+            setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: Main.EmptyStateKeys.cartEmpty)
             btnPlaceOrder.isHidden = true
         } else {
             lblEmpty.isHidden = true
@@ -68,15 +68,24 @@ class CartViewController: UIViewController {
             // Fetch cart for the current user
             app.arrCart = CoreDataManager.shared.fetchCart(for: loggedInUser)
             if app.arrCart.isEmpty {
-                setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
+                setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: Main.EmptyStateKeys.cartEmpty)
             } else {
                 tblCartView.backgroundView = nil  
             }
+            applyTheme()
+            lblEmpty.text = Main.EmptyStateKeys.cartEmpty
             tblCartView.reloadData()
         }
     }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        tblCartView.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
+        btnPlaceOrder.setTitleColor(.white, for: .normal)
+        btnPlaceOrder.backgroundColor = theme.primaryButtonBackground()
+    }
 
-   
     // MARK: - Navigation
     @objc func backBtnTapped() {
         self.navigationController?.popViewController(animated: true)
@@ -138,7 +147,7 @@ class CartViewController: UIViewController {
 
         // Update UI for empty cart
         //        lblEmpty.isHidden = false
-        setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: "Cart is Empty")
+        setEmptyBackgroundViewWithLottie(tableView:tblCartView,animationName: "Empty Cart", message: Main.EmptyStateKeys.cartEmpty)
         btnPlaceOrder.isHidden = true
         tblCartView.reloadData()
     }
