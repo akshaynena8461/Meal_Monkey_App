@@ -2,7 +2,10 @@ import UIKit
 
 // MARK: - CheckOutViewController
 class CheckOutViewController: UIViewController, ChangeAddressDelegate {
-
+    @IBOutlet weak var lblRemoveCard: UILabel!
+    
+    @IBOutlet weak var lblExpiry: UILabel!
+    @IBOutlet weak var lblAddCreditOrDebitCard: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var lblForYourOrder: UILabel!
     @IBOutlet weak var lblTitleThankyou: UILabel!
@@ -220,8 +223,19 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
             LanguageManager.shared.localizedString(for: "8461_thankyou_track_order"),
             for: .normal
         )
+        lblExpiry.text =  Main.CardLabels.expiry
+        lblRemoveCard.text = Main.CardLabels.removeCard
+        lblAddCreditOrDebitCard.text = Main.CardLabels.addCreditOrDebitCard
+        btnAddAnotherCard.setTitle(Main.CardLabels.addCard, for: .normal)
+        btnAddCard.setTitle(Main.CardLabels.addCard, for: .normal)
+        txtCardNumber.placeholder   = Main.CardForm.cardNumber
+        txtMonth.placeholder        = Main.CardForm.expiryMonth
+        txtYear.placeholder         = Main.CardForm.expiryYear
+        txtSecurityCode.placeholder = Main.CardForm.securityCode
+        txtFirstName.placeholder    = Main.CardForm.firstName
+        txtLastName.placeholder     = Main.CardForm.lastName
+        
     }
-
 
     @IBAction func btnSendOrderClick(_ sender: Any) {
         // Show Thank You page after sending order

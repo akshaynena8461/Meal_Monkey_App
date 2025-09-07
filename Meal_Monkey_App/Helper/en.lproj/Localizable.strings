@@ -226,6 +226,23 @@ link to  create a new password via email";
 "8461_nav_change_address" = "Change Address";
 "8461_nav_cart" = "Cart";
 
+//Add Card
+"8461_card_number" = "Card Number";
+"8461_expiry_month" = "Month";
+"8461_expiry_year" = "Year";
+"8461_security_code" = "Security Code";
+"8461_first_name" = "First Name";
+"8461_last_name" = "Last Name";
+"8461_remove_card" = "You can remove this card
+at anytime ";
+"8461_add_credit_or_debit_card" = "Add Credit/Debit Card";
+"8461_add_card" = "Add Card";
+"8461_Expiry" = "Expiry";
+"8461_label_Payment_Method" = "Customize your payment method";
+
+
+
+
 
 
 

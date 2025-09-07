@@ -537,25 +537,56 @@ class Main {
             )
         }
     }
-    
-    struct NavTitle {
-        static var payment: String { LanguageManager.shared.localizedString(for: "8461_nav_payment") }
-        static var more: String { LanguageManager.shared.localizedString(for: "8461_nav_more") }
-        static var aboutUs: String { LanguageManager.shared.localizedString(for: "8461_nav_about_us") }
-        static var inbox: String { LanguageManager.shared.localizedString(for: "8461_nav_inbox") }
-        static var notification: String { LanguageManager.shared.localizedString(for: "8461_nav_notification") }
-        static var wishlist: String { LanguageManager.shared.localizedString(for: "8461_nav_wishlist") }
-        static var dessert: String { LanguageManager.shared.localizedString(for: "8461_nav_dessert") }
-        static var profile: String { LanguageManager.shared.localizedString(for: "8461_nav_profile") }
-        static var menu: String { LanguageManager.shared.localizedString(for: "8461_nav_menu") }
-        static var offers: String { LanguageManager.shared.localizedString(for: "8461_nav_offers") }
-        static var checkout: String { LanguageManager.shared.localizedString(for: "8461_nav_checkout") }
-        static var myOrder: String { LanguageManager.shared.localizedString(for: "8461_nav_my_order") }
-        static var orderlist: String { LanguageManager.shared.localizedString(for: "8461_nav_orderlist") }
-        static var changeAddress: String { LanguageManager.shared.localizedString(for: "8461_nav_change_address") }
-        static var cart: String { LanguageManager.shared.localizedString(for: "8461_nav_cart") } // Added Cart
-    }
 
+    struct NavTitle {
+        static var payment: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_payment")
+        }
+        static var more: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_more")
+        }
+        static var aboutUs: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_about_us")
+        }
+        static var inbox: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_inbox")
+        }
+        static var notification: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_notification")
+        }
+        static var wishlist: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_wishlist")
+        }
+        static var dessert: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_dessert")
+        }
+        static var profile: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_profile")
+        }
+        static var menu: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_menu")
+        }
+        static var offers: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_offers")
+        }
+        static var checkout: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_checkout")
+        }
+        static var myOrder: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_my_order")
+        }
+        static var orderlist: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_orderlist")
+        }
+        static var changeAddress: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_nav_change_address"
+            )
+        }
+        static var cart: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_cart")
+        }  // Added Cart
+    }
 
     struct Services {
         static var serviceTitle1: String {
@@ -578,5 +609,61 @@ class Main {
         static var serviceMsg3: String {
             LanguageManager.shared.localizedString(for: "8461_service_msg3")
         }
+    }
+
+    struct CardForm {
+        static var cardNumber: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_card_number"
+            )
+        }
+        static var expiryMonth: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_expiry_month"
+            )
+        }
+        static var expiryYear: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_expiry_year"
+            )
+        }
+        static var securityCode: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_security_code"
+            )
+        }
+        static var firstName: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_first_name"
+            )
+        }
+        static var lastName: String {
+            return LanguageManager.shared.localizedString(for: "8461_last_name")
+        }
+    }
+
+    struct CardLabels {
+        static var removeCard: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_remove_card"
+            )
+        }
+        static var addCreditOrDebitCard: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_add_credit_or_debit_card"
+            )
+        }
+        static var addCard: String {
+            return LanguageManager.shared.localizedString(for: "8461_add_card")
+        }
+        static var expiry: String {
+            return LanguageManager.shared.localizedString(for: "8461_Expiry")
+        }
+        static var paymentMethod: String {
+            return LanguageManager.shared.localizedString(
+                for: "8461_label_Payment_Method"
+            )
+        }
+
     }
 }

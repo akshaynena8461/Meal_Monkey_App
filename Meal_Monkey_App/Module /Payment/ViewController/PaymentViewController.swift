@@ -4,6 +4,10 @@ import UIKit
 class PaymentViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var lblExpiry: UILabel!
+    @IBOutlet weak var lblPaymentMethod: UILabel!
+    @IBOutlet weak var lblRemoveCard: UILabel!
+    @IBOutlet weak var lblAddCreditOrDebitCard: UILabel!
     @IBOutlet weak var lblEmpty: UILabel!  // Label shown when there are no cards
     @IBOutlet weak var subView: UIView!
     @IBOutlet weak var viewScroll: UIScrollView!  // ScrollView for card entry form
@@ -95,9 +99,28 @@ class PaymentViewController: UIViewController {
         } else {
             tblPaymentView.backgroundView = nil
         }
+        applyLocalization()
         tblPaymentView.reloadData()
 
     }
+    
+    func applyLocalization() {
+       
+        lblPaymentMethod.text = Main.CardLabels.paymentMethod
+        lblExpiry.text =  Main.CardLabels.expiry
+        lblRemoveCard.text = Main.CardLabels.removeCard
+        lblAddCreditOrDebitCard.text = Main.CardLabels.addCreditOrDebitCard
+        btnAddAnotherDebitOrCreditCard.setTitle(Main.CardLabels.addCard, for: .normal)
+        btnAddCard.setTitle(Main.CardLabels.addCard, for: .normal)
+        txtCardNumber.placeholder   = Main.CardForm.cardNumber
+        txtMonth.placeholder        = Main.CardForm.expiryMonth
+        txtYear.placeholder         = Main.CardForm.expiryYear
+        txtSecurityCode.placeholder = Main.CardForm.securityCode
+        txtFirstName.placeholder    = Main.CardForm.firstName
+        txtLastName.placeholder     = Main.CardForm.lastName
+        
+    }
+    
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
