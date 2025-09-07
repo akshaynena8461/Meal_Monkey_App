@@ -81,6 +81,7 @@
                     <navigationItem key="navigationItem" id="ifT-gr-0bL"/>
                     <connections>
                         <outlet property="lblEmpty" destination="wLf-GY-OgI" id="yKx-dU-6ut"/>
+                        <outlet property="mainView" destination="lNT-0S-vWj" id="Yok-md-meW"/>
                         <outlet property="sideImage" destination="MLs-FG-6iT" id="hTq-rx-gk9"/>
                         <outlet property="tblMenuView" destination="ToI-2N-2j6" id="QHn-bx-Vam"/>
                         <outlet property="txtSearch" destination="0ls-fl-UEJ" id="crC-u9-CQk"/>
@@ -302,8 +303,10 @@
                         <outlet property="btnSave" destination="1dd-5Z-ovl" id="CDx-e1-WfN"/>
                         <outlet property="btnSignOut" destination="eqJ-XC-B32" id="N8A-uQ-qZU"/>
                         <outlet property="imgProfile" destination="ekN-Ck-ebk" id="KxK-xO-KrD"/>
+                        <outlet property="internalView" destination="bmR-Fv-evK" id="1cu-0p-k9D"/>
                         <outlet property="lblTitle" destination="EiO-Th-WrL" id="536-Jk-6Nx"/>
                         <outlet property="lblUserName" destination="2g0-In-PQb" id="yma-jl-gDc"/>
+                        <outlet property="mainView" destination="Nex-FI-eyQ" id="82b-pm-jXf"/>
                         <outlet property="profileScrollView" destination="8FX-ue-N8M" id="oUo-IC-Wdi"/>
                         <outlet property="stackDetail" destination="foW-kM-mrq" id="xIj-E5-je9"/>
                         <outlet property="txtAddress" destination="V2e-Bu-9f2" id="wRl-QQ-BDk"/>

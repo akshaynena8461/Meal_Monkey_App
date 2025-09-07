@@ -58,4 +58,5 @@ class MoreTableViewCell: UITableViewCell {
 
         imgView.image = UIImage(named: more.strImage ?? "")  // Set icon image
     }
+
 }

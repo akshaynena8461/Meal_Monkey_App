@@ -4,6 +4,8 @@ import UIKit
 class SignUpViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var signUpMainView: UIView!
+    @IBOutlet weak var signUpInternalView: UIView!
     @IBOutlet weak var lblSubtitle: UILabel!
     @IBOutlet weak var lblSignUp: UILabel!
     @IBOutlet weak var txtName: UITextField!
@@ -55,6 +57,7 @@ class SignUpViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyLocalization()
+        applyAccentTheme()
     }
 
     func applyLocalization() {
@@ -94,6 +97,36 @@ class SignUpViewController: UIViewController {
             highlightKey: "8461_login_button_highlight",
             highlightColor: UIColor(named: "loginbtnbg")!
         )
+    }
+
+    func applyAccentTheme() {
+        let theme = ThemeManager.shared
+
+        //        view.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
+        signUpMainView.backgroundColor = theme.backgroundColor()
+        signUpInternalView.backgroundColor = theme.backgroundColor()
+
+        // Labels
+        lblSignUp.textColor = theme.textColor()
+        lblSubtitle.textColor = theme.subTextColor()
+
+        // TextFields
+        txtEmail.textColor = theme.textColor()
+        txtPassword.textColor = theme.textColor()
+        txtName.textColor = theme.textColor()
+        txtMobile.textColor = theme.textColor()
+        txtAddress.textColor = theme.textColor()
+        txtPassword.textColor = theme.textColor()
+        txtConfirmPassword.textColor = theme.textColor()
+
+        // Login Button
+        btnlogin.setTitleColor(theme.accentColor(), for: .normal)
+        btnlogin.clipsToBounds = true
+
+        // Sign Up Button → Accent
+        btnSignUp.setTitleColor(.white, for: .normal)
+        btnSignUp.backgroundColor = theme.primaryButtonBackground()
     }
 
     // MARK: - Password Visibility Toggle
@@ -271,7 +304,12 @@ class SignUpViewController: UIViewController {
                 preferredStyle: .alert
             )
             alert.addAction(
-                UIAlertAction(title: LanguageManager.shared.localizedString(for: "8461_Alert_ok"), style: .default) { _ in
+                UIAlertAction(
+                    title: LanguageManager.shared.localizedString(
+                        for: "8461_Alert_ok"
+                    ),
+                    style: .default
+                ) { _ in
                     self.navigationController?.popViewController(animated: true)
                 }
             )
@@ -284,7 +322,14 @@ class SignUpViewController: UIViewController {
                 message: Main.Alert.fetchFailedMsg,
                 preferredStyle: .alert
             )
-            alert.addAction(UIAlertAction(title: LanguageManager.shared.localizedString(for: "8461_Alert_ok"), style: .default))
+            alert.addAction(
+                UIAlertAction(
+                    title: LanguageManager.shared.localizedString(
+                        for: "8461_Alert_ok"
+                    ),
+                    style: .default
+                )
+            )
             present(alert, animated: true)
         }
     }

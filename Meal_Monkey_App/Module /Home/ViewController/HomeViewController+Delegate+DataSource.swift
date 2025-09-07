@@ -23,6 +23,9 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Set delegate to handle cell interactions
         cell.delegate = self
+        
+        let theme = ThemeManager.shared
+        cell.homeCollectionView.backgroundColor = theme.backgroundColor()
 
         // Configure collection view scroll direction based on section
         if let layout = cell.homeCollectionView.collectionViewLayout as? UICollectionViewFlowLayout {

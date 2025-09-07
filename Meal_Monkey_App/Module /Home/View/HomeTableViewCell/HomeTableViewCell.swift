@@ -122,6 +122,8 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
             else{
                 cell.lblCategoryName.textColor = .darkGray
             }
+            let theme = ThemeManager.shared
+            cell.backgroundColor = theme.backgroundColor()
             return cell
 
         case .popular:
@@ -130,6 +132,8 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
                 for: indexPath
             ) as! PopularItemCollectionViewCell
             cell.configPopularProduct(product: arrProducts[indexPath.row])
+            let theme = ThemeManager.shared
+            cell.backgroundColor = theme.backgroundColor()
             return cell
 
         case .mostPopular:
@@ -138,6 +142,8 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
                 for: indexPath
             ) as! MostPopularCollectionViewCell
             cell.congigMostPopularCell(product: arrProducts[indexPath.row])
+            let theme = ThemeManager.shared
+            cell.backgroundColor = theme.backgroundColor()
             return cell
 
         case .RecentItems:
@@ -146,6 +152,8 @@ extension HomeTableViewCell: UICollectionViewDataSource, UICollectionViewDelegat
                 for: indexPath
             ) as! RecentItemCollectionViewCell
             cell.configureRecentItemCell(recentItem: arrProducts[indexPath.row])
+            let theme = ThemeManager.shared
+            cell.backgroundColor = theme.backgroundColor()
             return cell
         }
     }

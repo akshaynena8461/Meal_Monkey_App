@@ -23,6 +23,11 @@ extension OrderListViewController: UITableViewDelegate, UITableViewDataSource {
         print("Configuring row: \(indexPath.row), Products count: \(orderProducts.count)")
 
         cell.selectionStyle = .none
+        let theme = ThemeManager.shared
+        cell.lblOrderId.textColor = theme.textColor()
+        cell.lblProductsName.textColor = theme.subTextColor()
+        cell.lblTotalPrice.textColor = theme.textColor()
+        cell.backgroundColor = theme.backgroundColor()
         return cell
     }
 

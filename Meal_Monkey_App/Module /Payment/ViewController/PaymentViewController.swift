@@ -100,8 +100,8 @@ class PaymentViewController: UIViewController {
             tblPaymentView.backgroundView = nil
         }
         applyLocalization()
+        applyTheme()
         tblPaymentView.reloadData()
-
     }
     
     func applyLocalization() {
@@ -118,9 +118,21 @@ class PaymentViewController: UIViewController {
         txtSecurityCode.placeholder = Main.CardForm.securityCode
         txtFirstName.placeholder    = Main.CardForm.firstName
         txtLastName.placeholder     = Main.CardForm.lastName
-        
     }
     
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        btnAddAnotherDebitOrCreditCard.setTitleColor(.white, for: .normal)
+        btnAddAnotherDebitOrCreditCard.backgroundColor  = theme.primaryButtonBackground()
+        btnAddCard.setTitleColor(.white, for: .normal)
+        btnAddCard.backgroundColor  = theme.primaryButtonBackground()
+        addCardPageView.backgroundColor = theme.backgroundColor()
+        lblRemoveCard.textColor = theme.subTextColor()
+        lblPaymentMethod.textColor = theme.textColor()
+        subView.backgroundColor = theme.backgroundColor()
+        tblPaymentView.backgroundColor = theme.backgroundColor()
+    }
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))

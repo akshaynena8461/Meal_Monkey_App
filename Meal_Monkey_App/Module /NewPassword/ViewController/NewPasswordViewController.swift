@@ -3,6 +3,7 @@ import UIKit
 class NewPasswordViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lblNewPasswordTitle: UILabel!
     @IBOutlet weak var lblNewPasswordSubtitle: UILabel!
     @IBOutlet weak var stackConfirmPassword: UIStackView! // Stack for Confirm Password field
@@ -28,6 +29,7 @@ class NewPasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyLocalization()
+        applyAccentTheme()
     }
    
     func applyLocalization() {
@@ -39,8 +41,21 @@ class NewPasswordViewController: UIViewController {
         
         btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_new_password_next_button"), for: .normal)
     }
-
     
+    func applyAccentTheme() {
+        let theme = ThemeManager.shared
+        mainView.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
+        
+        lblNewPasswordTitle.textColor = theme.textColor()
+        lblNewPasswordSubtitle.textColor = theme.subTextColor()
+        
+        txtPassword.textColor = theme.textColor()
+        txtConfirmPassword.textColor = theme.textColor()
+        
+        btnNext.setTitleColor(.white, for: .normal)
+        btnNext.backgroundColor = theme.primaryButtonBackground()
+    }
     
     // MARK: - IBActions
 

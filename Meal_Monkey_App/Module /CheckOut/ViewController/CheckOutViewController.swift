@@ -2,8 +2,15 @@ import UIKit
 
 // MARK: - CheckOutViewController
 class CheckOutViewController: UIViewController, ChangeAddressDelegate {
+  
     @IBOutlet weak var lblRemoveCard: UILabel!
-    
+    @IBOutlet weak var lblDiscountTitle: UILabel!
+    @IBOutlet weak var lblTotalTitle: UILabel!
+    @IBOutlet weak var lblDiscount: UILabel!
+    @IBOutlet weak var lblPaymentMethod: UILabel!
+    @IBOutlet weak var lblDeliveryAddress: UILabel!
+    @IBOutlet weak var lblDeliveryCostTitle: UILabel!
+    @IBOutlet weak var lblSubTotalTitle: UILabel!
     @IBOutlet weak var lblExpiry: UILabel!
     @IBOutlet weak var lblAddCreditOrDebitCard: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
@@ -32,7 +39,6 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
     @IBOutlet weak var addCardPageView: UIView!  // Add Card page
     @IBOutlet weak var btnSendOrder: UIButton!  // Send order button
     @IBOutlet weak var lblTotal: UILabel!  // Displays total cost
-    @IBOutlet weak var lblDiscount: UILabel!  // Displays discount amount
     @IBOutlet weak var lblDeliveryCost: UILabel!  // Displays delivery cost
     @IBOutlet weak var lblSubTotal: UILabel!  // Displays subtotal
     @IBOutlet weak var tblCheckOutView: UITableView!  // Table view for payment options
@@ -152,6 +158,8 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         }
         fetchUserCards()
         applyLocalization()
+        applyTheme()
+        tblCheckOutView.reloadData()
     }
 
     // MARK: - Calculate totals
@@ -234,8 +242,40 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         txtSecurityCode.placeholder = Main.CardForm.securityCode
         txtFirstName.placeholder    = Main.CardForm.firstName
         txtLastName.placeholder     = Main.CardForm.lastName
-        
+        lblDiscountTitle.text = Main.OrderDetailAndCheckout.discount
+        lblSubTotalTitle.text = Main.OrderDetailAndCheckout.subtotalTitle
+        lblTotalTitle.text = Main.OrderDetailAndCheckout.totalTitle
+        lblDeliveryCostTitle.text = Main.OrderDetailAndCheckout.deliveryCostTitle
+        lblPaymentMethod.text = Main.OrderDetailAndCheckout.paymentMethod
+        lblDeliveryAddress.text = Main.OrderDetailAndCheckout.deliveryAddress
+        btnSendOrder.setTitle(Main.OrderDetailAndCheckout.sendOrder, for: .normal)
+        btnChangeAddress.setTitle(Main.OrderDetailAndCheckout.changeAddress, for: .normal)
     }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        ThankYouPage.backgroundColor = theme.backgroundColor()
+        lblTitleThankyou.textColor = theme.textColor()
+        lblSubTitle.textColor = theme.subTextColor()
+        btnTrackMyOrder.setTitleColor(.white, for: .normal)
+        btnTrackMyOrder.backgroundColor = theme.primaryButtonBackground()
+        btnBackToHome.setTitleColor(theme.textColor(), for: .normal)
+        addCardPageView.backgroundColor = theme.backgroundColor()
+        lblExpiry.textColor = theme.subTextColor()
+        lblRemoveCard.textColor = theme.subTextColor()
+        btnAddAnotherCard.setTitleColor(.white, for: .normal)
+        btnAddAnotherCard.backgroundColor = theme.primaryButtonBackground()
+        tblCheckOutView.backgroundColor = theme.backgroundColor()
+        btnChangeAddress.setTitleColor(theme.primaryButtonBackground(), for: .normal)
+        btnSendOrder.setTitleColor(.white, for: .normal)
+        btnSendOrder.backgroundColor = theme.primaryButtonBackground()
+        checkoutDetailPage.backgroundColor = theme.backgroundColor()
+        viewinThankYouScrollView.backgroundColor = theme.backgroundColor()
+        viewinAddtoCartScrollView.backgroundColor = theme.backgroundColor()
+        btnAddCard.setTitleColor(theme.primaryButtonBackground(), for: .normal)
+    }
+    
 
     @IBAction func btnSendOrderClick(_ sender: Any) {
         // Show Thank You page after sending order

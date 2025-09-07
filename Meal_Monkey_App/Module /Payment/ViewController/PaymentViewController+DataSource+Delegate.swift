@@ -24,6 +24,8 @@ extension PaymentViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Disable cell selection highlighting
         cell.selectionStyle = .none
+        let theme = ThemeManager.shared
+        cell.backgroundColor = theme.backgroundColor()
 
         // Configure the delete action closure
         // When delete button is tapped, remove the card from the array, update empty label, and reload table

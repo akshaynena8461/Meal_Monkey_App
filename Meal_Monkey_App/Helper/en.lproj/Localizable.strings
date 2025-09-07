@@ -240,6 +240,30 @@ at anytime ";
 "8461_Expiry" = "Expiry";
 "8461_label_Payment_Method" = "Customize your payment method";
 
+//Address
+"8461_search_address" = "Search Address";
+"8461_choose_saved_address" = "Choose a Saved Address";
+
+
+//MyOrders and CheckOut
+"8461_ratings" = "4.9";
+"8461_number_of_ratings" = "(124)Ratings";
+"8461_restaurant_name" = "Restaurant Name";
+"8461_total_title" = "Total";
+"8461_delivery_cost_title" = "Delivery Cost";
+"8461_subtotal_title" = "Subtotal";
+"8461_delivery_instruction" = "Delivery Instruction";
+"8461_discount" = "Discount";
+"8461_payment_method" = "Payment Method";
+"8461_delivery_address" = "Delivery Address";
+"8461_checkout" = "Checkout";
+"8461_send_order" = "Send Order";
+"8461_btn_change" = "Change";
+
+
+
+
+
 
 
 

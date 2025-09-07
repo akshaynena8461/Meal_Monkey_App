@@ -4,6 +4,7 @@ import UIKit
 // MARK: - MenuBarViewController
 class MenuBarViewController: UIViewController {
 
+    @IBOutlet weak var mainView: UIView!
     private var animationView: LottieAnimationView?
 
     // MARK: - Properties
@@ -28,8 +29,10 @@ class MenuBarViewController: UIViewController {
             name: .cartUpdated,
             object: nil
         )
-        
-        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+
+        txtSearch.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_search_food"
+        )
 
         // Set table view background to clear
         tblMenuView.backgroundColor = .clear
@@ -38,7 +41,7 @@ class MenuBarViewController: UIViewController {
         filteredMenuData = arrMenuData
 
         // Set title aligned to the left
-//        setLeftAlignedTitle(Main.NavTitle.menu)
+        //        setLeftAlignedTitle(Main.NavTitle.menu)
         // Add cart button to navigation bar
         setCartButton(target: self, action: #selector(openCart))
 
@@ -60,13 +63,23 @@ class MenuBarViewController: UIViewController {
             forCellReuseIdentifier: Main.CellIdentifiers.MenuTableViewCell
         )
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        txtSearch.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_search_food"
+        )
         arrMenuData = MenuModel.addMenuData()
         setLeftAlignedTitle(Main.NavTitle.menu)
+        applyTheme()
         tblMenuView.reloadData()
+    }
+
+    func applyTheme() {
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        txtSearch.textColor = theme.textColor()
+        mainView.backgroundColor = theme.backgroundColor()
     }
 
     // MARK: - Actions
@@ -114,7 +127,11 @@ class MenuBarViewController: UIViewController {
         if filteredMenuData.isEmpty {
             // Nothing matched search → show empty state
             sideImage.isHidden = true
-            setEmptyBackgroundViewWithLottie(tableView:tblMenuView,animationName: "empty", message: "No Products Found")
+            setEmptyBackgroundViewWithLottie(
+                tableView: tblMenuView,
+                animationName: "empty",
+                message: "No Products Found"
+            )
         } else {
             // Data found → hide empty state
             sideImage.isHidden = false

@@ -4,6 +4,8 @@ import UIKit
 class ProfileViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var internalView: UIView!
     @IBOutlet weak var profileScrollView: UIScrollView!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var btnSave: UIButton!
@@ -83,6 +85,22 @@ class ProfileViewController: UIViewController {
         )
     }
 
+    func applytheme(){
+        let theme = ThemeManager.shared
+       
+        view.backgroundColor = theme.backgroundColor()
+        mainView.backgroundColor = theme.backgroundColor()
+        internalView.backgroundColor = theme.backgroundColor()
+        btnEditProfile.setTitleColor(theme.textColor(), for: .normal)
+        btnSignOut.setTitleColor(theme.subTextColor(), for: .normal)
+        btnSave.backgroundColor = theme.primaryButtonBackground()
+        btnSave.setTitleColor(.white, for: .normal)
+        txtName.textColor = theme.textColor()
+        txtEmail.textColor = theme.textColor()
+        txtMobile.textColor = theme.textColor()
+        txtAddress.textColor = theme.textColor()
+    }
+    
 
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartBtnTapped))
@@ -157,6 +175,7 @@ class ProfileViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         fetUserData()
         applyLocalization()
+        applytheme()
     }
 
     // MARK: - Fetch User Data

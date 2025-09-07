@@ -158,8 +158,17 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         // Load recent items
         arrRecentItem = RecentItemsHelper.shared.getRecentItems()
         txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        applyTheme()
         tblHomeView.reloadData()
     }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        
+        view.backgroundColor = theme.backgroundColor()
+        tblHomeView.backgroundColor = theme.backgroundColor()
+    }
+    
 
     // MARK: - Cart Navigation
     @objc func CartButtonTapped() {

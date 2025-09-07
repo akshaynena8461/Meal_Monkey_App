@@ -3,6 +3,8 @@ import UIKit
 
 class LoginViewController: UIViewController {
 
+    @IBOutlet weak var loginInternalView: UIView!
+    @IBOutlet weak var loginMainView: UIView!
     @IBOutlet weak var lblOrLoginWith: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var lblLoginTitle: UILabel!
@@ -46,9 +48,44 @@ class LoginViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyLocalization()
+        applyAccentTheme()
         // Hide tab bar on login screen
         self.tabBarController?.tabBar.isHidden = true
     }
+    
+    func applyAccentTheme() {
+        let theme = ThemeManager.shared
+           
+        view.backgroundColor = theme.backgroundColor()
+        loginMainView.backgroundColor = theme.backgroundColor()
+        loginInternalView.backgroundColor = theme.backgroundColor()
+           
+           // Labels
+           lblLoginTitle.textColor = theme.textColor()
+           lblSubTitle.textColor = theme.subTextColor()
+           lblOrLoginWith.textColor = theme.subTextColor()
+           
+           // TextFields
+           txtEmail.textColor = theme.textColor()
+           txtPassword.textColor = theme.textColor()
+           
+           // Login Button
+           btnlogin.backgroundColor = theme.primaryButtonBackground()
+           btnlogin.setTitleColor(theme.buttonTextColor(), for: .normal)
+           btnlogin.layer.cornerRadius = 25
+           btnlogin.clipsToBounds = true
+           
+           // Sign Up Button → Accent
+           btnSignUp.setTitleColor(theme.accentColor(), for: .normal)
+           
+           // Social Buttons keep their own colors, only adjust text if you want
+           btnfacebooklogin.setTitleColor(.white, for: .normal)
+           btngooglelogin.setTitleColor(.white, for: .normal)
+           
+           // Forgot Password
+           btnforgotpassword.setTitleColor(theme.textColor(), for: .normal)
+       }
+    
 
     // MARK: - Login Button Action
     @IBAction func btnloginclick(_ sender: Any) {

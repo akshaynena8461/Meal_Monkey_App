@@ -38,7 +38,12 @@ extension AboutUsViewController: UITableViewDelegate, UITableViewDataSource {
 
         // Disable selection highlight
         cell.selectionStyle = .none
-
+        let theme = ThemeManager.shared
+        cell.backgroundColor = theme.backgroundColor()
+        cell.lblTitle.textColor = theme.textColor()
+        cell.lblTitle2.textColor = theme.subTextColor()
+        cell.lblRightsideTitle.textColor = theme.subTextColor()
+        
         return cell
     }
 }

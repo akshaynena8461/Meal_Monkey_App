@@ -37,6 +37,8 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 UIImage(systemName: btnImage),
                 for: .normal
             )
+            cell.contentView.backgroundColor = ThemeManager.shared.backgroundColor()
+            cell.mainView.backgroundColor = UIColor(named: "ViewlineBgColor")
             return cell
 
         case totalRows - 1:
@@ -53,6 +55,9 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 UIImage(systemName: btnImage),
                 for: .normal
             )
+            cell.contentView.backgroundColor = ThemeManager.shared.backgroundColor()
+            cell.mainView.backgroundColor = UIColor(named: "ViewlineBgColor")
+
             return cell
 
         default:
@@ -71,6 +76,9 @@ extension CheckOutViewController: UITableViewDelegate, UITableViewDataSource {
                 for: .normal
             )
             cell.configPaymentCell(payment: app.arrCard[cardIndex])
+            cell.contentView.backgroundColor = ThemeManager.shared.backgroundColor()
+            cell.mainView.backgroundColor = UIColor(named: "ViewlineBgColor")
+
             return cell
         }
     }

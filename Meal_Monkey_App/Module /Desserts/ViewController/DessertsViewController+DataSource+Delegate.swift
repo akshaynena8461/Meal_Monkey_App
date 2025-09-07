@@ -22,6 +22,9 @@ extension DessertsViewController: UITableViewDelegate, UITableViewDataSource {
         // Configure the cell with product data
         let dessert = filteredProducts[indexPath.row]
         cell.configDessertCell(dessert: dessert)
+        let theme = ThemeManager.shared
+        cell.backgroundColor = theme.backgroundColor()
+        
 
         return cell
     }

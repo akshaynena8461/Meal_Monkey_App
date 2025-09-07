@@ -3,6 +3,8 @@ import UIKit
 class ServiceViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var mainView: UIView!
+    @IBOutlet weak var internalView: UIView!
     @IBOutlet weak var btnNext: UIButton!  // Button to navigate to next page
     @IBOutlet weak var collectionIntro: UICollectionView!  // Collection view for intro images
     @IBOutlet weak var lblTitle2: UILabel!  // Subtitle label
@@ -13,7 +15,7 @@ class ServiceViewController: UIViewController {
     var arrService: [String] = [
         "Find food you love vector",
         "Delivery vector",
-        "Live tracking vector"
+        "Live tracking vector",
     ]  // Array of service images (or descriptions) to display in collection view
 
     // MARK: - Lifecycle
@@ -23,15 +25,22 @@ class ServiceViewController: UIViewController {
         // Initial setup of labels
         lblTItle1.text = Main.Services.serviceTitle1
         lblTitle2.text = Main.Services.serviceMsg1
-        btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
+        btnNext.setTitle(
+            LanguageManager.shared.localizedString(for: "8461_next_button"),
+            for: .normal
+        )
 
         // Styling the Next button
         EditStyle.setborder(textfields: [btnNext], cornerRadious: 28)
 
         // Register collection view cell
         collectionIntro.register(
-            UINib(nibName: Main.CellIdentifiers.ServiceCollectionViewCell, bundle: nil),
-            forCellWithReuseIdentifier: Main.CellIdentifiers.ServiceCollectionViewCell
+            UINib(
+                nibName: Main.CellIdentifiers.ServiceCollectionViewCell,
+                bundle: nil
+            ),
+            forCellWithReuseIdentifier: Main.CellIdentifiers
+                .ServiceCollectionViewCell
         )
     }
 
@@ -56,8 +65,7 @@ class ServiceViewController: UIViewController {
             if UserDefaults.standard.bool(forKey: "isLoggedIn") {
                 // User is logged in, navigate to the main tab bar
                 showMainTabBar()
-            }
-            else {
+            } else {
                 // User is not logged in, navigate to the Login screen
                 let storyboard = UIStoryboard(name: "User", bundle: nil)
                 if let vc = storyboard.instantiateViewController(
@@ -73,6 +81,27 @@ class ServiceViewController: UIViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyAccentTheme()
+    }
+
+    func applyAccentTheme() {
+        let theme = ThemeManager.shared
+
+        view.backgroundColor = theme.backgroundColor()
+        mainView.backgroundColor = theme.backgroundColor()
+        internalView.backgroundColor = theme.backgroundColor()
+        collectionIntro.backgroundColor = theme.backgroundColor()
+        pageControl.currentPageIndicatorTintColor = theme.primaryButtonBackground()
+
+        lblTItle1.textColor = theme.textColor()
+        lblTitle2.textColor = theme.subTextColor()
+
+        btnNext.setTitleColor(.white, for: .normal)
+        btnNext.backgroundColor = theme.primaryButtonBackground()
+    }
+
     // MARK: - Helper Methods
     /// Updates the main and subtitle labels based on current page
     /// Also changes the Next button text if needed
@@ -82,18 +111,27 @@ class ServiceViewController: UIViewController {
         case 0:
             lblTItle1.text = Main.Services.serviceTitle1
             lblTitle2.text =
-            Main.Services.serviceMsg1
-            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
+                Main.Services.serviceMsg1
+            btnNext.setTitle(
+                LanguageManager.shared.localizedString(for: "8461_next_button"),
+                for: .normal
+            )
         case 1:
             lblTItle1.text = Main.Services.serviceTitle2
             lblTitle2.text =
-            Main.Services.serviceMsg2
-            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_next_button"), for: .normal)
+                Main.Services.serviceMsg2
+            btnNext.setTitle(
+                LanguageManager.shared.localizedString(for: "8461_next_button"),
+                for: .normal
+            )
         case 2:
             lblTItle1.text = Main.Services.serviceTitle3
             lblTitle2.text =
-            Main.Services.serviceMsg3
-            btnNext.setTitle(LanguageManager.shared.localizedString(for: "8461_done_button"), for: .normal)
+                Main.Services.serviceMsg3
+            btnNext.setTitle(
+                LanguageManager.shared.localizedString(for: "8461_done_button"),
+                for: .normal
+            )
         default:
             break
         }

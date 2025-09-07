@@ -28,6 +28,10 @@ extension OffersViewController: UITableViewDelegate, UITableViewDataSource {
         // Configure the cell with offer data
         let offer = arrOffers[indexPath.row]
         cell.configOfferCell(offer: offer)
+        let theme = ThemeManager.shared
+        cell.backgroundColor = theme.backgroundColor()
+        cell.lblTitle2.textColor = theme.textColor()
+        cell.lblRating.textColor = theme.ratingPointsColor()
 
         return cell
     }

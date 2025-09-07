@@ -1,25 +1,3 @@
-//import Foundation
-//
-//class LanguageManager {
-//    static let shared = LanguageManager()
-//
-//    func setLanguage(_ languageCode: String) {
-//        UserDefaults.standard.set([languageCode], forKey: "AppleLanguages")
-//        UserDefaults.standard.synchronize()
-//    }
-//
-//    func currentLanguage() -> String {
-//        let languages = UserDefaults.standard.stringArray(forKey: "AppleLanguages") ?? ["en"]
-//        return languages.first ?? "en"
-//    }
-//
-//    func localizedString(for key: String) -> String {
-//        let path = Bundle.main.path(forResource: currentLanguage(), ofType: "lproj") ?? ""
-//        let bundle = Bundle(path: path) ?? .main
-//        return NSLocalizedString(key, tableName: nil, bundle: bundle, value: "", comment: "")
-//    }
-//}
-
 import Foundation
 
 class LanguageManager {

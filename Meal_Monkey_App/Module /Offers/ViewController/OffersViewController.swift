@@ -40,6 +40,20 @@ class OffersViewController: UIViewController {
         )
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyTheme()
+    }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        
+        view.backgroundColor = theme.backgroundColor()
+        tblOffersView.backgroundColor = theme.backgroundColor()
+        btnCheckOffers.setTitleColor(.white, for: .normal)
+        btnCheckOffers.backgroundColor = theme.primaryButtonBackground()
+    }
+
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
     }

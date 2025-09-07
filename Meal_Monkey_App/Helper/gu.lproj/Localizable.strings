@@ -6,7 +6,7 @@
 "8461_password_placeholder" = "પાસવર્ડ";
 
 "8461_login_btn" = "લૉગિન";
-"8461_signup_button_full" = "ખાતું નથી? સાઇન અપ કરો";
+"8461_signup_button_full" = "એકાઉન્ટ નથી? સાઇન અપ કરો";
 "8461_signup_button_highlight" = "સાઇન અપ કરો";
 "8461_forgot_password_button" = "પાસવર્ડ ભૂલાઈ ગયો?";
 "8461_google_login_button" = "ગૂગલ દ્વારા ચાલુ રાખો";
@@ -39,7 +39,7 @@
 "8461_forgot_send_button" = "મોકલો";
 
 //Otp Page
-"8461_otp_title" = "અમે તમારા મોબાઇલ પર OTP મોકલ્યો છે;";
+"8461_otp_title" = "અમે તમારા મોબાઇલ પર OTP મોકલ્યો છે";
 "8461_otp_subtitle" = "કૃપા કરીને તમારો મોબાઇલ નંબર 071*****12 તપાસો 
 તમારો પાસવર્ડ રીસેટ કરવાનું ચાલુ રાખો.";
 
@@ -236,6 +236,30 @@
 "8461_add_card" = "કાર્ડ ઉમેરો";
 "8461_Expiry" = "સમાપ્તિ";
 "8461_label_Payment_Method" = "તમારી ચુકવણી પદ્ધતિને કસ્ટમાઇઝ કરો";
+
+//Address
+"8461_choose_saved_address" = "સાચવેલ સરનામું પસંદ કરો";
+"8461_search_address" = "સરનામું શોધો";
+
+//MyOrders and CheckOut
+
+"8461_ratings" = "4.9";
+"8461_number_of_ratings" = "(૧૨૪) રેટિંગ્સ";
+"8461_restaurant_name" = "રેસ્ટોરન્ટનું નામ";
+"8461_total_title" = "કુલ";
+"8461_delivery_cost_title" = "ડિલિવરી ખર્ચ";
+"8461_subtotal_title" = "પેટાકુલ";
+"8461_delivery_instruction" = "ડિલિવરી સૂચના";
+"8461_discount" = "ડિસ્કાઉન્ટ";
+"8461_payment_method" = "ચુકવણી પદ્ધતિ";
+"8461_delivery_address" = "ડિલિવરી સરનામું";
+"8461_checkout" = "ચેકઆઉટ";
+"8461_send_order" = "ઓર્ડર મોકલો";
+"8461_btn_change" = "બદલો";
+
+
+
+
 
 
 

@@ -54,7 +54,15 @@ class OrderListViewController: UIViewController {
         } else {
             tblOrderList.backgroundView = nil  // 👈 remove empty view
         }
+        applyTheme()
         tblOrderList.reloadData()
+    }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+         
+        tblOrderList.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
     }
 
     /// Back button action

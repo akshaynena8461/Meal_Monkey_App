@@ -19,7 +19,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" text="Label" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5WE-rR-4oS">
-                        <rect key="frame" x="267" y="14.666666666666664" width="40" height="11"/>
+                        <rect key="frame" x="267" y="16.333333333333332" width="40" height="11"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="40" id="eV4-NE-EkH"/>
                             <constraint firstAttribute="height" constant="11" id="kCI-vw-AUy"/>
@@ -32,13 +32,13 @@
                         <rect key="frame" x="28.666666666666671" y="14" width="238.33333333333331" height="50"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4TX-Cd-UpF">
-                                <rect key="frame" x="0.0" y="0.0" width="238.33333333333334" height="16.333333333333332"/>
-                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="14"/>
+                                <rect key="frame" x="0.0" y="0.0" width="238.33333333333334" height="19.666666666666668"/>
+                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="17"/>
                                 <color key="textColor" name="loginsignupcolor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UMR-Lb-szu">
-                                <rect key="frame" x="0.0" y="27.333333333333336" width="238.33333333333334" height="22.666666666666664"/>
+                                <rect key="frame" x="0.0" y="30.666666666666664" width="238.33333333333334" height="19.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" name="placeholdercolor"/>
                                 <nil key="highlightedColor"/>
@@ -46,7 +46,7 @@
                         </subviews>
                     </stackView>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Unh-zM-FbH">
-                        <rect key="frame" x="293.33333333333331" y="46.666666666666664" width="13.666666666666686" height="12"/>
+                        <rect key="frame" x="293.33333333333331" y="48.333333333333336" width="13.666666666666686" height="12"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="12" id="3Ti-6m-m2Q"/>
                             <constraint firstAttribute="width" constant="13.67" id="flZ-n9-gtM"/>

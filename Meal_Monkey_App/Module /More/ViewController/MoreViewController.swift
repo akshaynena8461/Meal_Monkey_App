@@ -5,11 +5,12 @@ import UIKit
 class MoreViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var lblTitle: UILabel!  // Label for page title
     @IBOutlet weak var tblMoreView: UITableView!  // TableView for More menu items
 
     // MARK: - Data
     var arrMore = MoreModel.addMoreData()  // Array containing menu items
+    let languages = AppLanguage.allCases
+    let themes = ThemeManager.Theme.allCases
 
     // MARK: - Lifecycle
     override func viewDidLoad() {
@@ -36,10 +37,14 @@ class MoreViewController: UIViewController {
         )
     }
 
-    func showLanguagePicker() {
-        let languages = AppLanguage.allCases
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        applyLocalization()
+        applyTheme()
+        tblMoreView.reloadData()
+    }
 
-        // Container view for picker + toolbar
+    func showPicker(type: PickerType) {
         let pickerVC = UIViewController()
         pickerVC.preferredContentSize = CGSize(
             width: view.frame.width,
@@ -51,26 +56,39 @@ class MoreViewController: UIViewController {
         )
         picker.delegate = self
         picker.dataSource = self
-        picker.tag = 100
-        picker.selectRow(
-            languages.firstIndex(of: LanguageManager.shared.currentLanguage)
-                ?? 0,
-            inComponent: 0,
-            animated: false
-        )
+        picker.tag = (type == .language) ? 6 : 7
+        pickerVC.view.addSubview(picker)
 
-        // Toolbar with Cancel and Done buttons
+        // Select current value
+        if type == .language {
+            picker.selectRow(
+                AppLanguage.allCases.firstIndex(
+                    of: LanguageManager.shared.currentLanguage
+                ) ?? 0,
+                inComponent: 0,
+                animated: false
+            )
+        } else {
+            picker.selectRow(
+                ThemeManager.Theme.allCases.firstIndex(
+                    of: ThemeManager.shared.currentTheme
+                ) ?? 0,
+                inComponent: 0,
+                animated: false
+            )
+        }
+
+        // Toolbar with Cancel + Done
         let toolbar = UIToolbar(
             frame: CGRect(x: 0, y: 0, width: view.frame.width, height: 40)
         )
-
         let cancel = UIBarButtonItem(
             title: "Cancel",
             style: .plain,
             target: self,
-            action: #selector(cancelTapped)
+            action: #selector(cancelPicker)
         )
-        let flexibleSpace = UIBarButtonItem(
+        let flex = UIBarButtonItem(
             barButtonSystemItem: .flexibleSpace,
             target: nil,
             action: nil
@@ -79,15 +97,13 @@ class MoreViewController: UIViewController {
             title: "Done",
             style: .done,
             target: self,
-            action: #selector(doneTapped)
+            action: (type == .language)
+                ? #selector(doneLanguagePicker) : #selector(doneThemePicker)
         )
-
-        toolbar.items = [cancel, flexibleSpace, done]
+        toolbar.setItems([cancel, flex, done], animated: false)
 
         pickerVC.view.addSubview(toolbar)
-        pickerVC.view.addSubview(picker)
 
-        // Present as action sheet
         let alert = UIAlertController(
             title: nil,
             message: nil,
@@ -97,33 +113,53 @@ class MoreViewController: UIViewController {
         present(alert, animated: true)
     }
 
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        setLeftAlignedTitle(Main.NavTitle.more)
-        tblMoreView.reloadData()
-    }
-
-    @objc func cancelTapped() {
+    @objc func cancelPicker() {
         dismiss(animated: true)
     }
 
-    @objc func doneTapped() {
-        // Get selected row and update language
-        if let picker = (self.presentedViewController as? UIAlertController)?
-            .value(forKey: "contentViewController") as? UIViewController,
-            let languagePicker = picker.view.subviews.compactMap({
+    func applyLocalization() {
+        setLeftAlignedTitle(Main.NavTitle.more)
+    }
+
+    @objc func doneLanguagePicker() {
+        if let alert = presentedViewController as? UIAlertController,
+            let pickerVC = alert.value(forKey: "contentViewController")
+                as? UIViewController,
+            let picker = pickerVC.view.subviews.compactMap({
                 $0 as? UIPickerView
             }).first
         {
-            let selectedRow = languagePicker.selectedRow(inComponent: 0)
+            let selectedRow = picker.selectedRow(inComponent: 0)
             let selectedLanguage = AppLanguage.allCases[selectedRow]
-
-            // Set the selected language
             LanguageManager.shared.currentLanguage = selectedLanguage
+            applyLocalization()
         }
         dismiss(animated: true)
     }
-    
+
+    @objc func doneThemePicker() {
+        if let alert = presentedViewController as? UIAlertController,
+            let pickerVC = alert.value(forKey: "contentViewController")
+                as? UIViewController,
+            let picker = pickerVC.view.subviews.compactMap({
+                $0 as? UIPickerView
+            }).first
+        {
+            let selectedRow = picker.selectedRow(inComponent: 0)
+            let selectedTheme = ThemeManager.Theme.allCases[selectedRow]
+            ThemeManager.shared.setTheme(selectedTheme)
+            applyTheme()
+        }
+        dismiss(animated: true)
+    }
+
+    func applyTheme() {
+        let theme = ThemeManager.shared
+        tblMoreView.backgroundColor = theme.backgroundColor()
+        view.backgroundColor = theme.backgroundColor()
+        self.navigationItem.titleView?.backgroundColor = theme.backgroundColor()
+    }
+
     @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartButtonTapped))
     }
@@ -147,4 +183,9 @@ class MoreViewController: UIViewController {
             )
         }
     }
+}
+
+enum PickerType {
+    case language
+    case theme
 }

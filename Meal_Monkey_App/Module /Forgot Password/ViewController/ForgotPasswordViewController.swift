@@ -3,6 +3,7 @@ import UIKit
 class ForgotPasswordViewController: UIViewController {
 
     // MARK: - Outlets
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblSubTitle: UILabel!
     @IBOutlet weak var btnsend: UIButton!  // "Send" button
@@ -20,6 +21,7 @@ class ForgotPasswordViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         applyLocalization()
+        applyAccentTheme() 
     }
 
     func applyLocalization() {
@@ -41,6 +43,24 @@ class ForgotPasswordViewController: UIViewController {
             for: .normal
         )
     }
+    
+    func applyAccentTheme() {
+        let theme = ThemeManager.shared
+
+        view.backgroundColor = theme.backgroundColor()
+        mainView.backgroundColor = theme.backgroundColor()
+
+        // Labels
+        lblTitle.textColor = theme.textColor()
+        lblSubTitle.textColor = theme.subTextColor()
+
+        // TextFields
+        txtemail.textColor = theme.textColor()
+        btnsend.setTitleShadowColor(.white, for: .normal)
+        btnsend.backgroundColor = theme.primaryButtonBackground()
+      
+    }
+    
 
     // MARK: - Actions
     @IBAction func btnsendclick(_ sender: Any) {

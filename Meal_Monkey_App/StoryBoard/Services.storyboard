@@ -136,8 +136,10 @@
                     <connections>
                         <outlet property="btnNext" destination="1D5-0r-S0K" id="6MB-wH-Ibe"/>
                         <outlet property="collectionIntro" destination="rRy-oI-1oW" id="9KG-1j-vN5"/>
+                        <outlet property="internalView" destination="Ood-uQ-lA2" id="tG2-0t-IkP"/>
                         <outlet property="lblTItle1" destination="3LG-dt-STv" id="X1S-Lw-sOB"/>
                         <outlet property="lblTitle2" destination="iYz-fT-uMc" id="rhM-u9-yqj"/>
+                        <outlet property="mainView" destination="g18-c2-hJI" id="ML2-vV-94S"/>
                         <outlet property="pageControl" destination="nCu-OR-E2V" id="f0W-LK-jeV"/>
                     </connections>
                 </viewController>

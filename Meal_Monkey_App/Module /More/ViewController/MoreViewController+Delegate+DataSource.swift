@@ -34,6 +34,8 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource,
 
         // Remove selection style highlight
         cell.selectionStyle = .none
+        let theme = ThemeManager.shared
+        cell.backgroundColor = theme.backgroundColor()
 
         return cell
     }
@@ -141,26 +143,34 @@ extension MoreViewController: UITableViewDelegate, UITableViewDataSource,
 
         case 6:
             print("select Language")
-            showLanguagePicker()
-    
+            showPicker(type: .language)
+
+        case 7:
+            showPicker(type: .theme)
+
         default:
             break
         }
     }
-    func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-    func pickerView(
-        _ pickerView: UIPickerView,
-        numberOfRowsInComponent component: Int
-    ) -> Int {
-        AppLanguage.allCases.count
-    }
-    func pickerView(
-        _ pickerView: UIPickerView,
-        titleForRow row: Int,
-        forComponent component: Int
-    ) -> String? {
-        AppLanguage.allCases[row].displayName
-    }
+    func numberOfComponents(in pickerView: UIPickerView) -> Int { return 1 }
+
+        func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+            if pickerView.tag == 6 {
+                return AppLanguage.allCases.count
+            } else if pickerView.tag == 7 {
+                return ThemeManager.Theme.allCases.count
+            }
+            return 0
+        }
+
+        func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+            if pickerView.tag == 6 {
+                return AppLanguage.allCases[row].rawValue
+            } else if pickerView.tag == 7 {
+                return ThemeManager.Theme.allCases[row].rawValue
+            }
+            return nil
+        }
 }
 
 // MARK: - Enum for More Menu Pages

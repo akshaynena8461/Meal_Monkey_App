@@ -1,27 +1,33 @@
-import UIKit
 import Lottie
+import UIKit
 
 class DessertsViewController: UIViewController {
 
     // MARK: - IBOutlets
-    @IBOutlet weak var txtSearch: UITextField!         // Search bar for filtering desserts
+    @IBOutlet weak var txtSearch: UITextField!  // Search bar for filtering desserts
     @IBOutlet weak var tblDessertsView: UITableView!  // Table view to display dessert list
-    @IBOutlet weak var lblNoProduct: UILabel!         // Label shown when no products match search
+    @IBOutlet weak var lblNoProduct: UILabel!  // Label shown when no products match search
 
     // MARK: - Properties
     var selectedProductType: ProductType = .Desserts  // Current category selected
-    var filteredProducts: [ProductModel] = []         // Filtered products based on search
-    private var isSearching = false                   // Flag to check if user is searching
+    var filteredProducts: [ProductModel] = []  // Filtered products based on search
+    private var isSearching = false  // Flag to check if user is searching
 
     // Computed property for the current product list based on selected type
     var arrProducts: [ProductModel] {
         switch selectedProductType {
         case .food:
-            return HomeViewController.arrProductData.filter { $0.objProductType == .food }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .food
+            }
         case .Desserts:
-            return HomeViewController.arrProductData.filter { $0.objProductType == .Desserts }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .Desserts
+            }
         case .Beverages:
-            return HomeViewController.arrProductData.filter { $0.objProductType == .Beverages }
+            return HomeViewController.arrProductData.filter {
+                $0.objProductType == .Beverages
+            }
         }
     }
 
@@ -30,14 +36,16 @@ class DessertsViewController: UIViewController {
         super.viewDidLoad()
 
         NotificationCenter.default.addObserver(
-               self,
-               selector: #selector(updateCartBadge),
-               name: .cartUpdated,
-               object: nil
-           )
-        
-        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
-        
+            self,
+            selector: #selector(updateCartBadge),
+            name: .cartUpdated,
+            object: nil
+        )
+
+        txtSearch.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_search_food"
+        )
+
         // Hide "No Product" label initially
         lblNoProduct.isHidden = true
 
@@ -60,11 +68,23 @@ class DessertsViewController: UIViewController {
         // Set navigation title based on selected product type
         switch selectedProductType {
         case .food:
-            setLeftAlignedTitleWithBack(Main.Menu.food, target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(
+                Main.Menu.food,
+                target: self,
+                action: #selector(BackBtnTapped)
+            )
         case .Beverages:
-            setLeftAlignedTitleWithBack(Main.Menu.bevarages, target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(
+                Main.Menu.bevarages,
+                target: self,
+                action: #selector(BackBtnTapped)
+            )
         case .Desserts:
-            setLeftAlignedTitleWithBack(Main.Menu.desserts, target: self, action: #selector(BackBtnTapped))
+            setLeftAlignedTitleWithBack(
+                Main.Menu.desserts,
+                target: self,
+                action: #selector(BackBtnTapped)
+            )
         }
 
         // Add cart button to navigation bar
@@ -72,17 +92,29 @@ class DessertsViewController: UIViewController {
 
         // Register table view cell
         tblDessertsView.register(
-            UINib(nibName: Main.CellIdentifiers.DessertsTableViewCell, bundle: nil),
+            UINib(
+                nibName: Main.CellIdentifiers.DessertsTableViewCell,
+                bundle: nil
+            ),
             forCellReuseIdentifier: Main.CellIdentifiers.DessertsTableViewCell
         )
     }
-    
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        txtSearch.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
+        txtSearch.placeholder = LanguageManager.shared.localizedString(
+            for: "8461_search_food"
+        )
+        applyTheme()
     }
 
-    @objc func updateCartBadge(){
+    func applyTheme() {
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        tblDessertsView.backgroundColor = theme.backgroundColor()
+    }
+
+    @objc func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartBtnTapped))
     }
 
@@ -104,7 +136,11 @@ class DessertsViewController: UIViewController {
 
         // Show empty state only if no products
         if filteredProducts.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView: tblDessertsView,animationName: "empty",message: "No Products found")
+            setEmptyBackgroundViewWithLottie(
+                tableView: tblDessertsView,
+                animationName: "empty",
+                message: "No Products found"
+            )
         } else {
             tblDessertsView.backgroundView = nil
         }
@@ -116,11 +152,17 @@ class DessertsViewController: UIViewController {
     // MARK: - Navigation Actions
     @objc func CartBtnTapped() {
         print("CartBtnTapped")
-        let storyboard = UIStoryboard(name: Main.StoryBoard.ProductStoryBoard, bundle: nil)
+        let storyboard = UIStoryboard(
+            name: Main.StoryBoard.ProductStoryBoard,
+            bundle: nil
+        )
         if let cartVc = storyboard.instantiateViewController(
             withIdentifier: Main.ViewControllers.Cart
         ) as? CartViewController {
-            self.navigationController?.pushViewController(cartVc, animated: true)
+            self.navigationController?.pushViewController(
+                cartVc,
+                animated: true
+            )
         }
     }
 

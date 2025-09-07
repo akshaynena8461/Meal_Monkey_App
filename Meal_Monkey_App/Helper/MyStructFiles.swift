@@ -664,6 +664,53 @@ class Main {
                 for: "8461_label_Payment_Method"
             )
         }
+    }
 
+    struct OrderDetailAndCheckout {
+        static var ratings: String {
+            LanguageManager.shared.localizedString(for: "8461_ratings")
+        }
+        static var numberOfRatings: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_number_of_ratings"
+            )
+        }
+        static var restaurantName: String {
+            LanguageManager.shared.localizedString(for: "8461_restaurant_name")
+        }
+        static var totalTitle: String {
+            LanguageManager.shared.localizedString(for: "8461_total_title")
+        }
+        static var deliveryCostTitle: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_delivery_cost_title"
+            )
+        }
+        static var subtotalTitle: String {
+            LanguageManager.shared.localizedString(for: "8461_subtotal_title")
+        }
+        static var deliveryInstruction: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_delivery_instruction"
+            )
+        }
+        static var discount: String {
+            LanguageManager.shared.localizedString(for: "8461_discount")
+        }
+        static var paymentMethod: String {
+            LanguageManager.shared.localizedString(for: "8461_payment_method")
+        }
+        static var deliveryAddress: String {
+            LanguageManager.shared.localizedString(for: "8461_delivery_address")
+        }
+        static var btnCheckout: String {
+            LanguageManager.shared.localizedString(for: "8461_checkout")
+        }
+        static var sendOrder: String {
+            LanguageManager.shared.localizedString(for: "8461_send_order")
+        }
+        static var changeAddress: String {
+            LanguageManager.shared.localizedString(for: "8461_btn_change")
+        }
     }
 }

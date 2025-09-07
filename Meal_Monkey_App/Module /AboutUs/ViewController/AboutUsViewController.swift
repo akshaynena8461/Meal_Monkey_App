@@ -63,9 +63,17 @@ class AboutUsViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         configurePage()
+        applyTheme()
         tblView.reloadData()
     }
 
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        
+        view.backgroundColor = theme.backgroundColor()
+        tblView.backgroundColor = theme.backgroundColor()
+    }
+    
     @objc private func updateCartBadge() {
         setCartButton(target: self, action: #selector(cartButtonTapped))
     }

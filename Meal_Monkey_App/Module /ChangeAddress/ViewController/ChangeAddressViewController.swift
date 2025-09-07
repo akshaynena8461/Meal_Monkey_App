@@ -9,6 +9,9 @@ protocol ChangeAddressDelegate: AnyObject {
 class ChangeAddressViewController: UIViewController {
 
     // MARK: - IBOutlets
+    @IBOutlet weak var internalView: UIView!
+    @IBOutlet weak var lblChooseSavedAddress: UILabel!
+    @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var mapView: MKMapView!  // Map view showing location
     @IBOutlet weak var txtSearchAddress: UITextField!  // Text field to search address
     @IBOutlet weak var btnChooseSavedPlace: UIButton!  // Button to choose saved places (optional)
@@ -28,6 +31,20 @@ class ChangeAddressViewController: UIViewController {
         setupUI()
         setupLocation()
         setupMap()
+    }
+    
+    func applyTheme(){
+        let theme = ThemeManager.shared
+        view.backgroundColor = theme.backgroundColor()
+        internalView.backgroundColor = theme.backgroundColor()
+        mainView.backgroundColor = theme.backgroundColor()
+        txtSearchAddress.textColor = theme.textColor()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        txtSearchAddress.placeholder = LanguageManager.shared.localizedString(for: "8461_search_address")
+        lblChooseSavedAddress.text = LanguageManager.shared.localizedString(for: "8461_choose_saved_address")
+        applyTheme()
     }
 
     // MARK: - UI Setup

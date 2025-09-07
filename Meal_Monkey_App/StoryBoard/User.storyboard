@@ -256,6 +256,8 @@
                         <outlet property="lblLoginTitle" destination="qEO-jV-XO7" id="rpj-6D-Owe"/>
                         <outlet property="lblOrLoginWith" destination="jpb-mM-kYv" id="Ada-7X-4kV"/>
                         <outlet property="lblSubTitle" destination="WIl-Up-ZJf" id="qSc-JJ-B5i"/>
+                        <outlet property="loginInternalView" destination="t0o-qn-iUc" id="QqI-T6-aFN"/>
+                        <outlet property="loginMainView" destination="QPd-2J-27a" id="r6r-6R-90Y"/>
                         <outlet property="stackPassword" destination="MuC-92-JcE" id="yvA-Lv-zHO"/>
                         <outlet property="txtEmail" destination="N9F-d8-rHc" id="kDm-cK-nUr"/>
                         <outlet property="txtPassword" destination="zUq-xb-slw" id="vJM-JP-Is0"/>
@@ -512,6 +514,8 @@
                         <outlet property="btnlogin" destination="Vna-1H-aZ1" id="9qY-Me-i5d"/>
                         <outlet property="lblSignUp" destination="j0V-rZ-DTP" id="vyM-cB-rN3"/>
                         <outlet property="lblSubtitle" destination="OYq-rc-mQR" id="4EE-DK-hiB"/>
+                        <outlet property="signUpInternalView" destination="Ke0-4Y-4Hj" id="LMX-UH-CF3"/>
+                        <outlet property="signUpMainView" destination="dpK-M6-Q7F" id="ftq-eI-y4U"/>
                         <outlet property="stackConfirmPassword" destination="eTV-Tw-Zzg" id="1FB-AR-YrG"/>
                         <outlet property="stackPassword" destination="PoF-iT-KMC" id="l1p-C9-W80"/>
                         <outlet property="txtAddress" destination="7FG-Ny-Zu0" id="vCe-AG-PAE"/>
@@ -614,6 +618,7 @@ link to  create a new password via email</string>
                         <outlet property="btnsend" destination="N8N-gv-2JU" id="khx-l6-nv7"/>
                         <outlet property="lblSubTitle" destination="HD9-A3-wKN" id="LM6-9Z-AQz"/>
                         <outlet property="lblTitle" destination="2iK-u7-cZM" id="hoH-Au-2Q2"/>
+                        <outlet property="mainView" destination="qDE-w5-xsV" id="wbe-dy-KbQ"/>
                         <outlet property="txtemail" destination="Mw5-tj-Wfh" id="FQm-Kn-KAy"/>
                     </connections>
                 </viewController>
@@ -757,6 +762,7 @@ link to  create a new password via email</string>
                         <outlet property="btnNext" destination="aIu-Hd-lts" id="Ych-C5-sTW"/>
                         <outlet property="lblNewPasswordSubtitle" destination="50y-nZ-6mY" id="LWN-QF-5hu"/>
                         <outlet property="lblNewPasswordTitle" destination="8o1-M9-f9j" id="MZ0-cF-B84"/>
+                        <outlet property="mainView" destination="4GK-mg-dVy" id="u4Q-fj-z5i"/>
                         <outlet property="stackConfirmPassword" destination="Uw5-hy-405" id="Ldk-Pb-WA6"/>
                         <outlet property="stackPassword" destination="dnw-Lj-FZs" id="e54-tF-KPk"/>
                         <outlet property="txtConfirmPassword" destination="0C6-Ac-tV8" id="OSG-rs-7ZX"/>
@@ -1045,6 +1051,7 @@ continue to reset your password</string>
                         <outlet property="btnNext" destination="Sjr-KZ-XXY" id="qIe-uA-M5k"/>
                         <outlet property="lblOtpSubTitle" destination="Apg-fs-my8" id="ewG-Lg-P3q"/>
                         <outlet property="lblOtpTitle" destination="1ai-3A-4dm" id="GrU-0c-E6P"/>
+                        <outlet property="mainView" destination="hPT-Tx-xZ6" id="cs6-Hd-cZJ"/>
                         <outlet property="otpView" destination="ARY-YF-8tW" id="ekJ-4G-SkK"/>
                     </connections>
                 </viewController>
