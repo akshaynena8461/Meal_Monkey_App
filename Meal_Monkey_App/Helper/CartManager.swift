@@ -7,7 +7,6 @@ class CartManager {
         get { UserDefaults.standard.integer(forKey: "CartCount") }
         set {
             UserDefaults.standard.set(newValue, forKey: "CartCount")
-            
             // 🔴 Notify all screens that cart was updated
             NotificationCenter.default.post(name: .cartUpdated, object: nil)
         }

@@ -48,11 +48,13 @@ class LanguageManager {
 enum AppLanguage: String, CaseIterable {
     case english = "en"
     case gujarati = "gu"
+    case hindi = "hi"
 
     var displayName: String {
         switch self {
         case .english: return "English"
         case .gujarati: return "ગુજરાતી"
+        case .hindi:return "हिन्दी"
         }
     }
 }

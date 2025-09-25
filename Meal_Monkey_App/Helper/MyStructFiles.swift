@@ -1,4 +1,4 @@
-import Foundation
+
 
 class Main {
     struct CellIdentifiers {
@@ -35,56 +35,27 @@ class Main {
     }
 
     struct Location {
-        static let title = "Location Permission Needed"
-        static let message =
-            "Please enable location access in Settings to use this feature."
-        static let cancel = "Cancel"
-        static let settings = "Open Settings"
+        static var title: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_location_permission_title"
+            )
+        }
+        static var message: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_location_permission_message"
+            )
+        }
+        static var cancel: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_location_permission_cancel"
+            )
+        }
+        static var settings: String {
+            LanguageManager.shared.localizedString(
+                for: "8461_location_permission_settings"
+            )
+        }
     }
-
-    //    struct Alert {
-    //        static let emptyFieldsTitle = "Missing Info"
-    //        static let invalidCredentialmsg = "Invalid Email or Password"
-    //        static let fetchFailedMsg = "Something went wrong."
-    //        static let fieldsToFillMsg = "Please fill all the fields."
-    //        static let nameMissingTitle = "Name Missing"
-    //        static let nameMissingMsg = "Please enter your name."
-    //        static let emailMissingTitle = "Email Missing"
-    //        static let emailMissingMsg = "Please enter your email."
-    //        static let emailexistingTitle = "Email Exists"
-    //        static let emailexistinMsg = "Email Already Exists"
-    //        static let invalidEmailTitle = "Invalid Email"
-    //        static let invalidEmailMsg = "Please enter a valid email."
-    //        static let adddressMissingTitle = "Address Missing"
-    //        static let addressMissingMsg = "Please enter your address."
-    //        static let mobileMissingTitle = "Mobile Number Missing"
-    //        static let mobileMissingMsg = "Please enter Your Mobile Number"
-    //        static let passwordMissingTitle = "Password Missing"
-    //        static let passwordMissinMsg = "Please enter your password."
-    //        static let invalidPasswordTitle = "Passwords Don't Match"
-    //        static let invalidPasswordMsg = "Password must be at least 8 characters, contain uppercase, lowercase, number, and symbol."
-    //        static let notMatchPasswordTitle = "Password do not Match"
-    //        static let notMatchPasswordMsg = "Password and Confirm Password must be the same."
-    //        static let userRegisterSuccessMsg = LanguageManager.shared.localizedString(for: "8461_Alert_user_save")
-    //        static let errorTitle = "Error"
-    //        static let noLoggedInUser = "No logged-in user found."
-    //        static let successTitle =  LanguageManager.shared.localizedString(for: "8461_Alert_success_title")
-    //        static let OtpSuccessMsg = "OTP Sent Successfully"
-    //        static let cardSuccessMsg = "Card Added Successfully"
-    //        static let invalidCard = "Invalid Card"
-    //        static let invalidCardMsg =  "Card number must be exactly 16 digits."
-    //        static let enterCardNumber = "Please enter a card number."
-    //        static let firstName = "Please enter your first name"
-    //        static let lastName = "Please enter your last name"
-    //        static let errMonth = "Please enter a valid expiry month (01 - 12)"
-    //        static let errYear = "Please enter a valid expiry year"
-    //        static let cardExpiry = "Card has already expired"
-    //        static let errSecurityCode = "Please enter a valid 3-digit security code"
-    //        static let invalidMobile = "Please enter a valid 10-digit mobile number"
-    //        static let ProfileUpdate = "Profile Updated Successfully"
-    //
-
-    //        }
 
     struct Alert {
         // MARK: - Generic Errors
@@ -585,7 +556,10 @@ class Main {
         }
         static var cart: String {
             LanguageManager.shared.localizedString(for: "8461_nav_cart")
-        }  // Added Cart
+        }
+        static var home: String {
+            LanguageManager.shared.localizedString(for: "8461_nav_home")
+        }
     }
 
     struct Services {

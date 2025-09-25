@@ -1,4 +1,7 @@
 import CoreData
+import FloatingTextField
+import SkyFloatingLabelTextField
+import FloatingLabelTextField
 import UIKit
 
 class LoginViewController: UIViewController {
@@ -32,7 +35,7 @@ class LoginViewController: UIViewController {
 
         // Fetch all existing users from Core Data (for debug/log purposes)
         fetchAllUsers()
-
+        
         // UI Styling
         EditStyle.setborder(
             textfields: [txtEmail, btnlogin, btnfacebooklogin, btngooglelogin],
@@ -52,40 +55,39 @@ class LoginViewController: UIViewController {
         // Hide tab bar on login screen
         self.tabBarController?.tabBar.isHidden = true
     }
-    
+
     func applyAccentTheme() {
         let theme = ThemeManager.shared
-           
+
         view.backgroundColor = theme.backgroundColor()
         loginMainView.backgroundColor = theme.backgroundColor()
         loginInternalView.backgroundColor = theme.backgroundColor()
-           
-           // Labels
-           lblLoginTitle.textColor = theme.textColor()
-           lblSubTitle.textColor = theme.subTextColor()
-           lblOrLoginWith.textColor = theme.subTextColor()
-           
-           // TextFields
-           txtEmail.textColor = theme.textColor()
-           txtPassword.textColor = theme.textColor()
-           
-           // Login Button
-           btnlogin.backgroundColor = theme.primaryButtonBackground()
-           btnlogin.setTitleColor(theme.buttonTextColor(), for: .normal)
-           btnlogin.layer.cornerRadius = 25
-           btnlogin.clipsToBounds = true
-           
-           // Sign Up Button → Accent
-           btnSignUp.setTitleColor(theme.accentColor(), for: .normal)
-           
-           // Social Buttons keep their own colors, only adjust text if you want
-           btnfacebooklogin.setTitleColor(.white, for: .normal)
-           btngooglelogin.setTitleColor(.white, for: .normal)
-           
-           // Forgot Password
-           btnforgotpassword.setTitleColor(theme.textColor(), for: .normal)
-       }
-    
+
+        // Labels
+        lblLoginTitle.textColor = theme.textColor()
+        lblSubTitle.textColor = theme.subTextColor()
+        lblOrLoginWith.textColor = theme.subTextColor()
+
+        // TextFields
+        txtEmail.textColor = theme.textColor()
+        txtPassword.textColor = theme.textColor()
+
+        // Login Button
+        btnlogin.backgroundColor = theme.primaryButtonBackground()
+        btnlogin.setTitleColor(theme.buttonTextColor(), for: .normal)
+        btnlogin.layer.cornerRadius = 25
+        btnlogin.clipsToBounds = true
+
+        // Sign Up Button → Accent
+        btnSignUp.setTitleColor(theme.accentColor(), for: .normal)
+
+        // Social Buttons keep their own colors, only adjust text if you want
+        btnfacebooklogin.setTitleColor(.white, for: .normal)
+        btngooglelogin.setTitleColor(.white, for: .normal)
+
+        // Forgot Password
+        btnforgotpassword.setTitleColor(theme.textColor(), for: .normal)
+    }
 
     // MARK: - Login Button Action
     @IBAction func btnloginclick(_ sender: Any) {
@@ -168,7 +170,7 @@ class LoginViewController: UIViewController {
         btnSignUp.setLocalizedPartialHighlight(
             fullKey: "8461_signup_button_full",
             highlightKey: "8461_signup_button_highlight",
-            highlightColor:  UIColor(named: "loginbtnbg")!
+            highlightColor: UIColor(named: "loginbtnbg")!
         )
 
         btnforgotpassword.setTitle(

@@ -225,6 +225,7 @@ link to  create a new password via email";
 "8461_nav_orderlist" = "Orderlist";
 "8461_nav_change_address" = "Change Address";
 "8461_nav_cart" = "Cart";
+"8461_nav_home" = "Good Morning";
 
 //Add Card
 "8461_card_number" = "Card Number";
@@ -243,7 +244,6 @@ at anytime ";
 //Address
 "8461_search_address" = "Search Address";
 "8461_choose_saved_address" = "Choose a Saved Address";
-
 
 //MyOrders and CheckOut
 "8461_ratings" = "4.9";
@@ -266,6 +266,15 @@ at anytime ";
 "8461_no_cards" = "No Cards";
 "8461_no_products_found" = "No Products Found";
 "8461_orderlist_empty" = "Orderlist is Empty";
+
+//Permission Alert
+"8461_location_permission_title" = "Location Permission Needed";
+"8461_location_permission_message" = "Please enable location access in Settings to use this feature.";
+"8461_location_permission_cancel" = "Cancel";
+"8461_location_permission_settings" = "Open Settings";
+
+//SaveProfile Button
+"8461_Save_btn" = "Update";
 
 
 

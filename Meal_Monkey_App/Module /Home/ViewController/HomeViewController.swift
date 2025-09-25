@@ -37,7 +37,6 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         tabBarController?.tabBar.isHidden = false
 
         // Set greeting title
-        setLeftAlignedTitle("Good morning \(currentUserName)!")
 
         // Set cart button in navigation
         setCartButton(target: self, action: #selector(CartButtonTapped))
@@ -61,7 +60,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
 
         // Fetch product data from API
         let productUrl =
-            "https://mocki.io/v1/61d284ed-b0a1-493c-805c-efb4f68fdc53"
+            "https://mocki.io/v1/e3b12f70-2d6b-4299-910a-50ade8e0a645"
         APICalls.getProductData(from: productUrl, modelType: ProductModel.self)
         { products in
             DispatchQueue.main.async {
@@ -76,6 +75,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
     @objc private func updateCartBadge() {
         setCartButton(target: self, action: #selector(CartButtonTapped))
     }
+
 
     
     // MARK: - Fetch User Data
@@ -159,6 +159,7 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         arrRecentItem = RecentItemsHelper.shared.getRecentItems()
         txtSearchFood.placeholder = LanguageManager.shared.localizedString(for: "8461_search_food")
         applyTheme()
+        applyLocalization()
         tblHomeView.reloadData()
     }
     
@@ -166,6 +167,10 @@ class HomeViewController: UIViewController, HomeTableViewCellDelegate,
         let theme = ThemeManager.shared
         view.backgroundColor = theme.backgroundColor()
         tblHomeView.backgroundColor = theme.backgroundColor()
+    }
+    
+    func applyLocalization(){
+        setLeftAlignedTitle("\(Main.NavTitle.home) \(currentUserName)!")
     }
     
 

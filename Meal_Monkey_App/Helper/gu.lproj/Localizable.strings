@@ -222,6 +222,7 @@
 "8461_nav_orderlist" = "ઓર્ડર યાદી";
 "8461_nav_change_address" = "સરનામું બદલો";
 "8461_nav_cart" = "કાર્ટ";
+"8461_nav_home" = "શુભ સવાર";
 
 //Add Card
 "8461_card_number" = "કાર્ડ નંબર";
@@ -263,6 +264,16 @@
 "8461_no_cards" = "કોઈ કાર્ડ્સ નથી";
 "8461_no_products_found" = "કોઈ પ્રોડક્ટ્સ મળ્યાં નથી";
 "8461_orderlist_empty" = "ઓર્ડર યાદી ખાલી છે";
+
+//Permission Alert
+"8461_location_permission_title" = "સ્થાન પરવાનગી જરૂરી છે";
+"8461_location_permission_message" = "આ સુવિધાનો ઉપયોગ કરવા માટે કૃપા કરીને સેટિંગ્સમાં સ્થાન ઍક્સેસ સક્રિય કરો.";
+"8461_location_permission_cancel" = "રદ કરો";
+"8461_location_permission_settings" = "સેટિંગ્સ ખોલો";
+
+//Save Profile Btn
+"8461_Save_btn" = "અપડેટ કરો";
+
 
 
 

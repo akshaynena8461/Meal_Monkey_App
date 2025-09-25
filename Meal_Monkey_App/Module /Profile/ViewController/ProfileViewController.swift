@@ -56,7 +56,6 @@ class ProfileViewController: UIViewController {
         imgProfile.addGestureRecognizer(imageGesture)
 
         // Set navigation title and cart button
-        setLeftAlignedTitle(Main.NavTitle.profile)
         setCartButton(target: self, action: #selector(cartBtnTapped))
 
         // Apply borders and corner radius to text fields and buttons
@@ -83,6 +82,8 @@ class ProfileViewController: UIViewController {
             LanguageManager.shared.localizedString(for: "8461_profile_signout_button"),
             for: .normal
         )
+        btnSave.setTitle(LanguageManager.shared.localizedString(for: "8461_Save_btn"), for: .normal)
+        setLeftAlignedTitle(Main.NavTitle.profile)
     }
 
     func applytheme(){

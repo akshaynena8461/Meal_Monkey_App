@@ -1,2 +1,3 @@
 ${PODS_ROOT}/Target Support Files/Pods-Meal_Monkey_App/Pods-Meal_Monkey_App-resources.sh
+${PODS_CONFIGURATION_BUILD_DIR}/FloatingLabelTextField/FloatingLabelTextField.swift.bundle
 ${PODS_CONFIGURATION_BUILD_DIR}/lottie-ios/LottiePrivacyInfo.bundle

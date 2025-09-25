@@ -1,26 +1,38 @@
 PODS:
+  - FloatingLabelTextField (1.2.1)
+  - FloatingTextField (1.0.0)
   - lottie-ios (4.5.2)
   - NVActivityIndicatorView (5.2.0):
     - NVActivityIndicatorView/Base (= 5.2.0)
   - NVActivityIndicatorView/Base (5.2.0)
   - OTPFieldView (1.0.1)
+  - SkyFloatingLabelTextField (4.0.0)
 
 DEPENDENCIES:
+  - FloatingLabelTextField
+  - FloatingTextField
   - lottie-ios
   - NVActivityIndicatorView
   - OTPFieldView
+  - SkyFloatingLabelTextField
 
 SPEC REPOS:
   trunk:
+    - FloatingLabelTextField
+    - FloatingTextField
     - lottie-ios
     - NVActivityIndicatorView
     - OTPFieldView
+    - SkyFloatingLabelTextField
 
 SPEC CHECKSUMS:
+  FloatingLabelTextField: bdef4661727ebf43d076467a0cac8bcafe33d91b
+  FloatingTextField: e77136c1008bd826df897ae175050c71c23613a9
   lottie-ios: 96784afc26ea031d3e2b6cae342a4b8915072489
   NVActivityIndicatorView: fe52a6a68664c2df8991d7d9e3d86d8d19453c53
   OTPFieldView: 700a752fe62c41d1c4914c78aa500fb30d97c255
+  SkyFloatingLabelTextField: 79ddc40e4ad59707fedbb48d605417aee48bb78a
 
-PODFILE CHECKSUM: 37500d8952a7bc78be8b8f7869080d10d6ba82d7
+PODFILE CHECKSUM: c1a194595875cee12ac827b87c6871940c8c7622
 
 COCOAPODS: 1.16.2

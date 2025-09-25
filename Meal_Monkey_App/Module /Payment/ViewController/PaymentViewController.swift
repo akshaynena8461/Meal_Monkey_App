@@ -95,7 +95,7 @@ class PaymentViewController: UIViewController {
         super.viewWillAppear(animated)
         fetchUserCards()
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: Main.EmptyStateKeys.noCards)
         } else {
             tblPaymentView.backgroundView = nil
         }
@@ -196,7 +196,7 @@ class PaymentViewController: UIViewController {
         app.arrCard = CoreDataManager.shared.fetchCards(for: user)
 
         if app.arrCard.isEmpty {
-            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: "No Cards")
+            setEmptyBackgroundViewWithLottie(tableView:tblPaymentView,animationName: "Credit card", message: Main.EmptyStateKeys.noCards)
         }
 
         tblPaymentView.reloadData()
