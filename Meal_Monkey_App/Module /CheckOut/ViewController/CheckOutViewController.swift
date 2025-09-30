@@ -301,7 +301,7 @@ class CheckOutViewController: UIViewController, ChangeAddressDelegate {
         checkoutDetailPage.isHidden = true
         addCardPageView.isHidden = false
         ThankYouPage.isHidden = true
-        btnChangeAddress.isHidden = true
+        btnChangeAddress.isHidden = false
 
         UIView.animate(withDuration: 0.3) {
             self.addCardPageView.transform = .identity

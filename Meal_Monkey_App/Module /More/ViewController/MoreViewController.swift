@@ -100,7 +100,7 @@ class MoreViewController: UIViewController {
             action: (type == .language)
                 ? #selector(doneLanguagePicker) : #selector(doneThemePicker)
         )
-        toolbar.setItems([cancel, flex, done], animated: false)
+        toolbar.setItems([cancel,flex,done], animated: false)
 
         pickerVC.view.addSubview(toolbar)
 
